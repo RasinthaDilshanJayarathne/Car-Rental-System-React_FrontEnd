@@ -231,7 +231,7 @@ function General(props) {
                         </Grid>
                         <Grid className={classes.vehicleBookingBtn}>
                             <Grid>
-                                <Typography style={{fontSize:'30px',color:'#fe5b3d'}}>71,390.00 lkr:</Typography>
+                                <Typography style={{fontSize:'30px',color:'#fe5b3d'}}>71,390.00 lkr</Typography>
                                 <Typography style={{fontSize:'20px',color:'#fe5b3d',marginLeft:'20px'}}>Cost Of Rental</Typography>
                                 <Button variant="contained" fullWidth style={{backgroundColor:'orange',color:'black',marginTop: '90px',}}>BOOK NOW</Button>
                             </Grid>
