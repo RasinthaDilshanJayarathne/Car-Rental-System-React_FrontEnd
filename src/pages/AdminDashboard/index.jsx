@@ -95,9 +95,36 @@ function AdminDashboard(props) {
                 </Grid>
                 <Grid className={classes.adminContainer}>
                     <Grid className={classes.tottalCard}>
-                        <Grid className={classes.subTotalCard}></Grid>
-                        <Grid className={classes.subTotalCard}></Grid>
-                        <Grid className={classes.subTotalCard}></Grid>
+                        <Grid className={classes.subTotalCard}>
+                            <Grid className={classes.minSubTotalCrd}>
+                                <Grid className={classes.cardDetail}>
+                                    <Typography variant="h2" gutterBottom component="div">Customer</Typography>
+                                </Grid>
+                                <Grid className={classes.cardDetail}>
+                                    <Typography variant="h2" gutterBottom component="div">14</Typography>
+                                </Grid>
+                            </Grid>
+                        </Grid>
+                        <Grid className={classes.subTotalCard}>
+                            <Grid className={classes.minSubTotalCrd}>
+                                <Grid className={classes.cardDetail}>
+                                    <Typography variant="h2" gutterBottom component="div">Vehicle</Typography>
+                                </Grid>
+                                <Grid className={classes.cardDetail}>
+                                    <Typography variant="h2" gutterBottom component="div">40</Typography>
+                                </Grid>                            
+                            </Grid>
+                        </Grid>
+                        <Grid className={classes.subTotalCard}>
+                            <Grid className={classes.minSubTotalCrd}>
+                                <Grid className={classes.cardDetail}>
+                                    <Typography variant="h2" gutterBottom component="div">Driver</Typography>
+                                </Grid>
+                                <Grid className={classes.cardDetail}>
+                                    <Typography variant="h2" gutterBottom component="div">11</Typography>
+                                </Grid>
+                            </Grid>
+                        </Grid>
                     </Grid>
                     <Grid className={classes.card}>
                        

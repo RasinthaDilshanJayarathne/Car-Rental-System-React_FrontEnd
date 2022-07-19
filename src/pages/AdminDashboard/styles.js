@@ -39,12 +39,12 @@ export const styleSheet = {
     tottalCard:{
         height: '30vh',
         width: '84vw',
-        backgroundColor: 'white',
         display: 'flex',
         flexWrap: 'wrap',
         alignItems:'center',
         justifyContent:'center',
         flexDirection: 'row',
+        backgroundColor: 'white',
         //border:'1px solid red',
         border:'4px solid #eeeff1'
     },
@@ -56,7 +56,32 @@ export const styleSheet = {
     },
     subTotalCard:{
         height: '25vh',
-        width: '28vw',
-        border:'1px solid red',
+        width: '27vw',
+        display: 'flex',
+        flexWrap: 'wrap',
+        alignItems:'center',
+        justifyContent:'center',
+        flexDirection: 'column',
+    },
+    minSubTotalCrd:{
+        width:'25vw',
+        height:'23vh',
+        backgroundColor: 'red',
+        borderRadius:'15px',
+        backgroundColor:'#eeeff1',
+        display: 'flex',
+        flexWrap: 'wrap',
+        alignItems:'center',
+        justifyContent:'center',
+        flexDirection: 'column',
+    },
+    cardDetail:{
+        width:'25vw',
+        height:'11.5vh',
+        display: 'flex',
+        flexWrap: 'wrap',
+        alignItems:'center',
+        justifyContent:'center',
+        flexDirection: 'column',
     }
 }
