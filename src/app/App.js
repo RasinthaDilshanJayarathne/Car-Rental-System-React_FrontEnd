@@ -8,6 +8,7 @@ import CustomerDashboard from "../pages/CustomerDashboard";
 import General from "../pages/CustomerDashboard/VehiclePackges/General";
 import Luxury from "../pages/CustomerDashboard/VehiclePackges/Luxury";
 import AdminDashboard from "../pages/AdminDashboard";
+import Premium from "../pages/CustomerDashboard/VehiclePackges/Premium";
 
 
 function App() {
@@ -24,6 +25,7 @@ function App() {
           <Route path='/customer' element={<CustomerDashboard/>}/>
           <Route path='/general' element={<General/>}/>
           <Route path='/luxury' element={<Luxury/>}/>
+          <Route path='/premium' element={<Premium/>}/>
           <Route path='/admin' element={<AdminDashboard/>}/>
       </Routes>
   );
