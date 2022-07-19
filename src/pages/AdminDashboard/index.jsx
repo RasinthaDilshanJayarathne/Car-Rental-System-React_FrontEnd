@@ -35,7 +35,7 @@ function AdminDashboard(props) {
             <Toolbar/>
             <Divider/>
             <List>
-                {['Manage Customer', 'Manage Vehicle', 'Manage Driver','View Details','Profile'].map((text, index) => (
+                {['Home','Manage Customer', 'Manage Vehicle', 'Manage Driver','View Details','Profile'].map((text, index) => (
                     <ListItem key={text} disablePadding>
                         <ListItemButton>
                             <ListItemIcon>
@@ -94,7 +94,14 @@ function AdminDashboard(props) {
                     </Typography>
                 </Grid>
                 <Grid className={classes.adminContainer}>
-
+                    <Grid className={classes.tottalCard}>
+                        <Grid className={classes.subTotalCard}></Grid>
+                        <Grid className={classes.subTotalCard}></Grid>
+                        <Grid className={classes.subTotalCard}></Grid>
+                    </Grid>
+                    <Grid className={classes.card}>
+                       
+                    </Grid>
                 </Grid>
             </Grid>
         </Box>
