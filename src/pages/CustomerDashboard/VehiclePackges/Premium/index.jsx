@@ -227,7 +227,7 @@ function Premium(props) {
                     </Grid>
                     <Grid className={classes.vehicle}>
                         <Grid className={classes.vehicleImg}>
-                            <img src={car2} style={{width: '500px',marginLeft:'-150px'}}/>
+                            <img src={car3} style={{width: '400px',marginLeft:'20px'}}/>
                         </Grid>
                         <Grid className={classes.vehicleDetails}>
                             <Grid style={{marginTop:'30px',marginLeft:'10px'}}>
@@ -280,7 +280,7 @@ function Premium(props) {
                     </Grid>
                     <Grid className={classes.vehicle}>
                         <Grid className={classes.vehicleImg}>
-                            <img src={car2} style={{width: '500px',marginLeft:'-150px'}}/>
+                            <img src={car4} style={{width: '420px',marginLeft:'20px'}}/>
                         </Grid>
                         <Grid className={classes.vehicleDetails}>
                             <Grid style={{marginTop:'30px',marginLeft:'10px'}}>

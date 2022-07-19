@@ -10,6 +10,8 @@ import ListItemButton from '@mui/material/ListItemButton';
 import ListItemIcon from '@mui/material/ListItemIcon';
 import ListItemText from '@mui/material/ListItemText';
 import MailIcon from '@mui/icons-material/Mail';
+import IconButton from '@mui/material/IconButton';
+import PhotoCamera from '@mui/icons-material/PhotoCamera';
 import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
 import {Button, Grid, TextField} from "@mui/material";
@@ -102,20 +104,27 @@ function CustomerDashboard(props) {
                             <TextField style={{padding:'10px',width:'350px'}} disabled id="filled-disabled" defaultValue="User Name" variant="outlined"/>
                             <TextField style={{padding:'10px',width:'350px'}} disabled id="filled-disabled" defaultValue="Register Id" variant="outlined"/>
                         </Grid>
-                        
                     </Grid>
                     <Grid className={classes.details}>
-                        <Grid style={{marginTop:'50px',marginLeft:'15px'}}>
+                    <Typography variant="h4" gutterBottom component="div" style={{textAlign:'center',marginTop:'20px'}}>My Profile</Typography>
+                        <Grid style={{marginTop:'-20px',marginLeft:'15px'}}>
                             <TextField style={{padding:'10px',width:'350px'}} id="outlined-basic" label="Register Id" variant="outlined" />
-                            <TextField style={{padding:'10px',width:'350px'}} id="outlined-basic" label="NIC" variant="outlined" />
+                            <TextField style={{padding:'10px',width:'350px'}} id="outlined-basic" label="E-mail" variant="outlined" />
                             <TextField style={{padding:'10px',width:'350px'}} id="outlined-basic" label="First Name" variant="outlined" />
                             <TextField style={{padding:'10px',width:'350px'}} id="outlined-basic" label="Last Name" variant="outlined" />
-                            <TextField style={{padding:'10px',width:'350px'}} id="outlined-basic" label="License No" variant="outlined" />
+                            <TextField style={{padding:'10px',width:'295px'}} id="outlined-basic" label="License No" variant="outlined" />
+                            <IconButton color="primary" aria-label="upload picture" component="label">
+                                <input hidden accept="image/*" type="file" />
+                                <PhotoCamera style={{fontSize:'40px',marginTop:'12px'}}/>
+                            </IconButton>
                             <TextField style={{padding:'10px',width:'350px'}} id="outlined-basic" label="Contact No" variant="outlined" />
+                            <TextField style={{padding:'10px',width:'295px'}} id="outlined-basic" label="NIC" variant="outlined" />
+                            <IconButton color="primary" aria-label="upload picture" component="label">
+                                <input hidden accept="image/*" type="file"/>
+                                <PhotoCamera style={{fontSize:'40px',marginTop:'12px'}}/>
+                            </IconButton>
                             <TextField style={{padding:'10px',width:'350px'}} id="outlined-basic" label="Address" variant="outlined" />
-                            <TextField style={{padding:'10px',width:'350px'}} id="outlined-basic" label="E-mail" variant="outlined" />
-                            <TextField style={{padding:'10px',width:'350px'}} id="outlined-basic" label="Choose Photo" variant="outlined" />
-                            <TextField style={{padding:'10px',width:'350px'}} id="outlined-basic" label="Choose Photo" variant="outlined" />
+                           
                         </Grid>
                         <Grid style={{marginBottom:'60px',marginRight:'410px'}}>
                             <Button variant="contained" style={{width:'150px'}}>View</Button>
