@@ -14,7 +14,7 @@ import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
 import {Button, Grid, TextField} from "@mui/material";
 import {withStyles} from "@mui/styles";
-import {styleSheet} from "../CustomerDashboard/styles";
+import {styleSheet} from "../AdminDashboard/styles";
 import logo from "../../assets/img/logo.png";
 import rev1 from "../../assets/img/rev1.jpg";
 
@@ -35,7 +35,7 @@ function AdminDashboard(props) {
             <Toolbar/>
             <Divider/>
             <List>
-                {['General', 'Premium', 'Luxury','Profile'].map((text, index) => (
+                {['Manage Customer', 'Manage Vehicle', 'Manage Driver','View Details','Profile'].map((text, index) => (
                     <ListItem key={text} disablePadding>
                         <ListItemButton>
                             <ListItemIcon>
@@ -87,7 +87,15 @@ function AdminDashboard(props) {
                 </Drawer>
             </Box>
             <Grid className={classes.container}>
-                
+                <Grid className={classes.headBar}>
+                    <img src={logo} alt="" style={{width: '150px', marginTop: '-10px'}}/>
+                    <Typography variant="h5" style={{marginLeft: '30px'}}>
+                        BOOK A CAR / NO ADVANCE PAYMENT
+                    </Typography>
+                </Grid>
+                <Grid className={classes.adminContainer}>
+
+                </Grid>
             </Grid>
         </Box>
     );
