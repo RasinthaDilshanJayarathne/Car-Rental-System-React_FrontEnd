@@ -8,7 +8,7 @@ export const styleSheet = {
         justifyContent:'center',
         flexDirection: 'row',
         backgroundColor: '#eeeff1',
-        border:'1px solid red',
+        //border:'1px solid red',
         //backgroundColor: 'black'
     },
     headBar:{
@@ -31,7 +31,8 @@ export const styleSheet = {
         alignItems:'center',
         justifyContent:'center',
         flexDirection: 'column',
-        backgroundColor: '#eeeff1',
+        //backgroundColor: '#eeeff1',
+        backgroundColor: 'red',
         border:'4px solid #eeeff1'
     },
 }
