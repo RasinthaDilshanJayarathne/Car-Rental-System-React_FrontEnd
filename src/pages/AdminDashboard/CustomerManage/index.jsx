@@ -1,5 +1,5 @@
 import { withStyles } from "@mui/material";
-import { styleSheet } from "./styles";
+import { styleSheet } from "../CustomerManage/styles";
 
 const { Component } = require("react");
 

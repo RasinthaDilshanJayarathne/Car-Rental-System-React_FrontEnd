@@ -9,6 +9,7 @@ import General from "../pages/CustomerDashboard/VehiclePackges/General";
 import Luxury from "../pages/CustomerDashboard/VehiclePackges/Luxury";
 import AdminDashboard from "../pages/AdminDashboard";
 import Premium from "../pages/CustomerDashboard/VehiclePackges/Premium";
+import Booking from "../pages/Booking";
 
 
 function App() {
@@ -19,14 +20,15 @@ function App() {
     </div>*/
       <Routes>
           <Route exact path='/login' element={<Login/>}/>
-          <Route exact path='/sing-up' element={<SingUp/>}/>
-          <Route exact path='/sing' element={<SignInOutContainer/>}/>
+          <Route path='/sing-up' element={<SingUp/>}/>
+          <Route path='/sing' element={<SignInOutContainer/>}/>
           <Route path='/web' element={<WebSite/>}/>
           <Route path='/customer' element={<CustomerDashboard/>}/>
           <Route path='/general' element={<General/>}/>
           <Route path='/luxury' element={<Luxury/>}/>
           <Route path='/premium' element={<Premium/>}/>
           <Route path='/admin' element={<AdminDashboard/>}/>
+          <Route path='/booking' element={<Booking/>}/>
       </Routes>
   );
 }
