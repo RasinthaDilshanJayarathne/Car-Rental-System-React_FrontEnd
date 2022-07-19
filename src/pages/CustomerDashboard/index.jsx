@@ -15,15 +15,8 @@ import Typography from '@mui/material/Typography';
 import {Button, Grid, TextField} from "@mui/material";
 import {withStyles} from "@mui/styles";
 import {styleSheet} from "../CustomerDashboard/styles";
-
-import PersonIcon from "@mui/icons-material/Person";
-import BackpackIcon from "@mui/icons-material/Backpack";
-import MeetingRoomIcon from "@mui/icons-material/MeetingRoom";
-import AddRoadIcon from "@mui/icons-material/AddRoad";
-import SettingsIcon from "@mui/icons-material/Settings";
 import logo from "../../assets/img/logo.png";
-import car1 from "../../assets/img/car1.png";
-import car2 from "../../assets/img/car2.png";
+
 
 const drawerWidth = 240;
 
@@ -53,18 +46,6 @@ function CustomerDashboard(props) {
                 ))}
             </List>
             <Divider/>
-            <List>
-                {/*{['All mail', 'Trash', 'Spam'].map((text, index) => (
-                    <ListItem key={text} disablePadding>
-                        <ListItemButton>
-                            <ListItemIcon>
-                                {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
-                            </ListItemIcon>
-                            <ListItemText primary={text} />
-                        </ListItemButton>
-                    </ListItem>
-                ))}*/}
-            </List>
         </div>
     );
 
