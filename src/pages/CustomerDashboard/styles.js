@@ -31,19 +31,20 @@ export const styleSheet = {
         alignItems:'center',
         justifyContent:'center',
         flexDirection: 'column',
-        backgroundColor: 'white',
+        backgroundColor: '#eeeff1',
         border:'4px solid #eeeff1'
     },
     profile:{
         height: '83vh',
-        width: '33.4vw',
+        width: '32.1vw',
         display: 'flex',
         flexWrap: 'wrap',
         alignItems:'center',
         justifyContent:'center',
         flexDirection: 'row',
-        border:'1px solid red',
-        //backgroundColor: 'red',
+        borderRadius:'15px',
+        backgroundColor: 'white',
+        marginLeft:'5px'
     },
     details:{
         height: '83vh',
@@ -53,8 +54,8 @@ export const styleSheet = {
         alignItems:'center',
         justifyContent:'center',
         flexDirection: 'row',
-        //padding:'60px'
-        //border:'1px solid red',
-        //backgroundColor: 'yellow',
+        borderRadius:'15px',
+        backgroundColor: 'white',
+        marginLeft:'15px'
     }
 }

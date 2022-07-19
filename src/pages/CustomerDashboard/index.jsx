@@ -16,6 +16,7 @@ import {Button, Grid, TextField} from "@mui/material";
 import {withStyles} from "@mui/styles";
 import {styleSheet} from "../CustomerDashboard/styles";
 import logo from "../../assets/img/logo.png";
+import rev1 from "../../assets/img/rev1.jpg";
 
 
 const drawerWidth = 240;
@@ -94,6 +95,13 @@ function CustomerDashboard(props) {
                 </Grid>
                 <Grid className={classes.customerContainer}>
                     <Grid className={classes.profile}>
+                        <Grid>
+                            <img src={rev1} alt="" style={{width:'200px',height:'200px',borderRadius:'180px'}}/>
+                        </Grid>
+                        <Grid style={{marginLeft:'70px'}}>
+                            <TextField style={{padding:'10px',width:'350px'}} disabled id="filled-disabled" defaultValue="User Name" variant="outlined"/>
+                            <TextField style={{padding:'10px',width:'350px'}} disabled id="filled-disabled" defaultValue="Register Id" variant="outlined"/>
+                        </Grid>
                         
                     </Grid>
                     <Grid className={classes.details}>
