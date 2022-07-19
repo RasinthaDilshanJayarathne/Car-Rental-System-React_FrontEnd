@@ -29,7 +29,7 @@ import car5 from "../../../../assets/img/car5.png";
 
 const drawerWidth = 240;
 
-function Luxury(props) {
+function Premium(props) {
     const {window} = props;
     const {classes} = props;
     const [mobileOpen, setMobileOpen] = React.useState(false);
@@ -231,8 +231,8 @@ function Luxury(props) {
     );
 }
 
-Luxury.propTypes = {
+Premium.propTypes = {
     window: PropTypes.func,
 };
 
-export default withStyles(styleSheet)(Luxury);
+export default withStyles(styleSheet)(Premium);
