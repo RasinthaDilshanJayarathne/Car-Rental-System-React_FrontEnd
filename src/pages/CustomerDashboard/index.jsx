@@ -97,7 +97,16 @@ function CustomerDashboard(props) {
                         
                     </Grid>
                     <Grid className={classes.details}>
-
+                        <Grid style={{width:'200px',backgroundColor:'red'}}>
+                            <TextField style={{padding:'10px'}} id="outlined-basic" label="Register Id" variant="outlined" />
+                            <TextField style={{padding:'10px'}} id="outlined-basic" label="NIC" variant="outlined" />
+                            <TextField style={{padding:'10px'}} id="outlined-basic" label="First Name" variant="outlined" />
+                        </Grid>
+                        <Grid style={{width:'200px',backgroundColor:'red'}}>
+                            <TextField style={{padding:'10px'}} id="outlined-basic" label="Register Id" variant="outlined" />
+                            <TextField style={{padding:'10px'}} id="outlined-basic" label="Register Id" variant="outlined" />
+                            <TextField style={{padding:'10px'}} id="outlined-basic" label="Register Id" variant="outlined" />
+                        </Grid>
                     </Grid>
                 </Grid>
             </Grid>

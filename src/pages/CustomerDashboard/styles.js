@@ -37,12 +37,22 @@ export const styleSheet = {
     profile:{
         height: '83vh',
         width: '33.4vw',
-        //border:'1px solid red',
+        display: 'flex',
+        flexWrap: 'wrap',
+        alignItems:'center',
+        justifyContent:'center',
+        flexDirection: 'row',
+        border:'1px solid red',
         //backgroundColor: 'red',
     },
     details:{
         height: '83vh',
         width: '50vw',
+        display: 'flex',
+        flexWrap: 'wrap',
+        alignItems:'center',
+        justifyContent:'center',
+        flexDirection: 'row',
         //border:'1px solid red',
         //backgroundColor: 'yellow',
     }
