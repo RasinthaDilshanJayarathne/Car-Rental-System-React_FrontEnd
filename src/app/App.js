@@ -17,8 +17,8 @@ function App() {
         {/!*<SingUp/>*!/}
     </div>*/
       <Routes>
-         {/* <Route exact path='/login' element={<Login/>}/>
-          <Route exact path='/sing-up' element={<SingUp/>}/>*/}
+          <Route exact path='/login' element={<Login/>}/>
+          <Route exact path='/sing-up' element={<SingUp/>}/>
           <Route exact path='/sing' element={<SignInOutContainer/>}/>
           <Route path='/web' element={<WebSite/>}/>
           <Route path='/customer' element={<CustomerDashboard/>}/>
