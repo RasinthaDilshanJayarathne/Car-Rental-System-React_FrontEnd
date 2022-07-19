@@ -45,6 +45,7 @@ export const styleSheet = {
         justifyContent:'center',
         flexDirection: 'row',
         backgroundColor: 'white',
+        borderRadius:'15px',
         //border:'1px solid red',
         border:'4px solid #eeeff1'
     },
@@ -52,7 +53,13 @@ export const styleSheet = {
         height: '55vh',
         width: '84vw',
         backgroundColor: 'white',
-        border:'4px solid #eeeff1'
+        borderRadius:'15px',
+        border:'4px solid #eeeff1',
+        display: 'flex',
+        flexWrap: 'wrap',
+        alignItems:'center',
+        justifyContent:'center',
+        flexDirection: 'column',
     },
     subTotalCard:{
         height: '25vh',

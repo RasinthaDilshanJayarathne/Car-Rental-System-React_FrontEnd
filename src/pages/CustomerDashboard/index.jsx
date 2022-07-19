@@ -35,7 +35,7 @@ function CustomerDashboard(props) {
             <Toolbar/>
             <Divider/>
             <List>
-                {['General', 'Premium', 'Luxury','Profile'].map((text, index) => (
+                {['Home','General', 'Premium', 'Luxury','Profile'].map((text, index) => (
                     <ListItem key={text} disablePadding>
                         <ListItemButton>
                             <ListItemIcon>

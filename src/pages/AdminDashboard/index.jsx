@@ -16,7 +16,7 @@ import {Button, Grid, TextField} from "@mui/material";
 import {withStyles} from "@mui/styles";
 import {styleSheet} from "../AdminDashboard/styles";
 import logo from "../../assets/img/logo.png";
-import rev1 from "../../assets/img/rev1.jpg";
+import dashboard from "../../assets/img/dashboard.png";
 
 
 const drawerWidth = 240;
@@ -127,7 +127,7 @@ function AdminDashboard(props) {
                         </Grid>
                     </Grid>
                     <Grid className={classes.card}>
-                       
+                       <img src={dashboard} alt="" style={{backgroundSize:'cover',width:'500px',marginTop:'150px'}}/>
                     </Grid>
                 </Grid>
             </Grid>
