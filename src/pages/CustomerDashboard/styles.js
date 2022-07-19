@@ -28,45 +28,28 @@ export const styleSheet = {
         flexWrap: 'wrap',
         alignItems:'center',
         justifyContent:'center',
-        flexDirection: 'row',
-        backgroundColor: 'black',
-        border:'4px solid #eeeff1'
-    },
-    nameCard:{
-        height: '84vh',
-        width: '33.6vw',
-        display: 'flex',
-        alignItems:'center',
-        justifyContent:'center',
-        //border:'1px solid red'
-    },
-    detailCard:{
-        height: '84vh',
-        width: '50vw',
-        display: 'flex',
-        alignItems:'center',
-        justifyContent:'center',
         flexDirection: 'column',
         //backgroundColor: 'black',
-        //border:'1px solid red'
+        border:'4px solid #eeeff1'
     },
-    textField:{
-        height: '84vh',
-        width: '25vw',
+    customerDetailPhoto:{
+        height: '82vh',
+        width: '31.1vw',
+        border:'1px solid red',
         display: 'flex',
+        flexWrap: 'wrap',
         alignItems:'center',
         justifyContent:'center',
         flexDirection: 'row',
-        border:'1px solid red'
     },
-    profile:{
-        width:'25vw',
-        height:'70vh',
-        //backgroundColor:'white',
+    customerDetail:{
+        height: '82vh',
+        width: '51.1vw',
+        border:'1px solid red',
         display: 'flex',
-        flexDirection: 'row',
+        flexWrap: 'wrap',
         alignItems:'center',
         justifyContent:'center',
-        //backgroundColor: 'black',
-    },
+        flexDirection: 'row',
+    }
 }
