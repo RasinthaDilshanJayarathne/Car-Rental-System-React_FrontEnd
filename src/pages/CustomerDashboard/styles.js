@@ -29,7 +29,7 @@ export const styleSheet = {
         alignItems:'center',
         justifyContent:'center',
         flexDirection: 'row',
-        //backgroundColor: 'black',
+        backgroundColor: 'black',
         border:'4px solid #eeeff1'
     },
     nameCard:{
@@ -38,7 +38,7 @@ export const styleSheet = {
         display: 'flex',
         alignItems:'center',
         justifyContent:'center',
-        border:'1px solid red'
+        //border:'1px solid red'
     },
     detailCard:{
         height: '84vh',
@@ -48,6 +48,15 @@ export const styleSheet = {
         justifyContent:'center',
         flexDirection: 'column',
         //backgroundColor: 'black',
+        //border:'1px solid red'
+    },
+    textField:{
+        height: '84vh',
+        width: '25vw',
+        display: 'flex',
+        alignItems:'center',
+        justifyContent:'center',
+        flexDirection: 'row',
         border:'1px solid red'
     },
     profile:{
@@ -58,23 +67,6 @@ export const styleSheet = {
         flexDirection: 'row',
         alignItems:'center',
         justifyContent:'center',
-        backgroundColor: 'black',
+        //backgroundColor: 'black',
     },
-    circle:{
-        width:'25vw',
-        height:'30vh',
-        display: 'flex',
-        flexDirection: 'column',
-        alignItems:'center',
-        justifyContent:'center',
-    },
-    textField:{
-        width:'25vw',
-        height:'40vh',
-        display: 'flex',
-        flexDirection: 'column',
-        alignItems:'center',
-        justifyContent:'center',
-        backgroundColor: 'red',
-    }
 }

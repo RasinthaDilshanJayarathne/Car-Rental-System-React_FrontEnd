@@ -93,17 +93,7 @@ function CustomerDashboard(props) {
                     </Typography>
                 </Grid>
                 <Grid className={classes.customerContainer}>
-                    <Grid className={classes.nameCard}>
-                        <Grid className={classes.profile}>
-                            <Grid className={classes.circle}>
-
-                            </Grid>
-                            <Grid className={classes.textField}>
-
-                            </Grid>
-                        </Grid>
-                    </Grid>
-                    <Grid className={classes.detailCard}></Grid>
+                    <Grid></Grid>
                 </Grid>
             </Grid>
         </Box>
