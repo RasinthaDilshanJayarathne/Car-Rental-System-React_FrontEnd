@@ -53,6 +53,7 @@ export const styleSheet = {
         alignItems:'center',
         justifyContent:'center',
         flexDirection: 'row',
+        //padding:'60px'
         //border:'1px solid red',
         //backgroundColor: 'yellow',
     }

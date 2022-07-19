@@ -97,15 +97,21 @@ function CustomerDashboard(props) {
                         
                     </Grid>
                     <Grid className={classes.details}>
-                        <Grid style={{width:'200px',backgroundColor:'red'}}>
-                            <TextField style={{padding:'10px'}} id="outlined-basic" label="Register Id" variant="outlined" />
-                            <TextField style={{padding:'10px'}} id="outlined-basic" label="NIC" variant="outlined" />
-                            <TextField style={{padding:'10px'}} id="outlined-basic" label="First Name" variant="outlined" />
+                        <Grid style={{marginTop:'50px',marginLeft:'15px'}}>
+                            <TextField style={{padding:'10px',width:'350px'}} id="outlined-basic" label="Register Id" variant="outlined" />
+                            <TextField style={{padding:'10px',width:'350px'}} id="outlined-basic" label="NIC" variant="outlined" />
+                            <TextField style={{padding:'10px',width:'350px'}} id="outlined-basic" label="First Name" variant="outlined" />
+                            <TextField style={{padding:'10px',width:'350px'}} id="outlined-basic" label="Last Name" variant="outlined" />
+                            <TextField style={{padding:'10px',width:'350px'}} id="outlined-basic" label="License No" variant="outlined" />
+                            <TextField style={{padding:'10px',width:'350px'}} id="outlined-basic" label="Contact No" variant="outlined" />
+                            <TextField style={{padding:'10px',width:'350px'}} id="outlined-basic" label="Address" variant="outlined" />
+                            <TextField style={{padding:'10px',width:'350px'}} id="outlined-basic" label="E-mail" variant="outlined" />
+                            <TextField style={{padding:'10px',width:'350px'}} id="outlined-basic" label="Choose Photo" variant="outlined" />
+                            <TextField style={{padding:'10px',width:'350px'}} id="outlined-basic" label="Choose Photo" variant="outlined" />
                         </Grid>
-                        <Grid style={{width:'200px',backgroundColor:'red'}}>
-                            <TextField style={{padding:'10px'}} id="outlined-basic" label="Register Id" variant="outlined" />
-                            <TextField style={{padding:'10px'}} id="outlined-basic" label="Register Id" variant="outlined" />
-                            <TextField style={{padding:'10px'}} id="outlined-basic" label="Register Id" variant="outlined" />
+                        <Grid style={{marginBottom:'60px',marginRight:'410px'}}>
+                            <Button variant="contained" style={{width:'150px'}}>View</Button>
+                            <Button variant="contained" style={{width:'150px',marginLeft:'10px'}}>Update</Button>
                         </Grid>
                     </Grid>
                 </Grid>
