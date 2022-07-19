@@ -1,18 +1,31 @@
 export const styleSheet = {
     container:{
         height: '100vh',
-        width: '84.2vw',
+        width: '100vw',
+        display: 'flex',
+        flexWrap: 'wrap',
+        alignItems:'center',
+        justifyContent:'center',
+        flexDirection: 'row',
+        backgroundColor: '#eeeff1'
+        //border:'1px solid red',
+        //backgroundColor: 'black'
+    },
+    headBar:{
+        height: '15vh',
+        width: '84vw',
         display: 'flex',
         flexWrap: 'wrap',
         alignItems:'center',
         justifyContent:'center',
         flexDirection: 'column',
-        backgroundColor: '#eeeff1'
-        //backgroundColor: 'red'
+        backgroundColor: 'white',
+        //border:'1px solid red',
+        border:'4px solid #eeeff1'
     },
-    searchBar:{
-        height: '15vh',
-        width: '84.2vw',
+    customerContainer:{
+        height: '85vh',
+        width: '84vw',
         display: 'flex',
         flexWrap: 'wrap',
         alignItems:'center',
@@ -21,35 +34,16 @@ export const styleSheet = {
         backgroundColor: 'white',
         border:'4px solid #eeeff1'
     },
-    customerContainer:{
-        height: '85vh',
-        width: '84.2vw',
-        display: 'flex',
-        flexWrap: 'wrap',
-        alignItems:'center',
-        justifyContent:'center',
-        flexDirection: 'column',
-        //backgroundColor: 'black',
-        border:'4px solid #eeeff1'
+    profile:{
+        height: '83vh',
+        width: '33.4vw',
+        //border:'1px solid red',
+        //backgroundColor: 'red',
     },
-    customerDetailPhoto:{
-        height: '82vh',
-        width: '31.1vw',
-        border:'1px solid red',
-        display: 'flex',
-        flexWrap: 'wrap',
-        alignItems:'center',
-        justifyContent:'center',
-        flexDirection: 'row',
-    },
-    customerDetail:{
-        height: '82vh',
-        width: '51.1vw',
-        border:'1px solid red',
-        display: 'flex',
-        flexWrap: 'wrap',
-        alignItems:'center',
-        justifyContent:'center',
-        flexDirection: 'row',
+    details:{
+        height: '83vh',
+        width: '50vw',
+        //border:'1px solid red',
+        //backgroundColor: 'yellow',
     }
 }

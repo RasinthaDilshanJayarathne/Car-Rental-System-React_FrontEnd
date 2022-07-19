@@ -86,37 +86,18 @@ function CustomerDashboard(props) {
                 </Drawer>
             </Box>
             <Grid className={classes.container}>
-                <Grid className={classes.searchBar}>
+                <Grid className={classes.headBar}>
                     <img src={logo} alt="" style={{width: '150px', marginTop: '-10px'}}/>
                     <Typography variant="h5" style={{marginLeft: '30px'}}>
                         BOOK A CAR / NO ADVANCE PAYMENT
                     </Typography>
                 </Grid>
                 <Grid className={classes.customerContainer}>
-                    <Grid className={classes.customerDetailPhoto}>
-                       
+                    <Grid className={classes.profile}>
+                        
                     </Grid>
-                    <Grid className={classes.customerDetail}>
-                        <Grid style={{border:'1px solid red'}}>
-                            <TextField style={{padding:'10px'}} id="outlined-basic" label="Outlined" variant="outlined" />
-                            <TextField style={{padding:'10px'}} id="outlined-basic" label="Outlined" variant="outlined" />
-                            <TextField style={{padding:'10px'}} id="outlined-basic" label="Outlined" variant="outlined" />
-                        </Grid>
-                        <Grid style={{border:'1px solid red'}}>
-                            <TextField style={{padding:'10px'}} id="outlined-basic" label="Outlined" variant="outlined" />
-                            <TextField style={{padding:'10px'}} id="outlined-basic" label="Outlined" variant="outlined" />
-                            <TextField style={{padding:'10px'}} id="outlined-basic" label="Outlined" variant="outlined" />
-                        </Grid>
-                        <Grid style={{border:'1px solid red'}}>
-                            <TextField style={{padding:'10px'}} id="outlined-basic" label="Outlined" variant="outlined" />
-                            <TextField style={{padding:'10px'}} id="outlined-basic" label="Outlined" variant="outlined" />
-                            <TextField style={{padding:'10px'}} id="outlined-basic" label="Outlined" variant="outlined" />
-                        </Grid>
-                        <Grid style={{border:'1px solid red'}}>
-                            <TextField style={{padding:'10px'}} id="outlined-basic" label="Outlined" variant="outlined" />
-                            <TextField style={{padding:'10px'}} id="outlined-basic" label="Outlined" variant="outlined" />
-                            <TextField style={{padding:'10px'}} id="outlined-basic" label="Outlined" variant="outlined" />
-                        </Grid>
+                    <Grid className={classes.details}>
+
                     </Grid>
                 </Grid>
             </Grid>
