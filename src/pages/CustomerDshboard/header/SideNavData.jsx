@@ -1,11 +1,8 @@
 import React from 'react'
 import {Button, List, ListItem, ListItemIcon, ListItemText} from "@material-ui/core";
-import HomeIcon from '@mui/icons-material/Home';
 import DirectionsCarIcon from '@mui/icons-material/DirectionsCar';
-import AirlineSeatReclineNormalIcon from '@mui/icons-material/AirlineSeatReclineNormal';
-import CarRentalIcon from '@mui/icons-material/CarRental';
-import MonetizationOnIcon from '@mui/icons-material/MonetizationOn';
-import ManIcon from '@mui/icons-material/Man';
+import AccountCircleIcon from '@mui/icons-material/AccountCircle';
+import HomeIcon from '@mui/icons-material/Home';
 import {NavLink} from "react-router-dom";
 import {useStyles} from "./HeaderStyles";
 
@@ -14,8 +11,9 @@ export default function SideNavData({handleDrawerClose}) {
     const listItemData = [
         {label: "Home", link: "/", icon: <HomeIcon/>},
         {label: "General", link: "/general", icon: <DirectionsCarIcon/>},
-        {label: "Premium", link: "/premium", icon: <AirlineSeatReclineNormalIcon/>},
-        {label: "Luxury", link: "/luxury", icon: <ManIcon/>},
+        {label: "Premium", link: "/premium", icon: <DirectionsCarIcon/>},
+        {label: "Luxury", link: "/luxury", icon: <DirectionsCarIcon/>},
+        {label: "Profile", link: "/profile", icon: <AccountCircleIcon/>},
     ]
     return (<List>
         {listItemData.map((item, i) => (
