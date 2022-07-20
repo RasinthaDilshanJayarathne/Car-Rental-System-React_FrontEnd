@@ -4,8 +4,6 @@ import HeaderComponent from "../pages/AdminDshboard/header/HeaderComponent";
 import {Route, Routes} from "react-router-dom";
 import WebSite from "../pages/WebSite/website";
 import CustomerDashboard from "../pages/CustomerDshboard/header/HeaderComponent";
-// import Layout from "./components/mainComponents/components/Layout/Layout";
-
 
 function App() {
     return (

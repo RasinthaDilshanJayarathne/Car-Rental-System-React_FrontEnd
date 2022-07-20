@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="fcb3ca0e-e54b-49f7-ac10-4cba118b2c2f" name="Changes" comment="Changes" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ComposerSettings">
+    <execution />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProjectId" id="2BzT579JBd6S84MykqieicN13ad" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="aspect.path.notification.shown" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/pages/CustomerDshboard/bodyComponents" />
+    <property name="node.js.detected.package.eslint" value="true" />
+    <property name="node.js.detected.package.standard" value="true" />
+    <property name="node.js.selected.package.eslint" value="(autodetect)" />
+    <property name="node.js.selected.package.standard" value="" />
+    <property name="nodejs_package_manager_path" value="npm" />
+    <property name="settings.editor.selected.configurable" value="project.propVCSSupport.Mappings" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\User\Desktop\easy-car-rental-system-front-end\src\pages\CustomerDshboard\bodyComponents" />
+      <recent name="C:\Users\User\Desktop\easy-car-rental-system-front-end\src\pages" />
+      <recent name="C:\Users\User\Desktop\easy-car-rental-system-front-end\src\assets" />
+      <recent name="C:\Users\User\Desktop\easy-car-rental-system-front-end\src\pages\AdminDshboard" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\User\Desktop\easy-car-rental-system-front-end\src\pages\AdminDshboard\bodyComponents\home" />
+      <recent name="C:\Users\User\Desktop\easy-car-rental-system-front-end\src\app" />
+      <recent name="C:\Users\User\Desktop\easy-car-rental-system-front-end\src\pages" />
+      <recent name="D:\IJSE Studies\IJSE Official Projects\3rd Semester\spring-mvc-easy-car-rental-system\easy-car-rental-system-front-end\src" />
+      <recent name="D:\IJSE Studies\IJSE Official Projects\3rd Semester\spring-mvc-easy-car-rental-system\easy-car-rental-system-front-end\src\Components\AdminComponents" />
+    </key>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="fcb3ca0e-e54b-49f7-ac10-4cba118b2c2f" name="Changes" comment="" />
+      <created>1657907728254</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1657907728254</updated>
+      <workItem from="1657907731783" duration="99000" />
+      <workItem from="1657907913034" duration="7543000" />
+      <workItem from="1657950014240" duration="1635000" />
+      <workItem from="1657951716350" duration="10811000" />
+      <workItem from="1657981172367" duration="13416000" />
+      <workItem from="1658033469137" duration="424000" />
+      <workItem from="1658033905627" duration="10638000" />
+      <workItem from="1658062426734" duration="14977000" />
+      <workItem from="1658118177471" duration="5827000" />
+      <workItem from="1658145027877" duration="8604000" />
+      <workItem from="1658202181425" duration="3542000" />
+      <workItem from="1658292154041" duration="6096000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="oldMeFiltersMigrated" value="true" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <ignored-roots>
+      <path value="$PROJECT_DIR$/.." />
+    </ignored-roots>
+  </component>
+</project>
