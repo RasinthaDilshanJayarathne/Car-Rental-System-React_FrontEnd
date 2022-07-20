@@ -4,8 +4,16 @@ import {styleSheet} from "../Home/styles";
 import {withStyles} from "@mui/styles";
 import logo from "../../../../assets/img/logo.png";
 import rev1 from "../../../../assets/img/rev1.jpg";
-import {Button, IconButton, TextField} from "@mui/material";
-import {PhotoCamera} from "@mui/icons-material";
+import ReactDOM from "react-dom";
+import Carousel from "react-elastic-carousel";
+import Item from './Item';
+
+const breakPoints = [
+    { width: 1, itemsToShow: 1 },
+    { width: 550, itemsToShow: 2 },
+    { width: 768, itemsToShow: 3 },
+    { width: 1200, itemsToShow: 4 },
+  ];
 
 class Home extends Component {
     constructor(props) {
@@ -27,7 +35,16 @@ class Home extends Component {
                     <Grid className={classes.card}>
 
                     </Grid>
-                    <Grid className={classes.driverContainer}></Grid>
+                    <Grid className={classes.driverContainer}>
+                        <Grid className={classes.app}> 
+                       `    <Carousel breakPoints={breakPoints}>
+                                <Item className={classes.appItem}>Two</Item>
+                                <Item className={classes.appItem}>Three</Item>
+                                <Item className={classes.appItem}>Four</Item>
+                                <Item className={classes.appItem}>Five</Item>
+                            </Carousel>`
+                        </Grid>
+                    </Grid>
                 </Grid>
             </Grid>
         )

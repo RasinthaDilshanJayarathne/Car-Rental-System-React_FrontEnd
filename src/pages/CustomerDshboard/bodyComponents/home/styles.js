@@ -4,7 +4,7 @@ export const styleSheet = {
     },
     searchBar: {
         height: '10vh',
-        width: '84vw',
+        width: '83vw',
         display: 'flex',
         flexWrap: 'wrap',
         flexDirection: 'column',
@@ -17,7 +17,7 @@ export const styleSheet = {
     },
     subContainer:{
         height: '90vh',
-        width: '84vw',
+        width: '83vw',
         display: 'flex',
         flexWrap: 'wrap',
         flexDirection: 'row',
@@ -35,6 +35,32 @@ export const styleSheet = {
     driverContainer:{
         height: '70vh',
         width: '84vw',
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'center',
+        flexWrap: 'wrap',
+        flexDirection: 'row',
+        //backgroundColor: 'red',
+    },
+    app:{
+        fontFamily: 'sans-serif',
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'center',
+        height: '70vh',
+        width:'83vw',
+        flexWrap: 'wrap',
+        flexDirection: 'row',
+        border: '2px solid #eeeff1',
+    },
+    appItem:{
+        height: '400px',
+        width:'350px',
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'center',
+        flexWrap: 'wrap',
+        flexDirection: 'row',
         backgroundColor: 'red',
     }
    
