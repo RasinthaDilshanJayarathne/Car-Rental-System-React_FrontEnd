@@ -31,7 +31,36 @@ export const styleSheet = {
     card:{
         height: '20vh',
         width: '82.5vw',
-        backgroundColor: 'black',
+        //backgroundColor: 'black',
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'center',
+        flexWrap: 'wrap',
+        flexDirection: 'column',
+    },
+    card1:{
+        height: '16vh',
+        width: '15vw',
+        borderRadius:'15px',
+        backgroundColor:'#eeeff1'
+    },
+    card2:{
+        height: '16vh',
+        width: '15vw',
+        borderRadius:'15px',
+        backgroundColor:'#eeeff1'
+    },
+    card3:{
+        height: '16vh',
+        width: '15vw',
+        borderRadius:'15px',
+        backgroundColor:'#eeeff1'
+    },
+    card4:{
+        height: '16vh',
+        width: '15vw',
+        borderRadius:'15px',
+        backgroundColor:'#eeeff1'
     },
     driverContainer:{
         height: '70vh',
