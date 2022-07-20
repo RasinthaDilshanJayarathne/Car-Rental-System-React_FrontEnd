@@ -1,36 +1,25 @@
-import React from "react";
-import Login from "../pages/Login";
-import SingUp from "../pages/SingUp"
+import { Fragment } from 'react';
+import '../App.css';
+import HeaderComponent from "../pages/AdminDshboard/header/HeaderComponent";
 import {Route, Routes} from "react-router-dom";
-import SignInOutContainer from "../pages/SingInSingOut";
-import WebSite from "../pages/WebSite";
-import CustomerDashboard from "../pages/CustomerDashboard";
-import General from "../pages/CustomerDashboard/VehiclePackges/General";
-import Luxury from "../pages/CustomerDashboard/VehiclePackges/Luxury";
-import AdminDashboard from "../pages/AdminDashboard";
-import Premium from "../pages/CustomerDashboard/VehiclePackges/Premium";
-import Booking from "../pages/Booking";
+import WebSite from "../pages/WebSite/website";
+import CustomerDashboard from "../pages/CustomerDshboard/header/HeaderComponent";
+// import Layout from "./components/mainComponents/components/Layout/Layout";
 
 
 function App() {
-  return (
-    /*<div className="App">
-        <Login/>
-        {/!*<SingUp/>*!/}
-    </div>*/
-      <Routes>
-          <Route exact path='/login' element={<Login/>}/>
-          <Route path='/sing-up' element={<SingUp/>}/>
-          <Route path='/sing' element={<SignInOutContainer/>}/>
-          <Route path='/web' element={<WebSite/>}/>
-          <Route path='/customer' element={<CustomerDashboard/>}/>
-          <Route path='/general' element={<General/>}/>
-          <Route path='/luxury' element={<Luxury/>}/>
-          <Route path='/premium' element={<Premium/>}/>
-          <Route path='/admin' element={<AdminDashboard/>}/>
-          <Route path='/booking' element={<Booking/>}/>
-      </Routes>
-  );
+    return (
+        <Fragment>
+            {/*<Layout/>*/}
+         {/* <HeaderComponent/>*/}
+            <CustomerDashboard/>
+        </Fragment>
+       /* <Routes>
+            <Route path='/web' element={<WebSite/>}/>
+            <Route path='/admin' element={<HeaderComponent/>}/>
+        </Routes>*/
+            
+    );
 }
 
 export default App;
