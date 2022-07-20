@@ -42,25 +42,25 @@ export const styleSheet = {
         height: '16vh',
         width: '15vw',
         borderRadius:'15px',
-        backgroundColor:'#eeeff1'
+        backgroundColor:'#00b894'
     },
     card2:{
         height: '16vh',
         width: '15vw',
         borderRadius:'15px',
-        backgroundColor:'#eeeff1'
+        backgroundColor:'#00cec9'
     },
     card3:{
         height: '16vh',
         width: '15vw',
         borderRadius:'15px',
-        backgroundColor:'#eeeff1'
+        backgroundColor:'#0984e3'
     },
     card4:{
         height: '16vh',
         width: '15vw',
         borderRadius:'15px',
-        backgroundColor:'#eeeff1'
+        backgroundColor:'#6c5ce7'
     },
     driverContainer:{
         height: '70vh',
@@ -85,7 +85,7 @@ export const styleSheet = {
         flexDirection: 'row',
     },
     appItem:{
-        height: '450px',
+        height: '400px',
         width:'350px',
         display: 'flex',
         flexWrap: 'wrap',

@@ -58,7 +58,7 @@ class Home extends Component {
                         </Grid>
                         <Grid style={{marginBottom:'60px',marginRight:'410px'}}>
                             <Button variant="contained" style={{width:'150px'}}>View</Button>
-                            <Button variant="contained" style={{width:'150px',marginLeft:'10px'}}>Update</Button>
+                            <Button variant="contained" style={{width:'150px',marginLeft:'10px',backgroundColor:'#f39c12'}}>Update</Button>
                         </Grid>
                     </Grid>
                 </Grid>
