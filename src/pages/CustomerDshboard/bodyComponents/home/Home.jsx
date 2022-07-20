@@ -23,8 +23,11 @@ class Home extends Component {
                         BOOK A CAR / NO ADVANCE PAYMENT
                     </Typography>
                 </Grid>
-                <Grid className={classes.customerContainer}>
-                    
+                <Grid className={classes.subContainer}>
+                    <Grid className={classes.card}>
+
+                    </Grid>
+                    <Grid className={classes.driverContainer}></Grid>
                 </Grid>
             </Grid>
         )

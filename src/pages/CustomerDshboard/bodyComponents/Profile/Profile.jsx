@@ -36,7 +36,7 @@ class Home extends Component {
                         </Grid>
                     </Grid>
                     <Grid className={classes.details}>
-                        <Typography variant="h4" gutterBottom component="div" style={{textAlign:'center',marginTop:'20px'}}>My Profile</Typography>
+                        <Typography variant="h4" gutterBottom style={{textAlign:'center',marginTop:'20px'}}>My Profile</Typography>
                         <Grid style={{marginTop:'-20px',marginLeft:'15px'}}>
                             <TextField style={{padding:'10px',width:'350px'}} id="outlined-basic" label="Register Id" variant="outlined" />
                             <TextField style={{padding:'10px',width:'350px'}} id="outlined-basic" label="E-mail" variant="outlined" />

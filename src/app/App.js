@@ -1,5 +1,4 @@
 import { Fragment } from 'react';
-import '../App.css';
 import HeaderComponent from "../pages/AdminDshboard/header/HeaderComponent";
 import {Route, Routes} from "react-router-dom";
 import WebSite from "../pages/WebSite/website";
