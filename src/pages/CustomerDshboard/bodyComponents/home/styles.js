@@ -3,7 +3,7 @@ export const styleSheet = {
         //border:'1px solid red',
     },
     searchBar: {
-        height: '20vh',
+        height: '10vh',
         width: '84vw',
         display: 'flex',
         flexWrap: 'wrap',
@@ -15,7 +15,7 @@ export const styleSheet = {
         //border:'1px solid red',
     },
     customerContainer:{
-        height: '80vh',
+        height: '90vh',
         width: '84vw',
         display: 'flex',
         flexWrap: 'wrap',
@@ -26,28 +26,5 @@ export const styleSheet = {
         border: '2px solid #eeeff1',
         //border:'1px solid red',
     },
-    profile:{
-        height: '80vh',
-        width: '32.1vw',
-        display: 'flex',
-        flexWrap: 'wrap',
-        alignItems:'center',
-        justifyContent:'center',
-        flexDirection: 'row',
-        borderRadius:'15px',
-        backgroundColor: 'white',
-        marginLeft:'5px'
-    },
-    details:{
-        height: '83vh',
-        width: '50vw',
-        display: 'flex',
-        flexWrap: 'wrap',
-        alignItems:'center',
-        justifyContent:'center',
-        flexDirection: 'row',
-        borderRadius:'15px',
-        backgroundColor: 'white',
-        marginLeft:'15px'
-    }
+   
 }
