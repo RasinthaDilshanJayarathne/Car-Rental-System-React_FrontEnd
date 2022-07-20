@@ -1,8 +1,8 @@
-/*
-!* ======== google fonts ======== *!
+
+/* !* ======== google fonts ======== *! */
 @import url("https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@200;300;400;600;700;900&display=swap");
 
-!* ======= base style ====== *!
+/* !* ======= base style ====== *! */
 * {
   margin: 0;
   padding: 0;
@@ -10,14 +10,14 @@
   font-family: "Source Sans Pro", sans-serif;
 }
 
-!* ========= pre-define css ========= *!
+/* !* ========= pre-define css ========= *! */
 h1,
 h2,
 h3,
 h4,
 h5,
 h6 {
-  color: #000d6b;
+  /* color: #000d6b; */
   font-weight: 600;
   margin-bottom: 0;
 }
@@ -96,4 +96,4 @@ section {
     font-size: 1.1rem;
   }
 }
-*/
+
