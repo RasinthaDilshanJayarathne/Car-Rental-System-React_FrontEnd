@@ -3,8 +3,6 @@ import {Grid, Typography} from "@material-ui/core";
 import {styleSheet} from "../Home/styles";
 import {withStyles} from "@mui/styles";
 import logo from "../../../../assets/img/logo.png";
-import rev1 from "../../../../assets/img/rev1.jpg";
-import ReactDOM from "react-dom";
 import Carousel from "react-elastic-carousel";
 import Item from './Item';
 
@@ -37,12 +35,12 @@ class Home extends Component {
                     </Grid>
                     <Grid className={classes.driverContainer}>
                         <Grid className={classes.app}> 
-                       `    <Carousel breakPoints={breakPoints}>
+                            <Carousel breakPoints={breakPoints}>
                                 <Item className={classes.appItem}>Two</Item>
                                 <Item className={classes.appItem}>Three</Item>
                                 <Item className={classes.appItem}>Four</Item>
                                 <Item className={classes.appItem}>Five</Item>
-                            </Carousel>`
+                            </Carousel> 
                         </Grid>
                     </Grid>
                 </Grid>

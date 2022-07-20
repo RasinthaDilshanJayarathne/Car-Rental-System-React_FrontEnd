@@ -1,10 +1,11 @@
 export const styleSheet = {
     container: {
         //border:'1px solid red',
+        marginLeft:'10px'
     },
     searchBar: {
         height: '10vh',
-        width: '83vw',
+        width: '82.5vw',
         display: 'flex',
         flexWrap: 'wrap',
         flexDirection: 'column',
@@ -17,7 +18,7 @@ export const styleSheet = {
     },
     subContainer:{
         height: '90vh',
-        width: '83vw',
+        width: '82.5vw',
         display: 'flex',
         flexWrap: 'wrap',
         flexDirection: 'row',
@@ -29,17 +30,19 @@ export const styleSheet = {
     },
     card:{
         height: '20vh',
-        width: '84vw',
+        width: '82.5vw',
         backgroundColor: 'black',
     },
     driverContainer:{
         height: '70vh',
-        width: '84vw',
+        width: '82.5vw',
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'center',
         flexWrap: 'wrap',
         flexDirection: 'row',
+        border: '2px solid #eeeff1',
+        //backgroundColor: 'white',
         //backgroundColor: 'red',
     },
     app:{
@@ -48,20 +51,21 @@ export const styleSheet = {
         alignItems: 'center',
         justifyContent: 'center',
         height: '70vh',
-        width:'83vw',
+        width: '82.5vw',
         flexWrap: 'wrap',
         flexDirection: 'row',
-        border: '2px solid #eeeff1',
     },
     appItem:{
-        height: '400px',
+        height: '450px',
         width:'350px',
         display: 'flex',
-        alignItems: 'center',
-        justifyContent: 'center',
         flexWrap: 'wrap',
         flexDirection: 'row',
-        backgroundColor: 'red',
+        alignItems: 'center',
+        justifyContent: 'center',
+        //marginBottom:'100px',
+        borderRadius:'15px',
+        backgroundColor: '#eeeff1',
     }
    
 }
