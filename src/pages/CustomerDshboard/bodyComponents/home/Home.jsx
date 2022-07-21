@@ -29,7 +29,7 @@ class Home extends Component {
             <Grid className={classes.container}>
                 <Grid className={classes.searchBar}>
                     <img src={logo} alt="" style={{width: '150px', marginTop: '-10px',marginLeft:'250px'}}/>
-                    <Typography variant="h5" style={{marginRight: '250px'}}>
+                    <Typography variant="h5" style={{marginRight: '250px',color: '#000d6b'}}>
                         BOOK A CAR / NO ADVANCE PAYMENT
                     </Typography>
                 </Grid>

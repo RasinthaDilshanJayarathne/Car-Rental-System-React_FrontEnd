@@ -7,7 +7,7 @@ export const styleSheet = {
         display: 'flex',
         flexWrap: 'wrap',
         flexDirection: 'column',
-        backgroundColor: '#eeeff1',
+        //backgroundColor: '#eeeff1',
         alignItems: 'center',
         justifyContent: 'center',
     },

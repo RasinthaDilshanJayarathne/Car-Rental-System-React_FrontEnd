@@ -23,7 +23,7 @@ function General(props) {
             <Grid className={classes.searchBar}>
                 <Grid className={classes.bookingPanel}>
                     <img src={logo} alt="" style={{width: '150px', marginTop: '-10px'}}/>
-                    <Typography variant="h5" style={{marginLeft: '30px'}}>
+                    <Typography variant="h5" style={{marginLeft: '30px',color: '#000d6b'}}>
                         BOOK A CAR / NO ADVANCE PAYMENT
                     </Typography>
                 </Grid>

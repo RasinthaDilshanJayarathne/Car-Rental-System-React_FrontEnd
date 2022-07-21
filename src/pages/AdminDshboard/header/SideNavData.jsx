@@ -15,6 +15,7 @@ export default function SideNavData({handleDrawerClose}) {
         {label: "Manage Booking", link: "/booking", icon: <AccountCircleIcon/>},
         {label: "Manage Driver", link: "/driver", icon: <DirectionsCarIcon/>},
         {label: "Income", link: "/income", icon: <AccountCircleIcon/>},
+        {label: "Profile", link: "/profile", icon: <AccountCircleIcon/>},
     ]
     return (<List>
         {listItemData.map((item, i) => (
