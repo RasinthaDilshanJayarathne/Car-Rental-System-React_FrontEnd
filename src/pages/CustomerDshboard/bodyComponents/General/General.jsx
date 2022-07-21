@@ -9,14 +9,34 @@ import BackpackIcon from "@mui/icons-material/Backpack";
 import MeetingRoomIcon from "@mui/icons-material/MeetingRoom";
 import AddRoadIcon from "@mui/icons-material/AddRoad";
 import SettingsIcon from "@mui/icons-material/Settings";
+import Dialog from '@mui/material/Dialog';
+import DialogActions from '@mui/material/DialogActions';
+import DialogContent from '@mui/material/DialogContent';
+import DialogContentText from '@mui/material/DialogContentText';
+import DialogTitle from '@mui/material/DialogTitle';
+import Slide from '@mui/material/Slide';
 import car1 from "../../../../assets/img/car1.png";
 import car2 from "../../../../assets/img/car2.png";
 import car3 from "../../../../assets/img/car3.png";
 import car4 from "../../../../assets/img/car4.png";
 import car5 from "../../../../assets/img/car5.png";
 
+const Transition = React.forwardRef(function Transition(props, ref) {
+    return <Slide direction="up" ref={ref} {...props} />;
+});
+
 function General(props) {
     const {classes} = props;
+
+    const [open, setOpen] = React.useState(false);
+
+    const handleClickOpen = () => {
+        setOpen(true);
+    };
+
+    const handleClose = () => {
+        setOpen(false);
+    };
 
     return (
         <Grid className={classes.container}>
@@ -149,10 +169,41 @@ function General(props) {
                         <Grid>
                             <Typography style={{fontSize: '30px', color: '#fe5b3d'}}>64,350.00 lkr</Typography>
                             <Typography style={{fontSize: '20px', color: '#fe5b3d', marginLeft: '20px'}}>Cost Of
-                                Rental</Typography>
-                            <Button variant="contained" fullWidth
+                                Rental
+                            </Typography>
+                                <Grid>
+                                    <Button variant="contained" fullWidth style={{backgroundColor: 'orange', color: 'black', marginTop: '90px',}} onClick={handleClickOpen}>
+                                        BOOK NOW
+                                    </Button>
+                                        <Dialog
+                                            fullWidth
+                                            maxWidth="sm=8"
+                                            open={open}
+                                            TransitionComponent={Transition}
+                                            keepMounted
+                                            onClose={handleClose}
+                                            aria-describedby="alert-dialog-slide-description"
+                                        >
+                                            {/* <DialogTitle>{"Use Google's location service?"}</DialogTitle> */}
+                                            <DialogContent>
+                                            {/* <DialogContentText id="alert-dialog-slide-description" > */}
+                                                
+                                                <Grid style={{width:'92.5vw',height:'0vh',backgroundColor:'black'}}>
+
+                                                </Grid>
+
+                                            {/* </DialogContentText> */}
+                                            </DialogContent>
+                                            {/* <DialogActions>
+                                            <Button onClick={handleClose}>Disagree</Button>
+                                            <Button onClick={handleClose}>Agree</Button>
+                                            </DialogActions> */}
+                                        </Dialog>
+                                </Grid>
+                                
+                            {/* <Button variant="contained" fullWidth
                                     style={{backgroundColor: 'orange', color: 'black', marginTop: '90px',}}>BOOK
-                                NOW</Button>
+                                NOW</Button> */}
                         </Grid>
                     </Grid>
                 </Grid>

@@ -87,4 +87,9 @@ export const styleSheet = {
         marginTop: '10px',
         //border:'1px solid red'
     },
+    popUpBox:{
+        width:'80vw',
+        height:'80vh',
+        backgroundColor:'#eeeff1'
+    }
 }
