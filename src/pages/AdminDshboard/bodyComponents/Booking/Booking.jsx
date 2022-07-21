@@ -12,7 +12,7 @@ import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
 import {Button, Grid, TextField} from "@mui/material";
 import {withStyles} from "@mui/styles";
-import {styleSheet} from "../Luxury/styles";
+import {styleSheet} from "../Booking/styles";
 import logo from "../../../../assets/img/logo.png";
 import PersonIcon from "@mui/icons-material/Person";
 import BackpackIcon from "@mui/icons-material/Backpack";

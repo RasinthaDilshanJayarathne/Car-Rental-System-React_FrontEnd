@@ -1,6 +1,6 @@
 import React, {Component} from 'react'
 import {Grid, Typography} from "@material-ui/core";
-import {styleSheet} from "../Profile/styles";
+import {styleSheet} from "../Driver/styles";
 import {withStyles} from "@mui/styles";
 import logo from "../../../../assets/img/logo.png";
 import rev1 from "../../../../assets/img/rev1.jpg";

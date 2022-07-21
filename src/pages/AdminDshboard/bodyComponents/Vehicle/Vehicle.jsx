@@ -2,7 +2,7 @@ import * as React from 'react';
 import Typography from '@mui/material/Typography';
 import {Button, Grid, TextField} from "@mui/material";
 import {withStyles} from "@mui/styles";
-import {styleSheet} from "../Luxury/styles";
+import {styleSheet} from "../Vehicle/styles";
 import logo from "../../../../assets/img/logo.png";
 import PersonIcon from "@mui/icons-material/Person";
 import BackpackIcon from "@mui/icons-material/Backpack";
@@ -12,7 +12,9 @@ import SettingsIcon from "@mui/icons-material/Settings";
 import car1 from "../../../../assets/img/car1.png";
 import car2 from "../../../../assets/img/car2.png";
 
+
 function Luxury(props) {
+    
     const {classes} = props;
     return (
             <Grid className={classes.container}>

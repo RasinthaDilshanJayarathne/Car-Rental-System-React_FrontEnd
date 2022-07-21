@@ -4,10 +4,11 @@ import {Route, Routes} from "react-router-dom";
 import {useStyles} from "./HeaderStyles";
 import Home from "../bodyComponents/Home/Home";
 import {Box} from "@mui/material";
-import Luxury from "../bodyComponents/Luxury/Luxury";
-import General from "../bodyComponents/General/General";
-import Premium from "../bodyComponents/Premium/Premium";
-import Profile from "../bodyComponents/Profile/Profile";
+import Vehicle from "../bodyComponents/Vehicle/Vehicle";
+import Customer from '../bodyComponents/Customer/Customer';
+import Booking from '../bodyComponents/Booking/Booking';
+import Driver from '../bodyComponents/Driver/Driver';
+import Income from '../bodyComponents/Income/Income'
 
 export default function AdminDashboard() {
     const classes = useStyles()
@@ -21,10 +22,11 @@ export default function AdminDashboard() {
             <Box className={classes.wrapper}>
                 <Routes>
                     <Route exact path="/" element={<Home/>}/>
-                    <Route exact path="/general" element={<General/>}/>
-                    <Route exact path="/premium" element={<Premium/>}/>
-                    <Route exact path="/luxury" element={<Luxury/>}/>
-                    <Route exact path="/profile" element={<Profile/>}/>
+                    <Route exact path="/customer" element={<Customer/>}/>
+                    <Route exact path="/vehicle" element={<Vehicle/>}/>
+                    <Route exact path="/booking" element={<Booking/>}/>
+                    <Route exact path="/driver" element={<Driver/>}/>
+                    <Route exact path="/income" element={<Income/>}/>
                 </Routes>
             </Box>
         </div>
