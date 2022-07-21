@@ -20,10 +20,20 @@ import car2 from "../../../../assets/img/car2.png";
 import car3 from "../../../../assets/img/car3.png";
 import car4 from "../../../../assets/img/car4.png";
 import car5 from "../../../../assets/img/car5.png";
+import rev1 from "../../../../assets/img/rev1.jpg";
+import Carousel from "react-elastic-carousel";
+import Item from './Item';
 
 const Transition = React.forwardRef(function Transition(props, ref) {
     return <Slide direction="up" ref={ref} {...props} />;
 });
+
+const breakPoints = [
+    { width: 1, itemsToShow: 1 },
+    { width: 550, itemsToShow: 2 },
+    { width: 768, itemsToShow: 3 },
+    { width: 1200, itemsToShow: 4 },
+  ];
 
 function General(props) {
     const {classes} = props;
@@ -184,12 +194,44 @@ function General(props) {
                                             onClose={handleClose}
                                             aria-describedby="alert-dialog-slide-description"
                                         >
-                                            {/* <DialogTitle>{"Use Google's location service?"}</DialogTitle> */}
+                                            <DialogTitle style={{textAlign:'center',fontSize:'30px',color: '#000d6b'}}>{"VEHICLE BOOKING"}</DialogTitle>
                                             <DialogContent>
                                             {/* <DialogContentText id="alert-dialog-slide-description" > */}
                                                 
-                                                <Grid style={{width:'92.5vw',height:'0vh',backgroundColor:'black'}}>
+                                                <Grid className={classes.popupContainer}>
+                                                    <Grid className={classes.popupPhotoCard}>
+                                                    <Carousel breakPoints={breakPoints}>
 
+                                                        <Item className={classes.appItem}>
+                                                            <Grid style={{height:'200px',width:'350px', display: 'flex',
+                                                                            flexWrap: 'wrap',flexDirection: 'column',
+                                                                            alignItems: 'center',justifyContent: 'center',
+                                                                        }}>
+                                                                <img src={car1} alt="" style={{width:'350px',marginTop:'-10px'}}/>
+                                                            </Grid>
+                                                        </Item>
+                                                        <Item className={classes.appItem}>
+                                                            <Grid style={{height:'200px',width:'350px', display: 'flex',
+                                                                            flexWrap: 'wrap',flexDirection: 'column',
+                                                                            alignItems: 'center',justifyContent: 'center',
+                                                                        }}>
+                                                                <img src={car2} alt="" style={{width:'450px',marginTop:'-10px',marginLeft:'-120px'}}/>
+                                                            </Grid>
+                                                        </Item>
+                                                        <Item className={classes.appItem}>
+                                                            <Grid style={{height:'200px',width:'350px', display: 'flex',
+                                                                            flexWrap: 'wrap',flexDirection: 'column',
+                                                                            alignItems: 'center',justifyContent: 'center',
+                                                                        }}>
+                                                                <img src={car3} alt="" style={{width:'350px',marginTop:'-10px'}}/>
+                                                            </Grid>
+                                                        </Item>
+
+                                                    </Carousel> 
+                                                    </Grid>
+                                                    <Grid className={classes.popupBookinForm}>
+
+                                                    </Grid>
                                                 </Grid>
 
                                             {/* </DialogContentText> */}

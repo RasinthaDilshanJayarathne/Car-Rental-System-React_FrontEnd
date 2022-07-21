@@ -90,6 +90,40 @@ export const styleSheet = {
     popUpBox:{
         width:'80vw',
         height:'80vh',
-        backgroundColor:'#eeeff1'
-    }
+        backgroundColor:'#eeeff1',
+        overflowX:'hidden'
+    },
+    popupContainer:{
+        width:'92.5vw',
+        height:'75vh',
+        display: 'flex',
+        flexWrap: 'wrap',
+        flexDirection: 'row',
+        alignItems: 'center',
+        justifyContent: 'center',
+        //marginTop:'-10px'
+        //border:'1px solid black'
+    },
+    popupPhotoCard:{
+        width:'30vw',
+        height:'75vh',
+        display: 'flex',
+        flexWrap: 'wrap',
+        flexDirection: 'row',
+        alignItems: 'center',
+        justifyContent: 'center',
+        border:'1px solid black',
+        //backgroundColor: 'red',
+    },
+    popupBookinForm:{
+        width:'62.5vw',
+        height:'75vh',
+        display: 'flex',
+        flexWrap: 'wrap',
+        flexDirection: 'row',
+        alignItems: 'center',
+        justifyContent: 'center',
+        border:'1px solid black',
+        //backgroundColor: 'blue',
+    },
 }
