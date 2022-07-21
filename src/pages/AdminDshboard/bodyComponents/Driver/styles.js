@@ -2,7 +2,7 @@ export const styleSheet = {
     container: {
         height:'100vh',
         width:'83.5vw',
-        marginLeft:'10px',
+        marginLeft:'9px',
         overflowX:'hidden',
         display: 'flex',
         flexWrap: 'wrap',
@@ -32,13 +32,13 @@ export const styleSheet = {
         flexDirection: 'column',
         //backgroundColor: 'yellow',
     },
-    formContainer: {
+    table: {
         height: '85vh',
         width: '83.3vw',
         display: 'flex',
         flexWrap: 'wrap',
         flexDirection: 'column',
-        backgroundColor: 'red',
+        backgroundColor: 'white',
         alignItems: 'center',
         justifyContent: 'center',
         border: '2px solid #eeeff1',

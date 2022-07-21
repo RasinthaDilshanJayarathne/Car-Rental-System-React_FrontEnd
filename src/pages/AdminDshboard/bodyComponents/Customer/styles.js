@@ -2,7 +2,7 @@ export const styleSheet = {
     container: {
         height:'100vh',
         width:'83.5vw',
-        marginLeft:'10px',
+        marginLeft:'9px',
         overflowX:'hidden',
         display: 'flex',
         flexWrap: 'wrap',

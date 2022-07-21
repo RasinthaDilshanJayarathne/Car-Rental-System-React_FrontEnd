@@ -10,10 +10,6 @@ import TableContainer from '@mui/material/TableContainer';
 import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
-import DeleteIcon from '@mui/icons-material/Delete';
-import IconButton from '@mui/material/IconButton';
-import Tooltip from '@mui/material/Tooltip';
-import EditIcon from '@mui/icons-material/Edit';
 import { Component } from 'react';
 
 class Customer extends Component{
@@ -57,7 +53,7 @@ class Customer extends Component{
                     </Grid>
                 </Grid>
             <Grid className={classes.table}>
-            <TableContainer component={Paper} style={{ height: '82vh',width:'82vw',backgroundColor:'#eeeff1'}}>
+                <TableContainer component={Paper} style={{ height: '82vh',width:'82vw',backgroundColor:'#eeeff1'}}>
                     <Table aria-label="simple table">
                         <TableHead>
                         <TableRow>
