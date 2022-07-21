@@ -2,13 +2,12 @@ import React from 'react'
 import Sidenav from "./SideNav";
 import {Route, Routes} from "react-router-dom";
 import {useStyles} from "./HeaderStyles";
+import Home from "../bodyComponents/Home/Home";
 import {Box} from "@mui/material";
-import Home from '../../AdminDshboard/bodyComponents/Home/Home';
-import Vehicle from '../../AdminDshboard/bodyComponents/ManageVehicle/Vehicle';
-import Driver from '../../AdminDshboard/bodyComponents/ManageDriver/Driver';
-import Customer from '../../AdminDshboard/bodyComponents/ManageCustomer/Customer';
-import Booking from '../../AdminDshboard/bodyComponents/ManageBooking/Booking';
-import Income from '../../AdminDshboard/bodyComponents/Income/Income';
+import Luxury from "../bodyComponents/Luxury/Luxury";
+import General from "../bodyComponents/General/General";
+import Premium from "../bodyComponents/Premium/Premium";
+import Profile from "../bodyComponents/Profile/Profile";
 
 export default function AdminDashboard() {
     const classes = useStyles()
@@ -22,11 +21,10 @@ export default function AdminDashboard() {
             <Box className={classes.wrapper}>
                 <Routes>
                     <Route exact path="/" element={<Home/>}/>
-                    <Route exact path="/manageVehicle" element={<Vehicle/>}/>
-                    <Route exact path="/manageDriver" element={<Driver/>}/>
-                    <Route exact path="/manageCustomer" element={<Customer/>}/>
-                    <Route exact path="/manageBooking" element={<Booking/>}/>
-                    <Route exact path="/income" element={<Income/>}/>
+                    <Route exact path="/general" element={<General/>}/>
+                    <Route exact path="/premium" element={<Premium/>}/>
+                    <Route exact path="/luxury" element={<Luxury/>}/>
+                    <Route exact path="/profile" element={<Profile/>}/>
                 </Routes>
             </Box>
         </div>

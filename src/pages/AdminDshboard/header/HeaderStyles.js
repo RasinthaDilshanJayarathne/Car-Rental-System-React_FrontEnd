@@ -7,8 +7,8 @@ export const useStyles = makeStyles((theme) => ({
         // minHeight: "100vh",
         // height: "auto",
         // background: "#efefef",
-        // marginTop: "60px",
-        padding: theme.spacing(2, 2, 0, 34),
+        marginTop: "-16px",
+        padding: theme.spacing(2, 2, 0, 30),
         [theme.breakpoints.down("sm")]: {
             padding: theme.spacing(2, 2),
             marginTop: "45px",
@@ -18,7 +18,6 @@ export const useStyles = makeStyles((theme) => ({
     //Side nav
     drawerPaper: {
         width: "250px",
-        //marginTop: "65px",
         [theme.breakpoints.down("sm")]: {
             marginTop: "0px",
         },

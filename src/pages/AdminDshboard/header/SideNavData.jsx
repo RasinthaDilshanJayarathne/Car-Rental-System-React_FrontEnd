@@ -1,11 +1,8 @@
 import React from 'react'
 import {Button, List, ListItem, ListItemIcon, ListItemText} from "@material-ui/core";
-import HomeIcon from '@mui/icons-material/Home';
 import DirectionsCarIcon from '@mui/icons-material/DirectionsCar';
-import AirlineSeatReclineNormalIcon from '@mui/icons-material/AirlineSeatReclineNormal';
-import CarRentalIcon from '@mui/icons-material/CarRental';
-import MonetizationOnIcon from '@mui/icons-material/MonetizationOn';
-import ManIcon from '@mui/icons-material/Man';
+import AccountCircleIcon from '@mui/icons-material/AccountCircle';
+import HomeIcon from '@mui/icons-material/Home';
 import {NavLink} from "react-router-dom";
 import {useStyles} from "./HeaderStyles";
 
@@ -13,11 +10,10 @@ export default function SideNavData({handleDrawerClose}) {
     const classes = useStyles();
     const listItemData = [
         {label: "Home", link: "/", icon: <HomeIcon/>},
-        {label: "Manage Vehicle", link: "/manageVehicle", icon: <DirectionsCarIcon/>},
-        {label: "Manage Driver", link: "/manageDriver", icon: <AirlineSeatReclineNormalIcon/>},
-        {label: "Manage Customer", link: "/manageCustomer", icon: <ManIcon/>},
-        {label: "Manage Booking", link: "/manageBooking", icon: <CarRentalIcon/>},
-        {label: "Income", link: "/income", icon: <MonetizationOnIcon/>},
+        {label: "Manage Customer", link: "/general", icon: <DirectionsCarIcon/>},
+        {label: "Manage Vehicle", link: "/premium", icon: <DirectionsCarIcon/>},
+        {label: "Manage Driver", link: "/luxury", icon: <DirectionsCarIcon/>},
+        {label: "Manage Booking", link: "/profile", icon: <AccountCircleIcon/>},
     ]
     return (<List>
         {listItemData.map((item, i) => (

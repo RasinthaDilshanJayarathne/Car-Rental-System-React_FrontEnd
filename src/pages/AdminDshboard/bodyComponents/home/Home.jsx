@@ -8,6 +8,7 @@ import rev2 from "../../../../assets/img/rev2.jpg";
 import rev3 from "../../../../assets/img/rev3.jpg";
 import Carousel from "react-elastic-carousel";
 import Button from '@mui/material/Button';
+import Item from './Item';
 
 const breakPoints = [
     { width: 1, itemsToShow: 1 },
@@ -68,7 +69,7 @@ class Home extends Component {
                         </Grid>
                     </Grid>
                     <Grid className={classes.driverContainer}>
-                        {/* <Grid className={classes.app}> 
+                        <Grid className={classes.app}> 
                             <Carousel breakPoints={breakPoints}>
                                 <Item className={classes.appItem}>
                                     <Grid style={{height:'200px',width:'350px', display: 'flex',
@@ -144,7 +145,7 @@ class Home extends Component {
                                     </Grid>
                                 </Item>
                             </Carousel> 
-                        </Grid> */}
+                        </Grid>
                     </Grid>
                 </Grid>
             </Grid>
