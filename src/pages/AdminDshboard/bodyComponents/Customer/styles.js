@@ -2,7 +2,7 @@ export const styleSheet = {
     container: {
         height:'100vh',
         width:'83.5vw',
-        marginLeft:'11px',
+        marginLeft:'10px',
         overflowX:'hidden',
         display: 'flex',
         flexWrap: 'wrap',
@@ -33,7 +33,7 @@ export const styleSheet = {
         //backgroundColor: 'yellow',
     },
     table: {
-        height: '75vh',
+        height: '85vh',
         width: '83.3vw',
         display: 'flex',
         flexWrap: 'wrap',

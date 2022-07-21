@@ -18,26 +18,26 @@ import EditIcon from '@mui/icons-material/Edit';
 function Customer(props) {
     const {classes} = props;
 
-    function createData(name, calories, fat, carbs, protein) {
-        return { name, calories, fat, carbs, protein };
+    function createData(id, email, firstName, lastName, licenNo, contact, nic, address) {
+        return { id, email, firstName, lastName, licenNo, contact, nic,address};
       }
       
       const rows = [
-        createData('Frozen yoghurt', 159, 6.0, 24, 4.0),
-        createData('Ice cream sandwich', 237, 9.0, 37, 4.3),
-        createData('Eclair', 262, 16.0, 24, 6.0),
-        createData('Cupcake', 305, 3.7, 67, 4.3),
-        createData('Gingerbread', 356, 16.0, 49, 3.9),
-        createData('Frozen yoghurt', 159, 6.0, 24, 4.0),
-        createData('Ice cream sandwich', 237, 9.0, 37, 4.3),
-        createData('Eclair', 262, 16.0, 24, 6.0),
-        createData('Cupcake', 305, 3.7, 67, 4.3),
-        createData('Gingerbread', 356, 16.0, 49, 3.9),
-        createData('Frozen yoghurt', 159, 6.0, 24, 4.0),
-        createData('Ice cream sandwich', 237, 9.0, 37, 4.3),
-        createData('Eclair', 262, 16.0, 24, 6.0),
-        createData('Cupcake', 305, 3.7, 67, 4.3),
-        createData('Gingerbread', 356, 16.0, 49, 3.9),
+        createData('R00-001','rasintha@gmail.com','Nimal','Perera', 2423452,'071-3123342','42345124','Galle'),
+        createData('R00-002','rasintha@gmail.com','Kamal','Gamage',2373453, '071-3123342','42345124','Colombo'),
+        createData('R00-003','rasintha@gmail.com','Amal','Soisa',2624567,'071-3123342','42345124','Panadura'),
+        createData('R00-004','rasintha@gmail.com','Nadun','Hettiarachci',3053434,'071-3123342','42345124','Matara'),
+        createData('R00-005','rasintha@gmail.com','Wimal','Gamage',3562432,'071-3123342','42345124','Galle'),
+        createData('R00-006','rasintha@gmail.com','Rasintha','Perera',1596756,'071-3123342','42345124','Matara'),
+        createData('R00-007','rasintha@gmail.com','Yasiru','Soisa',237876,'071-3123342','42345124','Panadura'),
+        createData('R00-008','rasintha@gmail.com','Minura','Hettiarachci',2627564,'071-3123342','42345124','Matara'),
+        createData('R00-009','rasintha@gmail.com','Yasidu','Soisa',3055632,'071-3123342','42345124','Colombo'),
+        createData('R00-0010','rasintha@gmail.com','Upali','de Silva',3561233,'071-3123342','42345124','Panadura'),
+        createData('R00-0011','rasintha@gmail.com','Sunil','Hettiarachci',1593546,'071-3123342','42345124','Colombo'),
+        createData('R00-0012','rasintha@gmail.com','Supun','Perera',237978,'071-3123342','42345124','Matara'),
+        createData('R00-0013','rasintha@gmail.com','Kanthi','Gamage',2622345,'071-3123342','42345124','Colombo'),
+        createData('R00-0014','rasintha@gmail.com','Iresha','Hettiarachci',305578,'071-3123342','42345124','Galle'),
+        createData('R00-0015','rasintha@gmail.com','Naduni','Perera',3565673,'071-3123342','42345124','Matara'),
       ];
 
     return (
@@ -46,12 +46,12 @@ function Customer(props) {
                     <Grid className={classes.bookingPanel}>
                         <img src={logo} alt="" style={{width: '150px', marginTop: '-10px'}}/>
                         <Typography variant="h5" style={{marginLeft: '30px'}}>
-                            BOOK A CAR / NO ADVANCE PAYMENT
+                            BOOK A CAR / CUSTOMER MANAGE
                         </Typography>
                     </Grid>
                 </Grid>
             <Grid className={classes.table}>
-            <TableContainer component={Paper} style={{ height: '74vh'}}>
+            <TableContainer component={Paper} style={{ height: '82vh',width:'82vw',backgroundColor:'#eeeff1'}}>
                     <Table aria-label="simple table">
                         <TableHead>
                         <TableRow>
@@ -72,14 +72,14 @@ function Customer(props) {
                             key={row.name}
                             sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
                             >
-                            <TableCell align="left">{row.name}</TableCell>
-                            <TableCell align="left">{row.calories}</TableCell>
-                            <TableCell align="left">{row.fat}</TableCell>
-                            <TableCell align="left">{row.carbs}</TableCell>
-                            <TableCell align="left">{row.protein}</TableCell>
-                            <TableCell align="left">{row.name}</TableCell>
-                            <TableCell align="left">{row.calories}</TableCell>
-                            <TableCell align="left">{row.fat}</TableCell>
+                            <TableCell align="left">{row.id}</TableCell>
+                            <TableCell align="left">{row.email}</TableCell>
+                            <TableCell align="left">{row.firstName}</TableCell>
+                            <TableCell align="left">{row.lastName}</TableCell>
+                            <TableCell align="left">{row.licenNo}</TableCell>
+                            <TableCell align="left">{row.contact}</TableCell>
+                            <TableCell align="left">{row.nic}</TableCell>
+                            <TableCell align="left">{row.address}</TableCell>
                             <TableCell align="left">
                                 <Tooltip title="Edit">
                                     <IconButton 
@@ -105,9 +105,6 @@ function Customer(props) {
                         </TableBody>
                     </Table>
                 </TableContainer>
-            </Grid>
-            <Grid className={classes.tableBtn}>
-                <Button variant="contained">Contained</Button>
             </Grid>
         </Grid>
     );
