@@ -10,9 +10,7 @@ import MeetingRoomIcon from "@mui/icons-material/MeetingRoom";
 import AddRoadIcon from "@mui/icons-material/AddRoad";
 import SettingsIcon from "@mui/icons-material/Settings";
 import Dialog from '@mui/material/Dialog';
-import DialogActions from '@mui/material/DialogActions';
 import DialogContent from '@mui/material/DialogContent';
-import DialogContentText from '@mui/material/DialogContentText';
 import DialogTitle from '@mui/material/DialogTitle';
 import Slide from '@mui/material/Slide';
 import car1 from "../../../../assets/img/car1.png";
@@ -22,6 +20,7 @@ import car4 from "../../../../assets/img/car4.png";
 import car5 from "../../../../assets/img/car5.png";
 import rev1 from "../../../../assets/img/rev1.jpg";
 import Carousel from "react-elastic-carousel";
+import { TextValidator, ValidatorForm } from "react-material-ui-form-validator";
 import Item from './Item';
 
 const Transition = React.forwardRef(function Transition(props, ref) {
@@ -200,37 +199,51 @@ function General(props) {
                                                 
                                                 <Grid className={classes.popupContainer}>
                                                     <Grid className={classes.popupPhotoCard}>
-                                                    <Carousel breakPoints={breakPoints}>
-
-                                                        <Item className={classes.appItem}>
-                                                            <Grid style={{height:'200px',width:'350px', display: 'flex',
-                                                                            flexWrap: 'wrap',flexDirection: 'column',
-                                                                            alignItems: 'center',justifyContent: 'center',
-                                                                        }}>
-                                                                <img src={car1} alt="" style={{width:'350px',marginTop:'-10px'}}/>
-                                                            </Grid>
-                                                        </Item>
-                                                        <Item className={classes.appItem}>
-                                                            <Grid style={{height:'200px',width:'350px', display: 'flex',
-                                                                            flexWrap: 'wrap',flexDirection: 'column',
-                                                                            alignItems: 'center',justifyContent: 'center',
-                                                                        }}>
-                                                                <img src={car2} alt="" style={{width:'450px',marginTop:'-10px',marginLeft:'-120px'}}/>
-                                                            </Grid>
-                                                        </Item>
-                                                        <Item className={classes.appItem}>
-                                                            <Grid style={{height:'200px',width:'350px', display: 'flex',
-                                                                            flexWrap: 'wrap',flexDirection: 'column',
-                                                                            alignItems: 'center',justifyContent: 'center',
-                                                                        }}>
-                                                                <img src={car3} alt="" style={{width:'350px',marginTop:'-10px'}}/>
-                                                            </Grid>
-                                                        </Item>
-
-                                                    </Carousel> 
+                                                        <Carousel breakPoints={breakPoints}>
+                                                            <Item className={classes.appItem}>
+                                                                <Grid style={{height:'200px',width:'350px', display: 'flex',
+                                                                                flexWrap: 'wrap',flexDirection: 'column',
+                                                                                alignItems: 'center',justifyContent: 'center',
+                                                                            }}>
+                                                                    <img src={car1} alt="" style={{width:'350px',marginTop:'-10px'}}/>
+                                                                </Grid>
+                                                            </Item>
+                                                            <Item className={classes.appItem}>
+                                                                <Grid style={{height:'200px',width:'350px', display: 'flex',
+                                                                                flexWrap: 'wrap',flexDirection: 'column',
+                                                                                alignItems: 'center',justifyContent: 'center',
+                                                                            }}>
+                                                                    <img src={car2} alt="" style={{width:'450px',marginTop:'-10px',marginLeft:'-120px'}}/>
+                                                                </Grid>
+                                                            </Item>
+                                                            <Item className={classes.appItem}>
+                                                                <Grid style={{height:'200px',width:'350px', display: 'flex',
+                                                                                flexWrap: 'wrap',flexDirection: 'column',
+                                                                                alignItems: 'center',justifyContent: 'center',
+                                                                            }}>
+                                                                    <img src={car3} alt="" style={{width:'350px',marginTop:'-10px'}}/>
+                                                                </Grid>
+                                                            </Item>
+                                                        </Carousel> 
                                                     </Grid>
                                                     <Grid className={classes.popupBookinForm}>
-
+                                                        <Grid container spacing={-4} rowSpacing={30}>
+                                                            <TextField style={{padding:'10px',width:'230px'}} id="outlined-basic" label="Rental Id" variant="outlined" />
+                                                            <TextField style={{padding:'10px',width:'230px'}} id="outlined-basic" label="Pick-Up-Date" variant="outlined" />
+                                                            <TextField style={{padding:'10px',width:'230px'}} id="outlined-basic" label="Pick-Up-Time" variant="outlined" />
+                                                            <TextField style={{padding:'10px',width:'230px'}} id="outlined-basic" label="Return-Date" variant="outlined" />
+                                                            <TextField style={{padding:'10px',width:'230px'}} id="outlined-basic" label="Driver Requesting Type" variant="outlined" />
+                                                            <TextField style={{padding:'10px',width:'230px'}} id="outlined-basic" label="Driver Id" variant="outlined" />
+                                                            <TextField style={{padding:'10px',width:'230px'}} id="outlined-basic" disabled label="Driver Name" variant="outlined" />
+                                                            <TextField style={{padding:'10px',width:'230px'}} id="outlined-basic" disabled label="Customer Id" variant="outlined" />
+                                                            <TextField style={{padding:'10px',width:'230px'}} id="outlined-basic" disabled label="Customer Id" variant="outlined" />
+                                                            <TextField style={{padding:'10px',width:'230px'}} id="outlined-basic" disabled label="Customer Name" variant="outlined" />
+                                                            <TextField style={{padding:'10px',width:'230px'}} id="outlined-basic" disabled label="Customer License No" variant="outlined" />
+                                                            <TextField style={{padding:'10px',width:'230px'}} id="outlined-basic" disabled label="Customer Address" variant="outlined" />
+                                                            <TextField style={{padding:'10px',width:'230px'}} id="outlined-basic" disabled label="Customer Contact No" variant="outlined" />
+                                                            <TextField style={{padding:'10px',width:'230px'}} id="outlined-basic" disabled label="Customer E-mail" variant="outlined" />
+                                                            <TextField style={{padding:'10px',width:'230px'}} id="outlined-basic" label="User Name" variant="outlined" />
+                                                        </Grid>
                                                     </Grid>
                                                 </Grid>
 
