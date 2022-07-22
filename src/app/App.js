@@ -8,8 +8,8 @@ import AdminDashboard from "../pages/AdminDshboard/header/HeaderComponent"
 function App() {
     return (
         <Fragment>
-            <CustomerDashboard/>
-            {/* <AdminDashboard/> */}
+            {/* <CustomerDashboard/> */}
+            <AdminDashboard/>
             {/* <WebSite/> */}
         </Fragment>
        /* <Routes>

@@ -1,9 +1,18 @@
 export const styleSheet = {
     container: {
-        //border:'1px solid red',
+        height:'100vh',
+        width:'83.5vw',
+        marginLeft:'9px',
+        overflowX:'hidden',
+        display: 'flex',
+        flexWrap: 'wrap',
+        flexDirection: 'column',
+        //backgroundColor: '#eeeff1',
+        alignItems: 'center',
+        justifyContent: 'center',
     },
     searchBar: {
-        height: '20vh',
+        height: '15vh',
         width: '83.3vw',
         display: 'flex',
         flexWrap: 'wrap',
@@ -14,7 +23,7 @@ export const styleSheet = {
         border: '2px solid #eeeff1',
     },
     bookingPanel: {
-        height: '10vh',
+        height: '15vh',
         width: '83.3vw',
         display: 'flex',
         flexWrap: 'wrap',
@@ -23,68 +32,35 @@ export const styleSheet = {
         flexDirection: 'column',
         //backgroundColor: 'yellow',
     },
-    //Load karanna one mekata
-    vehicleCart: {
-        //height: '78vh',
+    vehicleCard:{
+        height: '85vh',
         width: '83.3vw',
         display: 'flex',
         flexWrap: 'wrap',
         flexDirection: 'column',
+        backgroundColor: 'white',
         alignItems: 'center',
-        //border:'3px solid #eeeff1',
-    },
-    vehicle: {
-        height: '39vh',
-        width: '83.3vw',
-        display: 'flex',
-        flexWrap: 'wrap',
-        flexDirection: 'row',
+        justifyContent: 'center',
         border: '2px solid #eeeff1',
-        //backgroundColor:'white',
     },
-    vehicleImg: {
-        width: '25vw',
-        height: '39vh',
+    vehiclePhoto:{
+        height: '83vh',
+        width: '32vw',
         display: 'flex',
         flexWrap: 'wrap',
         flexDirection: 'column',
         alignItems: 'center',
         justifyContent: 'center',
-        //border:'1px solid red'
+        backgroundColor:'#eeeff1',
+        borderRadius:'15px',
     },
-    vehicleDetails: {
-        width: '40vw',
-        height: '39vh',
+    vehicleForm:{
+        height: '83vh',
+        width: '50vw',
         display: 'flex',
         flexWrap: 'wrap',
-        flexDirection: 'row',
-        alignItems: 'top',
-        justifyContent: 'left',
-        paddingLeft: '15px',
-        //border:'1px solid red'
-    },
-    vehicleBookingBtn: {
-        width: '17vw',
-        height: '39vh',
-        display: 'flex',
-        flexWrap: 'wrap',
-        flexDirection: 'row',
+        flexDirection: 'column',
         alignItems: 'center',
         justifyContent: 'center',
-        //border:'1px solid red'
-    },
-    vehicleDetailsCard: {
-        width: '37vw',
-        height: '25vh',
-        display: 'flex',
-        flexWrap: 'wrap',
-        flexDirection: 'row',
-        //border:'1px solid red'
-    },
-    vehicleSubDetailsCard: {
-        width: '18.5vw',
-        height: '23vh',
-        marginTop: '10px',
-        //border:'1px solid red'
-    },
+    }
 }
