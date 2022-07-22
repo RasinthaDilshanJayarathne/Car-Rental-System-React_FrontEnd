@@ -7,7 +7,7 @@ import rev1 from "../../../../assets/img/rev1.jpg";
 import {Button, IconButton, TextField} from "@mui/material";
 import {PhotoCamera} from "@mui/icons-material";
 
-class Home extends Component {
+class Profile extends Component {
     constructor(props) {
         super(props);
     }
@@ -67,4 +67,4 @@ class Home extends Component {
     }
 }
 
-export default withStyles(styleSheet)(Home)
+export default withStyles(styleSheet)(Profile)
