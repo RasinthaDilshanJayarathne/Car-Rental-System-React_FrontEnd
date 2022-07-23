@@ -9,8 +9,8 @@ import DriverDashboard from "../pages/DriverDashboard/header/HeaderComponent"
 function App() {
     return (
         <Fragment>
-            {/* <CustomerDashboard/> */}
-            <AdminDashboard/>
+            <CustomerDashboard/>
+            {/* <AdminDashboard/> */}
             {/* <WebSite/> */}
             {/* <DriverDashboard/> */}
         </Fragment>

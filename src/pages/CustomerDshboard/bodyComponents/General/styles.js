@@ -106,24 +106,38 @@ export const styleSheet = {
     },
     popupPhotoCard:{
         width:'30vw',
-        height:'75vh',
+        height:'50vh',
         display: 'flex',
         flexWrap: 'wrap',
         flexDirection: 'row',
         alignItems: 'center',
         justifyContent: 'center',
-        border:'1px solid black',
+        //border:'1px solid black',
+        marginTop:'-10px'
         //backgroundColor: 'red',
     },
     popupBookinForm:{
         width:'62.5vw',
-        height:'75vh',
+        height:'50vh',
         display: 'flex',
         flexWrap: 'wrap',
         flexDirection: 'row',
         alignItems: 'center',
         justifyContent: 'center',
-        border:'1px solid black',
-        //backgroundColor: 'blue',
+        //border:'1px solid black',
+        marginTop:'-10px'
+        //backgroundColor: '#eeeff1',
+        //borderRadius:'15px'
     },
+    popupBookinTable:{
+        width:'100vw',
+        height:'25vh',
+        //border:'1px solid black',
+        marginTop:'-10px',
+        display: 'flex',
+        flexWrap: 'wrap',
+        flexDirection: 'row',
+        alignItems: 'center',
+        justifyContent: 'center',
+    }
 }
