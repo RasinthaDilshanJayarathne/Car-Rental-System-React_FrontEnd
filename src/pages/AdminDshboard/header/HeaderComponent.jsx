@@ -4,7 +4,7 @@ import {Route, Routes} from "react-router-dom";
 import {useStyles} from "./HeaderStyles";
 import Home from "../bodyComponents/Home/Home";
 import {Box} from "@mui/material";
-import Vehicle from "../bodyComponents/Vehicle/Vehicle";
+import Vehicle from "../../AdminDshboard/bodyComponents/Vehicle/Vehicle";
 import Customer from '../bodyComponents/Customer/Customer';
 import Booking from '../bodyComponents/Booking/Booking';
 import Driver from '../bodyComponents/Driver/Driver';

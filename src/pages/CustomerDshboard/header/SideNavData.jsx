@@ -14,7 +14,7 @@ export default function SideNavData({handleDrawerClose}) {
         {label: "Premium", link: "/premium", icon: <DirectionsCarIcon/>},
         {label: "Luxury", link: "/luxury", icon: <DirectionsCarIcon/>},
         {label: "Profile", link: "/profile", icon: <AccountCircleIcon/>},
-    ]
+     ]
     return (<List>
         {listItemData.map((item, i) => (
             <Button size="small" className={classes.navButton} onClick={() => handleDrawerClose()}>

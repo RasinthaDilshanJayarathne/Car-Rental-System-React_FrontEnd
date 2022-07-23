@@ -79,8 +79,8 @@ class Home extends Component {
                                         <img src={rev1} alt="" style={{width:'150px',height:'150px',borderRadius:'180px',marginTop:'-10px'}}/>
                                     </Grid>
                                     <Grid style={{height:'100px',width:'350px',textAlign:'center'}}>
-                                        <Typography variant="h5" gutterBottom component="div" >Name : Rasintha Dilshan</Typography>
-                                        <Typography variant="h5" gutterBottom component="div" >Driver Id : DR-001</Typography>
+                                        <Typography variant="h6" gutterBottom component="div" >Name : Rasintha Dilshan</Typography>
+                                        <Typography variant="h6" gutterBottom component="div" >Driver Id : DR-001</Typography>
                                     </Grid>
                                     <Grid style={{height:'100px',width:'250px',display: 'flex',
                                                     flexWrap: 'wrap',flexDirection: 'column',
@@ -98,8 +98,8 @@ class Home extends Component {
                                         <img src={rev2} alt="" style={{width:'150px',height:'150px',borderRadius:'180px',marginTop:'-10px'}}/>
                                     </Grid>
                                     <Grid style={{height:'100px',width:'350px',textAlign:'center'}}>
-                                        <Typography variant="h5" gutterBottom component="div" >Name : Rasintha Dilshan</Typography>
-                                        <Typography variant="h5" gutterBottom component="div" >Driver Id : DR-001</Typography>
+                                        <Typography variant="h6" gutterBottom component="div" >Name : Rasintha Dilshan</Typography>
+                                        <Typography variant="h6" gutterBottom component="div" >Driver Id : DR-001</Typography>
                                     </Grid>
                                     <Grid style={{height:'100px',width:'250px',display: 'flex',
                                                     flexWrap: 'wrap',flexDirection: 'column',
@@ -116,8 +116,8 @@ class Home extends Component {
                                         <img src={rev3} alt="" style={{width:'150px',height:'150px',borderRadius:'180px',marginTop:'-10px'}}/>
                                     </Grid>
                                     <Grid style={{height:'100px',width:'350px',textAlign:'center'}}>
-                                        <Typography variant="h5" gutterBottom component="div" >Name : Rasintha Dilshan</Typography>
-                                        <Typography variant="h5" gutterBottom component="div" >Driver Id : DR-001</Typography>
+                                        <Typography variant="h6" gutterBottom component="div" >Name : Rasintha Dilshan</Typography>
+                                        <Typography variant="h6" gutterBottom component="div" >Driver Id : DR-001</Typography>
                                     </Grid>
                                     <Grid style={{height:'100px',width:'250px',display: 'flex',
                                                     flexWrap: 'wrap',flexDirection: 'column',
@@ -134,8 +134,8 @@ class Home extends Component {
                                         <img src={rev1} alt="" style={{width:'150px',height:'150px',borderRadius:'180px',marginTop:'-10px'}}/>
                                     </Grid>
                                     <Grid style={{height:'100px',width:'350px',textAlign:'center'}}>
-                                        <Typography variant="h5" gutterBottom component="div" >Name : Rasintha Dilshan</Typography>
-                                        <Typography variant="h5" gutterBottom component="div" >Driver Id : DR-001</Typography>
+                                        <Typography variant="h6" gutterBottom component="div" >Name : Rasintha Dilshan</Typography>
+                                        <Typography variant="h6" gutterBottom component="div" >Driver Id : DR-001</Typography>
                                     </Grid>
                                     <Grid style={{height:'100px',width:'250px',display: 'flex',
                                                     flexWrap: 'wrap',flexDirection: 'column',
@@ -145,6 +145,47 @@ class Home extends Component {
                                     </Grid>
                                 </Item>
                             </Carousel> 
+                        </Grid>
+                    </Grid>
+                    <Grid className={classes.driverSubContainer}>
+                        <Grid className={classes.chatBox}>
+                            <Grid className={classes.image}>
+                                <img src={rev1} alt="" style={{width:'100px',height:'100px',borderRadius:'180px',marginTop:'-10px'}}/>
+                            </Grid>
+                            <Grid className={classes.details}>
+                                <Typography gutterBottom component="div" style={{fontSize:'15px',textAlign:'left'}}>
+                                        Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                                        Et ab aut culpa, placeat nostrum perspiciatis minus,quia
+                                        excepturi ipsum deleniti vitae omnis enim sapiente pariatur
+                                        accusantium officiis, ea fuga quibusdam.
+                                </Typography>
+                            </Grid>
+                        </Grid>
+                        <Grid className={classes.chatBox}>
+                            <Grid className={classes.image}>
+                                <img src={rev2} alt="" style={{width:'100px',height:'100px',borderRadius:'180px',marginTop:'-10px'}}/>
+                            </Grid>
+                            <Grid className={classes.details}>
+                                <Typography gutterBottom component="div" style={{fontSize:'15px',textAlign:'left'}}>
+                                        Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                                        Et ab aut culpa, placeat nostrum perspiciatis minus,quia
+                                        excepturi ipsum deleniti vitae omnis enim sapiente pariatur
+                                        accusantium officiis, ea fuga quibusdam.
+                                </Typography>
+                            </Grid>
+                        </Grid>
+                        <Grid className={classes.chatBox}>
+                            <Grid className={classes.image}>
+                                <img src={rev3} alt="" style={{width:'100px',height:'100px',borderRadius:'180px',marginTop:'-10px'}}/>
+                            </Grid>
+                            <Grid className={classes.details}>
+                                <Typography gutterBottom component="div" style={{fontSize:'15px',textAlign:'left'}}>
+                                        Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                                        Et ab aut culpa, placeat nostrum perspiciatis minus,quia
+                                        excepturi ipsum deleniti vitae omnis enim sapiente pariatur
+                                        accusantium officiis, ea fuga quibusdam.
+                                </Typography>
+                            </Grid>
                         </Grid>
                     </Grid>
                 </Grid>

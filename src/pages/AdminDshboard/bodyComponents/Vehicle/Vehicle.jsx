@@ -23,7 +23,8 @@ import Paper from '@mui/material/Paper';
 import PhotoCamera from '@mui/icons-material/PhotoCamera';
 import Stack from '@mui/material/Stack';
 import Item from './Item';
-import {ValidatorForm ,TextValidator} from "react-material-ui-form-validator";
+import {TextValidator, ValidatorForm} from "react-material-ui-form-validator";
+import { Component } from 'react';
 
 const DriverRequestingType = [
     { label: 'AVAILABLE'},
@@ -50,32 +51,35 @@ const breakPoints = [
     { width: 1200, itemsToShow: 4 },
   ];
 
-function Luxury(props) {
-    const {classes} = props;
-
-    function createData(id, email, firstName, lastName, licenNo, contact, nic, address) {
-        return { id, email, firstName, lastName, licenNo, contact, nic,address};
-    }
-
-    const rows = [
-        createData('R00-001','rasintha@gmail.com','Nimal','Perera', 2423452,'071-3123342','42345124','Galle'),
-        createData('R00-002','rasintha@gmail.com','Kamal','Gamage',2373453, '071-3123342','42345124','Colombo'),
-        createData('R00-003','rasintha@gmail.com','Amal','Soisa',2624567,'071-3123342','42345124','Panadura'),
-        createData('R00-004','rasintha@gmail.com','Nadun','Hettiarachci',3053434,'071-3123342','42345124','Matara'),
-        createData('R00-005','rasintha@gmail.com','Wimal','Gamage',3562432,'071-3123342','42345124','Galle'),
-        createData('R00-006','rasintha@gmail.com','Rasintha','Perera',1596756,'071-3123342','42345124','Matara'),
-        createData('R00-007','rasintha@gmail.com','Yasiru','Soisa',237876,'071-3123342','42345124','Panadura'),
-        createData('R00-008','rasintha@gmail.com','Minura','Hettiarachci',2627564,'071-3123342','42345124','Matara'),
-        createData('R00-009','rasintha@gmail.com','Yasidu','Soisa',3055632,'071-3123342','42345124','Colombo'),
-        createData('R00-0010','rasintha@gmail.com','Upali','de Silva',3561233,'071-3123342','42345124','Panadura'),
-        createData('R00-0011','rasintha@gmail.com','Sunil','Hettiarachci',1593546,'071-3123342','42345124','Colombo'),
-        createData('R00-0012','rasintha@gmail.com','Supun','Perera',237978,'071-3123342','42345124','Matara'),
-        createData('R00-0013','rasintha@gmail.com','Kanthi','Gamage',2622345,'071-3123342','42345124','Colombo'),
-        createData('R00-0014','rasintha@gmail.com','Iresha','Hettiarachci',305578,'071-3123342','42345124','Galle'),
-        createData('R00-0015','rasintha@gmail.com','Naduni','Perera',3565673,'071-3123342','42345124','Matara'),
-    ];
-
-    return (
+class Vehicle extends Component {
+   constructor(props){
+        super(props)
+   }
+    
+    render(){
+        const {classes} = this.props;
+        function createData(id, email, firstName, lastName, licenNo, contact, nic, address) {
+            return { id, email, firstName, lastName, licenNo, contact, nic,address};
+        }
+    
+        const rows = [
+            createData('R00-001','rasintha@gmail.com','Nimal','Perera', 2423452,'071-3123342','42345124','Galle'),
+            createData('R00-002','rasintha@gmail.com','Kamal','Gamage',2373453, '071-3123342','42345124','Colombo'),
+            createData('R00-003','rasintha@gmail.com','Amal','Soisa',2624567,'071-3123342','42345124','Panadura'),
+            createData('R00-004','rasintha@gmail.com','Nadun','Hettiarachci',3053434,'071-3123342','42345124','Matara'),
+            createData('R00-005','rasintha@gmail.com','Wimal','Gamage',3562432,'071-3123342','42345124','Galle'),
+            createData('R00-006','rasintha@gmail.com','Rasintha','Perera',1596756,'071-3123342','42345124','Matara'),
+            createData('R00-007','rasintha@gmail.com','Yasiru','Soisa',237876,'071-3123342','42345124','Panadura'),
+            createData('R00-008','rasintha@gmail.com','Minura','Hettiarachci',2627564,'071-3123342','42345124','Matara'),
+            createData('R00-009','rasintha@gmail.com','Yasidu','Soisa',3055632,'071-3123342','42345124','Colombo'),
+            createData('R00-0010','rasintha@gmail.com','Upali','de Silva',3561233,'071-3123342','42345124','Panadura'),
+            createData('R00-0011','rasintha@gmail.com','Sunil','Hettiarachci',1593546,'071-3123342','42345124','Colombo'),
+            createData('R00-0012','rasintha@gmail.com','Supun','Perera',237978,'071-3123342','42345124','Matara'),
+            createData('R00-0013','rasintha@gmail.com','Kanthi','Gamage',2622345,'071-3123342','42345124','Colombo'),
+            createData('R00-0014','rasintha@gmail.com','Iresha','Hettiarachci',305578,'071-3123342','42345124','Galle'),
+            createData('R00-0015','rasintha@gmail.com','Naduni','Perera',3565673,'071-3123342','42345124','Matara'),
+        ];
+        return (
             <Grid className={classes.container}>
                 <Grid className={classes.searchBar}>
                     <Grid className={classes.bookingPanel}>
@@ -145,10 +149,9 @@ function Luxury(props) {
                             </Grid>
                         </Grid>
                         <Grid className={classes.vehicleForm}>
-                            
-                            <ValidatorForm ref="form" className="pt-2" onSubmit={this.submitVehicle}>
-                            <Grid container spacing={-9} rowSpacing={16}>
-                                {/* <TextValidator style={{padding:'10px',width:'230px'}} id="outlined-basic" label="Vehicle Id" variant="outlined" />
+                        <ValidatorForm ref="form" className="pt-2" onSubmit={this.submitVehicle}>
+                            <Grid container spacing={-9} rowSpacing={16} style={{marginLeft:'20px'}}>
+                                <TextValidator style={{padding:'10px',width:'230px'}} id="outlined-basic" label="Vehicle Id" variant="outlined" />
                                 <TextValidator style={{padding:'10px',width:'230px'}} id="outlined-basic" label="Registration No" variant="outlined" />
                                 <TextValidator style={{padding:'10px',width:'230px'}} id="outlined-basic" label="Vehicle Brand" variant="outlined" />
                                 <TextValidator style={{padding:'10px',width:'230px'}} id="outlined-basic" label="Number Of Passengers" variant="outlined" />
@@ -162,24 +165,7 @@ function Luxury(props) {
                                 <TextValidator style={{padding:'10px',width:'230px'}} id="outlined-basic" label="Vehicle Availability Type" variant="outlined" />
                                 <TextValidator style={{padding:'10px',width:'230px'}} id="outlined-basic" label="Damage Fee" variant="outlined" />
                                 <TextValidator style={{padding:'10px',width:'230px'}} id="outlined-basic" label="LastService Mileage" variant="outlined" />
-                                <TextValidator style={{padding:'10px',width:'230px'}} id="outlined-basic" label="Vehicle Service Mileage" variant="outlined" /> */}
-                                <Grid item xs={12} sm={12} md={12} lg={2} style={{margin: '12px 12px 14px 16px'}}>
-                                    <TextValidator
-                                        id="outlinedbasic"
-                                        placeholder="V00-001"
-                                        variant="outlined"
-                                        size="small"
-                                        style={{width: '100%'}}
-                                        label="Vehicle Id"
-                                        value={this.state.formData.vehicleId}
-                                        onChange={(e) => {
-                                            let formData = this.state.formData
-                                            formData.vehicleId = e.target.value
-                                            this.setState({ formData })
-                                        }}
-                                        validators={['required']}
-                                    />
-                                </Grid>
+                                <TextValidator style={{padding:'10px',width:'230px'}} id="outlined-basic" label="Vehicle Service Mileage" variant="outlined" />
                                 <Button style={{width:'200px',marginLeft:'480px',backgroundColor:'#2ed573'}} variant="contained">Save</Button>
                             </Grid>
                         </ValidatorForm>
@@ -190,16 +176,22 @@ function Luxury(props) {
                             <Table aria-label="simple table">
                                 <TableHead>
                                 <TableRow>
-                                    <TableCell align="left">Register Id</TableCell>
-                                    <TableCell align="left">E-mail</TableCell>
-                                    <TableCell align="left">First Name</TableCell>
-                                    <TableCell align="left">Last Name</TableCell>
-                                    <TableCell align="left">License No</TableCell>
-                                    <TableCell align="left">Contact No</TableCell>
-                                    <TableCell align="left">NIC</TableCell>
-                                    <TableCell align="left">Address</TableCell>
-                                    <TableCell align="left">Action</TableCell>
-
+                                    <TableCell align="left">Vehicle Id</TableCell>
+                                    <TableCell align="left">Registration No</TableCell>
+                                    <TableCell align="left">Vehicle Brand</TableCell>
+                                    <TableCell align="left">Number Of Passengers</TableCell>
+                                    <TableCell align="left">Driver Type</TableCell>
+                                    <TableCell align="left">Color</TableCell>
+                                    <TableCell align="left">Vehicle Type</TableCell>
+                                    <TableCell align="left">Fuel Type</TableCell>
+                                    <TableCell align="left">Transmission Type</TableCell>
+                                    <TableCell align="left">Number Of Passengers</TableCell>
+                                    <TableCell align="left">Free Mileage</TableCell>
+                                    <TableCell align="left">Vehicle Availability Type</TableCell>
+                                    <TableCell align="left">Damage Fee</TableCell>
+                                    <TableCell align="left">Fuel Type</TableCell>
+                                    <TableCell align="left">LastService Mileage</TableCell>
+                                    <TableCell align="left">Vehicle Service Mileage</TableCell>
                                 </TableRow>
                                 </TableHead>
                                 <TableBody>
@@ -216,7 +208,7 @@ function Luxury(props) {
                                     <TableCell align="left">{row.contact}</TableCell>
                                     <TableCell align="left">{row.nic}</TableCell>
                                     <TableCell align="left">{row.address}</TableCell>
-                                    <TableCell align="left">
+                                    {/* <TableCell align="left">
                                         <Tooltip title="Edit">
                                             <IconButton 
                                                 onClick={() => {
@@ -235,7 +227,7 @@ function Luxury(props) {
                                                     <DeleteIcon color="error" />
                                                 </IconButton>
                                         </Tooltip>
-                                    </TableCell>
+                                    </TableCell> */}
                                     </TableRow>
                                 ))}
                                 </TableBody>
@@ -244,8 +236,8 @@ function Luxury(props) {
                     </Grid>
                 </Grid>
             </Grid>
-        
-    );
+        );
+    }
 }
 
-export default withStyles(styleSheet)(Luxury);
+export default withStyles(styleSheet)(Vehicle);

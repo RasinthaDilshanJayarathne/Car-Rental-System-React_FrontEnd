@@ -45,7 +45,7 @@ class Home extends Component {
                             </Grid>
                             <Grid className={classes.card2}>
                                 <Typography variant="h5" gutterBottom component="div" style={{textAlign:'center',marginTop:'20px',color:'white'}}>
-                                    Available Drivers
+                                    Pending Booking
                                 </Typography>
                                 <Typography variant="h4" gutterBottom component="div" style={{textAlign:'center',marginTop:'10px',color:'white'}}>
                                     04
@@ -71,8 +71,8 @@ class Home extends Component {
                                                 <img src={rev1} alt="" style={{width:'150px',height:'150px',borderRadius:'180px',marginTop:'-10px'}}/>
                                             </Grid>
                                             <Grid style={{height:'100px',width:'350px',textAlign:'center'}}>
-                                                <Typography variant="h5" gutterBottom component="div" >Name : Rasintha Dilshan</Typography>
-                                                <Typography variant="h5" gutterBottom component="div" >Driver Id : DR-001</Typography>
+                                                <Typography variant="h6" gutterBottom component="div" >Name : Rasintha Dilshan</Typography>
+                                                <Typography variant="h6" gutterBottom component="div" >Driver Id : DR-001</Typography>
                                             </Grid>
                                             <Grid style={{height:'100px',width:'250px',display: 'flex',
                                                             flexWrap: 'wrap',flexDirection: 'column',
@@ -89,8 +89,8 @@ class Home extends Component {
                                                 <img src={rev2} alt="" style={{width:'150px',height:'150px',borderRadius:'180px',marginTop:'-10px'}}/>
                                             </Grid>
                                             <Grid style={{height:'100px',width:'350px',textAlign:'center'}}>
-                                                <Typography variant="h5" gutterBottom component="div" >Name : Rasintha Dilshan</Typography>
-                                                <Typography variant="h5" gutterBottom component="div" >Driver Id : DR-001</Typography>
+                                                <Typography variant="h6" gutterBottom component="div" >Name : Rasintha Dilshan</Typography>
+                                                <Typography variant="h6" gutterBottom component="div" >Driver Id : DR-001</Typography>
                                             </Grid>
                                             <Grid style={{height:'100px',width:'250px',display: 'flex',
                                                             flexWrap: 'wrap',flexDirection: 'column',
@@ -107,8 +107,8 @@ class Home extends Component {
                                                 <img src={rev3} alt="" style={{width:'150px',height:'150px',borderRadius:'180px',marginTop:'-10px'}}/>
                                             </Grid>
                                             <Grid style={{height:'100px',width:'350px',textAlign:'center'}}>
-                                                <Typography variant="h5" gutterBottom component="div" >Name : Rasintha Dilshan</Typography>
-                                                <Typography variant="h5" gutterBottom component="div" >Driver Id : DR-001</Typography>
+                                                <Typography variant="h6" gutterBottom component="div" >Name : Rasintha Dilshan</Typography>
+                                                <Typography variant="h6" gutterBottom component="div" >Driver Id : DR-001</Typography>
                                             </Grid>
                                             <Grid style={{height:'100px',width:'250px',display: 'flex',
                                                             flexWrap: 'wrap',flexDirection: 'column',
@@ -125,8 +125,8 @@ class Home extends Component {
                                                 <img src={rev1} alt="" style={{width:'150px',height:'150px',borderRadius:'180px',marginTop:'-10px'}}/>
                                             </Grid>
                                             <Grid style={{height:'100px',width:'350px',textAlign:'center'}}>
-                                                <Typography variant="h5" gutterBottom component="div" >Name : Rasintha Dilshan</Typography>
-                                                <Typography variant="h5" gutterBottom component="div" >Driver Id : DR-001</Typography>
+                                                <Typography variant="h6" gutterBottom component="div" >Name : Rasintha Dilshan</Typography>
+                                                <Typography variant="h6" gutterBottom component="div" >Driver Id : DR-001</Typography>
                                             </Grid>
                                             <Grid style={{height:'100px',width:'250px',display: 'flex',
                                                             flexWrap: 'wrap',flexDirection: 'column',
@@ -170,7 +170,6 @@ class Home extends Component {
                                 </Grid> 
                         </Grid>
                         <Grid className={classes.subChatBoxMan}>
-                        <Typography variant="h6" gutterBottom component="div" style={{textAlign:'center'}}>Summary Of Mounth</Typography>
                             <PieChart width={400} height={400}
                                 margin={{
                                         top: 5,

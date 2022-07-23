@@ -27,7 +27,7 @@ export const styleSheet = {
         //border:'1px solid red',
     },
     profile:{
-        height: '90vh',
+        height: '85vh',
         width: '32.1vw',
         display: 'flex',
         flexWrap: 'wrap',
@@ -35,8 +35,8 @@ export const styleSheet = {
         justifyContent:'center',
         flexDirection: 'row',
         borderRadius:'15px',
-        backgroundColor: 'white',
-        marginLeft:'5px'
+        backgroundColor: '#eeeff1',
+        marginLeft:'15px'
     },
     details:{
         height: '93vh',
@@ -47,7 +47,7 @@ export const styleSheet = {
         justifyContent:'center',
         flexDirection: 'row',
         borderRadius:'15px',
-        backgroundColor: 'white',
+        //backgroundColor: 'black',
         marginLeft:'15px'
     }
 }
