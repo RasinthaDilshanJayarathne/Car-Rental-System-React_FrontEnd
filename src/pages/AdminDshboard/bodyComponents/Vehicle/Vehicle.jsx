@@ -23,6 +23,7 @@ import Paper from '@mui/material/Paper';
 import PhotoCamera from '@mui/icons-material/PhotoCamera';
 import Stack from '@mui/material/Stack';
 import Item from './Item';
+import {ValidatorForm ,TextValidator} from "react-material-ui-form-validator";
 
 const DriverRequestingType = [
     { label: 'AVAILABLE'},
@@ -144,24 +145,44 @@ function Luxury(props) {
                             </Grid>
                         </Grid>
                         <Grid className={classes.vehicleForm}>
+                            
+                            <ValidatorForm ref="form" className="pt-2" onSubmit={this.submitVehicle}>
                             <Grid container spacing={-9} rowSpacing={16}>
-                                <TextField style={{padding:'10px',width:'230px'}} id="outlined-basic" label="Vehicle Id" variant="outlined" />
-                                <TextField style={{padding:'10px',width:'230px'}} id="outlined-basic" label="Registration No" variant="outlined" />
-                                <TextField style={{padding:'10px',width:'230px'}} id="outlined-basic" label="Vehicle Brand" variant="outlined" />
-                                <TextField style={{padding:'10px',width:'230px'}} id="outlined-basic" label="Number Of Passengers" variant="outlined" />
+                                {/* <TextValidator style={{padding:'10px',width:'230px'}} id="outlined-basic" label="Vehicle Id" variant="outlined" />
+                                <TextValidator style={{padding:'10px',width:'230px'}} id="outlined-basic" label="Registration No" variant="outlined" />
+                                <TextValidator style={{padding:'10px',width:'230px'}} id="outlined-basic" label="Vehicle Brand" variant="outlined" />
+                                <TextValidator style={{padding:'10px',width:'230px'}} id="outlined-basic" label="Number Of Passengers" variant="outlined" />
                                 <Autocomplete style={{padding:'10px',width:'230px'}} disablePortal id="combo-box-demo" variant="outlined" options={DriverRequestingType} sx={{ width: 300 }}renderInput={(params) => <TextField {...params} label="Driver Type"/>}/>
-                                <TextField style={{padding:'10px',width:'230px'}} id="outlined-basic" label="Color" variant="outlined" />
+                                <TextValidator style={{padding:'10px',width:'230px'}} id="outlined-basic" label="Color" variant="outlined" />
                                 <Autocomplete style={{padding:'10px',width:'230px'}} disablePortal id="combo-box-demo" variant="outlined" options={VehicleType} sx={{ width: 300 }}renderInput={(params) => <TextField {...params} label="Vehicle Type"/>}/>
                                 <Autocomplete style={{padding:'10px',width:'230px'}} disablePortal id="combo-box-demo" variant="outlined" options={FuelType} sx={{ width: 300 }}renderInput={(params) => <TextField {...params} label="Fuel Type"/>}/>
                                 <Autocomplete style={{padding:'10px',width:'230px'}} disablePortal id="combo-box-demo" variant="outlined" options={TransmissionType} sx={{ width: 300 }}renderInput={(params) => <TextField {...params} label="Transmission Type"/>}/>
-                                <TextField style={{padding:'10px',width:'230px'}} id="outlined-basic" label="Free Mileage" variant="outlined" />
-                                <TextField style={{padding:'10px',width:'230px'}} id="outlined-basic" label="Price Rate" variant="outlined" />
-                                <TextField style={{padding:'10px',width:'230px'}} id="outlined-basic" label="Vehicle Availability Type" variant="outlined" />
-                                <TextField style={{padding:'10px',width:'230px'}} id="outlined-basic" label="Damage Fee" variant="outlined" />
-                                <TextField style={{padding:'10px',width:'230px'}} id="outlined-basic" label="LastService Mileage" variant="outlined" />
-                                <TextField style={{padding:'10px',width:'230px'}} id="outlined-basic" label="Vehicle Service Mileage" variant="outlined" />
+                                <TextValidator style={{padding:'10px',width:'230px'}} id="outlined-basic" label="Free Mileage" variant="outlined" />
+                                <TextValidator style={{padding:'10px',width:'230px'}} id="outlined-basic" label="Price Rate" variant="outlined" />
+                                <TextValidator style={{padding:'10px',width:'230px'}} id="outlined-basic" label="Vehicle Availability Type" variant="outlined" />
+                                <TextValidator style={{padding:'10px',width:'230px'}} id="outlined-basic" label="Damage Fee" variant="outlined" />
+                                <TextValidator style={{padding:'10px',width:'230px'}} id="outlined-basic" label="LastService Mileage" variant="outlined" />
+                                <TextValidator style={{padding:'10px',width:'230px'}} id="outlined-basic" label="Vehicle Service Mileage" variant="outlined" /> */}
+                                <Grid item xs={12} sm={12} md={12} lg={2} style={{margin: '12px 12px 14px 16px'}}>
+                                    <TextValidator
+                                        id="outlinedbasic"
+                                        placeholder="V00-001"
+                                        variant="outlined"
+                                        size="small"
+                                        style={{width: '100%'}}
+                                        label="Vehicle Id"
+                                        value={this.state.formData.vehicleId}
+                                        onChange={(e) => {
+                                            let formData = this.state.formData
+                                            formData.vehicleId = e.target.value
+                                            this.setState({ formData })
+                                        }}
+                                        validators={['required']}
+                                    />
+                                </Grid>
                                 <Button style={{width:'200px',marginLeft:'480px',backgroundColor:'#2ed573'}} variant="contained">Save</Button>
                             </Grid>
+                        </ValidatorForm>
                         </Grid>
                     </Grid>
                     <Grid className={classes.vehicleTable}>
@@ -223,6 +244,7 @@ function Luxury(props) {
                     </Grid>
                 </Grid>
             </Grid>
+        
     );
 }
 
