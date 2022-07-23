@@ -9,7 +9,8 @@ export const styleSheet = {
         alignItems: 'center',
         justifyContent: 'center',
         border: '2px solid #eeeff1',
-        overflowX:'hidden'
+        overflowX:'hidden',
+        overflowY:'hidden',
         //border:'1px solid red',
     },
     subContainer:{
@@ -24,6 +25,7 @@ export const styleSheet = {
         marginLeft:'11px',
         border: '2px solid #eeeff1',
         //border:'1px solid red',
+        overflowY:'hidden',
     },
     card:{
         height: '98vh',
@@ -46,14 +48,14 @@ export const styleSheet = {
         flexDirection: 'row',
     },
     chatBox:{
-        height: '60vh',
+        height: '45vh',
         width: '30vw',
         backgroundColor: '#eeeff1',
         borderRadius:'15px',
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'center',
-        marginTop:'-40px',
+        //marginTop:'-40px',
         flexWrap: 'wrap',
         flexDirection: 'row',
     },
@@ -68,13 +70,14 @@ export const styleSheet = {
         //border: '1px solid red',
     },
     subChatBoxMan:{
-        height: '20vh',
+        height: '45vh',
         width: '30vw',
         backgroundColor: '#eeeff1',
         borderRadius:'15px',
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'center',
+        flexDirection: 'column',
     },
     subCard:{
         height: '30vh',
@@ -135,6 +138,7 @@ export const styleSheet = {
         //marginBottom:'100px',
         borderRadius:'15px',
         backgroundColor: '#eeeff1',
-    }
+        
+    },
 
 }

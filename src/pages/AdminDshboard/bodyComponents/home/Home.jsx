@@ -8,6 +8,7 @@ import rev2 from "../../../../assets/img/rev2.jpg";
 import rev3 from "../../../../assets/img/rev3.jpg";
 import Carousel from "react-elastic-carousel";
 import Button from '@mui/material/Button';
+import { Tooltip,BarChart,XAxis,YAxis,Legend,CartesianGrid,Bar, PieChart,Pie} from "recharts";
 import Item from './Item';
 
 const breakPoints = [
@@ -16,6 +17,11 @@ const breakPoints = [
     { width: 768, itemsToShow: 3 },
     { width: 1200, itemsToShow: 4 },
   ];
+  const data = [
+    { name: "General", Packges: 20 },
+    { name: "Luxury", Packges: 15 },
+    { name: "Premium", Packges: 10 },
+];
 
 class Home extends Component {
     constructor(props) {
@@ -55,129 +61,134 @@ class Home extends Component {
                             </Grid>
                         </Grid>
                         <Grid className={classes.subCardDetails}>
-                        <Grid className={classes.app}> 
-                            <Carousel breakPoints={breakPoints}>
-                                <Item className={classes.appItem}>
-                                    <Grid style={{height:'200px',width:'350px', display: 'flex',
-                                                        flexWrap: 'wrap',flexDirection: 'column',
-                                                        alignItems: 'center',justifyContent: 'center',
-                                                    }}>
-                                            <img src={rev1} alt="" style={{width:'150px',height:'150px',borderRadius:'180px',marginTop:'-10px'}}/>
+                            <Grid className={classes.app}> 
+                                <Carousel breakPoints={breakPoints}>
+                                    <Item className={classes.appItem}>
+                                        <Grid style={{height:'200px',width:'350px', display: 'flex',
+                                                            flexWrap: 'wrap',flexDirection: 'column',
+                                                            alignItems: 'center',justifyContent: 'center',
+                                                        }}>
+                                                <img src={rev1} alt="" style={{width:'150px',height:'150px',borderRadius:'180px',marginTop:'-10px'}}/>
+                                            </Grid>
+                                            <Grid style={{height:'100px',width:'350px',textAlign:'center'}}>
+                                                <Typography variant="h5" gutterBottom component="div" >Name : Rasintha Dilshan</Typography>
+                                                <Typography variant="h5" gutterBottom component="div" >Driver Id : DR-001</Typography>
+                                            </Grid>
+                                            <Grid style={{height:'100px',width:'250px',display: 'flex',
+                                                            flexWrap: 'wrap',flexDirection: 'column',
+                                                            alignItems: 'center',justifyContent: 'center',
+                                                        }}>
+                                            <Button variant="contained" fullWidth style={{backgroundColor:'#16a085'}}>View Schedule</Button>
                                         </Grid>
-                                        <Grid style={{height:'100px',width:'350px',textAlign:'center'}}>
-                                            <Typography variant="h5" gutterBottom component="div" >Name : Rasintha Dilshan</Typography>
-                                            <Typography variant="h5" gutterBottom component="div" >Driver Id : DR-001</Typography>
+                                    </Item>
+                                    <Item className={classes.appItem}>
+                                        <Grid style={{height:'200px',width:'350px', display: 'flex',
+                                                            flexWrap: 'wrap',flexDirection: 'column',
+                                                            alignItems: 'center',justifyContent: 'center',
+                                                        }}>
+                                                <img src={rev2} alt="" style={{width:'150px',height:'150px',borderRadius:'180px',marginTop:'-10px'}}/>
+                                            </Grid>
+                                            <Grid style={{height:'100px',width:'350px',textAlign:'center'}}>
+                                                <Typography variant="h5" gutterBottom component="div" >Name : Rasintha Dilshan</Typography>
+                                                <Typography variant="h5" gutterBottom component="div" >Driver Id : DR-001</Typography>
+                                            </Grid>
+                                            <Grid style={{height:'100px',width:'250px',display: 'flex',
+                                                            flexWrap: 'wrap',flexDirection: 'column',
+                                                            alignItems: 'center',justifyContent: 'center',
+                                                        }}>
+                                                <Button variant="contained" fullWidth style={{backgroundColor:'#16a085'}}>View Schedule</Button>
                                         </Grid>
-                                        <Grid style={{height:'100px',width:'250px',display: 'flex',
-                                                        flexWrap: 'wrap',flexDirection: 'column',
-                                                        alignItems: 'center',justifyContent: 'center',
-                                                    }}>
-                                        <Button variant="contained" fullWidth style={{backgroundColor:'#16a085'}}>Select</Button>
-                                    </Grid>
-                                </Item>
-                                <Item className={classes.appItem}>
-                                    <Grid style={{height:'200px',width:'350px', display: 'flex',
-                                                        flexWrap: 'wrap',flexDirection: 'column',
-                                                        alignItems: 'center',justifyContent: 'center',
-                                                    }}>
-                                            <img src={rev2} alt="" style={{width:'150px',height:'150px',borderRadius:'180px',marginTop:'-10px'}}/>
+                                    </Item>
+                                    <Item className={classes.appItem}>
+                                        <Grid style={{height:'200px',width:'350px', display: 'flex',
+                                                            flexWrap: 'wrap',flexDirection: 'column',
+                                                            alignItems: 'center',justifyContent: 'center',
+                                                        }}>
+                                                <img src={rev3} alt="" style={{width:'150px',height:'150px',borderRadius:'180px',marginTop:'-10px'}}/>
+                                            </Grid>
+                                            <Grid style={{height:'100px',width:'350px',textAlign:'center'}}>
+                                                <Typography variant="h5" gutterBottom component="div" >Name : Rasintha Dilshan</Typography>
+                                                <Typography variant="h5" gutterBottom component="div" >Driver Id : DR-001</Typography>
+                                            </Grid>
+                                            <Grid style={{height:'100px',width:'250px',display: 'flex',
+                                                            flexWrap: 'wrap',flexDirection: 'column',
+                                                            alignItems: 'center',justifyContent: 'center',
+                                                        }}>
+                                                <Button variant="contained" fullWidth style={{backgroundColor:'#16a085'}}>View Schedule</Button>
                                         </Grid>
-                                        <Grid style={{height:'100px',width:'350px',textAlign:'center'}}>
-                                            <Typography variant="h5" gutterBottom component="div" >Name : Rasintha Dilshan</Typography>
-                                            <Typography variant="h5" gutterBottom component="div" >Driver Id : DR-001</Typography>
+                                    </Item>
+                                    <Item className={classes.appItem}>
+                                        <Grid style={{height:'200px',width:'350px', display: 'flex',
+                                                            flexWrap: 'wrap',flexDirection: 'column',
+                                                            alignItems: 'center',justifyContent: 'center',
+                                                        }}>
+                                                <img src={rev1} alt="" style={{width:'150px',height:'150px',borderRadius:'180px',marginTop:'-10px'}}/>
+                                            </Grid>
+                                            <Grid style={{height:'100px',width:'350px',textAlign:'center'}}>
+                                                <Typography variant="h5" gutterBottom component="div" >Name : Rasintha Dilshan</Typography>
+                                                <Typography variant="h5" gutterBottom component="div" >Driver Id : DR-001</Typography>
+                                            </Grid>
+                                            <Grid style={{height:'100px',width:'250px',display: 'flex',
+                                                            flexWrap: 'wrap',flexDirection: 'column',
+                                                            alignItems: 'center',justifyContent: 'center',
+                                                        }}>
+                                                <Button variant="contained" fullWidth style={{backgroundColor:'#16a085'}}>View Schedule</Button>
                                         </Grid>
-                                        <Grid style={{height:'100px',width:'250px',display: 'flex',
-                                                        flexWrap: 'wrap',flexDirection: 'column',
-                                                        alignItems: 'center',justifyContent: 'center',
-                                                    }}>
-                                            <Button variant="contained" fullWidth style={{backgroundColor:'#16a085'}}>Select</Button>
-                                    </Grid>
-                                </Item>
-                                <Item className={classes.appItem}>
-                                    <Grid style={{height:'200px',width:'350px', display: 'flex',
-                                                        flexWrap: 'wrap',flexDirection: 'column',
-                                                        alignItems: 'center',justifyContent: 'center',
-                                                    }}>
-                                            <img src={rev3} alt="" style={{width:'150px',height:'150px',borderRadius:'180px',marginTop:'-10px'}}/>
-                                        </Grid>
-                                        <Grid style={{height:'100px',width:'350px',textAlign:'center'}}>
-                                            <Typography variant="h5" gutterBottom component="div" >Name : Rasintha Dilshan</Typography>
-                                            <Typography variant="h5" gutterBottom component="div" >Driver Id : DR-001</Typography>
-                                        </Grid>
-                                        <Grid style={{height:'100px',width:'250px',display: 'flex',
-                                                        flexWrap: 'wrap',flexDirection: 'column',
-                                                        alignItems: 'center',justifyContent: 'center',
-                                                    }}>
-                                            <Button variant="contained" fullWidth style={{backgroundColor:'#16a085'}}>Select</Button>
-                                    </Grid>
-                                </Item>
-                                <Item className={classes.appItem}>
-                                    <Grid style={{height:'200px',width:'350px', display: 'flex',
-                                                        flexWrap: 'wrap',flexDirection: 'column',
-                                                        alignItems: 'center',justifyContent: 'center',
-                                                    }}>
-                                            <img src={rev1} alt="" style={{width:'150px',height:'150px',borderRadius:'180px',marginTop:'-10px'}}/>
-                                        </Grid>
-                                        <Grid style={{height:'100px',width:'350px',textAlign:'center'}}>
-                                            <Typography variant="h5" gutterBottom component="div" >Name : Rasintha Dilshan</Typography>
-                                            <Typography variant="h5" gutterBottom component="div" >Driver Id : DR-001</Typography>
-                                        </Grid>
-                                        <Grid style={{height:'100px',width:'250px',display: 'flex',
-                                                        flexWrap: 'wrap',flexDirection: 'column',
-                                                        alignItems: 'center',justifyContent: 'center',
-                                                    }}>
-                                            <Button variant="contained" fullWidth style={{backgroundColor:'#16a085'}}>Select</Button>
-                                    </Grid>
-                                </Item>
-                            </Carousel> 
-                        </Grid>
+                                    </Item>
+                                </Carousel> 
+                            </Grid>
                         </Grid>
                     </Grid> 
                     <Grid className={classes.chat}>
-                        <Typography variant="h5" gutterBottom component="div" style={{marginTop:'-10px',marginRight:'350px'}}>UPDATE</Typography>
                         <Grid className={classes.chatBox}>
-                            <Grid className={classes.chatBoxMan}>
-                                <Grid style={{width:'10vw',height:'20vh',display: 'flex',alignItems: 'center',justifyContent: 'center',flexWrap: 'wrap',}}>
-                                    <img src={rev1} alt="" style={{width:'100px',height:'100px',borderRadius:'180px',marginTop:'-10px'}}/>
-                                </Grid>
-                                <Grid style={{width:'20vw',height:'20vh',display: 'flex',alignItems: 'center',justifyContent: 'center',flexWrap: 'wrap'}}>
-                                    <Typography gutterBottom component="div" style={{fontSize:'15px',textAlign:'left'}}>
-                                        Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                                        Et ab aut culpa, placeat nostrum perspiciatis minus,quia
-                                        excepturi ipsum deleniti vitae omnis enim sapiente pariatur
-                                        accusantium officiis, ea fuga quibusdam.
-                                    </Typography>
-                                </Grid>
-                            </Grid>
-                            <Grid className={classes.chatBoxMan}>
-                                <Grid style={{width:'10vw',height:'20vh',display: 'flex',alignItems: 'center',justifyContent: 'center',flexWrap: 'wrap',}}>
-                                    <img src={rev2} alt="" style={{width:'100px',height:'100px',borderRadius:'180px',marginTop:'-10px'}}/>
-                                </Grid>
-                                <Grid style={{width:'20vw',height:'20vh',display: 'flex',alignItems: 'center',justifyContent: 'center',flexWrap: 'wrap'}}>
-                                    <Typography gutterBottom component="div" style={{fontSize:'15px',textAlign:'left'}}>
-                                        Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                                        Et ab aut culpa, placeat nostrum perspiciatis minus,quia
-                                        excepturi ipsum deleniti vitae omnis enim sapiente pariatur
-                                        accusantium officiis, ea fuga quibusdam.
-                                    </Typography>
-                                </Grid>
-                            </Grid>
-                            <Grid className={classes.chatBoxMan}>
-                                <Grid style={{width:'10vw',height:'20vh',display: 'flex',alignItems: 'center',justifyContent: 'center',flexWrap: 'wrap',}}>
-                                    <img src={rev3} alt="" style={{width:'100px',height:'100px',borderRadius:'180px',marginTop:'-10px'}}/>
-                                </Grid>
-                                <Grid style={{width:'20vw',height:'20vh',display: 'flex',alignItems: 'center',justifyContent: 'center',flexWrap: 'wrap'}}>
-                                    <Typography gutterBottom component="div" style={{fontSize:'15px',textAlign:'left'}}>
-                                        Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                                        Et ab aut culpa, placeat nostrum perspiciatis minus,quia
-                                        excepturi ipsum deleniti vitae omnis enim sapiente pariatur
-                                        accusantium officiis, ea fuga quibusdam.
-                                    </Typography>
-                                </Grid>
-                            </Grid>
+                            <Grid className={classes.chart}>
+                                <Typography variant="h6" gutterBottom component="div" style={{textAlign:'center'}}>Summary Of Mounth</Typography>
+                                        <BarChart
+                                                width={500}
+                                                height={300}
+                                                data={data}
+                                                margin={{
+                                                    top: 5,
+                                                    right: 100,
+                                                    left: 80,
+                                                    bottom: 5,
+                                                }}
+                                                barSize={20}
+                                            >
+                                                <XAxis
+                                                    dataKey="name"
+                                                    scale="point"
+                                                    padding={{ left: 10, right: 10 }}
+                                                />
+                                                
+                                                <YAxis />
+                                                <Tooltip />
+                                                <Legend />
+                                                <CartesianGrid strokeDasharray="3 3" />
+                                                <Bar dataKey="Packges" fill="#8884d8" background={{ fill: "#eee" }} />
+                                        </BarChart>
+                                </Grid> 
                         </Grid>
                         <Grid className={classes.subChatBoxMan}>
-                        
+                        <Typography variant="h6" gutterBottom component="div" style={{textAlign:'center'}}>Summary Of Mounth</Typography>
+                            <PieChart width={400} height={400}
+                                margin={{
+                                        top: 5,
+                                        left: 10,
+                                        bottom: 5,
+                                        }}>
+                                <Pie
+                                    dataKey="Packges"
+                                    isAnimationActive={false}
+                                    data={data}
+                                    cx={200}
+                                    cy={200}
+                                    outerRadius={80}
+                                    fill="#8884d8"
+                                    label
+                                />
+                                <Tooltip />
+                            </PieChart>
                         </Grid>   
                     </Grid> 
                 </Grid>

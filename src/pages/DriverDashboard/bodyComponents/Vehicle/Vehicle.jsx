@@ -96,15 +96,6 @@ function Luxury(props) {
                                                     }}>
                                             <img src={car1} alt="" style={{width:'380px',marginTop:'-10px',marginLeft:'-10px'}}/>
                                         </Grid>
-                                        <Grid style={{marginBottom:'-40px',height:'50px',width:'100px'}}>
-                                            <Stack direction="row" alignItems="center" spacing={5}>
-                                                <Button variant="contained" component="label" style={{backgroundColor:'#a4b0be'}}>
-                                                    Upload
-                                                    <input hidden accept="image/*" multiple type="file" />
-                                                    <PhotoCamera />
-                                                </Button>
-                                            </Stack>
-                                        </Grid>
                                     </Item>
                                     <Item className={classes.appItem}>
                                         <Grid style={{height:'200px',width:'350px', display: 'flex',
@@ -112,15 +103,6 @@ function Luxury(props) {
                                                         alignItems: 'center',justifyContent: 'center',
                                                     }}>
                                         <img src={car2} alt="" style={{width:'450px',marginTop:'-10px',marginLeft:'-100px'}}/>
-                                        </Grid>
-                                        <Grid style={{marginBottom:'-40px',height:'50px',width:'100px'}}>
-                                            <Stack direction="row" alignItems="center" spacing={5}>
-                                                <Button variant="contained" component="label" style={{backgroundColor:'#a4b0be'}}>
-                                                    Upload
-                                                    <input hidden accept="image/*" multiple type="file" />
-                                                    <PhotoCamera />
-                                                </Button>
-                                            </Stack>
                                         </Grid>
                                     </Item>
                                     <Item className={classes.appItem}>
@@ -130,37 +112,27 @@ function Luxury(props) {
                                                     }}>
                                             <img src={car3} alt="" style={{width:'370px',marginTop:'-10px'}}/>
                                         </Grid>
-                                        <Grid style={{marginBottom:'-40px',height:'50px',width:'100px'}}>
-                                            <Stack direction="row" alignItems="center" spacing={5}>
-                                                <Button variant="contained" component="label" style={{backgroundColor:'#a4b0be'}}>
-                                                    Upload
-                                                    <input hidden accept="image/*" multiple type="file" />
-                                                    <PhotoCamera />
-                                                </Button>
-                                            </Stack>
-                                        </Grid>
                                     </Item>
                                 </Carousel> 
                             </Grid>
                         </Grid>
                         <Grid className={classes.vehicleForm}>
                             <Grid container spacing={-9} rowSpacing={16}>
-                                <TextField style={{padding:'10px',width:'230px'}} id="outlined-basic" label="Vehicle Id" variant="outlined" />
-                                <TextField style={{padding:'10px',width:'230px'}} id="outlined-basic" label="Registration No" variant="outlined" />
-                                <TextField style={{padding:'10px',width:'230px'}} id="outlined-basic" label="Vehicle Brand" variant="outlined" />
-                                <TextField style={{padding:'10px',width:'230px'}} id="outlined-basic" label="Number Of Passengers" variant="outlined" />
-                                <Autocomplete style={{padding:'10px',width:'230px'}} disablePortal id="combo-box-demo" variant="outlined" options={DriverRequestingType} sx={{ width: 300 }}renderInput={(params) => <TextField {...params} label="Driver Type"/>}/>
-                                <TextField style={{padding:'10px',width:'230px'}} id="outlined-basic" label="Color" variant="outlined" />
-                                <Autocomplete style={{padding:'10px',width:'230px'}} disablePortal id="combo-box-demo" variant="outlined" options={VehicleType} sx={{ width: 300 }}renderInput={(params) => <TextField {...params} label="Vehicle Type"/>}/>
-                                <Autocomplete style={{padding:'10px',width:'230px'}} disablePortal id="combo-box-demo" variant="outlined" options={FuelType} sx={{ width: 300 }}renderInput={(params) => <TextField {...params} label="Fuel Type"/>}/>
-                                <Autocomplete style={{padding:'10px',width:'230px'}} disablePortal id="combo-box-demo" variant="outlined" options={TransmissionType} sx={{ width: 300 }}renderInput={(params) => <TextField {...params} label="Transmission Type"/>}/>
-                                <TextField style={{padding:'10px',width:'230px'}} id="outlined-basic" label="Free Mileage" variant="outlined" />
-                                <TextField style={{padding:'10px',width:'230px'}} id="outlined-basic" label="Price Rate" variant="outlined" />
-                                <TextField style={{padding:'10px',width:'230px'}} id="outlined-basic" label="Vehicle Availability Type" variant="outlined" />
-                                <TextField style={{padding:'10px',width:'230px'}} id="outlined-basic" label="Damage Fee" variant="outlined" />
-                                <TextField style={{padding:'10px',width:'230px'}} id="outlined-basic" label="LastService Mileage" variant="outlined" />
-                                <TextField style={{padding:'10px',width:'230px'}} id="outlined-basic" label="Vehicle Service Mileage" variant="outlined" />
-                                <Button style={{width:'200px',marginLeft:'480px',backgroundColor:'#2ed573'}} variant="contained">Save</Button>
+                                <TextField style={{padding:'10px',width:'230px'}} disabled id="outlined-basic" label="Vehicle Id" variant="outlined" />
+                                <TextField style={{padding:'10px',width:'230px'}} disabled id="outlined-basic" label="Registration No" variant="outlined" />
+                                <TextField style={{padding:'10px',width:'230px'}} disabled id="outlined-basic" label="Vehicle Brand" variant="outlined" />
+                                <TextField style={{padding:'10px',width:'230px'}} disabled id="outlined-basic" label="Number Of Passengers" variant="outlined" />
+                                <TextField style={{padding:'10px',width:'230px'}} disabled id="outlined-basic" label="Driver Type" variant="outlined" />
+                                <TextField style={{padding:'10px',width:'230px'}} disabled id="outlined-basic" label="Color" variant="outlined" />
+                                <TextField style={{padding:'10px',width:'230px'}} disabled id="outlined-basic" label="Vehicle Type" variant="outlined" />
+                                <TextField style={{padding:'10px',width:'230px'}} disabled id="outlined-basic" label="Fuel Type" variant="outlined" />
+                                <TextField style={{padding:'10px',width:'230px'}} disabled id="outlined-basic" label="Transmission Type" variant="outlined" />
+                                <TextField style={{padding:'10px',width:'230px'}} disabled id="outlined-basic" label="Free Mileage" variant="outlined" />
+                                <TextField style={{padding:'10px',width:'230px'}} disabled id="outlined-basic" label="Price Rate" variant="outlined" />
+                                <TextField style={{padding:'10px',width:'230px'}} disabled id="outlined-basic" label="Vehicle Availability Type" variant="outlined" />
+                                <TextField style={{padding:'10px',width:'230px'}} disabled id="outlined-basic" label="Damage Fee" variant="outlined" />
+                                <TextField style={{padding:'10px',width:'230px'}} disabled id="outlined-basic" label="LastService Mileage" variant="outlined" />
+                                <TextField style={{padding:'10px',width:'230px'}} disabled id="outlined-basic" label="Vehicle Service Mileage" variant="outlined" />
                             </Grid>
                         </Grid>
                     </Grid>
@@ -169,15 +141,22 @@ function Luxury(props) {
                             <Table aria-label="simple table">
                                 <TableHead>
                                 <TableRow>
-                                    <TableCell align="left">Register Id</TableCell>
-                                    <TableCell align="left">E-mail</TableCell>
-                                    <TableCell align="left">First Name</TableCell>
-                                    <TableCell align="left">Last Name</TableCell>
-                                    <TableCell align="left">License No</TableCell>
-                                    <TableCell align="left">Contact No</TableCell>
-                                    <TableCell align="left">NIC</TableCell>
-                                    <TableCell align="left">Address</TableCell>
-                                    <TableCell align="left">Action</TableCell>
+                                    <TableCell align="left">Vehicle Id</TableCell>
+                                    <TableCell align="left">Registration No</TableCell>
+                                    <TableCell align="left">Vehicle Brand</TableCell>
+                                    <TableCell align="left">Number Of Passengers</TableCell>
+                                    <TableCell align="left">Driver Type</TableCell>
+                                    <TableCell align="left">Color</TableCell>
+                                    <TableCell align="left">Vehicle Type</TableCell>
+                                    <TableCell align="left">Fuel Type</TableCell>
+                                    <TableCell align="left">Transmission Type</TableCell>
+                                    <TableCell align="left">Number Of Passengers</TableCell>
+                                    <TableCell align="left">Free Mileage</TableCell>
+                                    <TableCell align="left">Vehicle Availability Type</TableCell>
+                                    <TableCell align="left">Damage Fee</TableCell>
+                                    <TableCell align="left">Fuel Type</TableCell>
+                                    <TableCell align="left">LastService Mileage</TableCell>
+                                    <TableCell align="left">Vehicle Service Mileage</TableCell>
 
                                 </TableRow>
                                 </TableHead>
@@ -195,7 +174,7 @@ function Luxury(props) {
                                     <TableCell align="left">{row.contact}</TableCell>
                                     <TableCell align="left">{row.nic}</TableCell>
                                     <TableCell align="left">{row.address}</TableCell>
-                                    <TableCell align="left">
+                                    {/* <TableCell align="left">
                                         <Tooltip title="Edit">
                                             <IconButton 
                                                 onClick={() => {
@@ -214,7 +193,7 @@ function Luxury(props) {
                                                     <DeleteIcon color="error" />
                                                 </IconButton>
                                         </Tooltip>
-                                    </TableCell>
+                                    </TableCell> */}
                                     </TableRow>
                                 ))}
                                 </TableBody>
