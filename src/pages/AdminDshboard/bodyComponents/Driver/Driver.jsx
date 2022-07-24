@@ -1,5 +1,5 @@
 import * as React from 'react';
-import {Grid,Typography,Button} from "@mui/material";
+import {Grid,Typography,Button,TextField} from "@mui/material";
 import {withStyles} from "@mui/styles";
 import {styleSheet} from "../Driver/styles";
 import logo from "../../../../assets/img/logo.png";
@@ -12,6 +12,11 @@ import TableContainer from '@mui/material/TableContainer';
 import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
+import DeleteIcon from '@mui/icons-material/Delete';
+import IconButton from '@mui/material/IconButton';
+import Tooltip from '@mui/material/Tooltip';
+import EditIcon from '@mui/icons-material/Edit';
+import {PhotoCamera} from "@mui/icons-material";
 
 class Driver extends Component{
     constructor(props){
@@ -52,63 +57,103 @@ class Driver extends Component{
                             </Typography>
                         </Grid>
                 </Grid>
-                <Grid className={classes.table}>
-                    <TableContainer component={Paper} style={{ height: '82vh',width:'82vw',backgroundColor:'#eeeff1'}}>
-                        <Table aria-label="simple table">
-                            <TableHead>
-                            <TableRow>
-                                <TableCell align="left">Register Id</TableCell>
-                                <TableCell align="left">E-mail</TableCell>
-                                <TableCell align="left">First Name</TableCell>
-                                <TableCell align="left">Last Name</TableCell>
-                                <TableCell align="left">License No</TableCell>
-                                <TableCell align="left">Contact No</TableCell>
-                                <TableCell align="left">NIC</TableCell>
-                                <TableCell align="left">Address</TableCell>
+                <Grid className={classes.details}>
+                <Grid className={classes.textContainer}>
+                    <TextField style={{padding:'10px',width:'250px'}} id="outlined-basic" label="Register Id" variant="outlined" />
+                    <TextField style={{padding:'10px',width:'250px'}} id="outlined-basic" label="E-mail" variant="outlined" />
+                    <TextField style={{padding:'10px',width:'250px'}} id="outlined-basic" label="First Name" variant="outlined" />
+                    <TextField style={{padding:'10px',width:'250px'}} id="outlined-basic" label="Last Name" variant="outlined" />
+                    <TextField style={{padding:'10px',width:'250px'}} id="outlined-basic" label="License No" variant="outlined" />
+                    {/* <IconButton color="primary" aria-label="upload picture" component="label">
+                        <input hidden accept="image/*" type="file" />
+                        <PhotoCamera style={{fontSize:'40px',marginTop:'12px'}}/>
+                    </IconButton> */}
+                    <TextField style={{padding:'10px',width:'250px'}} id="outlined-basic" label="Contact No" variant="outlined" />
+                    <TextField style={{padding:'10px',width:'250px'}} id="outlined-basic" label="NIC" variant="outlined" />
+                    {/* <IconButton color="primary" aria-label="upload picture" component="label">
+                        <input hidden accept="image/*" type="file"/>
+                        <PhotoCamera style={{fontSize:'40px',marginTop:'12px'}}/>
+                        </IconButton> */}
+                    <TextField style={{padding:'10px',width:'250px'}} id="outlined-basic" label="Address" variant="outlined" />
+                    <Grid style={{marginBottom:'60px',marginRight:'410px'}}>
+                        <Button style={{width:'200px',marginLeft:'400px',backgroundColor:'#2ed573'}} variant="contained">Save</Button>
+                    </Grid>
+                </Grid>
+                <Grid className={classes.upload}>
+                    <Grid style={{width:'30vw',height:'30vh',backgroundColor:'#eeeff1',display: 'flex',flexWrap: 'wrap',flexDirection: 'column',alignItems: 'center',justifyContent: 'center',}}>
+                        <IconButton backgroundColor="#bdc3c7" aria-label="upload picture" component="label">
+                            <input hidden accept="image/*" type="file" />
+                            <PhotoCamera style={{fontSize:'40px',marginTop:'12px'}}/>
+                        </IconButton>
+                        <Typography variant="body2">Upload Nic</Typography>
+                    </Grid>
+                    <Grid style={{width:'30vw',height:'30vh',backgroundColor:'#eeeff1',display: 'flex',flexWrap: 'wrap',flexDirection: 'column',alignItems: 'center',justifyContent: 'center',}}>
+                        <IconButton backgroundColor="#bdc3c7" aria-label="upload picture" component="label">
+                            <input hidden accept="image/*" type="file" />
+                            <PhotoCamera style={{fontSize:'40px',marginTop:'12px'}}/>
+                        </IconButton>
+                        <Typography variant="body2">Upload License</Typography>
+                    </Grid>
+                </Grid>
+            </Grid>
+            <Grid className={classes.table}>
+                <TableContainer component={Paper} style={{ height: '70vh',width:'80vw',backgroundColor:'#eeeff1'}}>
+                    <Table aria-label="simple table">
+                        <TableHead>
+                        <TableRow>
+                            <TableCell align="left">Register Id</TableCell>
+                            <TableCell align="left">E-mail</TableCell>
+                            <TableCell align="left">First Name</TableCell>
+                            <TableCell align="left">Last Name</TableCell>
+                            <TableCell align="left">License No</TableCell>
+                            <TableCell align="left">Contact No</TableCell>
+                            <TableCell align="left">NIC</TableCell>
+                            <TableCell align="left">Address</TableCell>
+                            <TableCell align="left">Action</TableCell>
 
-                            </TableRow>
-                            </TableHead>
-                            <TableBody>
-                            {rows.map((row) => (
-                                <TableRow
-                                key={row.name}
-                                sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
-                                >
-                                <TableCell align="left">{row.id}</TableCell>
-                                <TableCell align="left">{row.email}</TableCell>
-                                <TableCell align="left">{row.firstName}</TableCell>
-                                <TableCell align="left">{row.lastName}</TableCell>
-                                <TableCell align="left">{row.licenNo}</TableCell>
-                                <TableCell align="left">{row.contact}</TableCell>
-                                <TableCell align="left">{row.nic}</TableCell>
-                                <TableCell align="left">{row.address}</TableCell>
-                                {/* <TableCell align="left">
-                                    <Tooltip title="Edit">
-                                        <IconButton 
+                        </TableRow>
+                        </TableHead>
+                        <TableBody>
+                        {rows.map((row) => (
+                            <TableRow
+                            key={row.name}
+                            sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
+                            >
+                            <TableCell align="left">{row.id}</TableCell>
+                            <TableCell align="left">{row.email}</TableCell>
+                            <TableCell align="left">{row.firstName}</TableCell>
+                            <TableCell align="left">{row.lastName}</TableCell>
+                            <TableCell align="left">{row.licenNo}</TableCell>
+                            <TableCell align="left">{row.contact}</TableCell>
+                            <TableCell align="left">{row.nic}</TableCell>
+                            <TableCell align="left">{row.address}</TableCell>
+                            <TableCell align="left">
+                                <Tooltip title="Edit">
+                                    <IconButton 
+                                        onClick={() => {
+                                            // this.updateCustomer(row);
+                                            }}
+                                        >
+                                        <EditIcon color="primary" />
+                                    </IconButton>
+                                </Tooltip>
+                                    <Tooltip title="Delete">
+                                        <IconButton
                                             onClick={() => {
-                                                // this.updateCustomer(row);
+                                                // this.deleteCustomer(row.id)
                                                 }}
                                             >
-                                            <EditIcon color="primary" />
+                                            <DeleteIcon color="error" />
                                         </IconButton>
-                                    </Tooltip>
-                                        <Tooltip title="Delete">
-                                            <IconButton
-                                                onClick={() => {
-                                                    // this.deleteCustomer(row.id)
-                                                    }}
-                                                >
-                                                <DeleteIcon color="error" />
-                                            </IconButton>
-                                    </Tooltip>
-                                </TableCell> */}
-                                </TableRow>
-                            ))}
-                            </TableBody>
-                        </Table>
-                    </TableContainer>
-                </Grid>   
-            </Grid>
+                                </Tooltip>
+                            </TableCell>
+                            </TableRow>
+                        ))}
+                        </TableBody>
+                    </Table>
+                </TableContainer>     
+            </Grid>   
+        </Grid>
         );
     }
 }

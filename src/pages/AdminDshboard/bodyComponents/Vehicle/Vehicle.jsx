@@ -58,26 +58,14 @@ class Vehicle extends Component {
     
     render(){
         const {classes} = this.props;
-        function createData(id, email, firstName, lastName, licenNo, contact, nic, address) {
-            return { id, email, firstName, lastName, licenNo, contact, nic,address};
+        function createData(id, regNo, brand, passengers, driverType, color, vehicleType,fuelType, transmissionType,freeMileage, availabilityType,damageFee,lastServiceMileage,vehicleServiceMilage) {
+            return { id, regNo, brand, passengers, driverType, color,vehicleType ,fuelType, transmissionType,freeMileage,availabilityType,damageFee,lastServiceMileage,vehicleServiceMilage};
         }
     
         const rows = [
-            createData('R00-001','rasintha@gmail.com','Nimal','Perera', 2423452,'071-3123342','42345124','Galle'),
-            createData('R00-002','rasintha@gmail.com','Kamal','Gamage',2373453, '071-3123342','42345124','Colombo'),
-            createData('R00-003','rasintha@gmail.com','Amal','Soisa',2624567,'071-3123342','42345124','Panadura'),
-            createData('R00-004','rasintha@gmail.com','Nadun','Hettiarachci',3053434,'071-3123342','42345124','Matara'),
-            createData('R00-005','rasintha@gmail.com','Wimal','Gamage',3562432,'071-3123342','42345124','Galle'),
-            createData('R00-006','rasintha@gmail.com','Rasintha','Perera',1596756,'071-3123342','42345124','Matara'),
-            createData('R00-007','rasintha@gmail.com','Yasiru','Soisa',237876,'071-3123342','42345124','Panadura'),
-            createData('R00-008','rasintha@gmail.com','Minura','Hettiarachci',2627564,'071-3123342','42345124','Matara'),
-            createData('R00-009','rasintha@gmail.com','Yasidu','Soisa',3055632,'071-3123342','42345124','Colombo'),
-            createData('R00-0010','rasintha@gmail.com','Upali','de Silva',3561233,'071-3123342','42345124','Panadura'),
-            createData('R00-0011','rasintha@gmail.com','Sunil','Hettiarachci',1593546,'071-3123342','42345124','Colombo'),
-            createData('R00-0012','rasintha@gmail.com','Supun','Perera',237978,'071-3123342','42345124','Matara'),
-            createData('R00-0013','rasintha@gmail.com','Kanthi','Gamage',2622345,'071-3123342','42345124','Colombo'),
-            createData('R00-0014','rasintha@gmail.com','Iresha','Hettiarachci',305578,'071-3123342','42345124','Galle'),
-            createData('R00-0015','rasintha@gmail.com','Naduni','Perera',3565673,'071-3123342','42345124','Matara'),
+            createData('V00-001','Reg-001','Suzuki Alto',5,'AVAILABLE','Red','GENERAL','PETROL','AUTO',100,'AVAILABLE',10000.00,25800,26000),
+            createData('V00-002','Reg-002','Toyota Corolla Axio',4,'AVAILABLE', 'Black','LUXURY','PETROL','AUTO',100,'AVAILABLE',5000.00,12500,13000),
+            createData('V00-003','Reg-003','Toyota Premio',4,'NOT_AVAILABLE','White','PREMIUM','DIESEL','AUTO',100,'AVAILABLE',10000.00,11600,15000),
         ];
         return (
             <Grid className={classes.container}>
@@ -185,13 +173,12 @@ class Vehicle extends Component {
                                     <TableCell align="left">Vehicle Type</TableCell>
                                     <TableCell align="left">Fuel Type</TableCell>
                                     <TableCell align="left">Transmission Type</TableCell>
-                                    <TableCell align="left">Number Of Passengers</TableCell>
                                     <TableCell align="left">Free Mileage</TableCell>
                                     <TableCell align="left">Vehicle Availability Type</TableCell>
                                     <TableCell align="left">Damage Fee</TableCell>
-                                    <TableCell align="left">Fuel Type</TableCell>
                                     <TableCell align="left">LastService Mileage</TableCell>
                                     <TableCell align="left">Vehicle Service Mileage</TableCell>
+                                    <TableCell align="left">Action</TableCell>
                                 </TableRow>
                                 </TableHead>
                                 <TableBody>
@@ -201,14 +188,20 @@ class Vehicle extends Component {
                                     sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
                                     >
                                     <TableCell align="left">{row.id}</TableCell>
-                                    <TableCell align="left">{row.email}</TableCell>
-                                    <TableCell align="left">{row.firstName}</TableCell>
-                                    <TableCell align="left">{row.lastName}</TableCell>
-                                    <TableCell align="left">{row.licenNo}</TableCell>
-                                    <TableCell align="left">{row.contact}</TableCell>
-                                    <TableCell align="left">{row.nic}</TableCell>
-                                    <TableCell align="left">{row.address}</TableCell>
-                                    {/* <TableCell align="left">
+                                    <TableCell align="left">{row.regNo}</TableCell>
+                                    <TableCell align="left">{row.brand}</TableCell>
+                                    <TableCell align="left">{row.passengers}</TableCell>
+                                    <TableCell align="left">{row.driverType}</TableCell>
+                                    <TableCell align="left">{row.color}</TableCell>
+                                    <TableCell align="left">{row.vehicleType}</TableCell>
+                                    <TableCell align="left">{row.fuelType}</TableCell>
+                                    <TableCell align="left">{row.transmissionType}</TableCell>
+                                    <TableCell align="left">{row.freeMileage}</TableCell>
+                                    <TableCell align="left">{row.availabilityType}</TableCell>
+                                    <TableCell align="left">{row.damageFee}</TableCell>
+                                    <TableCell align="left">{row.lastServiceMileage}</TableCell>
+                                    <TableCell align="left">{row.vehicleServiceMilage}</TableCell>
+                                    <TableCell align="left">
                                         <Tooltip title="Edit">
                                             <IconButton 
                                                 onClick={() => {
@@ -227,7 +220,7 @@ class Vehicle extends Component {
                                                     <DeleteIcon color="error" />
                                                 </IconButton>
                                         </Tooltip>
-                                    </TableCell> */}
+                                    </TableCell>
                                     </TableRow>
                                 ))}
                                 </TableBody>

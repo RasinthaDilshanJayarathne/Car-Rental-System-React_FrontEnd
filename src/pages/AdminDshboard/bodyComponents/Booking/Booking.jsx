@@ -59,21 +59,27 @@ class Booking extends Component {
                 </Grid>
                 <Grid className={classes.subContainer}>
                     <Grid className={classes.table1}>
-                        <Typography variant="h5" style={{marginLeft: '30px',color: 'black'}}>
+                        <Typography variant="h5" style={{marginLeft: '30px',color: '#95a5a6'}}>
                             PENDING BOOKING REQUEST
                         </Typography>
                         <TableContainer component={Paper} style={{ height: '90vh',width: '80vw',backgroundColor:'#eeeff1'}}>
                             <Table aria-label="simple table">
                                 <TableHead>
                                 <TableRow>
-                                    <TableCell align="left">Register Id</TableCell>
-                                    <TableCell align="left">E-mail</TableCell>
-                                    <TableCell align="left">First Name</TableCell>
-                                    <TableCell align="left">Last Name</TableCell>
-                                    <TableCell align="left">License No</TableCell>
-                                    <TableCell align="left">Contact No</TableCell>
-                                    <TableCell align="left">NIC</TableCell>
-                                    <TableCell align="left">Address</TableCell>
+                                    <TableCell align="left">Rental Id</TableCell>
+                                    <TableCell align="left">Pick-Up-Date</TableCell>
+                                    <TableCell align="left">Pick-Up-Time</TableCell>
+                                    <TableCell align="left">Return Date</TableCell>
+                                    <TableCell align="left">Driver Requesting Type</TableCell>
+                                    <TableCell align="left">Driver Id</TableCell>
+                                    <TableCell align="left">Driver Name</TableCell>
+                                    <TableCell align="left">Customer Id</TableCell>
+                                    <TableCell align="left">Customer Name</TableCell>
+                                    <TableCell align="left">Driver Id</TableCell>
+                                    <TableCell align="left">Customer License No</TableCell>
+                                    <TableCell align="left">Customer Address</TableCell>
+                                    <TableCell align="left">Customer Contact No</TableCell>
+                                    <TableCell align="left">Customer E-mail</TableCell>
                                     <TableCell align="left">Action</TableCell>
 
                                 </TableRow>
@@ -119,21 +125,27 @@ class Booking extends Component {
                         </TableContainer>
                     </Grid>
                     <Grid className={classes.table2}>
-                        <Typography variant="h5" style={{marginLeft: '30px',color: 'black'}}>
+                        <Typography variant="h5" style={{marginLeft: '30px',color: '#95a5a6'}}>
                                 CONFORM BOOKING REQUEST
                         </Typography>
                         <TableContainer component={Paper} style={{ height: '90vh',width: '80vw',backgroundColor:'#eeeff1'}}>
                             <Table aria-label="simple table">
                                 <TableHead>
                                 <TableRow>
-                                    <TableCell align="left">Register Id</TableCell>
-                                    <TableCell align="left">E-mail</TableCell>
-                                    <TableCell align="left">First Name</TableCell>
-                                    <TableCell align="left">Last Name</TableCell>
-                                    <TableCell align="left">License No</TableCell>
-                                    <TableCell align="left">Contact No</TableCell>
-                                    <TableCell align="left">NIC</TableCell>
-                                    <TableCell align="left">Address</TableCell>
+                                <TableCell align="left">Rental Id</TableCell>
+                                    <TableCell align="left">Pick-Up-Date</TableCell>
+                                    <TableCell align="left">Pick-Up-Time</TableCell>
+                                    <TableCell align="left">Return Date</TableCell>
+                                    <TableCell align="left">Driver Requesting Type</TableCell>
+                                    <TableCell align="left">Driver Id</TableCell>
+                                    <TableCell align="left">Driver Name</TableCell>
+                                    <TableCell align="left">Customer Id</TableCell>
+                                    <TableCell align="left">Customer Name</TableCell>
+                                    <TableCell align="left">Driver Id</TableCell>
+                                    <TableCell align="left">Customer License No</TableCell>
+                                    <TableCell align="left">Customer Address</TableCell>
+                                    <TableCell align="left">Customer Contact No</TableCell>
+                                    <TableCell align="left">Customer E-mail</TableCell>
                                     <TableCell align="left">Action</TableCell>
 
                                 </TableRow>

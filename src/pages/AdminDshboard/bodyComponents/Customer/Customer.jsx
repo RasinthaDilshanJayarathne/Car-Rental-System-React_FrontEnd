@@ -1,5 +1,5 @@
 import * as React from 'react';
-import {Grid,Typography} from "@mui/material";
+import {Grid,Typography,TextField,Button} from "@mui/material";
 import {withStyles} from "@mui/styles";
 import {styleSheet} from "../Customer/styles";
 import logo from "../../../../assets/img/logo.png";
@@ -10,7 +10,12 @@ import TableContainer from '@mui/material/TableContainer';
 import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
+import DeleteIcon from '@mui/icons-material/Delete';
+import IconButton from '@mui/material/IconButton';
+import Tooltip from '@mui/material/Tooltip';
+import EditIcon from '@mui/icons-material/Edit';
 import { Component } from 'react';
+import {PhotoCamera} from "@mui/icons-material";
 
 class Customer extends Component{
     constructor(props){
@@ -52,8 +57,47 @@ class Customer extends Component{
                         </Typography>
                     </Grid>
                 </Grid>
+            <Grid className={classes.details}>
+                <Grid className={classes.textContainer}>
+                    <TextField style={{padding:'10px',width:'250px'}} id="outlined-basic" label="Register Id" variant="outlined" />
+                    <TextField style={{padding:'10px',width:'250px'}} id="outlined-basic" label="E-mail" variant="outlined" />
+                    <TextField style={{padding:'10px',width:'250px'}} id="outlined-basic" label="First Name" variant="outlined" />
+                    <TextField style={{padding:'10px',width:'250px'}} id="outlined-basic" label="Last Name" variant="outlined" />
+                    <TextField style={{padding:'10px',width:'250px'}} id="outlined-basic" label="License No" variant="outlined" />
+                    {/* <IconButton color="primary" aria-label="upload picture" component="label">
+                        <input hidden accept="image/*" type="file" />
+                        <PhotoCamera style={{fontSize:'40px',marginTop:'12px'}}/>
+                    </IconButton> */}
+                    <TextField style={{padding:'10px',width:'250px'}} id="outlined-basic" label="Contact No" variant="outlined" />
+                    <TextField style={{padding:'10px',width:'250px'}} id="outlined-basic" label="NIC" variant="outlined" />
+                    {/* <IconButton color="primary" aria-label="upload picture" component="label">
+                        <input hidden accept="image/*" type="file"/>
+                        <PhotoCamera style={{fontSize:'40px',marginTop:'12px'}}/>
+                        </IconButton> */}
+                    <TextField style={{padding:'10px',width:'250px'}} id="outlined-basic" label="Address" variant="outlined" />
+                    <Grid style={{marginBottom:'60px',marginRight:'410px'}}>
+                        <Button style={{width:'200px',marginLeft:'400px',backgroundColor:'#2ed573'}} variant="contained">Save</Button>
+                    </Grid>
+                </Grid>
+                <Grid className={classes.upload}>
+                    <Grid style={{width:'30vw',height:'30vh',backgroundColor:'#eeeff1',display: 'flex',flexWrap: 'wrap',flexDirection: 'column',alignItems: 'center',justifyContent: 'center',}}>
+                        <IconButton backgroundColor="#bdc3c7" aria-label="upload picture" component="label">
+                            <input hidden accept="image/*" type="file" />
+                            <PhotoCamera style={{fontSize:'40px',marginTop:'12px'}}/>
+                        </IconButton>
+                        <Typography variant="body2">Upload Nic</Typography>
+                    </Grid>
+                    <Grid style={{width:'30vw',height:'30vh',backgroundColor:'#eeeff1',display: 'flex',flexWrap: 'wrap',flexDirection: 'column',alignItems: 'center',justifyContent: 'center',}}>
+                        <IconButton backgroundColor="#bdc3c7" aria-label="upload picture" component="label">
+                            <input hidden accept="image/*" type="file" />
+                            <PhotoCamera style={{fontSize:'40px',marginTop:'12px'}}/>
+                        </IconButton>
+                        <Typography variant="body2">Upload License</Typography>
+                    </Grid>
+                </Grid>
+            </Grid>
             <Grid className={classes.table}>
-                <TableContainer component={Paper} style={{ height: '82vh',width:'82vw',backgroundColor:'#eeeff1'}}>
+                <TableContainer component={Paper} style={{ height: '70vh',width:'80vw',backgroundColor:'#eeeff1'}}>
                     <Table aria-label="simple table">
                         <TableHead>
                         <TableRow>
@@ -65,6 +109,7 @@ class Customer extends Component{
                             <TableCell align="left">Contact No</TableCell>
                             <TableCell align="left">NIC</TableCell>
                             <TableCell align="left">Address</TableCell>
+                            <TableCell align="left">Action</TableCell>
 
                         </TableRow>
                         </TableHead>
@@ -82,7 +127,7 @@ class Customer extends Component{
                             <TableCell align="left">{row.contact}</TableCell>
                             <TableCell align="left">{row.nic}</TableCell>
                             <TableCell align="left">{row.address}</TableCell>
-                            {/* <TableCell align="left">
+                            <TableCell align="left">
                                 <Tooltip title="Edit">
                                     <IconButton 
                                         onClick={() => {
@@ -101,7 +146,7 @@ class Customer extends Component{
                                             <DeleteIcon color="error" />
                                         </IconButton>
                                 </Tooltip>
-                            </TableCell> */}
+                            </TableCell>
                             </TableRow>
                         ))}
                         </TableBody>

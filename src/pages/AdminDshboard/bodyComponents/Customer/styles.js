@@ -13,7 +13,7 @@ export const styleSheet = {
     },
     searchBar: {
         height: '15vh',
-        width: '83.3vw',
+        width: '83vw',
         display: 'flex',
         flexWrap: 'wrap',
         flexDirection: 'column',
@@ -24,7 +24,7 @@ export const styleSheet = {
     },
     bookingPanel: {
         height: '15vh',
-        width: '83.3vw',
+        width: '83vw',
         display: 'flex',
         flexWrap: 'wrap',
         alignItems: 'center',
@@ -33,25 +33,49 @@ export const styleSheet = {
         //backgroundColor: 'yellow',
     },
     table: {
-        height: '85vh',
-        width: '83.3vw',
+        height: '70vh',
+        width: '83vw',
         display: 'flex',
         flexWrap: 'wrap',
         flexDirection: 'column',
-        backgroundColor: 'white',
+        //backgroundColor: 'red',
         alignItems: 'center',
         justifyContent: 'center',
-        border: '2px solid #eeeff1',
+        //border: '2px solid #eeeff1',
     },
-    tableBtn:{
-        height: '10vh',
-        width: '83.3vw',
+    details:{
+        height: '70vh',
+        width: '83vw',
         display: 'flex',
-        backgroundColor: 'white',
+        flexWrap: 'wrap',
+        flexDirection: 'column',
+        //backgroundColor: 'white',
+        alignItems: 'center',
+        justifyContent: 'center',
+        alignItems: 'center',
+        justifyContent: 'center',
+        //border: '2px solid #eeeff1',
+    },
+    textContainer:{
+        height: '65vh',
+        width: '38vw',
+        display: 'flex',
+        flexWrap: 'wrap',
+        flexDirection: 'column',
+        backgroundColor: '#eeeff1',
+        alignItems: 'center',
+        justifyContent: 'center',
+        borderRadius:'15px',
+        marginLeft:'20px'
+    },
+    upload:{
+        height: '70vh',
+        width: '41vw',
+        display: 'flex',
         flexWrap: 'wrap',
         flexDirection: 'column',
         alignItems: 'center',
         justifyContent: 'center',
-        
+        //backgroundColor: 'gray'
     }
 }
