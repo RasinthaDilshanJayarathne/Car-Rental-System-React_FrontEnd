@@ -51,14 +51,14 @@ function Luxury(props) {
                             </Grid>
                             <Grid className={classes.vehicleDetailsCard}>
                                 <Grid className={classes.vehicleSubDetailsCard}>
-                                    <Typography style={{fontSize:'16px',marginLeft:'10px',color:'orange'}}>Daily Rate 10,000(Rs) </Typography>
-                                    <Typography style={{fontSize:'16px',marginLeft:'10px',color:'orange'}}>Free 100 Km for a Day</Typography>
-                                    <Typography style={{fontSize:'16px',marginLeft:'10px',color:'orange'}}>Price per Extra Km 85.00(Rs)</Typography>
+                                    <Typography style={{fontSize:'16px',marginLeft:'10px',color:'#2c3e50'}}>Daily Rate 10,000(Rs) </Typography>
+                                    <Typography style={{fontSize:'16px',marginLeft:'10px',color:'#2c3e50'}}>Free 100 Km for a Day</Typography>
+                                    <Typography style={{fontSize:'16px',marginLeft:'10px',color:'#2c3e50'}}>Price per Extra Km 85.00(Rs)</Typography>
                                 </Grid>
                                 <Grid className={classes.vehicleSubDetailsCard}>
-                                    <Typography style={{fontSize:'16px',marginLeft:'10px',color:'orange'}}>Monthly Rate 227,150.00(Rs)</Typography>
-                                    <Typography style={{fontSize:'16px',marginLeft:'10px',color:'orange'}}>Free 2400 Km for a Day</Typography>
-                                    <Typography style={{fontSize:'16px',marginLeft:'10px',color:'orange'}}>Modifications</Typography>
+                                    <Typography style={{fontSize:'16px',marginLeft:'10px',color:'#2c3e50'}}>Monthly Rate 227,150.00(Rs)</Typography>
+                                    <Typography style={{fontSize:'16px',marginLeft:'10px',color:'#2c3e50'}}>Free 2400 Km for a Day</Typography>
+                                    <Typography style={{fontSize:'16px',marginLeft:'10px',color:'#2c3e50'}}>Modifications</Typography>
                                 </Grid>
                                 <Grid style={{display:'flex', flexWrap: 'wrap', flexDirection: 'column',width:'37vw',height:'5vh',marginTop:'-70px'}}>
                                     <Grid style={{display:'flex', flexWrap: 'wrap',flexDirection:'column',width:'6.1vw',height:'5vh',alignItems:'left', justifyContent:'center'}}>
@@ -104,14 +104,14 @@ function Luxury(props) {
                             </Grid>
                             <Grid className={classes.vehicleDetailsCard}>
                                 <Grid className={classes.vehicleSubDetailsCard}>
-                                    <Typography style={{fontSize:'16px',marginLeft:'10px',color:'orange'}}>Daily Rate 18,000(Rs) </Typography>
-                                    <Typography style={{fontSize:'16px',marginLeft:'10px',color:'orange'}}>Free 100 Km for a Day</Typography>
-                                    <Typography style={{fontSize:'16px',marginLeft:'10px',color:'orange'}}>Price per Extra Km 100.00(Rs)</Typography>
+                                    <Typography style={{fontSize:'16px',marginLeft:'10px',color:'#2c3e50'}}>Daily Rate 18,000(Rs) </Typography>
+                                    <Typography style={{fontSize:'16px',marginLeft:'10px',color:'#2c3e50'}}>Free 100 Km for a Day</Typography>
+                                    <Typography style={{fontSize:'16px',marginLeft:'10px',color:'#2c3e50'}}>Price per Extra Km 100.00(Rs)</Typography>
                                 </Grid>
                                 <Grid className={classes.vehicleSubDetailsCard}>
-                                    <Typography style={{fontSize:'16px',marginLeft:'10px',color:'orange'}}>Monthly Rate 300,000.00(Rs)</Typography>
-                                    <Typography style={{fontSize:'16px',marginLeft:'10px',color:'orange'}}>Free 2400 Km for a Day</Typography>
-                                    <Typography style={{fontSize:'16px',marginLeft:'10px',color:'orange'}}>Modifications</Typography>
+                                    <Typography style={{fontSize:'16px',marginLeft:'10px',color:'#2c3e50'}}>Monthly Rate 300,000.00(Rs)</Typography>
+                                    <Typography style={{fontSize:'16px',marginLeft:'10px',color:'#2c3e50'}}>Free 2400 Km for a Day</Typography>
+                                    <Typography style={{fontSize:'16px',marginLeft:'10px',color:'#2c3e50'}}>Modifications</Typography>
                                 </Grid>
                                 <Grid style={{display:'flex', flexWrap: 'wrap', flexDirection: 'column',width:'37vw',height:'5vh',marginTop:'-70px'}}>
                                     <Grid style={{display:'flex', flexWrap: 'wrap',flexDirection:'column',width:'6.1vw',height:'5vh',alignItems:'left', justifyContent:'center'}}>
