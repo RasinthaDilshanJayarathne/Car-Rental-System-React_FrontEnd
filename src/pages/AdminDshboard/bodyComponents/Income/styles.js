@@ -47,8 +47,8 @@ export const styleSheet ={
         border: '2px solid #eeeff1',
     },
     chart:{
-        height: '60vh',
-        width: '83.3vw',
+        height: '84vh',
+        width: '41.5vw',
         display: 'flex',
         flexWrap: 'wrap',
         flexDirection: 'column',
@@ -68,13 +68,43 @@ export const styleSheet ={
         //border:'1px solid red'
     },
     incomes:{
-        height: '25vh',
-        width: '83.3vw',
+        height: '84vh',
+        width: '41.5vw',
         display: 'flex',
         flexWrap: 'wrap',
         flexDirection: 'column',
         alignItems: 'center',
         justifyContent: 'center',
-        backgroundColor:'red'
+        //backgroundColor:'red'
+    },
+    chart1:{
+        height: '42vh',
+        width: '41.5vw',
+        display: 'flex',
+        flexWrap: 'wrap',
+        flexDirection: 'column',
+        alignItems: 'center',
+        justifyContent: 'center',
+        border:'1px solid red'
+    },
+    chart2:{
+        height: '42vh',
+        width: '41.5vw',
+        display: 'flex',
+        flexWrap: 'wrap',
+        flexDirection: 'column',
+        alignItems: 'center',
+        justifyContent: 'center',
+        border:'1px solid red'
+    },
+    chart3:{
+        height: '42vh',
+        width: '41.5vw',
+        display: 'flex',
+        flexWrap: 'wrap',
+        flexDirection: 'column',
+        alignItems: 'center',
+        justifyContent: 'center',
+        border:'1px solid red'
     }
 }

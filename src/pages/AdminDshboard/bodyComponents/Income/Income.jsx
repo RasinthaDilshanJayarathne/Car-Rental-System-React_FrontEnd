@@ -29,42 +29,23 @@ class Income extends Component{
                     <Grid className={classes.bookingPanel}>
                         <img src={logo} alt="" style={{width: '150px', marginTop: '-10px'}}/>
                         <Typography variant="h5" style={{marginLeft: '30px',color: '#000d6b'}}>
-                            BOOK A CAR / CAR RENTAL INCOME MANAGE
+                            BOOK A CAR / SUMMERY OF INCOME
                         </Typography>
                     </Grid>
                 </Grid>
                 <Grid className={classes.subContainer}>
                     <Grid className={classes.chart}>
-                        <Grid className={classes.SubChart}>
-                            <BarChart
-                                width={700}
-                                height={300}
-                                data={daily}
-                                    margin={{
-                                        top: 5,
-                                        right: 100,
-                                        left: 80,
-                                        bottom: 5,
-                                    }}
-                                    barSize={20}
-                                    >
-                                <XAxis
-                                    dataKey="name"
-                                    scale="point"
-                                    padding={{ left: 10, right: 10 }}
-                                />
-                                                
-                                <YAxis />
-                                <Tooltip />
-                                <Legend />
-                                <CartesianGrid strokeDasharray="3 3" />
-                                <Bar dataKey="Packges" fill="#8884d8" background={{ fill: "#eee" }} />
-                            </BarChart>
-                            <Typography variant="h6" gutterBottom component="div" style={{textAlign:'center',marginBottom:'80px',color:'#7f8c8d'}}>Summary Of Daily</Typography>
+                        <Grid className={classes.chart1}>
+
                         </Grid>
-                        <Grid className={classes.SubChart}>
+                        <Grid className={classes.chart1}>
+                            
+                        </Grid>
+                    </Grid>
+                    <Grid className={classes.incomes}>
+                        <Grid className={classes.chart2}>
                             <BarChart
-                                width={700}
+                                width={600}
                                 height={300}
                                 data={mounthly}
                                     margin={{
@@ -89,9 +70,33 @@ class Income extends Component{
                             </BarChart>
                             <Typography variant="h6" gutterBottom component="div" style={{textAlign:'center',marginBottom:'80px',color:'#7f8c8d'}}>Summary Of Mounthly</Typography>
                         </Grid>
-                    </Grid>
-                    <Grid className={classes.incomes}>
-
+                        <Grid className={classes.chart3}>
+                        <BarChart
+                                width={600}
+                                height={300}
+                                data={daily}
+                                    margin={{
+                                        top: 5,
+                                        right: 100,
+                                        left: 80,
+                                        bottom: 5,
+                                    }}
+                                    barSize={20}
+                                    >
+                                <XAxis
+                                    dataKey="name"
+                                    scale="point"
+                                    padding={{ left: 10, right: 10 }}
+                                />
+                                                
+                                <YAxis />
+                                <Tooltip />
+                                <Legend />
+                                <CartesianGrid strokeDasharray="3 3" />
+                                <Bar dataKey="Packges" fill="#8884d8" background={{ fill: "#eee" }} />
+                            </BarChart>
+                            <Typography variant="h6" gutterBottom component="div" style={{textAlign:'center',marginBottom:'80px',color:'#7f8c8d'}}>Summary Of Daily</Typography>
+                        </Grid>
                     </Grid>
                 </Grid>
             </Grid>

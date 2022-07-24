@@ -182,8 +182,8 @@ class Home extends Component {
                                     data={data}
                                     cx={200}
                                     cy={200}
-                                    outerRadius={80}
-                                    fill="#8884d8"
+                                    outerRadius={100}
+                                    fill="#00b894"
                                     label
                                 />
                                 <Tooltip />

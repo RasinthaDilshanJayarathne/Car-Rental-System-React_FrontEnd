@@ -10,9 +10,9 @@ function App() {
     return (
         <Fragment>
             {/* <CustomerDashboard/> */}
-            <AdminDashboard/>
+            {/* <AdminDashboard/> */}
             {/* <WebSite/> */}
-            {/* <DriverDashboard/> */}
+            <DriverDashboard/>
         </Fragment>
        /* <Routes>
             <Route path='/web' element={<WebSite/>}/>
