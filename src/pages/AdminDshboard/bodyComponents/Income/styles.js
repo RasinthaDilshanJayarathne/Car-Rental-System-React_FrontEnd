@@ -46,16 +46,6 @@ export const styleSheet ={
         justifyContent: 'center',
         border: '2px solid #eeeff1',
     },
-    card:{
-        height: '25vh',
-        width: '83.3vw',
-        display: 'flex',
-        flexWrap: 'wrap',
-        flexDirection: 'row',
-        alignItems: 'center',
-        justifyContent: 'center',
-        //backgroundColor: 'red',
-    },
     chart:{
         height: '60vh',
         width: '83.3vw',
@@ -66,40 +56,6 @@ export const styleSheet ={
         justifyContent: 'center',
         //backgroundColor: 'black',
     },
-    subCard:{
-        height: '25vh',
-        width: '83.3vw',
-        //backgroundColor: 'black',
-        display: 'flex',
-        alignItems: 'center',
-        justifyContent: 'center',
-        flexWrap: 'wrap',
-        flexDirection: 'row',  
-    },
-    card1:{
-        height: '15vh',
-        width: '15vw',
-        borderRadius:'15px',
-        backgroundColor:'#00b894',
-    },
-    card2:{
-        height: '15vh',
-        width: '15vw',
-        borderRadius:'15px',
-        backgroundColor:'#00cec9'
-    },
-    card3:{
-        height: '15vh',
-        width: '15vw',
-        borderRadius:'15px',
-        backgroundColor:'#0984e3'
-    },
-    card4:{
-        height: '15vh',
-        width: '15vw',
-        borderRadius:'15px',
-        backgroundColor:'#0984e3'
-    },
     SubChart:{
         height: '60vh',
         width: '41.5vw',
@@ -108,6 +64,17 @@ export const styleSheet ={
         flexDirection: 'column',
         alignItems: 'center',
         justifyContent: 'center',
-        border:'1px solid red'
+        marginTop:'50px'
+        //border:'1px solid red'
     },
+    incomes:{
+        height: '25vh',
+        width: '83.3vw',
+        display: 'flex',
+        flexWrap: 'wrap',
+        flexDirection: 'column',
+        alignItems: 'center',
+        justifyContent: 'center',
+        backgroundColor:'red'
+    }
 }

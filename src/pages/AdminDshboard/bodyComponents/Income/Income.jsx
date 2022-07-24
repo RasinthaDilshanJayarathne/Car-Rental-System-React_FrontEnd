@@ -3,7 +3,18 @@ import {styleSheet} from "../Income/styles";
 import { Component } from "react";
 import {Grid, Typography} from "@mui/material";
 import logo from "../../../../assets/img/logo.png";
+import { Tooltip,BarChart,XAxis,YAxis,Legend,CartesianGrid,Bar, PieChart,Pie} from "recharts";
 
+const daily = [
+    { name: "General", Packges: 8500},
+    { name: "Luxury", Packges: 12500 },
+    { name: "Premium", Packges: 4000 },
+];
+const mounthly = [
+    { name: "General", Packges: 20000 },
+    { name: "Luxury", Packges: 15000 },
+    { name: "Premium", Packges: 100000 },
+];
 
 class Income extends Component{
     constructor(props) {
@@ -23,47 +34,64 @@ class Income extends Component{
                     </Grid>
                 </Grid>
                 <Grid className={classes.subContainer}>
-                    <Grid className={classes.subCard}>
-                            <Grid className={classes.card1}>
-                                <Typography variant="h5" gutterBottom component="div" style={{textAlign:'center',marginTop:'20px',color:'white'}}>
-                                    Total Booking
-                                </Typography>
-                                <Typography variant="h4" gutterBottom component="div" style={{textAlign:'center',marginTop:'10px',color:'white'}}>
-                                    03
-                                </Typography>
-                            </Grid>
-                            <Grid className={classes.card2}>
-                                <Typography variant="h5" gutterBottom component="div" style={{textAlign:'center',marginTop:'20px',color:'white'}}>
-                                    Pending Booking
-                                </Typography>
-                                <Typography variant="h4" gutterBottom component="div" style={{textAlign:'center',marginTop:'10px',color:'white'}}>
-                                    04
-                                </Typography>
-                            </Grid>
-                            <Grid className={classes.card3}>
-                                <Typography variant="h5" gutterBottom component="div" style={{textAlign:'center',marginTop:'20px',color:'white'}}>
-                                    Total Customer
-                                </Typography>
-                                <Typography variant="h4" gutterBottom component="div" style={{textAlign:'center',marginTop:'10px',color:'white'}}>
-                                    11
-                                </Typography>
-                            </Grid>
-                            <Grid className={classes.card4}>
-                                <Typography variant="h5" gutterBottom component="div" style={{textAlign:'center',marginTop:'20px',color:'white'}}>
-                                    Total Customer
-                                </Typography>
-                                <Typography variant="h4" gutterBottom component="div" style={{textAlign:'center',marginTop:'10px',color:'white'}}>
-                                    11
-                                </Typography>
-                            </Grid>
-                    </Grid>
                     <Grid className={classes.chart}>
                         <Grid className={classes.SubChart}>
-
+                            <BarChart
+                                width={700}
+                                height={300}
+                                data={daily}
+                                    margin={{
+                                        top: 5,
+                                        right: 100,
+                                        left: 80,
+                                        bottom: 5,
+                                    }}
+                                    barSize={20}
+                                    >
+                                <XAxis
+                                    dataKey="name"
+                                    scale="point"
+                                    padding={{ left: 10, right: 10 }}
+                                />
+                                                
+                                <YAxis />
+                                <Tooltip />
+                                <Legend />
+                                <CartesianGrid strokeDasharray="3 3" />
+                                <Bar dataKey="Packges" fill="#8884d8" background={{ fill: "#eee" }} />
+                            </BarChart>
+                            <Typography variant="h6" gutterBottom component="div" style={{textAlign:'center',marginBottom:'80px',color:'#7f8c8d'}}>Summary Of Daily</Typography>
                         </Grid>
                         <Grid className={classes.SubChart}>
-
+                            <BarChart
+                                width={700}
+                                height={300}
+                                data={mounthly}
+                                    margin={{
+                                        top: 5,
+                                        right: 100,
+                                        left: 80,
+                                        bottom: 5,
+                                    }}
+                                    barSize={20}
+                                    >
+                                <XAxis
+                                    dataKey="name"
+                                    scale="point"
+                                    padding={{ left: 10, right: 10 }}
+                                />
+                                                
+                                <YAxis />
+                                <Tooltip />
+                                <Legend />
+                                <CartesianGrid strokeDasharray="3 3" />
+                                <Bar dataKey="Packges" fill="#f39c12" background={{ fill: "#eee" }} />
+                            </BarChart>
+                            <Typography variant="h6" gutterBottom component="div" style={{textAlign:'center',marginBottom:'80px',color:'#7f8c8d'}}>Summary Of Mounthly</Typography>
                         </Grid>
+                    </Grid>
+                    <Grid className={classes.incomes}>
+
                     </Grid>
                 </Grid>
             </Grid>
