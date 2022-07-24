@@ -1,5 +1,5 @@
 import {Component} from "react";
-import {stylesSheet} from "../WebSite/styles";
+import {stylesSheet} from "./webStyles";
 import {withStyles} from "@mui/styles";
 import {Button, Card, CardActions, CardContent, Grid, Tab, Tabs, TextField, Typography} from "@mui/material";
 import ios from "../../assets/img/ios.png";

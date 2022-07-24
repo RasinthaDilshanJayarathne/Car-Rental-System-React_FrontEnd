@@ -106,7 +106,7 @@ class Home extends Component {
                 </TableContainer>
                         </Grid>
                         <Grid className={classes.sheduleDetail}>
-                        <iframe style={{ height: '68vh',width: '30vw',borderRadius:'15px'}}
+                        <iframe style={{ height: '70vh',width: '30vw',borderRadius:'15px'}}
                             src="https://maps.google.com/maps?q=Srilanka%20Galle&t=&z=13&ie=UTF8&iwloc=&output=embed"
                             frameBorder="0" scrolling="no" marginHeight="0" marginWidth="0">
                         </iframe>

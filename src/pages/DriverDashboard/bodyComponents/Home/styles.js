@@ -29,7 +29,7 @@ export const styleSheet = {
         //border:'1px solid red',
     },
     searchShedule:{
-        height: '20vh',
+        height: '15vh',
         width: '82.5vw',
         //backgroundColor: 'black',
         display: 'flex',
@@ -39,7 +39,7 @@ export const styleSheet = {
         flexDirection: 'column',
     },
     driverContainer:{
-        height: '70vh',
+        height: '75vh',
         width: '82.5vw',
         display: 'flex',
         alignItems: 'center',
@@ -51,7 +51,7 @@ export const styleSheet = {
         //backgroundColor: 'red',
     },
     sheduleTable:{
-        height: '68vh',
+        height: '70vh',
         width: '50vw',
         backgroundColor: '#eeeff1',
         display: 'flex',
@@ -62,7 +62,7 @@ export const styleSheet = {
         borderRadius:'15px'
     },
     sheduleDetail:{
-        height: '68vh',
+        height: '70vh',
         width: '30vw',
         display: 'flex',
         alignItems: 'center',
