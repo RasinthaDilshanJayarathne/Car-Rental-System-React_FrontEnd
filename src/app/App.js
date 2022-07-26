@@ -5,6 +5,7 @@ import CustomerDashboard from "../pages/CustomerDshboard/header/HeaderComponent"
 import AdminDashboard from "../pages/AdminDshboard/header/HeaderComponent";
 import DriverDashboard from "../pages/DriverDashboard/header/HeaderComponent"
 import SignUp from '../pages/SignUp/SignUp';
+import SignIn from '../pages/SignIn/SignIn';
 
 
 function App() {
@@ -14,7 +15,8 @@ function App() {
             {/* <AdminDashboard/> */}
             {/* <WebSite/> */}
             {/* <DriverDashboard/> */}
-            <SignUp/>
+            {/* <SignUp/> */}
+            <SignIn/>
         </Fragment>
        /* <Routes>
             <Route path='/web' element={<WebSite/>}/>
