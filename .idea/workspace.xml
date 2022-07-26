@@ -1,7 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="fcb3ca0e-e54b-49f7-ac10-4cba118b2c2f" name="Changes" comment="Changes" />
+    <list default="true" id="fcb3ca0e-e54b-49f7-ac10-4cba118b2c2f" name="Changes" comment="Changes">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/AdminDshboard/bodyComponents/Customer/Customer.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/AdminDshboard/bodyComponents/Customer/Customer.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/AdminDshboard/bodyComponents/Vehicle/Vehicle.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/AdminDshboard/bodyComponents/Vehicle/Vehicle.jsx" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -11,7 +15,7 @@
     <execution />
   </component>
   <component name="Git.Settings">
-    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -68,6 +72,7 @@
       <workItem from="1658145027877" duration="8604000" />
       <workItem from="1658202181425" duration="3542000" />
       <workItem from="1658292154041" duration="6096000" />
+      <workItem from="1658849532647" duration="5056000" />
     </task>
     <servers />
   </component>

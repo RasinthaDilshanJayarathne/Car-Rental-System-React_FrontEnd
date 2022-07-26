@@ -70,7 +70,7 @@ class Customer extends Component{
                     severity: 'success',
                 });
                 //this.clearFields();
-                this.loadData();
+                await this.loadData();
             } else {
                 this.setState({
                     alert: true,
@@ -118,7 +118,7 @@ class Customer extends Component{
                 message: res.data.message,
                 severity: 'success'
             });
-            this.loadData();
+            await this.loadData();
         } else {
             this.setState({
                 alert: true,
