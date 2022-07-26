@@ -12,11 +12,11 @@ function App() {
     return (
         <Fragment>
             {/* <CustomerDashboard/> */}
-            {/* <AdminDashboard/> */}
+            <AdminDashboard/>
             {/* <WebSite/> */}
             {/* <DriverDashboard/> */}
             {/* <SignUp/> */}
-            <SignIn/>
+            {/* <SignIn/> */}
         </Fragment>
        /* <Routes>
             <Route path='/web' element={<WebSite/>}/>

@@ -25,25 +25,10 @@ import Stack from '@mui/material/Stack';
 import Item from './Item';
 import {TextValidator, ValidatorForm} from "react-material-ui-form-validator";
 import { Component } from 'react';
-import VehicleService from "../../../Service/VehicleService";
-
-const DriverRequestingType = [
-    { label: 'AVAILABLE'},
-    { label: 'NOT_AVAILABLE'},
-]
-const VehicleType = [
-    { label: 'GENERAL'},
-    { label: 'LUXURY'},
-    { label: 'PREMIUM'},
-]
-const FuelType = [
-    { label: 'DIESEL'},
-    { label: 'PETROL'},
-]
-const TransmissionType = [
-    { label: 'AUTO'},
-    { label: 'MANUAL'},
-]
+import VehicleService from "../../../../Service/VehicleService";
+import MenuItem from '@mui/material/MenuItem';
+import Select from '@mui/material/Select';
+import InputLabel from '@mui/material/InputLabel';
 
 const breakPoints = [
     { width: 1, itemsToShow: 1 },
@@ -81,11 +66,16 @@ class Vehicle extends Component {
 
             data: [],
             btnLabel: 'save',
-            btnColor: 'primary'
+            btnColor: 'primary',
+            vehicleType: 0,
+            fuelType: 0,
+            transmissionType: 0,
+            vehicleAvailabilityType: 0,
+
         }
    }
 
-   loadData = async () => {
+    loadData = async () => {
         let res = await VehicleService.fetchVehicle();
 
         if (res.status === 200) {
@@ -100,12 +90,12 @@ class Vehicle extends Component {
     submitVehicle = async () => {
         let formData = this.state.formData;
 
+        console.log(formData)
+
         if(this.state.btnLabel === "save") {
             let res = await VehicleService.postVehicle(formData);
-
-            console.log(res)    //print the promise
     
-            if (res.status === 200) {
+            if (res.status === 201) {
                 this.setState({
                     alert: true,
                     message: res.data.message,
@@ -130,7 +120,7 @@ class Vehicle extends Component {
                     btnLabel: 'save',
                     btnColor: 'primary'
                 });
-                this.clearFields();
+                //this.clearFields();
                 this.loadData();
             } else {
                 this.setState({
@@ -175,9 +165,10 @@ class Vehicle extends Component {
 
    deleteVehicle = async (id) => {
         let params = {
-            vehicleId: id
+            vehicleId : id
         }
         let res = await VehicleService.deleteCustomer(params);
+        console.log(res)
 
         if(res.status === 200) {
             this.setState({
@@ -198,9 +189,31 @@ class Vehicle extends Component {
     componentDidMount() {
         this.loadData();
     }
+
     
     render(){
         const {classes} = this.props;
+
+        // const handleChange = (event) => {
+        //     setAge(event.target.value);
+        // };
+
+        // const vehicleChange = (event) =>{
+        //     this.setState({vehicleType: event.target.value});
+        // } 
+
+        // const fuelChange = (event) =>{
+        //     this.setState({fuelType: event.target.value});
+        // }
+
+        // const transmissionChange = (event) =>{
+        //     this.setState({transmissionType: event.target.value});
+        // }
+
+        // const AvailabilityChange = (event) =>{
+        //     this.setState({vehicleAvailabilityType: event.target.value});
+        // }
+
         return (
             <>
                 <Grid className={classes.container}>
@@ -339,7 +352,7 @@ class Vehicle extends Component {
                                         }}
                                         validators={['required']}
                                     />
-                                    <Autocomplete 
+                                    {/* <Autocomplete 
                                         style={{padding:'10px',width:'230px'}} 
                                         disablePortal id="combo-box-demo" 
                                         variant="outlined" options={VehicleType} sx={{ width: 300 }}
@@ -347,7 +360,37 @@ class Vehicle extends Component {
                                         label="Vehicle Type"/>}
                                         value={this.state.formData.vehicleType}
                                     />
-                                    <Autocomplete 
+                                    <Select
+                                        style={{padding:'10px',width:'210px',height:'55px',marginTop:'10px',marginLeft:'10px'}}
+                                        labelId="demo-simple-select-helper-label"
+                                        id="demo-simple-select-helper"
+                                        value={this.state.vehicleType}
+                                        variant="outlined"
+                                        label="Vehicle Type"
+                                        onChange={vehicleChange}
+                                        >
+                                        <MenuItem value={0}>
+                                        <em>None</em>
+                                        </MenuItem>
+                                        <MenuItem value={1}>GENERAL</MenuItem>
+                                        <MenuItem value={2}>LUXURY</MenuItem>
+                                        <MenuItem value={3}>PREMIUM</MenuItem>
+                                    </Select> */}
+
+                                    <TextValidator 
+                                        style={{padding:'10px',width:'230px'}} 
+                                        id="outlined-basic" 
+                                        label="Vehicle Type"
+                                        variant="outlined"
+                                        value={this.state.formData.vehicleType}
+                                        onChange={(e) => {
+                                            let formData = this.state.formData
+                                            formData.vehicleType = e.target.value
+                                            this.setState({ formData })
+                                        }}
+                                        validators={['required']}
+                                    />
+                                    {/* <Autocomplete 
                                         style={{padding:'10px',width:'230px'}} 
                                         disablePortal id="combo-box-demo" 
                                         variant="outlined" options={FuelType} sx={{ width: 300 }}
@@ -355,7 +398,36 @@ class Vehicle extends Component {
                                         label="Fuel Type"/>}
                                         value={this.state.formData.fuelType}
                                     />
-                                    <Autocomplete 
+                                    <Select
+                                        style={{padding:'10px',width:'210px',height:'55px',marginTop:'10px',marginLeft:'10px'}}
+                                        labelId="demo-simple-select-helper-label"
+                                        id="demo-simple-select-helper"
+                                        value={this.state.fuelType}
+                                        variant="outlined"
+                                        label="Fuel Type"
+                                        onChange={fuelChange}
+                                        >
+                                        <MenuItem value={0}>
+                                        <em>None</em>
+                                        </MenuItem>
+                                        <MenuItem value={1}>DIESEL</MenuItem>
+                                        <MenuItem value={2}>PETROL</MenuItem>
+                                        
+                                    </Select> */}
+                                    <TextValidator 
+                                        style={{padding:'10px',width:'230px'}} 
+                                        id="outlined-basic" 
+                                        label="Fuel Type"
+                                        variant="outlined"
+                                        value={this.state.formData.fuelType}
+                                        onChange={(e) => {
+                                            let formData = this.state.formData
+                                            formData.fuelType = e.target.value
+                                            this.setState({ formData })
+                                        }}
+                                        validators={['required']}
+                                    />
+                                    {/* <Autocomplete 
                                         style={{padding:'10px',width:'230px'}} 
                                         disablePortal id="combo-box-demo" 
                                         variant="outlined" 
@@ -364,8 +436,39 @@ class Vehicle extends Component {
                                         label="Transmission Type"/>}
                                         value={this.state.formData.transmissionType}
                                     />
+                                    <Select
+                                        style={{padding:'10px',width:'210px',height:'55px',marginTop:'10px',marginLeft:'20px'}}
+                                        labelId="demo-simple-select-helper-label"
+                                        id="demo-simple-select-helper"
+                                        value={this.state.transmissionType}
+                                        variant="outlined"
+                                        label="Transmission Type"
+                                        onChange={transmissionChange}
+                                        >
+                                        <MenuItem value={0}>
+                                        <em>None</em>
+                                        </MenuItem>
+                                           
+                                        <MenuItem value={1}>AUTO</MenuItem>
+                                        <MenuItem value={2}>MANUAL</MenuItem>
+                                        
+                                    </Select> */}
+
                                     <TextValidator 
                                         style={{padding:'10px',width:'230px'}} 
+                                        id="outlined-basic" 
+                                        label="Transmission Type"
+                                        variant="outlined"
+                                        value={this.state.formData.transmissionType}
+                                        onChange={(e) => {
+                                            let formData = this.state.formData
+                                            formData.transmissionType = e.target.value
+                                            this.setState({ formData })
+                                        }}
+                                        validators={['required']}
+                                    />
+                                    <TextValidator 
+                                        style={{padding:'10px',width:'230px',marginLeft:'10px'}} 
                                         id="outlined-basic" 
                                         label="Daily Mileage" 
                                         variant="outlined"
@@ -416,7 +519,7 @@ class Vehicle extends Component {
                                         }}
                                         validators={['required']} 
                                     />
-                                    <TextValidator 
+                                    {/* <TextValidator 
                                         style={{padding:'10px',width:'230px'}} 
                                         id="outlined-basic" 
                                         label="Vehicle Availability Type" 
@@ -429,8 +532,38 @@ class Vehicle extends Component {
                                         }}
                                         validators={['required']} 
                                     />
+                                    <Select
+                                        style={{padding:'10px',width:'210px',height:'55px',marginTop:'10px',marginLeft:'10px'}}
+                                        labelId="demo-simple-select-helper-label"
+                                        id="demo-simple-select-helper"
+                                        value={this.state.vehicleAvailabilityType}
+                                        variant="outlined"
+                                        label="Vehicle Availability Type"
+                                        onChange={AvailabilityChange}
+                                        >
+                                        <MenuItem value={0}>
+                                        <em>None</em>
+                                        </MenuItem> 
+                                        <MenuItem value={1}>AVAILABLE</MenuItem>
+                                        <MenuItem value={2}>NOT_AVAILABLE</MenuItem>
+                                        
+                                    </Select> */}
+
                                     <TextValidator 
                                         style={{padding:'10px',width:'230px'}} 
+                                        id="outlined-basic" 
+                                        label="Vehicle Availability Type"
+                                        variant="outlined"
+                                        value={this.state.formData.vehicleAvailabilityType}
+                                        onChange={(e) => {
+                                            let formData = this.state.formData
+                                            formData.vehicleAvailabilityType = e.target.value
+                                            this.setState({ formData })
+                                        }}
+                                        validators={['required']}
+                                    />
+                                    <TextValidator 
+                                        style={{padding:'10px',width:'230px',marginLeft:'10px'}} 
                                         id="outlined-basic" 
                                         label="Damage Fee" 
                                         variant="outlined"
@@ -443,7 +576,7 @@ class Vehicle extends Component {
                                         validators={['required']}
                                     />
                                     <TextValidator 
-                                        style={{padding:'10px',width:'230px'}} 
+                                        style={{padding:'10px',width:'230px',}} 
                                         id="outlined-basic" 
                                         label="LastService Mileage" 
                                         variant="outlined"

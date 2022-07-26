@@ -3,6 +3,13 @@ import {styleSheet} from "../SignUp/styles";
 import {withStyles} from "@mui/styles";
 import {PhotoCamera} from "@mui/icons-material";
 import {Button, IconButton, TextField,Grid} from "@mui/material";
+import Autocomplete from '@mui/material/Autocomplete';
+
+const userRole = [
+    { label: 'ADMIN'},
+    { label: 'CUSTOMER'},
+    { label: 'DRIVER'},
+]
 
 class SignUp extends Component{
     constructor(props){
@@ -43,7 +50,15 @@ class SignUp extends Component{
                                 <PhotoCamera style={{fontSize:'35px',marginBottom:'50px',marginLeft:'5px'}}/>
                             </IconButton>
                             <TextField style={{marginTop:'-60px',width:'250px'}} id="outlined-basic" label="Address" variant="outlined" />
-                            <TextField style={{marginTop:'-10px',width:'250px'}} id="outlined-basic" label="Conform Password" variant="outlined" />
+                            {/* <TextField style={{marginTop:'-10px',width:'250px'}} id="outlined-basic" label="Conform Password" variant="outlined" /> */}
+                            <Autocomplete 
+                               style={{marginTop:'-10px',width:'250px'}}
+                                disablePortal id="combo-box-demo" 
+                                variant="outlined" 
+                                options={userRole} sx={{ width: 300 }}
+                                renderInput={(params) => <TextField {...params} 
+                                label="User Role"/>}
+                            />
                         </Grid>
                         <Grid style={{width:'42vw',height:'15vh',display: 'flex',flexWrap: 'wrap',flexDirection: 'row',alignItems: 'center',justifyContent: 'center'}}>
                             <Button variant="contained" style={{width:'150px'}}>Register Now</Button>

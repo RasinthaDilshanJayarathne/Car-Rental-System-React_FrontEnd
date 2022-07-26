@@ -1,9 +1,9 @@
 import axios from "../axios";
 
-class VehicleService {
-    postVehicle = async (data) => {
+class DriverService {
+    postDriver = async (data) => {
         const promise = new Promise((resolve, reject) => {
-            axios.post('vehicle', data)    // 20s
+            axios.post('driver', data)  
                 .then((res) => {
                     return resolve(res)
                 })
@@ -15,9 +15,9 @@ class VehicleService {
         return await promise;
     }
 
-    fetchVehicle = async () => {
+    fetchDriver = async () => {
         const promise = new Promise((resolve, reject) => {
-            axios.get('vehicle')
+            axios.get('driver')
                 .then((res) => {
                     return resolve(res)
                 })
@@ -28,9 +28,9 @@ class VehicleService {
         return await promise;
     }
 
-    putVehicle = async (data) => {
+    putDriver = async (data) => {
          const promise = new Promise((resolve, reject) => {
-            axios.put('vehicle', data)
+            axios.put('driver', data)
             .then((res) => {
                 return resolve(res)
             })
@@ -41,9 +41,9 @@ class VehicleService {
          return await promise;
     };
     
-    deleteVehicle = async (params) => {
+    deleteDriver = async (params) => {
          const promise = new Promise((resolve, reject) => {
-            axios.delete('vehicle', {params: params})
+            axios.delete('driver', {params: params})
             .then((res) => {
                 return resolve(res)
             }) 
@@ -54,4 +54,4 @@ class VehicleService {
          return await promise;
     };
 }
-export default new VehicleService();
+export default new DriverService();

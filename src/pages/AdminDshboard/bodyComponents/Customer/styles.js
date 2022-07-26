@@ -49,33 +49,36 @@ export const styleSheet = {
         display: 'flex',
         flexWrap: 'wrap',
         flexDirection: 'column',
-        //backgroundColor: 'white',
         alignItems: 'center',
         justifyContent: 'center',
         alignItems: 'center',
         justifyContent: 'center',
-        //border: '2px solid #eeeff1',
+        //border: '1px solid red',
     },
     textContainer:{
         height: '65vh',
-        width: '38vw',
+        width: '36vw',
         display: 'flex',
         flexWrap: 'wrap',
         flexDirection: 'column',
         backgroundColor: '#eeeff1',
+        //border: '1px solid red',
         alignItems: 'center',
         justifyContent: 'center',
         borderRadius:'15px',
-        marginLeft:'20px'
+        marginLeft:'-20px'
     },
     upload:{
         height: '70vh',
-        width: '41vw',
+        width: '40vw',
         display: 'flex',
         flexWrap: 'wrap',
         flexDirection: 'column',
         alignItems: 'center',
         justifyContent: 'center',
         //backgroundColor: 'gray'
+        //border: '1px solid red',
+        marginLeft:'550px',
+        marginTop:'-500px'
     }
 }

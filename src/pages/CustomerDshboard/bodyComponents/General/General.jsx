@@ -32,11 +32,17 @@ import IconButton from '@mui/material/IconButton';
 import Tooltip from '@mui/material/Tooltip';
 import EditIcon from '@mui/icons-material/Edit';
 import { TextValidator, ValidatorForm } from "react-material-ui-form-validator";
+import Autocomplete from '@mui/material/Autocomplete';
 import Item from './Item';
 
 const Transition = React.forwardRef(function Transition(props, ref) {
     return <Slide direction="up" ref={ref} {...props} />;
 });
+
+const driverRequestingType = [
+    { label: 'YES'},
+    { label: 'NO'},
+]
 
 const breakPoints = [
     { width: 1, itemsToShow: 1 },
@@ -264,7 +270,14 @@ function General(props) {
                                                             <TextField style={{padding:'10px',width:'230px'}} id="outlined-basic" label="Pick-Up-Date" variant="outlined" />
                                                             <TextField style={{padding:'10px',width:'230px'}} id="outlined-basic" label="Pick-Up-Time" variant="outlined" />
                                                             <TextField style={{padding:'10px',width:'230px'}} id="outlined-basic" label="Return-Date" variant="outlined" />
-                                                            <TextField style={{padding:'10px',width:'230px'}} id="outlined-basic" label="Driver Requesting Type" variant="outlined" />
+                                                            <Autocomplete 
+                                                                style={{padding:'10px',width:'230px'}}
+                                                                disablePortal id="combo-box-demo" 
+                                                                variant="outlined" 
+                                                                options={driverRequestingType} sx={{ width: 300 }}
+                                                                renderInput={(params) => <TextField {...params} 
+                                                                label="Driver Requesting Type"/>}
+                                                            />
                                                             <TextField style={{padding:'10px',width:'230px'}} id="outlined-basic" label="Driver Id" variant="outlined" />
                                                             <TextField style={{padding:'10px',width:'230px'}} id="outlined-basic" disabled label="Driver Name" variant="outlined" />
                                                             <TextField style={{padding:'10px',width:'230px'}} id="outlined-basic" disabled label="Customer Id" variant="outlined" />
