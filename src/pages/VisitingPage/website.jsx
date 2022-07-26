@@ -14,21 +14,18 @@ import DiamondIcon from '@mui/icons-material/Diamond';
 import DataSaverOffIcon from '@mui/icons-material/DataSaverOff';
 import IconButton from '@mui/material/IconButton';
 import CloseIcon from '@mui/icons-material/Close';
-
-
 import Dialog from '@mui/material/Dialog';
 import DialogActions from '@mui/material/DialogActions';
 import DialogContent from '@mui/material/DialogContent';
 import DialogContentText from '@mui/material/DialogContentText';
 import DialogTitle from '@mui/material/DialogTitle';
-
+import DatePicker from '../../common/DatePicker/index'
 import car1 from "../../assets/img/car1.png"
 import car2 from "../../assets/img/car2.png"
 import car3 from "../../assets/img/car3.png"
 import car4 from "../../assets/img/car4.png"
 import car5 from "../../assets/img/car5.png"
 import car6 from "../../assets/img/car6.png"
-
 import about from "../../assets/img/about.png"
 import rev1 from "../../assets/img/rev1.jpg"
 import rev2 from "../../assets/img/rev2.jpg"
@@ -99,10 +96,13 @@ class WebSite extends Component {
                                 <Grid className={classes.fixDate}>
                                     <TextField id="outlined-basic" label="Location" variant="outlined"
                                         style={{ margin: '10px' }} />
-                                    <TextField id="outlined-basic" label="Pick-Up-Date" variant="outlined"
-                                        style={{ margin: '10px' }} />
-                                    <TextField id="outlined-basic" label="Return-Date" variant="outlined"
-                                        style={{ margin: '10px' }} />
+                                    {/* <TextField id="outlined-basic" label="Pick-Up-Date" variant="outlined"
+                                        style={{ margin: '10px' }} /> */}
+
+                                    <DatePicker style={{ margin: '10px' }}/>
+                                    {/* <TextField id="outlined-basic" label="Return-Date" variant="outlined"
+                                        style={{ margin: '10px' }} /> */}
+                                    <DatePicker style={{ margin: '10px' }}/>
                                     <Button variant="contained" style={{
                                         margin: '10px',
                                         height: '52px',
@@ -576,29 +576,44 @@ class WebSite extends Component {
 
 
                 <Dialog
+                    //fullWidth
+                    maxWidth="sm=6"
                     open={this.state.open}
                     onClose={this.handleClose}
                     aria-labelledby="alert-dialog-title"
                     aria-describedby="alert-dialog-description"
                 >
                     <DialogTitle id="alert-dialog-title">
-                        <Typography>Tittle Here</Typography>
+                        {/* <Typography>Tittle Here</Typography>
                         <IconButton aria-label="close" onClick={this.handleClose}>
                             <CloseIcon />
-                        </IconButton>
+                        </IconButton> */}
                     </DialogTitle>
                     <DialogContent>
-                        <DialogContentText id="alert-dialog-description">
-                            Let Google help apps determine location. This means sending anonymous
-                            location data to Google, even when no apps are running.
-                        </DialogContentText>
+                        <Grid className={classes.PopContainer}>
+                            <Grid className={classes.profileContainer}></Grid>
+                            <Grid className={classes.textContainer} container columnSpacing={5}>
+                                <Grid className={classes.textDetail}>
+                                    <TextField id="outlined-basic" label="Register Id" variant="outlined" />
+                                    <TextField id="outlined-basic" label="Register Id" variant="outlined" />
+                                    <TextField id="outlined-basic" label="Register Id" variant="outlined" />
+                                    <TextField id="outlined-basic" label="Register Id" variant="outlined" />
+                                </Grid>
+                                <Grid className={classes.textDetail}>
+                                    <TextField id="outlined-basic" label="Register Id" variant="outlined" />
+                                    <TextField id="outlined-basic" label="Register Id" variant="outlined" />
+                                    <TextField id="outlined-basic" label="Register Id" variant="outlined" />
+                                    <TextField id="outlined-basic" label="Register Id" variant="outlined" />
+                                </Grid>
+                            </Grid>
+                        </Grid>
                     </DialogContent>
-                    <DialogActions>
+                    {/* <DialogActions>
                         <Button onClick={this.handleClose}>Disagree</Button>
                         <Button onClick={this.handleClose} autoFocus>
                             Agree
                         </Button>
-                    </DialogActions>
+                    </DialogActions> */}
                 </Dialog>
             </>
         )

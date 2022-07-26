@@ -60,12 +60,13 @@ export const stylesSheet ={
         flexWrap: 'wrap',
         flexDirection: 'row',
         height: '13vh',
-        width: '60vw',
+        width: '65vw',
         //backgroundColor: '#daddda',
         backgroundColor: 'white',
         border:'1px solid #e7e4e7',
         borderRadius:'15px',
         //opacity:'68%',
+        marginLeft:'10px',
         alignItems:'center',
         justifyContent:'center',
     },
@@ -258,5 +259,42 @@ export const stylesSheet ={
         alignItems:'center',
         justifyContent:'center',
         //border: '1px solid red'
-    }
+    },
+    PopContainer:{
+        width:'40vw',
+        height:'85vh',
+        display: 'flex',
+        flexDirection: 'row',
+        flexWrap:'wrap',
+        alignItems:'center',
+        justifyContent:'center',
+        //backgroundColor:'red'
+    },
+    profileContainer:{
+        width:'40vw',
+        height:'15vh',
+        //border: '1px solid red'
+        backgroundColor:'red'
+    },
+    textContainer:{
+        width:'40vw',
+        height:'70vh',
+        display: 'flex',
+        flexDirection: 'column',
+        flexWrap:'wrap',
+        alignItems:'center',
+        justifyContent:'center',
+        //backgroundColor:'black'
+        
+    },
+    textDetail:{
+        width:'20vw',
+        height:'70vh',
+        display: 'flex',
+        flexDirection: 'column',
+        flexWrap:'wrap',
+        alignItems:'center',
+        justifyContent:'center',
+        border: '1px solid red'
+    },
 }
