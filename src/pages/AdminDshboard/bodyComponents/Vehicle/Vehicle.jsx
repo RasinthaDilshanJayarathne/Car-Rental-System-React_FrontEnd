@@ -57,26 +57,26 @@ class Vehicle extends Component {
         super(props);
         this.state = {
             formData: {
-                "vehicleId": '',
-                "registrationNo": '',
-                "vehicleBrand": '',
-                "numberOfPassengers": '',
-                "color": '',
-                "vehicleType": '',
-                "fuelType": '',
-                "transmissionType": '',
-                "freeMileage": {
-                    "dailyMileage": '',
-                    "monthlyMileage": ''
+                vehicleId: '',
+                registrationNo: '',
+                vehicleBrand: '',
+                numberOfPassengers: '',
+                color: '',
+                vehicleType: '',
+                fuelType: '',
+                transmissionType: '',
+                freeMileage: {
+                    dailyMileage: '',
+                    monthlyMileage: ''
                 },
-                "priceRate": {
-                    "dailyRate":'',
-                    "monthlyRate": ''
+                priceRate: {
+                    dailyRate:'',
+                    monthlyRate: ''
                 },
-                "vehicleAvailabilityType": '',
-                "damageFee": '',
-                "lastServiceMileage": '',
-                "vehicleServiceMileage": ''
+                vehicleAvailabilityType: '',
+                damageFee: '',
+                lastServiceMileage: '',
+                vehicleServiceMileage: ''
             },
 
             data: [],
@@ -147,7 +147,7 @@ class Vehicle extends Component {
 
         this.setState({ 
            btnLabel: 'update',
-           btnColor: 'secondary',
+           btnColor: 'error',
            formData: {
                 vehicleId: data.vehicleId,
                 registrationNo: data.registrationNo,
@@ -158,12 +158,12 @@ class Vehicle extends Component {
                 fuelType: data.fuelType,
                 transmissionType: data.transmissionType,
                 freeMileage: {
-                    dailyMileage: data.dailyMileage,
-                    monthlyMileage: data.monthlyMileage
+                    dailyMileage: data.freeMileage.dailyMileage,
+                    monthlyMileage: data.freeMileage.monthlyMileage
                 },
                 priceRate: {
-                    dailyRate: data.dailyRate,
-                    monthlyRate: data.monthlyRate
+                    dailyRate: data.priceRate.dailyRate,
+                    monthlyRate: data.priceRate.monthlyRate
                 },
                 vehicleAvailabilityType: data.vehicleAvailabilityType,
                 damageFee: data.damageFee,
@@ -174,26 +174,26 @@ class Vehicle extends Component {
    };
 
    deleteVehicle = async (id) => {
-    let params = {
-        vehicleId: id
-    }
-     let res = await VehicleService.deleteCustomer(params);
+        let params = {
+            vehicleId: id
+        }
+        let res = await VehicleService.deleteCustomer(params);
 
-     if(res.status === 200) {
-        this.setState({
-            alert: true,
-            message: res.data.message,
-            severity: 'success'
-        });
-        this.loadData();
-     } else {
-        this.setState({
-            alert: true,
-            message: res.data.message,
-            severity: 'error'
-        });
-     }
-};
+        if(res.status === 200) {
+            this.setState({
+                alert: true,
+                message: res.data.message,
+                severity: 'success'
+            });
+            this.loadData();
+        } else {
+            this.setState({
+                alert: true,
+                message: res.data.message,
+                severity: 'error'
+            });
+        }
+    };
 
     componentDidMount() {
         this.loadData();
@@ -345,6 +345,7 @@ class Vehicle extends Component {
                                         variant="outlined" options={VehicleType} sx={{ width: 300 }}
                                         renderInput={(params) => <TextField {...params} 
                                         label="Vehicle Type"/>}
+                                        value={this.state.formData.vehicleType}
                                     />
                                     <Autocomplete 
                                         style={{padding:'10px',width:'230px'}} 
@@ -352,6 +353,7 @@ class Vehicle extends Component {
                                         variant="outlined" options={FuelType} sx={{ width: 300 }}
                                         renderInput={(params) => <TextField {...params} 
                                         label="Fuel Type"/>}
+                                        value={this.state.formData.fuelType}
                                     />
                                     <Autocomplete 
                                         style={{padding:'10px',width:'230px'}} 
@@ -360,6 +362,7 @@ class Vehicle extends Component {
                                         options={TransmissionType} sx={{ width: 300 }}
                                         renderInput={(params) => <TextField {...params} 
                                         label="Transmission Type"/>}
+                                        value={this.state.formData.transmissionType}
                                     />
                                     <TextValidator 
                                         style={{padding:'10px',width:'230px'}} 
@@ -466,7 +469,7 @@ class Vehicle extends Component {
                                         validators={['required']} 
                                     />
                                     <Button 
-                                        style={{width:'200px',height:'40px',marginLeft:'480px',marginTop:'-60px',backgroundColor:'#2ed573'}} 
+                                        style={{width:'200px',height:'40px',marginLeft:'480px',marginTop:'-60px'}} 
                                         variant="contained"
                                         label={this.state.btnLabel} 
                                         type="submit" size="small" 

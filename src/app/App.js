@@ -4,15 +4,17 @@ import WebSite from "../pages/VisitingPage/website";
 import CustomerDashboard from "../pages/CustomerDshboard/header/HeaderComponent";
 import AdminDashboard from "../pages/AdminDshboard/header/HeaderComponent";
 import DriverDashboard from "../pages/DriverDashboard/header/HeaderComponent"
+import SignUp from '../pages/SignUp/SignUp';
 
 
 function App() {
     return (
         <Fragment>
             {/* <CustomerDashboard/> */}
-            <AdminDashboard/>
+            {/* <AdminDashboard/> */}
             {/* <WebSite/> */}
             {/* <DriverDashboard/> */}
+            <SignUp/>
         </Fragment>
        /* <Routes>
             <Route path='/web' element={<WebSite/>}/>
