@@ -26,6 +26,7 @@ import Item from './Item';
 import { TextValidator, ValidatorForm } from "react-material-ui-form-validator";
 import { Component } from 'react';
 import VehicleService from "../../../../Service/VehicleService";
+import GDSESnackBar from "../../../../common/SnakBar/index";
 
 const breakPoints = [
     { width: 1, itemsToShow: 1 },
@@ -61,13 +62,13 @@ class Vehicle extends Component {
                 vehicleServiceMileage: ''
             },
 
+            alert: false,
+            message: '',
+            severity: '',
+
             data: [],
             btnLabel: 'save',
             btnColor: 'primary',
-            // vehicleType: 0,
-            // fuelType: 0,
-            // transmissionType: 0,
-            // vehicleAvailabilityType: 0,
 
             vehicleType: [
                 {
@@ -120,6 +121,27 @@ class Vehicle extends Component {
         console.log(this.state.data)    // print customers array
 
     };
+
+    // uploadImage = async () => {
+    //     let imageData = this.state.imageData;
+
+    //     let res = await VehicleService.postVehicleImage(imageData);
+    //     if (res.status === 201) {
+    //         this.setState({
+    //             alert: true,
+    //             message: res.data.message,
+    //             severity: 'success'
+    //         });
+    //         //this.clearFields();
+    //         //await this.loadData();
+    //     } else {
+    //         this.setState({
+    //             alert: true,
+    //             message: res.response.data.message,
+    //             severity: 'error'
+    //         });
+    //     }
+    // }
 
     submitVehicle = async () => {
         let formData = this.state.formData;
@@ -254,7 +276,12 @@ class Vehicle extends Component {
                                             </Grid>
                                             <Grid style={{ marginBottom: '-40px', height: '50px', width: '100px' }}>
                                                 <Stack direction="row" alignItems="center" spacing={5}>
-                                                    <Button variant="contained" component="label" style={{ backgroundColor: '#a4b0be' }}>
+                                                    <Button
+                                                        variant="contained"
+                                                        component="label"
+                                                        style={{ backgroundColor: '#a4b0be' }}
+                                                    //onClick={this.uploadImage()}
+                                                    >
                                                         Upload
                                                         <input hidden accept="image/*" multiple type="file" />
                                                         <PhotoCamera />
@@ -382,7 +409,7 @@ class Vehicle extends Component {
                                             getOptionLabel={
                                                 (option) => option.type
                                             }
-                                           
+
                                             id="controllable-states-demo"
                                             options={this.state.vehicleType}
                                             sx={{ width: 300 }}
@@ -481,7 +508,7 @@ class Vehicle extends Component {
                                         />
 
                                         <Autocomplete
-                                            style={{padding:'10px',width:'230px'}}
+                                            style={{ padding: '10px', width: '230px' }}
                                             onChange={(e, value, r) => {
 
                                                 let formData = this.state.formData
@@ -497,7 +524,7 @@ class Vehicle extends Component {
                                             sx={{ width: 300 }}
                                             renderInput={(params) => <TextField {...params} label="Vehicle Availability Type" />}
                                         />
-                                        
+
                                         <TextValidator
                                             style={{ padding: '10px', width: '230px', }}
                                             id="outlined-basic"
@@ -624,6 +651,16 @@ class Vehicle extends Component {
                         </Grid>
                     </Grid>
                 </Grid>
+                <GDSESnackBar
+                    open={this.state.alert}
+                    onClose={() => {
+                        this.setState({ alert: false })
+                    }}
+                    message={this.state.message}
+                    autoHideDuration={3000}
+                    severity={this.state.severity}
+                    variant="filled"
+                />
             </>
         );
     }

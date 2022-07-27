@@ -67,13 +67,13 @@ class WebSite extends Component {
                     "role": ''
                 }
             },
-            
+
         }
     }
 
 
     submitSignUp = async () => {
-       
+
         let formData = this.state.formData;
         if (formData.user.role === 'REGISTERED_USER') {
             let formData = this.state.formData;
@@ -119,10 +119,11 @@ class WebSite extends Component {
     };
 
 
+
     handleClickOpen = () => {
         this.setState({ open: true })
     };
-   
+
     handleClose = () => {
         this.setState({ open: false })
     };
@@ -151,6 +152,8 @@ class WebSite extends Component {
                             <Button variant="outlined" style={{ marginLeft: '900px', marginTop: '7px', height: '32px', borderRadius: '15px' }} onClick={this.handleClickOpen}>Sing
                                 Up
                             </Button>
+
+
                             <Button variant="outlined" style={{ marginLeft: '-200px', marginTop: '7px', height: '32px', borderRadius: '15px' }} >Sing
                                 In
                             </Button>

@@ -18,29 +18,34 @@ import Tooltip from '@mui/material/Tooltip';
 import EditIcon from '@mui/icons-material/Edit';
 import { PhotoCamera } from "@mui/icons-material";
 import DriverService from "../../../../Service/DriverService";
-
+import GDSESnackBar from "../../../../common/SnakBar/index";
 
 class Driver extends Component {
     constructor(props) {
         super(props)
         this.state = {
             formData: {
-                "id": '',
-                "nic": '',
-                "name": {
-                    "firstName": '',
-                    "lastName": ''
+                id: '',
+                nic: '',
+                name: {
+                    firstName: '',
+                    lastName: ''
                 },
-                "licenseNo": '',
-                "address": '',
-                "contact": '',
-                "driverAvailability": '',
-                "user": {
-                    "userName": '',
-                    "password": '',
-                    "role": ''
+                licenseNo: '',
+                address: '',
+                contactNo: '',
+                driverAvailability: '',
+                user: {
+                    userName: '',
+                    password: '',
+                    role: ''
                 }
             },
+
+            alert: false,
+            message: '',
+            severity: '',
+
             data: [],
             btnLabel: 'update',
             btnColor: 'error'
@@ -71,7 +76,7 @@ class Driver extends Component {
                     message: res.data.message,
                     severity: 'success',
                 });
-                //this.clearFields();
+                await this.clearFields();
                 await this.loadData();
             } else {
                 this.setState({
@@ -96,7 +101,7 @@ class Driver extends Component {
                 },
                 licenseNo: data.licenseNo,
                 address: data.address,
-                contact: data.contact,
+                contactNo: data.contactNo,
                 email: data.email,
                 user: {
                     userName: data.user.userName,
@@ -113,12 +118,13 @@ class Driver extends Component {
         let res = await DriverService.deleteDriver(params);
         console.log(res)
 
-        if (res.status === 200) {
+        if (res.status === 201) {
             this.setState({
                 alert: true,
                 message: res.data.message,
                 severity: 'success'
             });
+            await this.clearFields();
             await this.loadData();
         } else {
             this.setState({
@@ -127,6 +133,28 @@ class Driver extends Component {
                 severity: 'error'
             });
         }
+    };
+
+    clearFields = () => {
+        this.setState({
+            formData: {
+                id: '',
+                nic: '',
+                name: {
+                    firstName: '',
+                    lastName: ''
+                },
+                licenseNo: '',
+                address: '',
+                contactNo: '',
+                driverAvailability: '',
+                user: {
+                    userName: '',
+                    password: '',
+                    role: ''
+                }
+            }
+        });
     };
 
     componentDidMount() {
@@ -151,7 +179,7 @@ class Driver extends Component {
                         <ValidatorForm ref="form" className="pt-2" onSubmit={this.submitDriver}>
                             <Grid className={classes.textContainer}>
                                 <TextValidator
-                                    style={{ padding: '10px', width: '250px',marginTop:'10px'}}
+                                    style={{ padding: '10px', width: '250px', marginTop: '10px' }}
                                     disabled
                                     id="outlined-basic"
                                     label="Register Id"
@@ -165,7 +193,7 @@ class Driver extends Component {
                                     validators={['required']}
                                 />
                                 <TextValidator
-                                    style={{ padding: '10px', width: '250px',marginTop:'10px'}}
+                                    style={{ padding: '10px', width: '250px', marginTop: '10px' }}
                                     id="outlined-basic"
                                     label="First Name"
                                     variant="outlined"
@@ -208,10 +236,10 @@ class Driver extends Component {
                                     id="outlined-basic"
                                     label="Contact No"
                                     variant="outlined"
-                                    value={this.state.formData.contact}
+                                    value={this.state.formData.contactNo}
                                     onChange={(e) => {
                                         let formData = this.state.formData
-                                        formData.contact = e.target.value
+                                        formData.contactNo = e.target.value
                                         this.setState({ formData })
                                     }}
                                     validators={['required']}
@@ -257,7 +285,7 @@ class Driver extends Component {
                                     }}
                                     validators={['required']}
                                 />
-                                 <TextValidator
+                                <TextValidator
                                     style={{ padding: '10px', width: '500px' }}
                                     id="outlined-basic"
                                     label="Address"
@@ -326,7 +354,7 @@ class Driver extends Component {
                                                 <TableCell align="left">{row.name.firstName}</TableCell>
                                                 <TableCell align="left">{row.name.lastName}</TableCell>
                                                 <TableCell align="left">{row.licenseNo}</TableCell>
-                                                <TableCell align="left">{row.contact}</TableCell>
+                                                <TableCell align="left">{row.contactNo}</TableCell>
                                                 <TableCell align="left">{row.nic}</TableCell>
                                                 <TableCell align="left">{row.address}</TableCell>
                                                 <TableCell align="left">
@@ -356,6 +384,16 @@ class Driver extends Component {
                         </TableContainer>
                     </Grid>
                 </Grid>
+                <GDSESnackBar
+                    open={this.state.alert}
+                    onClose={() => {
+                        this.setState({ alert: false })
+                    }}
+                    message={this.state.message}
+                    autoHideDuration={3000}
+                    severity={this.state.severity}
+                    variant="filled"
+                />
             </>
         );
     }

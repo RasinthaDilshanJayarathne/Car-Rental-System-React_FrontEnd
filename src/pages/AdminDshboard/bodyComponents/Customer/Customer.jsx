@@ -18,6 +18,7 @@ import { Component } from 'react';
 import { PhotoCamera } from "@mui/icons-material";
 import { TextValidator, ValidatorForm } from "react-material-ui-form-validator";
 import CustomerService from "../../../../Service/CustomerService";
+import GDSESnackBar from "../../../../common/SnakBar/index";
 
 
 class Customer extends Component {
@@ -41,6 +42,11 @@ class Customer extends Component {
                     role: ''
                 }
             },
+
+            alert: false,
+            message: '',
+            severity: '',
+
             data: [],
             btnLabel: 'update',
             btnColor: 'error'
@@ -371,6 +377,16 @@ class Customer extends Component {
                         </TableContainer>
                     </Grid>
                 </Grid>
+                <GDSESnackBar
+                    open={this.state.alert}
+                    onClose={() => {
+                        this.setState({ alert: false })
+                    }}
+                    message={this.state.message}
+                    autoHideDuration={3000}
+                    severity={this.state.severity}
+                    variant="filled"
+                />
             </>
         );
     }
