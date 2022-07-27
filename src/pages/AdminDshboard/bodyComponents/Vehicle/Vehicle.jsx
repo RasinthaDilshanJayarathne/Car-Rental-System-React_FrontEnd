@@ -26,9 +26,6 @@ import Item from './Item';
 import { TextValidator, ValidatorForm } from "react-material-ui-form-validator";
 import { Component } from 'react';
 import VehicleService from "../../../../Service/VehicleService";
-import MenuItem from '@mui/material/MenuItem';
-import Select from '@mui/material/Select';
-import InputLabel from '@mui/material/InputLabel';
 
 const breakPoints = [
     { width: 1, itemsToShow: 1 },

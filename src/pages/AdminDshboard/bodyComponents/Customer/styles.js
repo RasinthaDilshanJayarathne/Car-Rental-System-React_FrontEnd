@@ -33,7 +33,7 @@ export const styleSheet = {
         //backgroundColor: 'yellow',
     },
     table: {
-        height: '70vh',
+        height: '50vh',
         width: '83vw',
         display: 'flex',
         flexWrap: 'wrap',

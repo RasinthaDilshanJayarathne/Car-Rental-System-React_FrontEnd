@@ -2,6 +2,7 @@ import { Component } from "react";
 import { stylesSheet } from "./webStyles";
 import { withStyles } from "@mui/styles";
 import { Button, Card, CardActions, CardContent, Grid, Tab, Tabs, TextField, Typography } from "@mui/material";
+import { TextValidator, ValidatorForm } from "react-material-ui-form-validator";
 import ios from "../../assets/img/ios.png";
 import android from "../../assets/img/android.png";
 import AddLocationAltIcon from '@mui/icons-material/AddLocationAlt';
@@ -20,6 +21,8 @@ import DialogContent from '@mui/material/DialogContent';
 import DialogContentText from '@mui/material/DialogContentText';
 import DialogTitle from '@mui/material/DialogTitle';
 import DatePicker from '../../common/DatePicker/index'
+import Autocomplete from '@mui/material/Autocomplete';
+import { PhotoCamera } from "@mui/icons-material";
 import car1 from "../../assets/img/car1.png"
 import car2 from "../../assets/img/car2.png"
 import car3 from "../../assets/img/car3.png"
@@ -30,20 +33,97 @@ import about from "../../assets/img/about.png"
 import rev1 from "../../assets/img/rev1.jpg"
 import rev2 from "../../assets/img/rev2.jpg"
 import rev3 from "../../assets/img/rev3.jpg"
+import SignUpService from "../../Service/SignUpService";
+
 
 class WebSite extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            open: false
+            open: false,
+
+            role: [
+                {
+                    type: 'DRIVER'
+                },
+                {
+                    type: 'REGISTERED_USER'
+                }
+            ],
+            formData: {
+                "id": '',
+                "nic": '',
+                "name": {
+                    "firstName": '',
+                    "lastName": ''
+                },
+                "licenseNo": '',
+                "address": '',
+                "contactNo": '',
+                "email": '',
+                "user": {
+                    "userName": '',
+                    "password": '',
+                    "role": ''
+                }
+            },
+            
         }
     }
+
+
+    submitSignUp = async () => {
+       
+        let formData = this.state.formData;
+        if (formData.user.role === 'REGISTERED_USER') {
+            let formData = this.state.formData;
+            console.log(formData)
+
+            let res = await SignUpService.postSignUpCustomer(formData);
+            console.log(res)
+
+            if (res.status === 201) {
+                this.setState({
+                    alert: true,
+                    message: res.data.message,
+                    severity: 'success'
+                });
+                this.clearFields();
+            } else {
+                this.setState({
+                    alert: true,
+                    message: res.response.data.message,
+                    severity: 'error'
+                });
+            }
+        } else if (formData.user.role === 'DRIVER') {
+            let formData = this.state.formData;
+
+            let res = await SignUpService.postSignUpDriver(formData);
+
+            if (res.status === 201) {
+                this.setState({
+                    alert: true,
+                    message: res.data.message,
+                    severity: 'success'
+                });
+                this.clearFields();
+            } else {
+                this.setState({
+                    alert: true,
+                    message: res.response.data.message,
+                    severity: 'error'
+                });
+            }
+        }
+    };
+
 
     handleClickOpen = () => {
         this.setState({ open: true })
     };
+   
     handleClose = () => {
-
         this.setState({ open: false })
     };
 
@@ -67,10 +147,13 @@ class WebSite extends Component {
                                 <Tab value="four" label="Reviews" />
                                 {/*<Button variant="contained" style={{marginLeft: '700px', marginTop: '12px', height: '32px'}}
                             >Sing In</Button>*/}
-                                <Button variant="outlined" style={{ marginLeft: '800px', marginTop: '7px', height: '32px', borderRadius: '15px' }} onClick={this.handleClickOpen}>Sing
-                                    Up
-                                </Button>
                             </Tabs>
+                            <Button variant="outlined" style={{ marginLeft: '900px', marginTop: '7px', height: '32px', borderRadius: '15px' }} onClick={this.handleClickOpen}>Sing
+                                Up
+                            </Button>
+                            <Button variant="outlined" style={{ marginLeft: '-200px', marginTop: '7px', height: '32px', borderRadius: '15px' }} >Sing
+                                In
+                            </Button>
                         </Grid>
 
                         <Grid className={classes.bodyContainer}>
@@ -95,17 +178,23 @@ class WebSite extends Component {
                             <Grid className={classes.selectDate}>
                                 <Grid className={classes.fixDate}>
                                     <TextField id="outlined-basic" label="Location" variant="outlined"
-                                        style={{ margin: '10px' }} />
+                                        style={{ margin: '10px', marginLeft: '10px' }} />
                                     {/* <TextField id="outlined-basic" label="Pick-Up-Date" variant="outlined"
                                         style={{ margin: '10px' }} /> */}
 
-                                    <DatePicker style={{ margin: '10px' }}/>
+                                    <Grid style={{ margin: '10px', marginLeft: '15px' }}>
+                                        <DatePicker />
+                                    </Grid>
+
                                     {/* <TextField id="outlined-basic" label="Return-Date" variant="outlined"
                                         style={{ margin: '10px' }} /> */}
-                                    <DatePicker style={{ margin: '10px' }}/>
+                                    <Grid style={{ margin: '10px', marginLeft: '15px' }}>
+                                        <DatePicker />
+                                    </Grid>
                                     <Button variant="contained" style={{
                                         margin: '10px',
                                         height: '52px',
+                                        marginLeft: '40px',
                                         backgroundColor: '#fe5b3d'
                                     }}>Search</Button>
                                 </Grid>
@@ -574,47 +663,209 @@ class WebSite extends Component {
 
                 </Grid>
 
+                <ValidatorForm ref="form" className="pt-2" onSubmit={this.submitSignUp}>
+                    <Dialog
+                        maxWidth="sm=6"
+                        open={this.state.open}
+                        onClose={this.handleClose}
+                        aria-labelledby="alert-dialog-title"
+                        aria-describedby="alert-dialog-description"
+                    >
+                        <DialogTitle id="alert-dialog-title">
+                            <Typography variant="h5" gutterBottom style={{ textAlign: 'center', marginTop: '30px' }}>SIGNUP HERE</Typography>
+                            <CloseIcon onClick={this.handleClose} style={{ marginTop: '-90px', marginLeft: '590px' }} />
+                        </DialogTitle>
+                        <DialogContent>
+                            <Grid className={classes.PopContainer}>
 
-                <Dialog
-                    //fullWidth
-                    maxWidth="sm=6"
-                    open={this.state.open}
-                    onClose={this.handleClose}
-                    aria-labelledby="alert-dialog-title"
-                    aria-describedby="alert-dialog-description"
-                >
-                    <DialogTitle id="alert-dialog-title">
-                        {/* <Typography>Tittle Here</Typography>
-                        <IconButton aria-label="close" onClick={this.handleClose}>
-                            <CloseIcon />
-                        </IconButton> */}
-                    </DialogTitle>
-                    <DialogContent>
-                        <Grid className={classes.PopContainer}>
-                            <Grid className={classes.profileContainer}></Grid>
-                            <Grid className={classes.textContainer} container columnSpacing={5}>
-                                <Grid className={classes.textDetail}>
-                                    <TextField id="outlined-basic" label="Register Id" variant="outlined" />
-                                    <TextField id="outlined-basic" label="Register Id" variant="outlined" />
-                                    <TextField id="outlined-basic" label="Register Id" variant="outlined" />
-                                    <TextField id="outlined-basic" label="Register Id" variant="outlined" />
-                                </Grid>
-                                <Grid className={classes.textDetail}>
-                                    <TextField id="outlined-basic" label="Register Id" variant="outlined" />
-                                    <TextField id="outlined-basic" label="Register Id" variant="outlined" />
-                                    <TextField id="outlined-basic" label="Register Id" variant="outlined" />
-                                    <TextField id="outlined-basic" label="Register Id" variant="outlined" />
+                                <Grid className={classes.textContainer}>
+                                    <Grid className={classes.textDetail}>
+                                        <TextValidator
+                                            style={{ width: '280px' }}
+                                            id="outlined-basic"
+                                            label="Register Id"
+                                            variant="outlined"
+                                            value={this.state.formData.id}
+                                            onChange={(e) => {
+                                                let formData = this.state.formData
+                                                formData.id = e.target.value
+                                                this.setState({ formData })
+                                            }}
+                                            validators={['required']}
+                                        />
+                                        <TextValidator
+                                            style={{ width: '280px' }}
+                                            id="outlined-basic"
+                                            label="First Name"
+                                            variant="outlined"
+                                            value={this.state.formData.name.firstName}
+                                            onChange={(e) => {
+                                                let formData = this.state.formData
+                                                formData.name.firstName = e.target.value
+                                                this.setState({ formData })
+                                            }}
+                                            validators={['required']}
+                                        />
+                                        <TextValidator
+                                            style={{ width: '280px' }}
+                                            id="outlined-basic"
+                                            label="Password"
+                                            variant="outlined"
+                                            value={this.state.formData.user.password}
+                                            onChange={(e) => {
+                                                let formData = this.state.formData
+                                                formData.user.password = e.target.value
+                                                this.setState({ formData })
+                                            }}
+                                            validators={['required']}
+                                        />
+                                        <TextValidator
+                                            style={{ width: '222px' }}
+                                            id="outlined-basic"
+                                            label="License No"
+                                            variant="outlined"
+                                            value={this.state.formData.licenseNo}
+                                            onChange={(e) => {
+                                                let formData = this.state.formData
+                                                formData.licenseNo = e.target.value
+                                                this.setState({ formData })
+                                            }}
+                                            validators={['required']}
+                                        />
+                                        <IconButton color="primary" aria-label="upload picture" component="label">
+                                            <input hidden accept="image/*" type="file" />
+                                            <PhotoCamera style={{ fontSize: '35px', marginLeft: '5px' }} />
+                                        </IconButton>
+                                        <TextValidator
+                                            style={{ width: '280px' }}
+                                            id="outlined-basic"
+                                            label="Contact No"
+                                            variant="outlined"
+                                            value={this.state.formData.contactNo}
+                                            onChange={(e) => {
+                                                let formData = this.state.formData
+                                                formData.contactNo = e.target.value
+                                                this.setState({ formData })
+                                            }}
+                                            validators={['required']}
+                                        />
+                                        <TextValidator
+                                            style={{ marginBottom: '40px', width: '280px' }}
+                                            id="outlined-basic"
+                                            label="E-mail"
+                                            variant="outlined"
+                                            value={this.state.formData.email}
+                                            onChange={(e) => {
+                                                let formData = this.state.formData
+                                                formData.email = e.target.value
+                                                this.setState({ formData })
+                                            }}
+                                            validators={['required']}
+                                        />
+                                    </Grid>
+                                    <Grid className={classes.textDetail}>
+                                        <TextValidator
+                                            style={{ width: '280px' }}
+                                            id="outlined-basic"
+                                            label="User Name"
+                                            variant="outlined"
+                                            value={this.state.formData.user.userName}
+                                            onChange={(e) => {
+                                                let formData = this.state.formData
+                                                formData.user.userName = e.target.value
+                                                this.setState({ formData })
+                                            }}
+                                            validators={['required']}
+                                        />
+                                        <TextValidator
+                                            style={{ width: '280px' }}
+                                            id="outlined-basic"
+                                            label="Last Name"
+                                            variant="outlined"
+                                            value={this.state.formData.name.lastName}
+                                            onChange={(e) => {
+                                                let formData = this.state.formData
+                                                formData.name.lastName = e.target.value
+                                                this.setState({ formData })
+                                            }}
+                                            validators={['required']}
+                                        />
+                                        <TextValidator
+                                            style={{ width: '280px' }}
+                                            id="outlined-basic"
+                                            label="Conform Password"
+                                            variant="outlined"
+                                            value={this.state.formData.user.password}
+                                            onChange={(e) => {
+                                                let formData = this.state.formData
+                                                formData.user.password = e.target.value
+                                                this.setState({ formData })
+                                            }}
+                                            validators={['required']}
+                                        />
+                                        <TextValidator
+                                            style={{ width: '222px' }}
+                                            id="outlined-basic"
+                                            label="NIC"
+                                            variant="outlined"
+                                            value={this.state.formData.nic}
+                                            onChange={(e) => {
+                                                let formData = this.state.formData
+                                                formData.nic = e.target.value
+                                                this.setState({ formData })
+                                            }}
+                                            validators={['required']}
+                                        />
+                                        <IconButton color="primary" aria-label="upload picture" component="label">
+                                            <input hidden accept="image/*" type="file" />
+                                            <PhotoCamera style={{ fontSize: '35px', marginLeft: '5px' }} />
+                                        </IconButton>
+                                        <Autocomplete
+                                            style={{ width: '280px' }}
+                                            onChange={(e, value, r) => {
+
+                                                let formData = this.state.formData
+                                                formData.user.role = value.type
+                                                this.setState({ formData })
+                                            }}
+                                            getOptionLabel={
+                                                (option) => option.type
+                                            }
+
+                                            id="controllable-states-demo"
+                                            options={this.state.role}
+                                            sx={{ width: 300 }}
+                                            renderInput={(params) => <TextField {...params} label="Role" />}
+                                        />
+                                        <TextValidator
+                                            style={{ marginBottom: '40px', width: '280px' }}
+                                            id="outlined-basic"
+                                            label="Address"
+                                            variant="outlined"
+                                            value={this.state.formData.address}
+                                            onChange={(e) => {
+                                                let formData = this.state.formData
+                                                formData.address = e.target.value
+                                                this.setState({ formData })
+                                            }}
+                                            validators={['required']}
+                                        />
+                                    </Grid>
+                                    <Grid className={classes.btnContainer}>
+                                        <Button
+                                            variant="contained"
+                                            style={{ width: '250px' }}
+                                            type="submit"
+                                            onClick={() => {
+                                                this.submitSignUp();
+                                            }}
+                                        >Register Now</Button>
+                                    </Grid>
                                 </Grid>
                             </Grid>
-                        </Grid>
-                    </DialogContent>
-                    {/* <DialogActions>
-                        <Button onClick={this.handleClose}>Disagree</Button>
-                        <Button onClick={this.handleClose} autoFocus>
-                            Agree
-                        </Button>
-                    </DialogActions> */}
-                </Dialog>
+                        </DialogContent>
+                    </Dialog>
+                </ValidatorForm>
             </>
         )
     }

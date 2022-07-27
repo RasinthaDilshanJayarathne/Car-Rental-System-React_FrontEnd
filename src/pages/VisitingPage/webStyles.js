@@ -262,23 +262,20 @@ export const stylesSheet ={
     },
     PopContainer:{
         width:'40vw',
-        height:'85vh',
+        height:'80vh',
         display: 'flex',
         flexDirection: 'row',
         flexWrap:'wrap',
         alignItems:'center',
         justifyContent:'center',
-        //backgroundColor:'red'
-    },
-    profileContainer:{
-        width:'40vw',
-        height:'15vh',
-        //border: '1px solid red'
-        backgroundColor:'red'
+        //backgroundColor:'red',
+        marginTop:'-73px',
+        overflowY:'hidden',
+        overflowX:'hidden'
     },
     textContainer:{
         width:'40vw',
-        height:'70vh',
+        height:'60vh',
         display: 'flex',
         flexDirection: 'column',
         flexWrap:'wrap',
@@ -289,12 +286,22 @@ export const stylesSheet ={
     },
     textDetail:{
         width:'20vw',
-        height:'70vh',
+        height:'60vh',
         display: 'flex',
         flexDirection: 'column',
         flexWrap:'wrap',
         alignItems:'center',
         justifyContent:'center',
-        border: '1px solid red'
+        //border: '1px solid red'
     },
+    btnContainer:{
+        width:'40vw',
+        height:'10vh',
+        display: 'flex',
+        flexDirection: 'column',
+        flexWrap:'wrap',
+        alignItems:'center',
+        justifyContent:'center',
+        //border: '1px solid red'
+    }
 }

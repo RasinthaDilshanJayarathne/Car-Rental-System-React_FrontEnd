@@ -10,6 +10,7 @@ export const styleSheet ={
         //backgroundColor: '#eeeff1',
         alignItems: 'center',
         justifyContent: 'center',
+        overflowY:'hidden',
     },
     searchBar: {
         height: '15vh',
@@ -46,7 +47,7 @@ export const styleSheet ={
         border: '2px solid #eeeff1',
     },
     table1:{
-        height: '100vh',
+        height: '80vh',
         width: '83.5vw',
         display: 'flex',
         flexWrap: 'wrap',
