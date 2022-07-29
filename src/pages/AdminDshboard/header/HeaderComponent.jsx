@@ -10,6 +10,7 @@ import Booking from '../bodyComponents/Booking/Booking';
 import Driver from '../bodyComponents/Driver/Driver';
 import Income from '../bodyComponents/Income/Income';
 import Profile from '../bodyComponents/Profile/Profile';
+import DriverShedule from '../bodyComponents/DriverShedule/DriverShedule';
 
 export default function AdminDashboard() {
     const classes = useStyles()
@@ -27,6 +28,7 @@ export default function AdminDashboard() {
                     <Route exact path="/vehicle" element={<Vehicle/>}/>
                     <Route exact path="/booking" element={<Booking/>}/>
                     <Route exact path="/driver" element={<Driver/>}/>
+                    <Route exact path="/driverShedule" element={<DriverShedule/>}/>
                     <Route exact path="/income" element={<Income/>}/>
                     <Route exact path="/profile" element={<Profile/>}/>
                 </Routes>

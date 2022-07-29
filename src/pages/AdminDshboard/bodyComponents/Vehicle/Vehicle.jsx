@@ -59,7 +59,8 @@ class Vehicle extends Component {
                 vehicleAvailabilityType: '',
                 damageFee: '',
                 lastServiceMileage: '',
-                vehicleServiceMileage: ''
+                vehicleServiceMileage: '',
+                pricePerExtraKM:''
             },
 
             alert: false,
@@ -157,7 +158,7 @@ class Vehicle extends Component {
                     message: res.data.message,
                     severity: 'success'
                 });
-                //this.clearFields();
+                this.clearFields();
                 await this.loadData();
             } else {
                 this.setState({
@@ -176,7 +177,7 @@ class Vehicle extends Component {
                     btnLabel: 'save',
                     btnColor: 'primary'
                 });
-                //this.clearFields();
+                this.clearFields();
                 await this.loadData();
             } else {
                 this.setState({
@@ -214,7 +215,8 @@ class Vehicle extends Component {
                 vehicleAvailabilityType: data.vehicleAvailabilityType,
                 damageFee: data.damageFee,
                 lastServiceMileage: data.lastServiceMileage,
-                vehicleServiceMileage: data.vehicleServiceMileage
+                vehicleServiceMileage: data.vehicleServiceMileage,
+                pricePerExtraKM: data.pricePerExtraKM
             }
         });
     };
@@ -240,6 +242,34 @@ class Vehicle extends Component {
                 severity: 'error'
             });
         }
+    };
+
+    clearFields = () => {
+        this.setState({
+            formData: {
+                vehicleId: '',
+                registrationNo: '',
+                vehicleBrand: '',
+                numberOfPassengers: '',
+                color: '',
+                vehicleType: '',
+                fuelType: '',
+                transmissionType: '',
+                freeMileage: {
+                    dailyMileage: '',
+                    monthlyMileage: ''
+                },
+                priceRate: {
+                    dailyRate: '',
+                    monthlyRate: ''
+                },
+                vehicleAvailabilityType: '',
+                damageFee: '',
+                lastServiceMileage: '',
+                vehicleServiceMileage: '',
+                pricePerExtraKM:''
+            }
+        });
     };
 
     componentDidMount() {
@@ -565,6 +595,19 @@ class Vehicle extends Component {
                                             }}
                                             validators={['required']}
                                         />
+                                        <TextValidator
+                                            style={{ padding: '10px', width: '230px' }}
+                                            id="outlined-basic"
+                                            label="PricePer Extra KM"
+                                            variant="outlined"
+                                            value={this.state.formData.pricePerExtraKM}
+                                            onChange={(e) => {
+                                                let formData = this.state.formData
+                                                formData.pricePerExtraKM = e.target.value
+                                                this.setState({ formData })
+                                            }}
+                                            validators={['required']}
+                                        />
                                         <Button
                                             style={{ width: '200px', height: '40px', marginLeft: '480px', marginTop: '-60px' }}
                                             variant="contained"
@@ -599,6 +642,7 @@ class Vehicle extends Component {
                                             <TableCell align="left">Damage Fee</TableCell>
                                             <TableCell align="left">LastService Mileage</TableCell>
                                             <TableCell align="left">Vehicle Service Mileage</TableCell>
+                                            <TableCell align="left">PricePer Extra KM</TableCell>
                                             <TableCell align="left">Action</TableCell>
                                         </TableRow>
                                     </TableHead>
@@ -622,6 +666,7 @@ class Vehicle extends Component {
                                                     <TableCell align="left">{row.damageFee}</TableCell>
                                                     <TableCell align="left">{row.lastServiceMileage}</TableCell>
                                                     <TableCell align="left">{row.vehicleServiceMileage}</TableCell>
+                                                    <TableCell align="left">{row.pricePerExtraKM}</TableCell>
                                                     <TableCell align="left">
                                                         <Tooltip title="Edit">
                                                             <IconButton

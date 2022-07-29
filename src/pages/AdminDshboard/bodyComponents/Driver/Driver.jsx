@@ -76,8 +76,8 @@ class Driver extends Component {
                     message: res.data.message,
                     severity: 'success',
                 });
-                await this.clearFields();
-                await this.loadData();
+                this.clearFields();
+                this.loadData();
             } else {
                 this.setState({
                     alert: true,
@@ -90,6 +90,7 @@ class Driver extends Component {
 
     updateDriver = (data) => {
         console.log(data)
+
 
         this.setState({
             formData: {
@@ -105,7 +106,8 @@ class Driver extends Component {
                 email: data.email,
                 user: {
                     userName: data.user.userName,
-                    role: data.user.role
+                    role: data.user.role,
+                    password: data.user.password
                 }
             }
         });
@@ -118,14 +120,13 @@ class Driver extends Component {
         let res = await DriverService.deleteDriver(params);
         console.log(res)
 
-        if (res.status === 201) {
+        if (res.status === 200) {
             this.setState({
                 alert: true,
                 message: res.data.message,
                 severity: 'success'
             });
-            await this.clearFields();
-            await this.loadData();
+            this.loadData();
         } else {
             this.setState({
                 alert: true,
@@ -286,7 +287,22 @@ class Driver extends Component {
                                     validators={['required']}
                                 />
                                 <TextValidator
-                                    style={{ padding: '10px', width: '500px' }}
+                                    style={{ padding: '10px', width: '250px' }}
+                                    disabled
+                                    id="outlined-basic"
+                                    label="Password"
+                                    type="password"
+                                    variant="outlined"
+                                    value={this.state.formData.user.password}
+                                    onChange={(e) => {
+                                        let formData = this.state.formData
+                                        formData.user.password = e.target.value
+                                        this.setState({ formData })
+                                    }}
+                                    validators={['required']}
+                                />
+                                <TextValidator
+                                    style={{ padding: '10px', width: '250px' }}
                                     id="outlined-basic"
                                     label="Address"
                                     variant="outlined"

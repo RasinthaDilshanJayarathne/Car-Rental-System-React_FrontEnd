@@ -10,8 +10,7 @@ export const styleSheet ={
         //backgroundColor: '#eeeff1',
         alignItems: 'center',
         justifyContent: 'center',
-        overflowY:'hidden',
-        marginLeft:'50px'
+        //overflowY:'hidden'
     },
     searchBar: {
         height: '15vh',
@@ -23,9 +22,6 @@ export const styleSheet ={
         alignItems: 'center',
         justifyContent: 'center',
         border: '2px solid #eeeff1',
-        overflowX:'hidden',
-        overflowY:'hidden',
-        //border:'1px solid red',
     },
     bookingPanel: {
         height: '15vh',
@@ -37,34 +33,64 @@ export const styleSheet ={
         flexDirection: 'column',
         //backgroundColor: 'yellow',
     },
-    subContainer:{
+    details:{
         height: '85vh',
         width: '83.5vw',
         display: 'flex',
         flexWrap: 'wrap',
+        flexDirection: 'column',
         alignItems: 'center',
         justifyContent: 'center',
-        flexDirection: 'row',
+        alignItems: 'center',
+        justifyContent: 'center',
         border: '2px solid #eeeff1',
     },
-    table1:{
-        height: '80vh',
+    tables:{
+        height: '41vh',
         width: '83.5vw',
         display: 'flex',
         flexWrap: 'wrap',
-        //alignItems: 'center',
+        flexDirection: 'column',
+        alignItems: 'center',
         justifyContent: 'center',
-        flexDirection: 'row',
-        //border: '1px solid red',
+        alignItems: 'center',
+        justifyContent: 'center',
+        //backgroundColor: 'black',
+       
     },
-    table2:{
-        height: '100vh',
+    textsDetails:{
+        height: '42vh',
         width: '83.5vw',
         display: 'flex',
         flexWrap: 'wrap',
-        //alignItems: 'center',
+        flexDirection: 'column',
+        alignItems: 'center',
         justifyContent: 'center',
-        flexDirection: 'row',
-        //border: '1px solid red',
+        alignItems: 'center',
+        justifyContent: 'center',
+        
+    },
+    texts:{
+        height: '43vh',
+        width: '41vw',
+        display: 'flex',
+        flexWrap: 'wrap',
+        flexDirection: 'column',
+        alignItems: 'center',
+        justifyContent: 'center',
+        alignItems: 'center',
+        justifyContent: 'center',
+        //backgroundColor: 'yellow',
+    },
+    map:{
+        height: '43vh',
+        width: '42vw',
+        display: 'flex',
+        flexWrap: 'wrap',
+        flexDirection: 'column',
+        alignItems: 'center',
+        justifyContent: 'center',
+        alignItems: 'center',
+        justifyContent: 'center',
     }
 }

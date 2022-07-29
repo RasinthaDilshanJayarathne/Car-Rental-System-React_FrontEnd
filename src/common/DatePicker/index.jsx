@@ -10,7 +10,7 @@ export default function ResponsiveDatePickers() {
 
   return (
     <LocalizationProvider dateAdapter={AdapterDateFns}>
-      <Stack spacing={3}>
+      <Stack >
         <DesktopDatePicker
           label="For desktop"
           value={value}

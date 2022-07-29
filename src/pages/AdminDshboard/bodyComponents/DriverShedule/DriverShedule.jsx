@@ -1,8 +1,8 @@
-import React, { Component } from 'react'
-import { Grid, Typography } from "@material-ui/core";
-import { TextField } from "@mui/material";
-import { styleSheet } from "../Home/styles";
 import { withStyles } from "@mui/styles";
+import { styleSheet } from "../DriverShedule/styles";
+import { Component } from "react";
+import { Button, Grid, TextField, Typography } from "@mui/material";
+import { TextValidator, ValidatorForm } from "react-material-ui-form-validator";
 import Table from '@mui/material/Table';
 import TableBody from '@mui/material/TableBody';
 import TableCell from '@mui/material/TableCell';
@@ -11,19 +11,8 @@ import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
 import logo from "../../../../assets/img/logo.png";
-import rev1 from "../../../../assets/img/rev1.jpg";
-import rev2 from "../../../../assets/img/rev2.jpg";
-import rev3 from "../../../../assets/img/rev3.jpg";
-import Carousel from "react-elastic-carousel";
-import Button from '@mui/material/Button';
-import Item from './Item';
+import DatePicker from '../../../../common/DatePicker/index'
 
-const breakPoints = [
-    { width: 1, itemsToShow: 1 },
-    { width: 550, itemsToShow: 2 },
-    { width: 768, itemsToShow: 3 },
-    { width: 1200, itemsToShow: 4 },
-];
 function createData(id, email, firstName, lastName, licenNo, contact, nic, address) {
     return { id, email, firstName, lastName, licenNo, contact, nic, address };
 }
@@ -39,41 +28,51 @@ const rows = [
     createData('DR00-008', 'YES', 'Wimal', 'Gamage', 3562432, '071-3123342', '42345124', 'Galle'),
 ];
 
-class Home extends Component {
+class DriverShedule extends Component {
     constructor(props) {
-        super(props);
+        super(props)
     }
 
     render() {
-        const { classes } = this.props
+        const { classes } = this.props;
         return (
-
-            <Grid className={classes.container}>
-                <Grid className={classes.searchBar}>
-                    <img src={logo} alt="" style={{ width: '150px', marginTop: '-10px', marginLeft: '250px' }} />
-                    <Typography variant="h5" style={{ marginRight: '250px', color: '#000d6b' }}>
-                        BOOK A CAR / DRIVER SHEDULE
-                    </Typography>
-                </Grid>
-                <Grid className={classes.subContainer}>
-                    <Grid className={classes.bookingPanel}>
-                        <TextField id="outlined-basic" label="Car" variant="outlined"
-                            style={{ margin: '10px' }} />
-                        <TextField id="outlined-basic" label="Location" variant="outlined"
-                            style={{ margin: '10px' }} />
-                        <TextField id="outlined-basic" label="Pick-Up-Date" variant="outlined"
-                            style={{ margin: '10px' }} />
-                        <TextField id="outlined-basic" label="Pick-Up-Time" variant="outlined"
-                            style={{ margin: '10px' }} />
-                        <Button variant="outlined" color='error' style={{
-                            margin: '10px',
-                            height: '52px',
-                            border: '#fe5b3d'
-                        }}>SEARCH CAR NOW</Button>
+            <>
+                <Grid className={classes.container}>
+                    <Grid className={classes.searchBar}>
+                        <Grid className={classes.bookingPanel}>
+                            <img src={logo} alt="" style={{ width: '150px', marginTop: '-10px' }} />
+                            <Typography variant="h5" style={{ marginLeft: '30px', color: '#000d6b' }}>
+                                BOOK A CAR / DRIVER MANAGE
+                            </Typography>
+                        </Grid>
                     </Grid>
-                    <Grid className={classes.driverContainer}>
-                        <Grid className={classes.sheduleTable}>
-                            <TableContainer component={Paper} style={{ height: '65vh', width: '50vw', backgroundColor: '#eeeff1' }}>
+                    <Grid className={classes.details}>
+                        <Grid className={classes.textsDetails} >
+                            <Grid className={classes.texts}>
+                                <TextField id="outlined-basic" label="Driver Id" variant="outlined" style={{ margin: '10px', width: '250px' }} />
+                                <TextField id="outlined-basic" label="Driver Name" variant="outlined" style={{ margin: '10px', width: '250px' }} />
+                                <TextField id="outlined-basic" label="Vehicle Id" variant="outlined" style={{ margin: '10px', width: '250px' }} />
+                                <TextField id="outlined-basic" label="Vehicle Name" variant="outlined" style={{ margin: '10px', width: '250px' }} />
+                                <DatePicker id="outlined-basic" label="Pick-Up-Date" variant="outlined" style={{ margin: '10px', width: '200px',marginLeft:'-10px'}} />
+                                <DatePicker id="outlined-basic" label="Pick-Up-Time" variant="outlined" style={{ margin: '10px', width: '200px' }} />
+                                <TextField id="outlined-basic" label="Location" variant="outlined" style={{ margin: '10px', width: '250px' }} />
+                                <Button
+                                    style={{ margin: '10px', width: '200px', height: '40px', marginLeft: '60px' }}
+                                    variant="contained"
+                                    //label={this.state.btnLabel}
+                                    type="submit" size="small"
+                                //color={this.state.btnColor}
+                                >Save</Button>
+                            </Grid>
+                            <Grid className={classes.map}>
+                                <iframe style={{ height: '42vh', width: '41vw', borderRadius: '15px' }}
+                                    src="https://maps.google.com/maps?q=Srilanka%20Galle&t=&z=13&ie=UTF8&iwloc=&output=embed"
+                                    frameBorder="0" scrolling="no" marginHeight="0" marginWidth="0">
+                                </iframe>
+                            </Grid>
+                        </Grid>
+                        <Grid className={classes.tables}>
+                            <TableContainer component={Paper} style={{ height: '39vh', width: '82vw', backgroundColor: '#eeeff1' }}>
                                 <Table aria-label="simple table">
                                     <TableHead>
                                         <TableRow>
@@ -84,6 +83,7 @@ class Home extends Component {
                                             <TableCell align="left">Pick-Up-Date</TableCell>
                                             <TableCell align="left">Pick-Up-Time</TableCell>
                                             <TableCell align="left">Location</TableCell>
+                                            <TableCell align="left">Action</TableCell>
                                         </TableRow>
                                     </TableHead>
                                     <TableBody>
@@ -105,17 +105,12 @@ class Home extends Component {
                                 </Table>
                             </TableContainer>
                         </Grid>
-                        <Grid className={classes.sheduleDetail}>
-                            <iframe style={{ height: '70vh', width: '30vw', borderRadius: '15px' }}
-                                src="https://maps.google.com/maps?q=Srilanka%20Galle&t=&z=13&ie=UTF8&iwloc=&output=embed"
-                                frameBorder="0" scrolling="no" marginHeight="0" marginWidth="0">
-                            </iframe>
-                        </Grid>
                     </Grid>
                 </Grid>
-            </Grid>
+            </>
+
         )
     }
 }
 
-export default withStyles(styleSheet)(Home)
+export default withStyles(styleSheet)(DriverShedule)

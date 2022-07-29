@@ -75,7 +75,7 @@ class Customer extends Component {
                     message: res.data.message,
                     severity: 'success',
                 });
-                //this.clearFields();
+                this.clearFields();
                 await this.loadData();
             } else {
                 this.setState({
@@ -131,6 +131,28 @@ class Customer extends Component {
                 severity: 'error'
             });
         }
+    };
+
+    clearFields = () => {
+        this.setState({
+            formData: {
+                id: '',
+                nic: '',
+                name: {
+                    firstName: '',
+                    lastName: ''
+                },
+                licenseNo: '',
+                address: '',
+                contactNo: '',
+                email: '',
+                user: {
+                    userName: '',
+                    password: '',
+                    role: ''
+                }
+            }
+        });
     };
 
     componentDidMount() {
@@ -349,7 +371,7 @@ class Customer extends Component {
                                                 <TableCell align="left">{row.nic}</TableCell>
                                                 <TableCell align="left">{row.address}</TableCell>
                                                 {/* <TableCell align="left">{row.user.userName}</TableCell>
-                                    <TableCell align="left">{row.user.role}</TableCell> */}
+                                                <TableCell align="left">{row.user.role}</TableCell> */}
                                                 <TableCell align="left">
                                                     <Tooltip title="Edit">
                                                         <IconButton

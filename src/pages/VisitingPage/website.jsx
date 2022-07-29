@@ -41,6 +41,8 @@ class WebSite extends Component {
         super(props);
         this.state = {
             open: false,
+            user_Name:'',
+            pass_word:'',
 
             role: [
                 {
@@ -51,26 +53,30 @@ class WebSite extends Component {
                 }
             ],
             formData: {
-                "id": '',
-                "nic": '',
-                "name": {
-                    "firstName": '',
-                    "lastName": ''
+                id: '',
+                nic: '',
+                name: {
+                    firstName: '',
+                    lastName: ''
                 },
-                "licenseNo": '',
-                "address": '',
-                "contactNo": '',
-                "email": '',
-                "user": {
-                    "userName": '',
-                    "password": '',
-                    "role": ''
+                licenseNo: '',
+                address: '',
+                contactNo: '',
+                email: '',
+                user: {
+                    userName: '',
+                    password: '',
+                    role: ''
                 }
             },
+            loginData:{
+                userName: '',
+                password: '',
+                role: ''
+            }
 
         }
-    }
-
+    };
 
     submitSignUp = async () => {
 
@@ -118,7 +124,13 @@ class WebSite extends Component {
         }
     };
 
+    // submitSignIn = async () =>{
+    //     let formData = this.state.formData;
 
+    //     if(loginData.userName === this.state.user_Name && loginData.password === this.state.pass_word){
+    //         let res = await SignIn.fetchUser(formData);
+    //     }
+    // };
 
     handleClickOpen = () => {
         this.setState({ open: true })
@@ -149,12 +161,11 @@ class WebSite extends Component {
                                 {/*<Button variant="contained" style={{marginLeft: '700px', marginTop: '12px', height: '32px'}}
                             >Sing In</Button>*/}
                             </Tabs>
-                            <Button variant="outlined" style={{ marginLeft: '900px', marginTop: '7px', height: '32px', borderRadius: '15px' }} onClick={this.handleClickOpen}>Sing
+                            <Button variant="outlined" style={{ marginLeft: '900px', marginTop: '7px', height: '32px', borderRadius: '15px' }} >Sing
                                 Up
                             </Button>
 
-
-                            <Button variant="outlined" style={{ marginLeft: '-200px', marginTop: '7px', height: '32px', borderRadius: '15px' }} >Sing
+                            <Button variant="outlined" style={{ marginLeft: '-200px', marginTop: '7px', height: '32px', borderRadius: '15px' }} onClick={this.handleClickOpen}>Sing
                                 In
                             </Button>
                         </Grid>
@@ -666,7 +677,7 @@ class WebSite extends Component {
 
                 </Grid>
 
-                <ValidatorForm ref="form" className="pt-2" onSubmit={this.submitSignUp}>
+                {/* <ValidatorForm ref="form" className="pt-2" onSubmit={this.submitSignUp}>
                     <Dialog
                         maxWidth="sm=6"
                         open={this.state.open}
@@ -864,6 +875,82 @@ class WebSite extends Component {
                                             }}
                                         >Register Now</Button>
                                     </Grid>
+                                </Grid>
+                            </Grid>
+                        </DialogContent>
+                    </Dialog>
+                </ValidatorForm> */}
+
+                <ValidatorForm ref="form" className="pt-2" onSubmit={this.submitSignIn}>
+                    <Dialog
+                        maxWidth="sm=6"
+                        open={this.state.open}
+                        onClose={this.handleClose}
+                        aria-labelledby="alert-dialog-title"
+                        aria-describedby="alert-dialog-description"
+                    >
+                        <DialogTitle id="alert-dialog-title">
+                            <Typography variant="h5" gutterBottom style={{ textAlign: 'center', marginTop: '30px' }}>LOGING HERE</Typography>
+                            <CloseIcon onClick={this.handleClose} style={{ marginTop: '-90px', marginLeft: '590px' }} />
+                        </DialogTitle>
+                        <DialogContent>
+                            <Grid className={classes.loginContainer}>
+                                <Grid className={classes.loginBody}>
+                                    <TextValidator
+                                        style={{ width: '410px', marginTop: '-20px' }}
+                                        id="outlined-basic"
+                                        label="User Name"
+                                        variant="outlined"
+                                        value={this.state.formData.user.userName}
+                                        onChange={(e) => {
+                                            let formData = this.state.formData
+                                            formData.user.userName = e.target.value
+                                            this.setState({ formData })
+                                        }}
+                                        validators={['required']}
+                                    />
+
+                                    {/* <Autocomplete
+                                        style={{ width: '180px', marginLeft: '20px', marginTop: '-20px' }}
+                                        onChange={(e, value, r) => {
+
+                                            let formData = this.state.formData
+                                            formData.user.role = value.type
+                                            this.setState({ formData })
+                                        }}
+                                        getOptionLabel={
+                                            (option) => option.type
+                                        }
+
+                                        id="controllable-states-demo"
+                                        options={this.state.role}
+                                        sx={{ width: 300 }}
+                                        renderInput={(params) => <TextField {...params} label="Role" />}
+                                    /> */}
+
+                                    <TextValidator
+                                        style={{ width: '410px', marginBottom: '50px' }}
+                                        id="outlined-basic"
+                                        label="Password"
+                                        type="password"
+                                        variant="outlined"
+                                        value={this.state.formData.user}
+                                        onChange={(e) => {
+                                            let formData = this.state.formData
+                                            formData.user = e.target.value
+                                            this.setState({ formData })
+                                        }}
+                                        validators={['required']}
+                                    />
+
+                                    <Button
+                                        variant="contained"
+                                        style={{ width: '410px' }}
+                                        type="submit"
+                                        onClick={() => {
+                                            //this.submitSignUp();
+                                        }}
+                                    >Login Now</Button>
                                 </Grid>
                             </Grid>
                         </DialogContent>

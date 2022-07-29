@@ -281,8 +281,7 @@ export const stylesSheet ={
         flexWrap:'wrap',
         alignItems:'center',
         justifyContent:'center',
-        //backgroundColor:'black'
-        
+        //backgroundColor:'black' 
     },
     textDetail:{
         width:'20vw',
@@ -303,5 +302,25 @@ export const stylesSheet ={
         alignItems:'center',
         justifyContent:'center',
         //border: '1px solid red'
+    },
+    loginContainer:{
+        width:'40vw',
+        height:'40vh',
+        display: 'flex',
+        flexDirection: 'column',
+        flexWrap:'wrap',
+        alignItems:'center',
+        justifyContent:'center',
+        //backgroundColor:'black' 
+    },
+    loginBody:{
+        width:'35vw',
+        height:'35vh',
+        display: 'flex',
+        flexDirection: 'column',
+        flexWrap:'wrap',
+        alignItems:'center',
+        justifyContent:'center',
+        //backgroundColor:'red' 
     }
 }
