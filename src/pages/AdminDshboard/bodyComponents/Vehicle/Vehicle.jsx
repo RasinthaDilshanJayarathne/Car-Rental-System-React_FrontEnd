@@ -39,6 +39,15 @@ class Vehicle extends Component {
     constructor(props) {
         super(props);
         this.state = {
+
+            frontImage: null,
+            backImage: null,
+            sideImage: null,
+
+            frontView: null,
+            backView: null,
+            sideView: null,
+
             formData: {
                 vehicleId: '',
                 registrationNo: '',
@@ -60,7 +69,7 @@ class Vehicle extends Component {
                 damageFee: '',
                 lastServiceMileage: '',
                 vehicleServiceMileage: '',
-                pricePerExtraKM:''
+                pricePerExtraKM: ''
             },
 
             alert: false,
@@ -123,32 +132,10 @@ class Vehicle extends Component {
 
     };
 
-    // uploadImage = async () => {
-    //     let imageData = this.state.imageData;
-
-    //     let res = await VehicleService.postVehicleImage(imageData);
-    //     if (res.status === 201) {
-    //         this.setState({
-    //             alert: true,
-    //             message: res.data.message,
-    //             severity: 'success'
-    //         });
-    //         //this.clearFields();
-    //         //await this.loadData();
-    //     } else {
-    //         this.setState({
-    //             alert: true,
-    //             message: res.response.data.message,
-    //             severity: 'error'
-    //         });
-    //     }
-    // }
-
     submitVehicle = async () => {
         let formData = this.state.formData;
-
         console.log(formData)
-
+        this.addCarImage(formData.vehicleId);
         if (this.state.btnLabel === "save") {
             let res = await VehicleService.postVehicle(formData);
 
@@ -159,17 +146,33 @@ class Vehicle extends Component {
                     severity: 'success'
                 });
                 this.clearFields();
+
                 await this.loadData();
             } else {
                 this.setState({
                     alert: true,
-                    message: res.response.data.message,
+                    //message: res.response.data.message,
                     severity: 'error'
                 });
             }
         } else {
             let res = await VehicleService.putVehicle(formData);
             if (res.status === 200) {
+
+                // let front = this.state.frontImage;
+                // let back = this.state.backImage;
+                // let side = this.state.sideImage;
+                // let list=[front,back,side]
+                // let viewList = ["Front", "Back", "Side"]
+
+                // for (var i = 0; i < list.length; i++) {
+                //     if (list[i] != null) {
+                //         let formData = new FormData();
+                //         formData.append('carImage', list[i]);
+                //         await this.updateCarImage(formData, formData.vehicleId, viewList[i]);
+                //     }
+                // }
+
                 this.setState({
                     alert: true,
                     message: res.data.message,
@@ -187,6 +190,7 @@ class Vehicle extends Component {
                 });
             }
         }
+
     };
 
     updateVehicle = (data) => {
@@ -217,7 +221,13 @@ class Vehicle extends Component {
                 lastServiceMileage: data.lastServiceMileage,
                 vehicleServiceMileage: data.vehicleServiceMileage,
                 pricePerExtraKM: data.pricePerExtraKM
-            }
+            },
+
+            frontImage: this.state.frontImage,
+            backImage: this.state.backImage,
+            sideImage: this.state.sideImage,
+
+
         });
     };
 
@@ -244,8 +254,30 @@ class Vehicle extends Component {
         }
     };
 
+    addCarImage = async (carId) => {
+
+        var bodyFormData = new FormData();
+        bodyFormData.append('param', this.state.frontImage);
+        bodyFormData.append('param', this.state.backImage);
+        bodyFormData.append('param', this.state.sideImage);
+
+        let res = await VehicleService.addCarImage(bodyFormData, carId);
+        if (res.data.code === 201) { alert(res.data.message) } else {
+            alert(res.data.message);
+        }
+    }
+
     clearFields = () => {
         this.setState({
+
+            frontImage: null,
+            backImage: null,
+            sideImage: null,
+
+            frontView: null,
+            backView: null,
+            sideView: null,
+
             formData: {
                 vehicleId: '',
                 registrationNo: '',
@@ -267,7 +299,7 @@ class Vehicle extends Component {
                 damageFee: '',
                 lastServiceMileage: '',
                 vehicleServiceMileage: '',
-                pricePerExtraKM:''
+                pricePerExtraKM: ''
             }
         });
     };
@@ -302,11 +334,21 @@ class Vehicle extends Component {
                                                 flexWrap: 'wrap', flexDirection: 'column',
                                                 alignItems: 'center', justifyContent: 'center',
                                             }}>
-                                                <img src={car1} alt="" style={{ width: '380px', marginTop: '-10px', marginLeft: '-10px' }} />
+                                                {/* <img src={car1} alt="" style={{ width: '380px', marginTop: '-10px', marginLeft: '-10px' }} /> */}
+                                                <Grid style={{
+                                                    width: '350px',
+                                                    height: '420px',
+                                                    //border: '1px solid red',
+                                                    backgroundImage: "url(" + this.state.frontView + ")",
+                                                    //backgroundColor:'yellow',
+                                                    backgroundSize: 'cover'
+                                                }}
+                                                >
+                                                </Grid>
                                             </Grid>
                                             <Grid style={{ marginBottom: '-40px', height: '50px', width: '100px' }}>
                                                 <Stack direction="row" alignItems="center" spacing={5}>
-                                                    <Button
+                                                    {/* <Button
                                                         variant="contained"
                                                         component="label"
                                                         style={{ backgroundColor: '#a4b0be' }}
@@ -315,7 +357,26 @@ class Vehicle extends Component {
                                                         Upload
                                                         <input hidden accept="image/*" multiple type="file" />
                                                         <PhotoCamera />
-                                                    </Button>
+                                                    </Button> */}
+                                                    <input
+                                                        style={{ display: 'none' }}
+                                                        accept="image/*"
+                                                        className={classes.input}
+                                                        id="contained-button-file01"
+                                                        multiple
+                                                        type="file"
+                                                        onChange={(e) => {
+                                                            this.setState({
+                                                                frontImage: e.target.files[0],
+                                                                frontView: URL.createObjectURL(e.target.files[0])
+                                                            })
+                                                        }}
+                                                    />
+                                                    <label htmlFor="contained-button-file01">
+                                                        <Button variant="contained" color="primary" component="span">
+                                                            Upload
+                                                        </Button>
+                                                    </label>
                                                 </Stack>
                                             </Grid>
                                         </Item>
@@ -325,15 +386,44 @@ class Vehicle extends Component {
                                                 flexWrap: 'wrap', flexDirection: 'column',
                                                 alignItems: 'center', justifyContent: 'center',
                                             }}>
-                                                <img src={car2} alt="" style={{ width: '450px', marginTop: '-10px', marginLeft: '-100px' }} />
+                                                {/* <img src={car2} alt="" style={{ width: '450px', marginTop: '-10px', marginLeft: '-100px' }} /> */}
+                                                <Grid style={{
+                                                    width: '350px',
+                                                    height: '420px',
+                                                    //border: '1px solid red',
+                                                    backgroundImage: "url(" + this.state.backView + ")",
+                                                    //backgroundColor:'blue',
+                                                    backgroundSize: 'cover'
+                                                }}
+                                                >
+                                                </Grid>
                                             </Grid>
                                             <Grid style={{ marginBottom: '-40px', height: '50px', width: '100px' }}>
                                                 <Stack direction="row" alignItems="center" spacing={5}>
-                                                    <Button variant="contained" component="label" style={{ backgroundColor: '#a4b0be' }}>
+                                                    {/* <Button variant="contained" component="label" style={{ backgroundColor: '#a4b0be' }}>
                                                         Upload
                                                         <input hidden accept="image/*" multiple type="file" />
                                                         <PhotoCamera />
-                                                    </Button>
+                                                    </Button> */}
+                                                    <input
+                                                        style={{ display: 'none' }}
+                                                        accept="image/*"
+                                                        className={classes.input}
+                                                        id="contained-button-file02"
+                                                        multiple
+                                                        type="file"
+                                                        onChange={(e) => {
+                                                            this.setState({
+                                                                backImage: e.target.files[0],
+                                                                backView: URL.createObjectURL(e.target.files[0])
+                                                            })
+                                                        }}
+                                                    />
+                                                    <label htmlFor="contained-button-file02">
+                                                        <Button variant="contained" color="primary" component="span">
+                                                            Upload
+                                                        </Button>
+                                                    </label>
                                                 </Stack>
                                             </Grid>
                                         </Item>
@@ -343,15 +433,45 @@ class Vehicle extends Component {
                                                 flexWrap: 'wrap', flexDirection: 'column',
                                                 alignItems: 'center', justifyContent: 'center',
                                             }}>
-                                                <img src={car3} alt="" style={{ width: '370px', marginTop: '-10px' }} />
+                                                {/* <img src={car3} alt="" style={{ width: '370px', marginTop: '-10px' }} /> */}
+                                                <Grid style={{
+                                                    width: '350px',
+                                                    height: '420px',
+                                                    //border: '1px solid red',
+                                                    //backgroundColor:'red',
+                                                    backgroundImage: "url(" + this.state.sideView + ")",
+                                                    backgroundSize: 'cover'
+                                                }}
+                                                >
+
+                                                </Grid>
                                             </Grid>
                                             <Grid style={{ marginBottom: '-40px', height: '50px', width: '100px' }}>
                                                 <Stack direction="row" alignItems="center" spacing={5}>
-                                                    <Button variant="contained" component="label" style={{ backgroundColor: '#a4b0be' }}>
+                                                    {/* <Button variant="contained" component="label" style={{ backgroundColor: '#a4b0be' }}>
                                                         Upload
                                                         <input hidden accept="image/*" multiple type="file" />
                                                         <PhotoCamera />
-                                                    </Button>
+                                                    </Button> */}
+                                                    <input
+                                                        style={{ display: 'none' }}
+                                                        accept="image/*"
+                                                        className={classes.input}
+                                                        id="contained-button-file03"
+                                                        multiple
+                                                        type="file"
+                                                        onChange={(e) => {
+                                                            this.setState({
+                                                                sideImage: e.target.files[0],
+                                                                sideView: URL.createObjectURL(e.target.files[0])
+                                                            })
+                                                        }}
+                                                    />
+                                                    <label htmlFor="contained-button-file03">
+                                                        <Button variant="contained" color="primary" component="span">
+                                                            Upload
+                                                        </Button>
+                                                    </label>
                                                 </Stack>
                                             </Grid>
                                         </Item>
@@ -672,6 +792,7 @@ class Vehicle extends Component {
                                                             <IconButton
                                                                 onClick={() => {
                                                                     this.updateVehicle(row);
+                                                                    //this.getCarImage();
                                                                 }}
                                                             >
                                                                 <EditIcon color="primary" />

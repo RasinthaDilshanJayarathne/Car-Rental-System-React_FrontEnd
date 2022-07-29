@@ -6,6 +6,10 @@ import logo from "../../../../assets/img/logo.png";
 import rev1 from "../../../../assets/img/rev1.jpg";
 import rev2 from "../../../../assets/img/rev2.jpg";
 import rev3 from "../../../../assets/img/rev3.jpg";
+import rev4 from "../../../../assets/img/rev4.jpg";
+import rev5 from "../../../../assets/img/rev5.jpg";
+import rev6 from "../../../../assets/img/rev6.jpg";
+import rev7 from "../../../../assets/img/rev7.jpg";
 import Carousel from "react-elastic-carousel";
 import Button from '@mui/material/Button';
 import Item from './Item';
@@ -131,7 +135,7 @@ class Home extends Component {
                                                     flexWrap: 'wrap',flexDirection: 'column',
                                                     alignItems: 'center',justifyContent: 'center',
                                                 }}>
-                                        <img src={rev1} alt="" style={{width:'150px',height:'150px',borderRadius:'180px',marginTop:'-10px'}}/>
+                                        <img src={rev4} alt="" style={{width:'150px',height:'150px',borderRadius:'180px',marginTop:'-10px'}}/>
                                     </Grid>
                                     <Grid style={{height:'100px',width:'350px',textAlign:'center'}}>
                                         <Typography variant="h6" gutterBottom component="div" >Name : Rasintha Dilshan</Typography>
@@ -150,7 +154,7 @@ class Home extends Component {
                     <Grid className={classes.driverSubContainer}>
                         <Grid className={classes.chatBox}>
                             <Grid className={classes.image}>
-                                <img src={rev1} alt="" style={{width:'100px',height:'100px',borderRadius:'180px',marginTop:'-10px'}}/>
+                                <img src={rev5} alt="" style={{width:'100px',height:'100px',borderRadius:'180px',marginTop:'-10px'}}/>
                             </Grid>
                             <Grid className={classes.details}>
                                 <Typography gutterBottom component="div" style={{fontSize:'15px',textAlign:'left'}}>
@@ -163,7 +167,7 @@ class Home extends Component {
                         </Grid>
                         <Grid className={classes.chatBox}>
                             <Grid className={classes.image}>
-                                <img src={rev2} alt="" style={{width:'100px',height:'100px',borderRadius:'180px',marginTop:'-10px'}}/>
+                                <img src={rev6} alt="" style={{width:'100px',height:'100px',borderRadius:'180px',marginTop:'-10px'}}/>
                             </Grid>
                             <Grid className={classes.details}>
                                 <Typography gutterBottom component="div" style={{fontSize:'15px',textAlign:'left'}}>
@@ -176,7 +180,7 @@ class Home extends Component {
                         </Grid>
                         <Grid className={classes.chatBox}>
                             <Grid className={classes.image}>
-                                <img src={rev3} alt="" style={{width:'100px',height:'100px',borderRadius:'180px',marginTop:'-10px'}}/>
+                                <img src={rev7} alt="" style={{width:'100px',height:'100px',borderRadius:'180px',marginTop:'-10px'}}/>
                             </Grid>
                             <Grid className={classes.details}>
                                 <Typography gutterBottom component="div" style={{fontSize:'15px',textAlign:'left'}}>

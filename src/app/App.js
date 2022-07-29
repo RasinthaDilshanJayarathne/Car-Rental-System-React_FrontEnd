@@ -4,14 +4,16 @@ import WebSite from "../pages/VisitingPage/website";
 import CustomerDashboard from "../pages/CustomerDshboard/header/HeaderComponent";
 import AdminDashboard from "../pages/AdminDshboard/header/HeaderComponent";
 import DriverDashboard from "../pages/DriverDashboard/header/HeaderComponent"
+import ViewAllCarPopUpTable from "../common/ViewVehicleImage/index"
 
 
 function App() {
     return (
         <Fragment>
             {/* <CustomerDashboard/> */}
-            <AdminDashboard/>
+            {/* <AdminDashboard/> */}
             {/* <WebSite/> */}
+            {<ViewAllCarPopUpTable/>}
             {/* <DriverDashboard/> */}
         </Fragment>
        /* <Routes>

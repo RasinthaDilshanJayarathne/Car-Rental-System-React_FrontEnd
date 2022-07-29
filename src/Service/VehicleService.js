@@ -54,18 +54,48 @@ class VehicleService {
          return await promise;
     };
 
-    postVehicleImage = async (data) => {
+    addCarImage = async (data,carId) => {
         const promise = new Promise((resolve, reject) => {
-            axios.post('upload', data)    // 20s
+            axios.post('vehicle/addCarImage?carId='+carId,data)
+
                 .then((res) => {
                     return resolve(res)
                 })
                 .catch((err) => {
                     return resolve(err)
                 })
-        });
-
+        })
         return await promise;
     }
+
+    getCarImage = async (carId,view) =>{
+        const promise = new Promise((resolve, reject) => {
+            axios.get('vehicle/getCarImage?carId='+carId+'&view='+view, {
+                responseType: 'blob',
+            })
+                .then((res) => {
+                    return resolve(res)
+                })
+                .catch((err) => {
+                    return resolve(err)
+                })
+        })
+        return await promise;
+    }
+
+    updateCarImage =async (data,carId,view) =>{
+        const promise = new Promise((resolve, reject) => {
+            axios.post('vehicle/updateCarImage?carId='+carId+'&view='+view,data)
+
+                .then((res) => {
+                    return resolve(res)
+                })
+                .catch((err) => {
+                    return resolve(err)
+                })
+        })
+        return await promise;
+    }
+
 }
 export default new VehicleService();

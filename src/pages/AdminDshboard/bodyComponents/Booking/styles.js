@@ -11,7 +11,6 @@ export const styleSheet ={
         alignItems: 'center',
         justifyContent: 'center',
         overflowY:'hidden',
-        marginLeft:'50px'
     },
     searchBar: {
         height: '15vh',
