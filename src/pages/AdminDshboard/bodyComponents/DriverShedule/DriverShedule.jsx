@@ -11,6 +11,10 @@ import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
 import logo from "../../../../assets/img/logo.png";
+import DeleteIcon from '@mui/icons-material/Delete';
+import IconButton from '@mui/material/IconButton';
+import Tooltip from '@mui/material/Tooltip';
+import EditIcon from '@mui/icons-material/Edit';
 import DatePicker from '../../../../common/DatePicker/index'
 
 function createData(id, email, firstName, lastName, licenNo, contact, nic, address) {
@@ -53,8 +57,12 @@ class DriverShedule extends Component {
                                 <TextField id="outlined-basic" label="Driver Name" variant="outlined" style={{ margin: '10px', width: '250px' }} />
                                 <TextField id="outlined-basic" label="Vehicle Id" variant="outlined" style={{ margin: '10px', width: '250px' }} />
                                 <TextField id="outlined-basic" label="Vehicle Name" variant="outlined" style={{ margin: '10px', width: '250px' }} />
-                                <DatePicker id="outlined-basic" label="Pick-Up-Date" variant="outlined" style={{ margin: '10px', width: '200px',marginLeft:'-10px'}} />
-                                <DatePicker id="outlined-basic" label="Pick-Up-Time" variant="outlined" style={{ margin: '10px', width: '200px' }} />
+                                <Grid style={{ margin: '10px', width: '250px', marginLeft: '10px'}}>
+                                    <DatePicker id="outlined-basic" label="Pick-Up-Date" variant="outlined"/>
+                                </Grid>
+                                <Grid style={{ margin: '10px', width: '250px'}} >
+                                    <DatePicker id="outlined-basic" label="Pick-Up-Time" variant="outlined"/>
+                                </Grid>
                                 <TextField id="outlined-basic" label="Location" variant="outlined" style={{ margin: '10px', width: '250px' }} />
                                 <Button
                                     style={{ margin: '10px', width: '200px', height: '40px', marginLeft: '60px' }}
@@ -99,6 +107,27 @@ class DriverShedule extends Component {
                                                 <TableCell align="left">{row.licenNo}</TableCell>
                                                 <TableCell align="left">{row.contact}</TableCell>
                                                 <TableCell align="left">{row.nic}</TableCell>
+                                                <TableCell align="left">
+                                                        <Tooltip title="Edit">
+                                                            <IconButton
+                                                                onClick={() => {
+                                                                    //this.updateVehicle(row);
+                                                                    //this.getCarImage();
+                                                                }}
+                                                            >
+                                                                <EditIcon color="primary" />
+                                                            </IconButton>
+                                                        </Tooltip>
+                                                        <Tooltip title="Delete">
+                                                            <IconButton
+                                                                onClick={() => {
+                                                                    //this.deleteVehicle(row.vehicleId)
+                                                                }}
+                                                            >
+                                                                <DeleteIcon color="error" />
+                                                            </IconButton>
+                                                        </Tooltip>
+                                                    </TableCell>
                                             </TableRow>
                                         ))}
                                     </TableBody>
