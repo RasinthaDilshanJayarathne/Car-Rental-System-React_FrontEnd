@@ -222,29 +222,30 @@ class Vehicle extends Component {
                 vehicleServiceMileage: data.vehicleServiceMileage,
                 pricePerExtraKM: data.pricePerExtraKM
             },
-
-            frontImage: this.state.frontImage,
-            backImage: this.state.backImage,
-            sideImage: this.state.sideImage,
-
-
         });
     };
 
-    deleteVehicle = async (id) => {
+    deleteVehicle = async (vehicleId) => {
         let params = {
-            id: id
+            vehicleId: vehicleId
         }
         let res = await VehicleService.deleteVehicle(params);
         console.log(res)
 
         if (res.status === 200) {
+            let res = await VehicleService.deleteCarImages(this.state.formData.vehicleId);
+            if (res.status == 200) {
+                alert("Car Deleted Success");
+                this.clearFields();
+            } else {
+                alert("Error");
+            }
             this.setState({
                 alert: true,
                 message: res.data.message,
                 severity: 'success'
             });
-            await this.loadData();
+            this.loadData();
         } else {
             this.setState({
                 alert: true,
@@ -373,8 +374,14 @@ class Vehicle extends Component {
                                                         }}
                                                     />
                                                     <label htmlFor="contained-button-file01">
-                                                        <Button variant="contained" color="primary" component="span">
+                                                        <Button
+                                                            variant="contained"
+                                                            //color="primary" 
+                                                            component="span"
+                                                            style={{ backgroundColor: '#a4b0be', marginLeft: '-50px' }}
+                                                        >
                                                             Upload
+                                                            <PhotoCamera />
                                                         </Button>
                                                     </label>
                                                 </Stack>
@@ -420,8 +427,14 @@ class Vehicle extends Component {
                                                         }}
                                                     />
                                                     <label htmlFor="contained-button-file02">
-                                                        <Button variant="contained" color="primary" component="span">
+                                                        <Button
+                                                            variant="contained"
+                                                            //color="primary"
+                                                            component="span"
+                                                            style={{ backgroundColor: '#a4b0be', marginLeft: '-50px' }}
+                                                        >
                                                             Upload
+                                                            <PhotoCamera />
                                                         </Button>
                                                     </label>
                                                 </Stack>
@@ -468,8 +481,14 @@ class Vehicle extends Component {
                                                         }}
                                                     />
                                                     <label htmlFor="contained-button-file03">
-                                                        <Button variant="contained" color="primary" component="span">
+                                                        <Button
+                                                            variant="contained"
+                                                            //color="primary" 
+                                                            component="span"
+                                                            style={{ backgroundColor: '#a4b0be', marginLeft: '-50px' }}
+                                                        >
                                                             Upload
+                                                            <PhotoCamera />
                                                         </Button>
                                                     </label>
                                                 </Stack>
@@ -480,7 +499,7 @@ class Vehicle extends Component {
                             </Grid>
                             <Grid className={classes.vehicleForm}>
                                 <ValidatorForm ref="form" className="pt-2" onSubmit={this.submitVehicle}>
-                                    <Grid container spacing={-9} rowSpacing={13} style={{ marginLeft: '20px' }}>
+                                    <Grid container spacing={-9} rowSpacing={5} style={{ marginLeft: '20px' }}>
                                         <TextValidator
                                             style={{ padding: '10px', width: '230px' }}
                                             id="outlined-basic"

@@ -61,9 +61,10 @@ export const styleSheet = {
         flexDirection: 'column',
         alignItems: 'center',
         justifyContent: 'center',
+        marginTop:'70px'
     },
     vehiclePhoto:{
-        height: '60vh',
+        height: '70vh',
         width: '32vw',
         display: 'flex',
         flexWrap: 'wrap',
@@ -73,7 +74,8 @@ export const styleSheet = {
         backgroundColor:'#eeeff1',
         borderRadius:'15px',
         marginBottom:'100px',
-        marginLeft:'10px'
+        marginLeft:'10px',
+        marginTop:'40px'
     },
     vehicleForm:{
         height: '80vh',
@@ -85,7 +87,7 @@ export const styleSheet = {
         justifyContent: 'center',
     },
     app:{
-        height: '50vh',
+        height: '70vh',
         width: '82.5vw',
         fontFamily: 'sans-serif',
         display: 'flex',
@@ -93,6 +95,7 @@ export const styleSheet = {
         justifyContent: 'center',
         flexWrap: 'wrap',
         flexDirection: 'row',
+        //backgroundColor:'red',
         marginBottom:'200px',
     },
     appItem:{

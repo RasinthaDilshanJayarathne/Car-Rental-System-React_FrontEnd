@@ -97,5 +97,19 @@ class VehicleService {
         return await promise;
     }
 
+    deleteCarImages =async (carId) =>{
+        const promise = new Promise((resolve, reject) => {
+            axios.delete('vehicle/deleteCarImage?vehicleId='+carId)
+
+                .then((res) => {
+                    return resolve(res)
+                })
+                .catch((err) => {
+                    return resolve(err)
+                })
+        })
+        return await promise;
+    }
+
 }
 export default new VehicleService();

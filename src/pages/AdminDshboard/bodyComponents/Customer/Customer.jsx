@@ -25,6 +25,13 @@ class Customer extends Component {
     constructor(props) {
         super(props)
         this.state = {
+
+            nicImage: null,
+            licenseImage: null,
+
+            nicView: null,
+            licenseView: null,
+
             formData: {
                 id: '',
                 nic: '',
@@ -135,6 +142,13 @@ class Customer extends Component {
 
     clearFields = () => {
         this.setState({
+
+            nicImage: null,
+            licenseImage: null,
+
+            nicView: null,
+            licenseView: null,
+
             formData: {
                 id: '',
                 nic: '',
@@ -154,6 +168,18 @@ class Customer extends Component {
             }
         });
     };
+
+    addPersonalImage = async (id) => {
+
+        var bodyFormData = new FormData();
+        bodyFormData.append('param', this.state.nicImage);
+        bodyFormData.append('param', this.state.licenseImage);
+
+        let res = await CustomerService.addPersonalImage(bodyFormData, id);
+        if (res.data.code === 201) { alert(res.data.message) } else {
+            alert(res.data.message);
+        }
+    }
 
     componentDidMount() {
         this.loadData();
@@ -176,7 +202,7 @@ class Customer extends Component {
                         <ValidatorForm ref="form" className="pt-2" onSubmit={this.submitCustomer}>
                             <Grid className={classes.textContainer}>
                                 <TextValidator
-                                    style={{ padding: '10px', width: '250px',marginTop:'10px'}}
+                                    style={{ padding: '10px', width: '250px', marginTop: '10px' }}
                                     disabled
                                     id="outlined-basic"
                                     label="Register Id"
@@ -190,7 +216,7 @@ class Customer extends Component {
                                     validators={['required']}
                                 />
                                 <TextValidator
-                                    style={{ padding: '10px', width: '250px',marginTop:'10px'}}
+                                    style={{ padding: '10px', width: '250px', marginTop: '10px' }}
                                     id="outlined-basic"
                                     label="E-mail"
                                     variant="outlined"
@@ -319,18 +345,90 @@ class Customer extends Component {
                                 </Grid>
                             </Grid>
                             <Grid className={classes.upload}>
-                                <Grid style={{ width: '30vw', height: '30vh', backgroundColor: '#eeeff1', display: 'flex', flexWrap: 'wrap', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', }}>
-                                    <IconButton backgroundColor="#bdc3c7" aria-label="upload picture" component="label">
+                                <Grid
+                                    style={{
+                                        width: '30vw',
+                                        height: '30vh',
+                                        backgroundColor: '#eeeff1',
+                                        display: 'flex',
+                                        flexWrap: 'wrap',
+                                        flexDirection: 'column',
+                                        alignItems: 'center',
+                                        justifyContent: 'center',
+                                        backgroundImage: "url(" + this.state.nicView + ")",
+                                        backgroundSize: 'cover'
+                                    }}>
+                                    {/* <IconButton backgroundColor="#bdc3c7" aria-label="upload picture" component="label">
                                         <input hidden accept="image/*" type="file" />
                                         <PhotoCamera style={{ fontSize: '40px', marginTop: '12px' }} />
-                                    </IconButton>
+                                    </IconButton> */}
+
+                                    <input
+                                        style={{ display: 'none' }}
+                                        accept="image/*"
+                                        className={classes.input}
+                                        id="contained-button-file03"
+                                        multiple
+                                        type="file"
+                                        onChange={(e) => {
+                                            this.setState({
+                                                nicImage: e.target.files[0],
+                                                nicView: URL.createObjectURL(e.target.files[0])
+                                            })
+                                        }}
+                                    />
+                                    <label htmlFor="contained-button-file03">
+                                        <IconButton color="primary" aria-label="upload picture"
+                                            variant="contained"
+                                            //color="primary" 
+                                            component="span"
+                                            style={{ backgroundColor: '#a4b0be', marginLeft: '-10px' }}
+                                        >
+                                            <input hidden accept="image/*" type="file" />
+                                            <PhotoCamera />
+                                        </IconButton>
+                                    </label>
                                     <Typography variant="body2">Upload Nic</Typography>
                                 </Grid>
-                                <Grid style={{ width: '30vw', height: '30vh', backgroundColor: '#eeeff1', display: 'flex', flexWrap: 'wrap', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', }}>
-                                    <IconButton backgroundColor="#bdc3c7" aria-label="upload picture" component="label">
-                                        <input hidden accept="image/*" type="file" />
-                                        <PhotoCamera style={{ fontSize: '40px', marginTop: '12px' }} />
-                                    </IconButton>
+                                <Grid
+                                    style={{
+                                        width: '30vw',
+                                        height: '30vh',
+                                        backgroundColor: '#eeeff1',
+                                        display: 'flex',
+                                        flexWrap: 'wrap',
+                                        flexDirection: 'column',
+                                        alignItems: 'center',
+                                        justifyContent: 'center',
+                                        backgroundImage: "url(" + this.state.licenseView + ")",
+                                        backgroundSize: 'cover'
+                                    }}>
+
+                                    <input
+                                        style={{ display: 'none' }}
+                                        accept="image/*"
+                                        className={classes.input}
+                                        id="contained-button-file04"
+                                        multiple
+                                        type="file"
+                                        onChange={(e) => {
+                                            this.setState({
+                                                licenseImage: e.target.files[0],
+                                                licenseView: URL.createObjectURL(e.target.files[0])
+                                            })
+                                        }}
+                                    />
+                                    <label htmlFor="contained-button-file04">
+                                        <IconButton color="primary" aria-label="upload picture"
+                                            variant="contained"
+                                            //color="primary" 
+                                            component="span"
+                                            style={{ backgroundColor: '#a4b0be', marginLeft: '-10px' }}
+                                        >
+                                            <input hidden accept="image/*" type="file" />
+                                            <PhotoCamera />
+                                        </IconButton>
+                                    </label>
                                     <Typography variant="body2">Upload License</Typography>
                                 </Grid>
                             </Grid>
