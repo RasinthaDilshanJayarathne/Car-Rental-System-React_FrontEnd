@@ -50,7 +50,7 @@ class Profile extends Component {
                             </Grid>
                             <Grid style={{ marginLeft: '70px' }}>
                                 <TextField style={{ padding: '10px', width: '350px' }} disabled id="outlined-basic" label="User Name" variant="outlined" />
-                                <TextField style={{ padding: '10px', width: '350px' }} disabled id="outlined-basic" label="Register Id" variant="outlined" />
+                                <TextField style={{ padding: '10px', width: '350px' }} disabled id="outlined-basic" label="Password" variant="outlined" />
                             </Grid>
                         </Grid>
                         <Grid className={classes.details}>

@@ -79,7 +79,7 @@ class Home extends Component {
                                         <TableRow>
                                             <TableCell align="left">Driver Id</TableCell>
                                             <TableCell align="left">Driver Name</TableCell>
-                                            <TableCell align="left">Vehicle Name</TableCell>
+                                            <TableCell align="left">Rent Id</TableCell>
                                             <TableCell align="left">Vehicle Id</TableCell>
                                             <TableCell align="left">Pick-Up-Date</TableCell>
                                             <TableCell align="left">Pick-Up-Time</TableCell>

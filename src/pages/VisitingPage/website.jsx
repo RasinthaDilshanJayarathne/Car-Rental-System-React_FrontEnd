@@ -18,7 +18,6 @@ import CloseIcon from '@mui/icons-material/Close';
 import Dialog from '@mui/material/Dialog';
 import DialogActions from '@mui/material/DialogActions';
 import DialogContent from '@mui/material/DialogContent';
-import DialogContentText from '@mui/material/DialogContentText';
 import DialogTitle from '@mui/material/DialogTitle';
 import DatePicker from '../../common/DatePicker/index'
 import Autocomplete from '@mui/material/Autocomplete';
@@ -34,15 +33,21 @@ import rev1 from "../../assets/img/rev1.jpg"
 import rev2 from "../../assets/img/rev2.jpg"
 import rev3 from "../../assets/img/rev3.jpg"
 import SignUpService from "../../Service/SignUpService";
+import CustomerService from "../../Service/CustomerService";
 
 
 class WebSite extends Component {
     constructor(props) {
         super(props);
         this.state = {
+
+            nicImage: null,
+            licenseImage: null,
+
+            nicView: null,
+            licenseView: null,
+
             open: false,
-            user_Name:'',
-            pass_word:'',
 
             role: [
                 {
@@ -69,7 +74,7 @@ class WebSite extends Component {
                     role: ''
                 }
             },
-            loginData:{
+            loginData: {
                 userName: '',
                 password: '',
                 role: ''
@@ -81,6 +86,7 @@ class WebSite extends Component {
     submitSignUp = async () => {
 
         let formData = this.state.formData;
+        this.addPersonalImage(formData.id);
         if (formData.user.role === 'REGISTERED_USER') {
             let formData = this.state.formData;
             console.log(formData)
@@ -124,13 +130,46 @@ class WebSite extends Component {
         }
     };
 
-    // submitSignIn = async () =>{
-    //     let formData = this.state.formData;
+    addPersonalImage = async (id) => {
 
-    //     if(loginData.userName === this.state.user_Name && loginData.password === this.state.pass_word){
-    //         let res = await SignIn.fetchUser(formData);
-    //     }
-    // };
+        var bodyFormData = new FormData();
+        bodyFormData.append('param', this.state.nicImage);
+        bodyFormData.append('param', this.state.licenseImage);
+
+        let res = await SignUpService.addPersonalImage(bodyFormData, id);
+        if (res.data.code === 201) { alert(res.data.message) } else {
+            alert(res.data.message);
+        }
+    }
+
+    clearFields = () => {
+        this.setState({
+
+            nicImage: null,
+            licenseImage: null,
+
+            nicView: null,
+            licenseView: null,
+
+            formData: {
+                id: '',
+                nic: '',
+                name: {
+                    firstName: '',
+                    lastName: ''
+                },
+                licenseNo: '',
+                address: '',
+                contactNo: '',
+                email: '',
+                user: {
+                    userName: '',
+                    password: '',
+                    role: ''
+                }
+            },
+        });
+    };
 
     handleClickOpen = () => {
         this.setState({ open: true })
@@ -161,11 +200,11 @@ class WebSite extends Component {
                                 {/*<Button variant="contained" style={{marginLeft: '700px', marginTop: '12px', height: '32px'}}
                             >Sing In</Button>*/}
                             </Tabs>
-                            <Button variant="outlined" style={{ marginLeft: '900px', marginTop: '7px', height: '32px', borderRadius: '15px' }} >Sing
+                            <Button variant="outlined" style={{ marginLeft: '900px', marginTop: '7px', height: '32px', borderRadius: '15px' }} onClick={this.handleClickOpen}>Sing
                                 Up
                             </Button>
 
-                            <Button variant="outlined" style={{ marginLeft: '-200px', marginTop: '7px', height: '32px', borderRadius: '15px' }} onClick={this.handleClickOpen}>Sing
+                            <Button variant="outlined" style={{ marginLeft: '-200px', marginTop: '7px', height: '32px', borderRadius: '15px' }} >Sing
                                 In
                             </Button>
                         </Grid>
@@ -677,7 +716,7 @@ class WebSite extends Component {
 
                 </Grid>
 
-                {/* <ValidatorForm ref="form" className="pt-2" onSubmit={this.submitSignUp}>
+                <ValidatorForm ref="form" className="pt-2" onSubmit={this.submitSignUp}>
                     <Dialog
                         maxWidth="sm=6"
                         open={this.state.open}
@@ -734,7 +773,7 @@ class WebSite extends Component {
                                             validators={['required']}
                                         />
                                         <TextValidator
-                                            style={{ width: '222px' }}
+                                            style={{ width: '280px' }}
                                             id="outlined-basic"
                                             label="License No"
                                             variant="outlined"
@@ -746,10 +785,54 @@ class WebSite extends Component {
                                             }}
                                             validators={['required']}
                                         />
-                                        <IconButton color="primary" aria-label="upload picture" component="label">
+
+                                        <Grid
+                                            style={{
+                                                width: '232px',
+                                                height: '30px',
+                                                border: '1px solid #95a5a6',
+                                                marginLeft: '10px',
+                                                display: 'flex',
+                                                flexWrap: 'wrap',
+                                                flexDirection: 'column',
+                                                alignItems: 'center',
+                                                justifyContent: 'center',
+                                                backgroundImage: "url(" + this.state.licenseView + ")",
+                                                backgroundSize: 'cover'
+                                            }}
+                                        >
+
+                                        </Grid>
+                                        <input
+                                            style={{ display: 'none' }}
+                                            accept="image/*"
+                                            className={classes.input}
+                                            id="contained-button-file02"
+                                            multiple
+                                            type="file"
+                                            onChange={(e) => {
+                                                this.setState({
+                                                    licenseImage: e.target.files[0],
+                                                    licenseView: URL.createObjectURL(e.target.files[0])
+                                                })
+                                            }}
+                                        />
+                                        <label htmlFor="contained-button-file02">
+                                            <IconButton color="primary" aria-label="upload picture"
+                                                variant="contained"
+                                                //color="primary" 
+                                                component="span"
+                                            //style={{ backgroundColor: '#a4b0be', marginLeft: '-10px' }}
+                                            >
+                                                <input hidden accept="image/*" type="file" />
+                                                <PhotoCamera style={{ fontSize: '35px', marginLeft: '5px' }} />
+                                            </IconButton>
+                                        </label>
+                                        {/* <IconButton color="primary" aria-label="upload picture" component="label">
                                             <input hidden accept="image/*" type="file" />
                                             <PhotoCamera style={{ fontSize: '35px', marginLeft: '5px' }} />
-                                        </IconButton>
+                                        </IconButton> */}
+
                                         <TextValidator
                                             style={{ width: '280px' }}
                                             id="outlined-basic"
@@ -818,7 +901,7 @@ class WebSite extends Component {
                                             validators={['required']}
                                         />
                                         <TextValidator
-                                            style={{ width: '222px' }}
+                                            style={{ width: '280px' }}
                                             id="outlined-basic"
                                             label="NIC"
                                             variant="outlined"
@@ -830,10 +913,55 @@ class WebSite extends Component {
                                             }}
                                             validators={['required']}
                                         />
-                                        <IconButton color="primary" aria-label="upload picture" component="label">
+
+                                        <Grid
+                                            style={{
+                                                width: '232px',
+                                                height: '30px',
+                                                border: '1px solid #95a5a6',
+                                                marginLeft: '10px',
+                                                display: 'flex',
+                                                flexWrap: 'wrap',
+                                                flexDirection: 'column',
+                                                alignItems: 'center',
+                                                justifyContent: 'center',
+                                                backgroundImage: "url(" + this.state.nicView + ")",
+                                                backgroundSize: 'cover'
+                                            }}
+                                        >
+
+                                        </Grid>
+
+                                        <input
+                                            style={{ display: 'none' }}
+                                            accept="image/*"
+                                            className={classes.input}
+                                            id="contained-button-file01"
+                                            multiple
+                                            type="file"
+                                            onChange={(e) => {
+                                                this.setState({
+                                                    nicImage: e.target.files[0],
+                                                    nicView: URL.createObjectURL(e.target.files[0])
+                                                })
+                                            }}
+                                        />
+                                        <label htmlFor="contained-button-file01">
+                                            <IconButton color="primary" aria-label="upload picture"
+                                                variant="contained"
+                                                //color="primary" 
+                                                component="span"
+                                            //style={{ backgroundColor: '#a4b0be', marginLeft: '-10px' }}
+                                            >
+                                                <input hidden accept="image/*" type="file" />
+                                                <PhotoCamera style={{ fontSize: '35px', marginLeft: '5px' }} />
+                                            </IconButton>
+                                        </label>
+                                        {/* <IconButton color="primary" aria-label="upload picture" component="label">
                                             <input hidden accept="image/*" type="file" />
                                             <PhotoCamera style={{ fontSize: '35px', marginLeft: '5px' }} />
-                                        </IconButton>
+                                        </IconButton> */}
+
                                         <Autocomplete
                                             style={{ width: '280px' }}
                                             onChange={(e, value, r) => {
@@ -879,9 +1007,9 @@ class WebSite extends Component {
                             </Grid>
                         </DialogContent>
                     </Dialog>
-                </ValidatorForm> */}
+                </ValidatorForm>
 
-                <ValidatorForm ref="form" className="pt-2" onSubmit={this.submitSignIn}>
+                {/* <ValidatorForm ref="form" className="pt-2" onSubmit={this.submitSignIn}>
                     <Dialog
                         maxWidth="sm=6"
                         open={this.state.open}
@@ -910,7 +1038,7 @@ class WebSite extends Component {
                                         validators={['required']}
                                     />
 
-                                    {/* <Autocomplete
+                                    <Autocomplete
                                         style={{ width: '180px', marginLeft: '20px', marginTop: '-20px' }}
                                         onChange={(e, value, r) => {
 
@@ -926,7 +1054,7 @@ class WebSite extends Component {
                                         options={this.state.role}
                                         sx={{ width: 300 }}
                                         renderInput={(params) => <TextField {...params} label="Role" />}
-                                    /> */}
+                                    />
 
                                     <TextValidator
                                         style={{ width: '410px', marginBottom: '50px' }}
@@ -955,7 +1083,7 @@ class WebSite extends Component {
                             </Grid>
                         </DialogContent>
                     </Dialog>
-                </ValidatorForm>
+                </ValidatorForm> */}
             </>
         )
     }

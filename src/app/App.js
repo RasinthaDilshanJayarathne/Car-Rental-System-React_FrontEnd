@@ -10,8 +10,8 @@ function App() {
     return (
         <Fragment>
             {/* <CustomerDashboard/> */}
-            <AdminDashboard/>
-            {/* <WebSite/> */}
+            {/* <AdminDashboard/> */}
+            <WebSite/>
             {/* <DriverDashboard/> */}
         </Fragment>
        /* <Routes>

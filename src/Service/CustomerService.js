@@ -41,19 +41,19 @@ class CustomerService {
         return await promise;
     };
 
-    addPersonalImage = async (data,id) => {
-        const promise = new Promise((resolve, reject) => {
-            axios.post('customer/addPersonalImage?id='+id,data)
+    // addPersonalImage = async (data,id) => {
+    //     const promise = new Promise((resolve, reject) => {
+    //         axios.post('customer/addPersonalImage?id='+id,data)
 
-                .then((res) => {
-                    return resolve(res)
-                })
-                .catch((err) => {
-                    return resolve(err)
-                })
-        })
-        return await promise;
-    }
+    //             .then((res) => {
+    //                 return resolve(res)
+    //             })
+    //             .catch((err) => {
+    //                 return resolve(err)
+    //             })
+    //     })
+    //     return await promise;
+    // }
 }
 
-export default new CustomerService();
+ export default new CustomerService();

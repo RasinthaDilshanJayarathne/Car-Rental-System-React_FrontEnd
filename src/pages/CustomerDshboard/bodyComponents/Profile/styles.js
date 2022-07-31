@@ -1,6 +1,7 @@
 export const styleSheet = {
     container: {
         //border:'1px solid red',
+        //overflowX:'hidden',
     },
     searchBar: {
         height: '10vh',
@@ -13,6 +14,7 @@ export const styleSheet = {
         justifyContent: 'center',
         border: '2px solid #eeeff1',
         //border:'1px solid red',
+       
     },
     customerContainer:{
         height: '90vh',
@@ -42,12 +44,41 @@ export const styleSheet = {
         height: '93vh',
         width: '50vw',
         display: 'flex',
-        flexWrap: 'wrap',
-        alignItems:'center',
-        justifyContent:'center',
-        flexDirection: 'row',
+        alignItems: 'center',
+        alignItems: 'center',
+        justifyContent: 'center',
+        flexDirection: 'column',
         borderRadius:'15px',
-        //backgroundColor: 'black',
+        //backgroundColor: 'red',
         marginLeft:'15px'
+    },
+    textContainer:{
+        height: '49vh',
+        width: '49vw',
+        display: 'flex',
+        alignItems: 'center',
+        alignItems: 'center',
+        justifyContent: 'center',
+        flexDirection: 'row',
+    },
+    subTextContainer:{
+        height: '49vh',
+        width: '25vw',
+        display: 'flex',
+        flexDirection: 'column',
+        alignItems: 'center',
+        alignItems: 'center',
+        justifyContent: 'center',
+    },
+    image:{
+        height: '40vh',
+        width: '49vw',
+        display: 'flex',
+        marginTop:'-60px',
+        alignItems: 'center',
+        alignItems: 'center',
+        justifyContent: 'center',
+        flexDirection: 'row',
+       
     }
 }

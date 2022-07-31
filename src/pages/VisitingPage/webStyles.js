@@ -270,8 +270,8 @@ export const stylesSheet ={
         justifyContent:'center',
         //backgroundColor:'red',
         marginTop:'-73px',
-        overflowY:'hidden',
-        overflowX:'hidden'
+        //overflowY:'hidden',
+        //overflowX:'hidden'
     },
     textContainer:{
         width:'40vw',
@@ -285,13 +285,14 @@ export const stylesSheet ={
     },
     textDetail:{
         width:'20vw',
-        height:'60vh',
+        height:'70vh',
         display: 'flex',
         flexDirection: 'column',
         flexWrap:'wrap',
         alignItems:'center',
         justifyContent:'center',
-        //border: '1px solid red'
+        //marginTop:'-20px',
+        //border: '1px solid red',
     },
     btnContainer:{
         width:'40vw',

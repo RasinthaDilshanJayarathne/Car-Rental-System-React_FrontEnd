@@ -56,7 +56,7 @@ class DriverShedule extends Component {
                                 <TextField id="outlined-basic" label="Driver Id" variant="outlined" style={{ margin: '10px', width: '250px' }} />
                                 <TextField id="outlined-basic" label="Driver Name" variant="outlined" style={{ margin: '10px', width: '250px' }} />
                                 <TextField id="outlined-basic" label="Vehicle Id" variant="outlined" style={{ margin: '10px', width: '250px' }} />
-                                <TextField id="outlined-basic" label="Vehicle Name" variant="outlined" style={{ margin: '10px', width: '250px' }} />
+                                <TextField id="outlined-basic" label="Rent Id" variant="outlined" style={{ margin: '10px', width: '250px' }} />
                                 <Grid style={{ margin: '10px', width: '250px', marginLeft: '10px'}}>
                                     <DatePicker id="outlined-basic" label="Pick-Up-Date" variant="outlined"/>
                                 </Grid>

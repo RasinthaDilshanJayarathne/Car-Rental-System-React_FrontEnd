@@ -27,6 +27,20 @@ class SignUpService{
         });
 
         return await promise;
+    };
+
+    addPersonalImage = async (data,id) => {
+        const promise = new Promise((resolve, reject) => {
+            axios.post('signup/customer/addPersonalImage?id='+id,data)
+
+                .then((res) => {
+                    return resolve(res)
+                })
+                .catch((err) => {
+                    return resolve(err)
+                })
+        })
+        return await promise;
     }
 }
 
