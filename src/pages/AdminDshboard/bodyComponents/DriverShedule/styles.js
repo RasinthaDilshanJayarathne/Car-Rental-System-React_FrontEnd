@@ -13,7 +13,7 @@ export const styleSheet ={
         //overflowY:'hidden'
     },
     searchBar: {
-        height: '15vh',
+        height: '10vh',
         width: '83.5vw',
         display: 'flex',
         flexWrap: 'wrap',
@@ -24,7 +24,7 @@ export const styleSheet ={
         border: '2px solid #eeeff1',
     },
     bookingPanel: {
-        height: '15vh',
+        height: '10vh',
         width: '83.5vw',
         display: 'flex',
         flexWrap: 'wrap',
@@ -34,7 +34,7 @@ export const styleSheet ={
         //backgroundColor: 'yellow',
     },
     details:{
-        height: '85vh',
+        height: '90vh',
         width: '83.5vw',
         display: 'flex',
         flexWrap: 'wrap',

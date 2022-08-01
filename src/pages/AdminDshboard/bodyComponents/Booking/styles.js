@@ -13,7 +13,7 @@ export const styleSheet ={
         overflowY:'hidden',
     },
     searchBar: {
-        height: '15vh',
+        height: '10vh',
         width: '83.5vw',
         display: 'flex',
         flexWrap: 'wrap',
@@ -27,7 +27,7 @@ export const styleSheet ={
         //border:'1px solid red',
     },
     bookingPanel: {
-        height: '15vh',
+        height: '10vh',
         width: '83.5vw',
         display: 'flex',
         flexWrap: 'wrap',
@@ -37,7 +37,7 @@ export const styleSheet ={
         //backgroundColor: 'yellow',
     },
     subContainer:{
-        height: '85vh',
+        height: '90vh',
         width: '83.5vw',
         display: 'flex',
         flexWrap: 'wrap',

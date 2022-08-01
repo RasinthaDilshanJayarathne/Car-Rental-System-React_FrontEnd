@@ -8,6 +8,7 @@ import PaidIcon from '@mui/icons-material/Paid';
 import ManIcon from '@mui/icons-material/Man';
 import HomeIcon from '@mui/icons-material/Home';
 import CalendarMonthIcon from '@mui/icons-material/CalendarMonth';
+import SystemSecurityUpdateGoodIcon from '@mui/icons-material/SystemSecurityUpdateGood';
 import {NavLink} from "react-router-dom";
 import {useStyles} from "./HeaderStyles";
 
@@ -18,6 +19,7 @@ export default function SideNavData({handleDrawerClose}) {
         {label: "Manage Customer", link: "/customer", icon: <ManIcon/>},
         {label: "Manage Vehicle", link: "/vehicle", icon: <DirectionsCarIcon/>},
         {label: "Manage Booking", link: "/booking", icon: <BookOnlineIcon/>},
+        {label: "Manage Request", link: "/request", icon: <SystemSecurityUpdateGoodIcon/>},
         {label: "Manage Driver", link: "/driver", icon: <AccessibilityNewIcon/>},
         {label: "Manage Shedule", link: "/driverShedule", icon: <CalendarMonthIcon/>},
         {label: "Income", link: "/income", icon: <PaidIcon/>},

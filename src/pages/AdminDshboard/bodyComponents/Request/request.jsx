@@ -1,10 +1,7 @@
-import * as React from 'react';
-import Typography from '@mui/material/Typography';
-import { Button, Grid, TextField } from "@mui/material";
+import { Component } from "react";
+import { styleSheet } from "../Request/styles";
 import { withStyles } from "@mui/styles";
-import { styleSheet } from "../Booking/styles";
-import logo from "../../../../assets/img/logo.png";
-import { Component } from 'react';
+import { Grid, Typography } from "@material-ui/core";
 import Table from '@mui/material/Table';
 import TableBody from '@mui/material/TableBody';
 import TableCell from '@mui/material/TableCell';
@@ -16,15 +13,11 @@ import DeleteIcon from '@mui/icons-material/Delete';
 import IconButton from '@mui/material/IconButton';
 import Tooltip from '@mui/material/Tooltip';
 import EditIcon from '@mui/icons-material/Edit';
+import logo from "../../../../assets/img/logo.png";
 
-class Booking extends Component {
+class Request extends Component {
     constructor(props) {
         super(props)
-        this.state ={
-            formData :{
-                
-            }
-        }
     }
 
     render() {
@@ -55,20 +48,17 @@ class Booking extends Component {
         return (
             <Grid className={classes.container}>
                 <Grid className={classes.searchBar}>
-                    <Grid className={classes.bookingPanel}>
-                        <img src={logo} alt="" style={{ width: '150px', marginTop: '-10px' }} />
-                        <Typography variant="h5" style={{ marginLeft: '30px', color: '#000d6b' }}>
-                            BOOK A CAR / BOOKING DETAILS
-                        </Typography>
-                    </Grid>
+                    <img src={logo} alt="" style={{ width: '150px', marginTop: '-10px', marginLeft: '220px' }} />
+                    <Typography variant="h5" style={{ marginRight: '250px', color: '#000d6b' }}>
+                        BOOK A CAR / MANAGE BOOKING REQUEST
+                    </Typography>
                 </Grid>
-                <Grid className={classes.subContainer}>
-                    
+                <Grid className={classes.customerContainer}>
                     <Grid className={classes.table2}>
-                        <Typography variant="h5" style={{ marginLeft: '30px', color: '#95a5a6',marginTop:'10px'}}>
+                        <Typography variant="h5" style={{ marginLeft: '30px', color: '#95a5a6', marginTop: '10px' }}>
                             VIEW ALL BOOKING DETAILS
                         </Typography>
-                        <TableContainer component={Paper} style={{ height: '77vh', width: '80vw', backgroundColor: '#eeeff1',marginTop:'-100px'}}>
+                        <TableContainer component={Paper} style={{ height: '77vh', width: '80vw', backgroundColor: '#eeeff1', marginTop: '-20px' }}>
                             <Table aria-label="simple table">
                                 <TableHead>
                                     <TableRow>
@@ -92,29 +82,49 @@ class Booking extends Component {
                                 </TableHead>
                                 <TableBody>
                                     {
-                                    rows.map((row) => (
-                                        <TableRow
-                                            key={row.name}
-                                            sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
-                                        >
-                                            <TableCell align="left">{row.id}</TableCell>
-                                            <TableCell align="left">{row.email}</TableCell>
-                                            <TableCell align="left">{row.firstName}</TableCell>
-                                            <TableCell align="left">{row.lastName}</TableCell>
-                                            <TableCell align="left">{row.licenNo}</TableCell>
-                                            <TableCell align="left">{row.contact}</TableCell>
-                                            <TableCell align="left">{row.nic}</TableCell>
-                                            <TableCell align="left">{row.address}</TableCell>
-                                        </TableRow>
-                                    ))}
+                                        rows.map((row) => (
+                                            <TableRow
+                                                key={row.name}
+                                                sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
+                                            >
+                                                <TableCell align="left">{row.id}</TableCell>
+                                                <TableCell align="left">{row.email}</TableCell>
+                                                <TableCell align="left">{row.firstName}</TableCell>
+                                                <TableCell align="left">{row.lastName}</TableCell>
+                                                <TableCell align="left">{row.licenNo}</TableCell>
+                                                <TableCell align="left">{row.contact}</TableCell>
+                                                <TableCell align="left">{row.nic}</TableCell>
+                                                <TableCell align="left">{row.address}</TableCell>
+                                                <TableCell align="left">
+                                                    <Tooltip title="Edit">
+                                                        <IconButton
+                                                            onClick={() => {
+                                                                this.updateCustomer(row);
+                                                            }}
+                                                        >
+                                                            <EditIcon color="primary" />
+                                                        </IconButton>
+                                                    </Tooltip>
+                                                    <Tooltip title="Delete">
+                                                        <IconButton
+                                                            onClick={() => {
+                                                                this.deleteCustomer(row.id)
+                                                            }}
+                                                        >
+                                                            <DeleteIcon color="error" />
+                                                        </IconButton>
+                                                    </Tooltip>
+                                                </TableCell>
+                                            </TableRow>
+                                        ))}
                                 </TableBody>
                             </Table>
                         </TableContainer>
                     </Grid>
                 </Grid>
             </Grid>
-        );
+        )
     }
 }
 
-export default withStyles(styleSheet)(Booking);
+export default withStyles(styleSheet)(Request)

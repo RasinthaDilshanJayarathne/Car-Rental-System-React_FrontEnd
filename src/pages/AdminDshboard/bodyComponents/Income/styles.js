@@ -12,7 +12,7 @@ export const styleSheet ={
         justifyContent: 'center',
     },
     searchBar: {
-        height: '15vh',
+        height: '10vh',
         width: '83.5vw',
         display: 'flex',
         flexWrap: 'wrap',
@@ -26,7 +26,7 @@ export const styleSheet ={
         //border:'1px solid red',
     },
     bookingPanel: {
-        height: '15vh',
+        height: '10vh',
         width: '83.3vw',
         display: 'flex',
         flexWrap: 'wrap',
@@ -36,7 +36,7 @@ export const styleSheet ={
         //backgroundColor: 'yellow',
     },
     subContainer: {
-        height: '85vh',
+        height: '90vh',
         width: '83.3vw',
         display: 'flex',
         flexWrap: 'wrap',
@@ -85,7 +85,7 @@ export const styleSheet ={
         flexDirection: 'column',
         alignItems: 'center',
         justifyContent: 'center',
-        border:'1px solid red'
+        //border:'1px solid red'
     },
     chart2:{
         height: '42vh',
@@ -95,7 +95,7 @@ export const styleSheet ={
         flexDirection: 'column',
         alignItems: 'center',
         justifyContent: 'center',
-        border:'1px solid red'
+        //border:'1px solid red'
     },
     chart3:{
         height: '42vh',
@@ -105,6 +105,6 @@ export const styleSheet ={
         flexDirection: 'column',
         alignItems: 'center',
         justifyContent: 'center',
-        border:'1px solid red'
+        //border:'1px solid red'
     }
 }

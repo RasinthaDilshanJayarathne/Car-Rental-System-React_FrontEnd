@@ -343,7 +343,7 @@ class Driver extends Component {
                         </Grid>
                     </Grid>
                     <Grid className={classes.table}>
-                        <TableContainer component={Paper} style={{ height: '70vh', width: '80vw', backgroundColor: '#eeeff1' }}>
+                        <TableContainer component={Paper} style={{ height: '50vh', width: '80vw', backgroundColor: '#eeeff1' }}>
                             <Table aria-label="simple table">
                                 <TableHead>
                                     <TableRow>

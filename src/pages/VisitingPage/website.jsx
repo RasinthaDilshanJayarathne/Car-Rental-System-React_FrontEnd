@@ -221,10 +221,10 @@ class WebSite extends Component {
                                         molestias nisi
                                         tempora.</p>
 
-                                    <img src={ios} alt=""
+                                    {/* <img src={ios} alt=""
                                         style={{ width: '150px', height: '50px', marginLeft: '100px' }} />
                                     <img src={android} alt=""
-                                        style={{ width: '150px', height: '50px', marginLeft: '30px' }} />
+                                        style={{ width: '150px', height: '50px', marginLeft: '30px' }} /> */}
                                 </Grid>
                             </Grid>
 
@@ -957,10 +957,6 @@ class WebSite extends Component {
                                                 <PhotoCamera style={{ fontSize: '35px', marginLeft: '5px' }} />
                                             </IconButton>
                                         </label>
-                                        {/* <IconButton color="primary" aria-label="upload picture" component="label">
-                                            <input hidden accept="image/*" type="file" />
-                                            <PhotoCamera style={{ fontSize: '35px', marginLeft: '5px' }} />
-                                        </IconButton> */}
 
                                         <Autocomplete
                                             style={{ width: '280px' }}

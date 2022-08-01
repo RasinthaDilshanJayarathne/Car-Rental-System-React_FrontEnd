@@ -12,7 +12,7 @@ export const styleSheet = {
         justifyContent: 'center',
     },
     searchBar: {
-        height: '15vh',
+        height: '10vh',
         width: '83.3vw',
         display: 'flex',
         flexWrap: 'wrap',
@@ -23,7 +23,7 @@ export const styleSheet = {
         border: '2px solid #eeeff1',
     },
     bookingPanel: {
-        height: '15vh',
+        height: '10vh',
         width: '83.3vw',
         display: 'flex',
         flexWrap: 'wrap',
@@ -33,7 +33,7 @@ export const styleSheet = {
         //backgroundColor: 'yellow',
     },
     table: {
-        height: '70vh',
+        height: '55vh',
         width: '83vw',
         display: 'flex',
         flexWrap: 'wrap',
