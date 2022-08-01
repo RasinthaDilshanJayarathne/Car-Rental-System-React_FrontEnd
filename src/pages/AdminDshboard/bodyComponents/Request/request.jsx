@@ -13,6 +13,7 @@ import DeleteIcon from '@mui/icons-material/Delete';
 import IconButton from '@mui/material/IconButton';
 import Tooltip from '@mui/material/Tooltip';
 import EditIcon from '@mui/icons-material/Edit';
+import CheckIcon from '@mui/icons-material/Check';
 import logo from "../../../../assets/img/logo.png";
 
 class Request extends Component {
@@ -56,7 +57,7 @@ class Request extends Component {
                 <Grid className={classes.customerContainer}>
                     <Grid className={classes.table2}>
                         <Typography variant="h5" style={{ marginLeft: '30px', color: '#95a5a6', marginTop: '10px' }}>
-                            VIEW ALL BOOKING DETAILS
+                            VIEW ALL BOOKING REQUEST
                         </Typography>
                         <TableContainer component={Paper} style={{ height: '77vh', width: '80vw', backgroundColor: '#eeeff1', marginTop: '-20px' }}>
                             <Table aria-label="simple table">
@@ -96,13 +97,13 @@ class Request extends Component {
                                                 <TableCell align="left">{row.nic}</TableCell>
                                                 <TableCell align="left">{row.address}</TableCell>
                                                 <TableCell align="left">
-                                                    <Tooltip title="Edit">
+                                                    <Tooltip title="Accept">
                                                         <IconButton
                                                             onClick={() => {
                                                                 this.updateCustomer(row);
                                                             }}
                                                         >
-                                                            <EditIcon color="primary" />
+                                                            <CheckIcon color="primary" />
                                                         </IconButton>
                                                     </Tooltip>
                                                     <Tooltip title="Delete">
