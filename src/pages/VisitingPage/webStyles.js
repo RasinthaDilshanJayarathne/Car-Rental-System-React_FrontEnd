@@ -275,23 +275,24 @@ export const stylesSheet ={
     },
     textContainer:{
         width:'40vw',
-        height:'60vh',
-        display: 'flex',
-        flexDirection: 'column',
-        flexWrap:'wrap',
-        alignItems:'center',
-        justifyContent:'center',
-        //backgroundColor:'black' 
-    },
-    textDetail:{
-        width:'20vw',
         height:'70vh',
         display: 'flex',
         flexDirection: 'column',
         flexWrap:'wrap',
         alignItems:'center',
         justifyContent:'center',
-        //marginTop:'-20px',
+        
+    },
+    textDetail:{
+        width:'20vw',
+        height:'80vh',
+        display: 'flex',
+        flexDirection: 'column',
+        flexWrap:'wrap',
+        alignItems:'center',
+        justifyContent:'center',
+        //backgroundColor:'black',
+        marginTop:'40px',
         //border: '1px solid red',
     },
     btnContainer:{

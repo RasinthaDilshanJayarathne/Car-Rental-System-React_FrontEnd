@@ -86,7 +86,6 @@ class WebSite extends Component {
     submitSignUp = async () => {
 
         let formData = this.state.formData;
-        this.addPersonalImage(formData.id);
         if (formData.user.role === 'REGISTERED_USER') {
             let formData = this.state.formData;
             console.log(formData)
@@ -95,6 +94,7 @@ class WebSite extends Component {
             console.log(res)
 
             if (res.status === 201) {
+                this.addPersonalImage(formData.id);
                 this.setState({
                     alert: true,
                     message: res.data.message,
@@ -114,6 +114,7 @@ class WebSite extends Component {
             let res = await SignUpService.postSignUpDriver(formData);
 
             if (res.status === 201) {
+                this.addPersonalImage(formData.id);
                 this.setState({
                     alert: true,
                     message: res.data.message,
@@ -137,7 +138,9 @@ class WebSite extends Component {
         bodyFormData.append('param', this.state.licenseImage);
 
         let res = await SignUpService.addPersonalImage(bodyFormData, id);
-        if (res.data.code === 201) { alert(res.data.message) } else {
+        if (res.data.code === 200) { 
+            alert(res.data.message) 
+        } else {
             alert(res.data.message);
         }
     }
@@ -789,7 +792,7 @@ class WebSite extends Component {
                                         <Grid
                                             style={{
                                                 width: '232px',
-                                                height: '30px',
+                                                 height: '150px',
                                                 border: '1px solid #95a5a6',
                                                 marginLeft: '10px',
                                                 display: 'flex',
@@ -917,7 +920,7 @@ class WebSite extends Component {
                                         <Grid
                                             style={{
                                                 width: '232px',
-                                                height: '30px',
+                                                height: '150px',
                                                 border: '1px solid #95a5a6',
                                                 marginLeft: '10px',
                                                 display: 'flex',

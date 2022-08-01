@@ -17,8 +17,8 @@ function App() {
     return (
         <Fragment>
             {/* <CustomerDashboard/> */}
-            <AdminDashboard/>
-            {/* <WebSite/> */}
+            {/* <AdminDashboard/> */}
+            <WebSite/>
             {/* <DriverDashboard/> */}
             {/* <ResponsiveDrawer/> */}
         </Fragment>
@@ -35,7 +35,6 @@ function App() {
         //         <Route path="profile" element={<Profile />} />
         //     </Route>
         //     <Route exact path='/customer' element={<CustomerDashboard />}>
-
         //     </Route>
         // </Routes>
     );

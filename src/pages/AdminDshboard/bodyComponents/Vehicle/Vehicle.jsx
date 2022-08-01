@@ -749,8 +749,7 @@ class Vehicle extends Component {
                                             label={this.state.btnLabel}
                                             type="submit" size="small"
                                             color={this.state.btnColor}
-                                        >
-                                            Save</Button>
+                                        />
                                     </Grid>
                                 </ValidatorForm>
                             </Grid>
