@@ -11,7 +11,6 @@ import Income from '../pages/AdminDshboard/bodyComponents/Income/Income';
 import Profile from '../pages/AdminDshboard/bodyComponents/Profile/Profile';
 import DriverShedule from '../pages/AdminDshboard/bodyComponents/DriverShedule/DriverShedule';
 import Home from "../pages/AdminDshboard/bodyComponents/Home/Home";
-import ResponsiveDrawer from "../pages/CustomerDshboard/bodyComponents/Drawer/index"
 
 
 function App() {

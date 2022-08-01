@@ -135,10 +135,10 @@ class Vehicle extends Component {
     submitVehicle = async () => {
         let formData = this.state.formData;
         console.log(formData)
-        this.addCarImage(formData.vehicleId);
+        
         if (this.state.btnLabel === "save") {
             let res = await VehicleService.postVehicle(formData);
-
+            this.addCarImage(formData.vehicleId);
             if (res.status === 201) {
                 this.setState({
                     alert: true,
@@ -233,18 +233,14 @@ class Vehicle extends Component {
         console.log(res)
 
         if (res.status === 200) {
-            let res = await VehicleService.deleteCarImages(this.state.formData.vehicleId);
-            if (res.status == 200) {
-                alert("Car Deleted Success");
-                this.clearFields();
-            } else {
-                alert("Error");
+            let res = await VehicleService.deleteCarImages(vehicleId);
+            if (res.status === 200) {
+                this.setState({
+                    alert: true,
+                    message: res.data.message,
+                    severity: 'success'
+                });
             }
-            this.setState({
-                alert: true,
-                message: res.data.message,
-                severity: 'success'
-            });
             this.loadData();
         } else {
             this.setState({

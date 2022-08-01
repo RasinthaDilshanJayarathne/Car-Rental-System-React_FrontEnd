@@ -727,7 +727,7 @@ function General(props) {
                                 <TextField style={{ padding: '10px', width: '230px' }} id="outlined-basic" disabled label="Customer Address" variant="outlined" />
                                 <TextField style={{ padding: '10px', width: '230px' }} id="outlined-basic" disabled label="Customer Contact No" variant="outlined" />
                                 <TextField style={{ padding: '10px', width: '230px' }} id="outlined-basic" disabled label="Customer E-mail" variant="outlined" />
-                                <TextField style={{ padding: '10px', width: '230px' }} id="outlined-basic" label="User Name" variant="outlined" />
+                                <TextField style={{ padding: '10px', width: '230px' }} id="outlined-basic" label="Payment" variant="outlined" />
                                 <Button style={{ marginTop: '15px', marginLeft: '58px', width: '180px', height: '50px', backgroundColor: '#2ed573' }} variant="contained">Conform Booking</Button>
                                 <Button style={{ marginTop: '15px', marginLeft: '30px', width: '180px', height: '50px', backgroundColor: '#2ed573' }} variant="contained">Cancle</Button>
                             </Grid>
