@@ -3,6 +3,7 @@ import { Route, Routes } from "react-router-dom";
 import WebSite from "../pages/VisitingPage/website";
 import CustomerDashboard from "../pages/CustomerDshboard/header/HeaderComponent";
 import AdminDashboard from "../pages/AdminDshboard/header/HeaderComponent";
+import DriverDashboard from "../pages/DriverDashboard/header/HeaderComponent";
 import Vehicle from "../pages/AdminDshboard/bodyComponents/Vehicle/Vehicle";
 import Customer from '../pages/AdminDshboard/bodyComponents/Customer/Customer';
 import Booking from '../pages/AdminDshboard/bodyComponents/Booking/Booking';
@@ -16,9 +17,9 @@ import Home from "../pages/AdminDshboard/bodyComponents/Home/Home";
 function App() {
     return (
         <Fragment>
-            {/* <CustomerDashboard/> */}
+            <CustomerDashboard/>
             {/* <AdminDashboard/> */}
-            <WebSite/>
+            {/* <WebSite/> */}
             {/* <DriverDashboard/> */}
             {/* <ResponsiveDrawer/> */}
         </Fragment>

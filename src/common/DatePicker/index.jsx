@@ -5,14 +5,14 @@ import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
 import { DesktopDatePicker } from '@mui/x-date-pickers/DesktopDatePicker';
 import Stack from '@mui/material/Stack';
 
-export default function ResponsiveDatePickers() {
+export default function ResponsiveDatePickers(props) {
   const [value, setValue] = React.useState(new Date());
 
   return (
     <LocalizationProvider dateAdapter={AdapterDateFns}>
       <Stack >
         <DesktopDatePicker
-          label="For desktop"
+          label={props.la}
           value={value}
           minDate={new Date('2017-01-01')}
           onChange={(newValue) => {

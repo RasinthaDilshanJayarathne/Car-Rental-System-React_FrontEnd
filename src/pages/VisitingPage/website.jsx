@@ -33,8 +33,7 @@ import rev1 from "../../assets/img/rev1.jpg"
 import rev2 from "../../assets/img/rev2.jpg"
 import rev3 from "../../assets/img/rev3.jpg"
 import SignUpService from "../../Service/SignUpService";
-import CustomerService from "../../Service/CustomerService";
-
+import GDSESnackBar from "../../common/SnakBar/index";
 
 class WebSite extends Component {
     constructor(props) {
@@ -74,6 +73,11 @@ class WebSite extends Component {
                     role: ''
                 }
             },
+
+            alert: false,
+            message: '',
+            severity: '',
+
             loginData: {
                 userName: '',
                 password: '',
@@ -138,8 +142,8 @@ class WebSite extends Component {
         bodyFormData.append('param', this.state.licenseImage);
 
         let res = await SignUpService.addPersonalImage(bodyFormData, id);
-        if (res.data.code === 200) { 
-            alert(res.data.message) 
+        if (res.data.code === 200) {
+            alert(res.data.message)
         } else {
             alert(res.data.message);
         }
@@ -239,13 +243,13 @@ class WebSite extends Component {
                                         style={{ margin: '10px' }} /> */}
 
                                     <Grid style={{ margin: '10px', marginLeft: '15px' }}>
-                                        <DatePicker />
+                                        <DatePicker label="Pick-Up-Date"/>
                                     </Grid>
 
                                     {/* <TextField id="outlined-basic" label="Return-Date" variant="outlined"
                                         style={{ margin: '10px' }} /> */}
                                     <Grid style={{ margin: '10px', marginLeft: '15px' }}>
-                                        <DatePicker />
+                                        <DatePicker label="Return-Date"/>
                                     </Grid>
                                     <Button variant="contained" style={{
                                         margin: '10px',
@@ -791,10 +795,10 @@ class WebSite extends Component {
 
                                         <Grid
                                             style={{
-                                                width: '232px',
-                                                 height: '150px',
+                                                width: '280px',
+                                                height: '150px',
                                                 border: '1px solid #95a5a6',
-                                                marginLeft: '10px',
+                                                marginLeft: '2px',
                                                 display: 'flex',
                                                 flexWrap: 'wrap',
                                                 flexDirection: 'column',
@@ -804,33 +808,33 @@ class WebSite extends Component {
                                                 backgroundSize: 'cover'
                                             }}
                                         >
-
+                                            <input
+                                                style={{ display: 'none' }}
+                                                accept="image/*"
+                                                className={classes.input}
+                                                id="contained-button-file02"
+                                                multiple
+                                                type="file"
+                                                onChange={(e) => {
+                                                    this.setState({
+                                                        licenseImage: e.target.files[0],
+                                                        licenseView: URL.createObjectURL(e.target.files[0])
+                                                    })
+                                                }}
+                                            />
+                                            <label htmlFor="contained-button-file02">
+                                                <IconButton color="primary" aria-label="upload picture"
+                                                    variant="contained"
+                                                    //color="primary" 
+                                                    component="span"
+                                                //style={{ backgroundColor: '#a4b0be', marginLeft: '-10px' }}
+                                                >
+                                                    <input hidden accept="image/*" type="file" />
+                                                    <PhotoCamera style={{ fontSize: '35px', marginLeft: '5px' }} />
+                                                </IconButton>
+                                            </label>
                                         </Grid>
-                                        <input
-                                            style={{ display: 'none' }}
-                                            accept="image/*"
-                                            className={classes.input}
-                                            id="contained-button-file02"
-                                            multiple
-                                            type="file"
-                                            onChange={(e) => {
-                                                this.setState({
-                                                    licenseImage: e.target.files[0],
-                                                    licenseView: URL.createObjectURL(e.target.files[0])
-                                                })
-                                            }}
-                                        />
-                                        <label htmlFor="contained-button-file02">
-                                            <IconButton color="primary" aria-label="upload picture"
-                                                variant="contained"
-                                                //color="primary" 
-                                                component="span"
-                                            //style={{ backgroundColor: '#a4b0be', marginLeft: '-10px' }}
-                                            >
-                                                <input hidden accept="image/*" type="file" />
-                                                <PhotoCamera style={{ fontSize: '35px', marginLeft: '5px' }} />
-                                            </IconButton>
-                                        </label>
+
                                         {/* <IconButton color="primary" aria-label="upload picture" component="label">
                                             <input hidden accept="image/*" type="file" />
                                             <PhotoCamera style={{ fontSize: '35px', marginLeft: '5px' }} />
@@ -919,10 +923,10 @@ class WebSite extends Component {
 
                                         <Grid
                                             style={{
-                                                width: '232px',
+                                                width: '280px',
                                                 height: '150px',
                                                 border: '1px solid #95a5a6',
-                                                marginLeft: '10px',
+                                                marginLeft: '2px',
                                                 display: 'flex',
                                                 flexWrap: 'wrap',
                                                 flexDirection: 'column',
@@ -932,34 +936,33 @@ class WebSite extends Component {
                                                 backgroundSize: 'cover'
                                             }}
                                         >
+                                            <input
+                                                style={{ display: 'none' }}
+                                                accept="image/*"
+                                                className={classes.input}
+                                                id="contained-button-file01"
+                                                multiple
+                                                type="file"
+                                                onChange={(e) => {
+                                                    this.setState({
+                                                        nicImage: e.target.files[0],
+                                                        nicView: URL.createObjectURL(e.target.files[0])
+                                                    })
+                                                }}
+                                            />
+                                            <label htmlFor="contained-button-file01">
+                                                <IconButton color="primary" aria-label="upload picture"
+                                                    variant="contained"
+                                                    //color="primary" 
+                                                    component="span"
+                                                //style={{ backgroundColor: '#a4b0be', marginLeft: '-10px' }}
+                                                >
+                                                    <input hidden accept="image/*" type="file" />
+                                                    <PhotoCamera style={{ fontSize: '35px', marginLeft: '5px' }} />
+                                                </IconButton>
+                                            </label>
 
                                         </Grid>
-
-                                        <input
-                                            style={{ display: 'none' }}
-                                            accept="image/*"
-                                            className={classes.input}
-                                            id="contained-button-file01"
-                                            multiple
-                                            type="file"
-                                            onChange={(e) => {
-                                                this.setState({
-                                                    nicImage: e.target.files[0],
-                                                    nicView: URL.createObjectURL(e.target.files[0])
-                                                })
-                                            }}
-                                        />
-                                        <label htmlFor="contained-button-file01">
-                                            <IconButton color="primary" aria-label="upload picture"
-                                                variant="contained"
-                                                //color="primary" 
-                                                component="span"
-                                            //style={{ backgroundColor: '#a4b0be', marginLeft: '-10px' }}
-                                            >
-                                                <input hidden accept="image/*" type="file" />
-                                                <PhotoCamera style={{ fontSize: '35px', marginLeft: '5px' }} />
-                                            </IconButton>
-                                        </label>
 
                                         <Autocomplete
                                             style={{ width: '280px' }}
@@ -1007,7 +1010,16 @@ class WebSite extends Component {
                         </DialogContent>
                     </Dialog>
                 </ValidatorForm>
-
+                <GDSESnackBar
+                    open={this.state.alert}
+                    onClose={() => {
+                        this.setState({ alert: false })
+                    }}
+                    message={this.state.message}
+                    autoHideDuration={3000}
+                    severity={this.state.severity}
+                    variant="filled"
+                />
                 {/* <ValidatorForm ref="form" className="pt-2" onSubmit={this.submitSignIn}>
                     <Dialog
                         maxWidth="sm=6"

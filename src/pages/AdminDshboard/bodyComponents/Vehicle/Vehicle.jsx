@@ -135,7 +135,7 @@ class Vehicle extends Component {
     submitVehicle = async () => {
         let formData = this.state.formData;
         console.log(formData)
-        
+
         if (this.state.btnLabel === "save") {
             let res = await VehicleService.postVehicle(formData);
             this.addCarImage(formData.vehicleId);
@@ -146,8 +146,7 @@ class Vehicle extends Component {
                     severity: 'success'
                 });
                 this.clearFields();
-
-                await this.loadData();
+                this.loadData();
             } else {
                 this.setState({
                     alert: true,
@@ -158,21 +157,6 @@ class Vehicle extends Component {
         } else {
             let res = await VehicleService.putVehicle(formData);
             if (res.status === 200) {
-
-                // let front = this.state.frontImage;
-                // let back = this.state.backImage;
-                // let side = this.state.sideImage;
-                // let list=[front,back,side]
-                // let viewList = ["Front", "Back", "Side"]
-
-                // for (var i = 0; i < list.length; i++) {
-                //     if (list[i] != null) {
-                //         let formData = new FormData();
-                //         formData.append('carImage', list[i]);
-                //         await this.updateCarImage(formData, formData.vehicleId, viewList[i]);
-                //     }
-                // }
-
                 this.setState({
                     alert: true,
                     message: res.data.message,
@@ -181,7 +165,7 @@ class Vehicle extends Component {
                     btnColor: 'primary'
                 });
                 this.clearFields();
-                await this.loadData();
+                this.loadData();
             } else {
                 this.setState({
                     alert: true,
@@ -743,13 +727,22 @@ class Vehicle extends Component {
                                             }}
                                             validators={['required']}
                                         />
-                                        <Button
+                                        {/* <Button
                                             style={{ width: '200px', height: '40px', marginLeft: '480px', marginTop: '-60px' }}
                                             variant="contained"
                                             label={this.state.btnLabel}
                                             type="submit" size="small"
                                             color={this.state.btnColor}
-                                        />
+                                        /> */}
+                                        <Button
+                                            style={{ width: '200px', height: '40px', marginLeft: '480px', marginTop: '-60px' }}
+                                            variant="contained"
+                                            size="small"
+                                            type="submit"
+                                            label={this.state.btnLabel}
+                                            color={this.state.btnColor}>
+                                            Save
+                                        </Button>
                                     </Grid>
                                 </ValidatorForm>
                             </Grid>
