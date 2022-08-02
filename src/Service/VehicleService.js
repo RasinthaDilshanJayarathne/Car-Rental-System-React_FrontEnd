@@ -111,5 +111,19 @@ class VehicleService {
         return await promise;
     }
 
+    getAllGeneralVehicles = async (vehicleType) => {
+        const promise = new Promise((resolve, reject) => {
+            axios.get('vehicle',{params:vehicleType})
+
+                .then((res) => {
+                    return resolve(res)
+                })
+                .catch((err) => {
+                    return resolve(err)
+                })
+        })
+        return await promise;
+   };
+
 }
 export default new VehicleService();

@@ -58,12 +58,39 @@ class General extends Component {
             open: false,
 
             vehicleList: [],
+
+            formData: {
+                vehicleId: '',
+                registrationNo: '',
+                vehicleBrand: '',
+                numberOfPassengers: '',
+                color: '',
+                vehicleType: '',
+                fuelType: '',
+                transmissionType: '',
+                freeMileage: {
+                    dailyMileage: '',
+                    monthlyMileage: ''
+                },
+                priceRate: {
+                    dailyRate: '',
+                    monthlyRate: ''
+                },
+                vehicleAvailabilityType: '',
+                damageFee: '',
+                lastServiceMileage: '',
+                vehicleServiceMileage: '',
+                pricePerExtraKM: ''
+            },
         }
 
     }
 
-    loadAllVehicle = async () => {
-        let res = await VehicleService.fetchVehicle();
+    loadAllGeneralVehicles = async (vehicleType) => {
+        let params = {
+            vehicleType: vehicleType
+        }
+        let res = await VehicleService.getAllGeneralVehicles(params);
 
         if (res.status === 200) {
             this.setState({
@@ -75,7 +102,7 @@ class General extends Component {
     };
 
     componentDidMount() {
-        this.loadAllVehicle();
+        this.loadAllGeneralVehicles("GENERAL");
     }
 
 
