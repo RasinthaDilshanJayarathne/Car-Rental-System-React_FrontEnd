@@ -38,6 +38,7 @@ import Item from './Item';
 import TiimePicker from "../../../../common/TimePicker/index"
 import VehicleService from "../../../../Service/VehicleService";
 import { Component } from 'react';
+import { PhotoCamera } from "@mui/icons-material";
 
 const Transition = React.forwardRef(function Transition(props, ref) {
     return <Slide direction="up" ref={ref} {...props} />;
@@ -58,6 +59,9 @@ class General extends Component {
             open: false,
 
             vehicleList: [],
+
+            pickUpDate: '2022-07-06',
+            returnDate: '2022-07-07',
 
             formData: {
                 vehicleId: '',
@@ -82,6 +86,14 @@ class General extends Component {
                 vehicleServiceMileage: '',
                 pricePerExtraKM: ''
             },
+            driverRequestingType: [
+                {
+                    type: 'YES'
+                },
+                {
+                    type: 'NO'
+                }
+            ]
         }
 
     }
@@ -90,7 +102,7 @@ class General extends Component {
         let params = {
             vehicleType: vehicleType
         }
-        let res = await VehicleService.getAllGeneralVehicles(params);
+        let res = await VehicleService.getAlllVehicles(params);
 
         if (res.status === 200) {
             this.setState({
@@ -98,6 +110,22 @@ class General extends Component {
             });
         }
         console.log(this.state.data)    // print customers array
+
+    };
+
+    loadAllAvailableGeneralVehicles = async () => {
+        let params = {
+            pickupDateGenearal: this.state.pickUpDate,
+            returnDateGenearal: this.state.returnDate,
+        }
+        let res = await VehicleService.getAllAvailableGeneralVehicles(params);
+
+        if (res.status === 200) {
+            this.setState({
+                vehicleList: res.data.data
+            });
+        }
+        console.log(this.state.vehicleList)    // print customers array
 
     };
 
@@ -136,7 +164,7 @@ class General extends Component {
                             </Typography>
                         </Grid>
                         <Grid className={classes.bookingPanel}>
-                            <TextField id="outlined-basic" label="Car" variant="outlined"
+                            <TextField id="outlined-basic" label="No Of Pasengers" variant="outlined"
                                 style={{ margin: '10px' }} />
                             <TextField id="outlined-basic" label="Location" variant="outlined"
                                 style={{ margin: '10px' }} />
@@ -148,12 +176,17 @@ class General extends Component {
                             <Grid style={{ margin: '10px' }}>
                                 <DatePicker label="Return-Date" />
                             </Grid>
-            
-                            <Button variant="outlined" color='error' style={{
-                                margin: '10px',
-                                height: '52px',
-                                border: '#fe5b3d'
-                            }}>SEARCH CAR NOW</Button>
+
+                            <Button
+                                variant="outlined"
+                                color='error'
+                                style={{
+                                    margin: '10px',
+                                    height: '52px',
+                                    border: '#fe5b3d'
+                                }}
+                                onClick={this.loadAllAvailableGeneralVehicles}
+                            >SEARCH CAR NOW</Button>
                         </Grid>
                     </Grid>
                     <Grid className={classes.vehicleCart}>
@@ -338,18 +371,59 @@ class General extends Component {
                                         <DatePicker label="Return-Date" />
                                     </Grid>
 
-                                    <TextField style={{ padding: '10px', width: '230px' }} id="outlined-basic" label="Driver Requesting Type" variant="outlined" />
+                                    <TextField style={{ padding: '10px', width: '230px' }} id="outlined-basic" label="Location" variant="outlined" />
+                                    <Autocomplete
+                                        style={{ padding: '10px', width: '230px' }}
+                                        onChange={(e, value, r) => {
+
+                                            let formData = this.state.formData
+                                            formData.driverRequestingType = value.type
+                                            this.setState({ formData })
+
+                                        }}
+                                        getOptionLabel={
+                                            (option) => option.type
+                                        }
+
+                                        id="controllable-states-demo"
+                                        options={this.state.driverRequestingType}
+                                        sx={{ width: 300 }}
+                                        renderInput={(params) => <TextField {...params} label="Driver Requesting Type" />}
+                                    />
+
                                     <TextField style={{ padding: '10px', width: '230px' }} id="outlined-basic" label="Driver Id" variant="outlined" />
                                     <TextField style={{ padding: '10px', width: '230px' }} id="outlined-basic" disabled label="Driver Name" variant="outlined" />
                                     <TextField style={{ padding: '10px', width: '230px' }} id="outlined-basic" disabled label="Customer Id" variant="outlined" />
                                     <TextField style={{ padding: '10px', width: '230px' }} id="outlined-basic" disabled label="Customer Name" variant="outlined" />
                                     <TextField style={{ padding: '10px', width: '230px' }} id="outlined-basic" disabled label="Vehicle Id" variant="outlined" />
                                     <TextField style={{ padding: '10px', width: '230px' }} id="outlined-basic" disabled label="Vehicle Name" variant="outlined" />
-                                    {/* <TextField style={{ padding: '10px', width: '230px' }} id="outlined-basic" disabled label="Customer Contact No" variant="outlined" />
-                                    <TextField style={{ padding: '10px', width: '230px' }} id="outlined-basic" disabled label="Customer E-mail" variant="outlined" /> */}
-                                    <TextField style={{ padding: '10px', width: '230px' }} id="outlined-basic" label="Payment" variant="outlined" />
+                                    <TextField style={{ padding: '10px', width: '230px' }} id="outlined-basic" label="Damage Fee" variant="outlined" />
+                                    <Grid style={{ padding: '10px', width: '210px', border: '1px solid #95a5a6', marginLeft: '10px', display: 'flex', flexDirection: 'row', flexWrap: 'wrap', justifyContent: 'center', alignItems: 'center' }}>
+
+                                        <input
+                                            style={{ display: 'none' }}
+                                            accept="image/*"
+                                            className={classes.input}
+                                            id="contained-button-file02"
+                                            multiple
+                                            type="file"
+                                        // onChange={(e) => {
+                                        //     this.setState({
+                                        //         licenseImage: e.target.files[0],
+                                        //         licenseView: URL.createObjectURL(e.target.files[0])
+                                        //     })
+                                        // }}
+                                        />
+
+                                        <label htmlFor="contained-button-file01">
+                                            <IconButton color="primary" aria-label="upload picture" component="label">
+                                                <input hidden accept="image/*" type="file" />
+                                                <PhotoCamera style={{ fontSize: '35px' }} />
+                                            </IconButton>
+                                        </label>
+                                    </Grid>
                                     <Button style={{ marginTop: '15px', marginLeft: '58px', width: '180px', height: '50px', backgroundColor: '#2ed573' }} variant="contained">Conform Booking</Button>
-                                    <Button style={{ marginTop: '15px', marginLeft: '30px', width: '180px', height: '50px', backgroundColor: '#2ed573' }} variant="contained">Cancle</Button>
+                                    <Button style={{ marginTop: '15px', marginLeft: '30px', width: '180px', height: '50px', backgroundColor: '#d63031' }} variant="contained">Cancle</Button>
                                 </Grid>
                             </Grid>
                             <Grid className={classes.popupBookinTable}>
@@ -361,16 +435,15 @@ class General extends Component {
                                                 <TableCell align="left">Pick-Up-Date</TableCell>
                                                 <TableCell align="left">Pick-Up-Time</TableCell>
                                                 <TableCell align="left">Return Date</TableCell>
+                                                <TableCell align="left">Location</TableCell>
                                                 <TableCell align="left">Driver Requesting Type</TableCell>
                                                 <TableCell align="left">Driver Id</TableCell>
                                                 <TableCell align="left">Driver Name</TableCell>
                                                 <TableCell align="left">Customer Id</TableCell>
                                                 <TableCell align="left">Customer Name</TableCell>
-                                                <TableCell align="left">Driver Id</TableCell>
-                                                <TableCell align="left">Customer License No</TableCell>
-                                                <TableCell align="left">Customer Address</TableCell>
-                                                <TableCell align="left">Customer Contact No</TableCell>
-                                                <TableCell align="left">Customer E-mail</TableCell>
+                                                <TableCell align="left">Vehicle Id</TableCell>
+                                                <TableCell align="left">Vehicle Name</TableCell>
+                                                <TableCell align="left">Damage Fee</TableCell>
                                                 <TableCell align="left">Action</TableCell>
 
                                             </TableRow>

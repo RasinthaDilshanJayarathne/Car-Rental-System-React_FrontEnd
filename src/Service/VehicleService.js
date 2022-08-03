@@ -111,7 +111,7 @@ class VehicleService {
         return await promise;
     }
 
-    getAllGeneralVehicles = async (vehicleType) => {
+    getAlllVehicles = async (vehicleType) => {
         const promise = new Promise((resolve, reject) => {
             axios.get('vehicle', { params: vehicleType })
 
@@ -125,9 +125,51 @@ class VehicleService {
         return await promise;
     };
 
-    generalVehicleCount = async (vehicleType) => {
+    countVehicleByType = async (vehicleType) => {
         const promise = new Promise((resolve, reject) => {
-            axios.get('vehicle/COUNTGENERAL/count?vehicleType=' ,{ params: vehicleType })
+            axios.get('vehicle/COUNTTYPE/count?vehicleType='+ vehicleType)
+
+                .then((res) => {
+                    return resolve(res)
+                })
+                .catch((err) => {
+                    return resolve(err)
+                })
+        })
+        return await promise;
+    };
+
+    getAllAvailableGeneralVehicles = async (params) => {
+        const promise = new Promise((resolve, reject) => {
+            axios.get('search', { params: params })
+
+                .then((res) => {
+                    return resolve(res)
+                })
+                .catch((err) => {
+                    return resolve(err)
+                })
+        })
+        return await promise;
+    };
+
+    getAllAvailablePrimiumVehicles = async (params) => {
+        const promise = new Promise((resolve, reject) => {
+            axios.get('search', { params: params })
+
+                .then((res) => {
+                    return resolve(res)
+                })
+                .catch((err) => {
+                    return resolve(err)
+                })
+        })
+        return await promise;
+    };
+
+    getAllAvailableLuxuryVehicles = async (params) => {
+        const promise = new Promise((resolve, reject) => {
+            axios.get('search', { params: params })
 
                 .then((res) => {
                     return resolve(res)

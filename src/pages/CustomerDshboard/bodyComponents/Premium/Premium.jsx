@@ -43,6 +43,10 @@ import car3 from "../../../../assets/img/car3.png";
 import car4 from "../../../../assets/img/car4.png";
 import { render } from '@testing-library/react';
 import { Component } from 'react';
+import IconButton from '@mui/material/IconButton';
+import Autocomplete from '@mui/material/Autocomplete';
+import TiimePicker from "../../../../common/TimePicker/index";
+import { PhotoCamera } from "@mui/icons-material";
 
 const Transition = React.forwardRef(function Transition(props, ref) {
     return <Slide direction="up" ref={ref} {...props} />;
@@ -63,6 +67,9 @@ class Premium extends Component {
             open: false,
 
             vehicleList: [],
+
+            pickUpDate: '2022-07-06',
+            returnDate: '2022-07-07',
         }
 
     }
@@ -71,7 +78,7 @@ class Premium extends Component {
         let params = {
             vehicleType: vehicleType
         }
-        let res = await VehicleService.getAllGeneralVehicles(params);
+        let res = await VehicleService.getAlllVehicles(params);
 
         if (res.status === 200) {
             this.setState({
@@ -79,6 +86,22 @@ class Premium extends Component {
             });
         }
         console.log(this.state.data)    // print customers array
+
+    };
+
+    loadAllAvailablePrimiumVehicles = async () => {
+        let params = {
+            pickupDatePrimium: this.state.pickUpDate,
+            returnDatePrimium: this.state.returnDate,
+        }
+        let res = await VehicleService.getAllAvailablePrimiumVehicles(params);
+
+        if (res.status === 200) {
+            this.setState({
+                vehicleList: res.data.data
+            });
+        }
+        console.log(this.state.vehicleList)    // print customers array
 
     };
 
@@ -108,21 +131,29 @@ class Premium extends Component {
                             </Typography>
                         </Grid>
                         <Grid className={classes.bookingPanel}>
-                            <TextField id="outlined-basic" label="Car" variant="outlined"
+                            <TextField id="outlined-basic" label="No Of Pasengers" variant="outlined"
                                 style={{ margin: '10px' }} />
                             <TextField id="outlined-basic" label="Location" variant="outlined"
                                 style={{ margin: '10px' }} />
+
                             <Grid style={{ margin: '10px' }}>
-                                <DatePicker />
+                                <DatePicker label="Pick-Up-Date" />
                             </Grid>
+
                             <Grid style={{ margin: '10px' }}>
-                                <DatePicker />
+                                <DatePicker label="Return-Date" />
                             </Grid>
-                            <Button variant="outlined" color='error' style={{
-                                margin: '10px',
-                                height: '52px',
-                                border: '#fe5b3d'
-                            }}>SEARCH CAR NOW</Button>
+                            <Button
+                                variant="outlined"
+                                color='error'
+                                style={{
+                                    margin: '10px',
+                                    height: '52px',
+                                    border: '#fe5b3d'
+                                }}
+                                onClick={this.loadAllAvailablePrimiumVehicles}
+                            >
+                                SEARCH CAR NOW</Button>
                         </Grid>
                     </Grid>
                     <Grid className={classes.vehicleCart}>
@@ -267,7 +298,7 @@ class Premium extends Component {
                                             flexWrap: 'wrap', flexDirection: 'column',
                                             alignItems: 'center', justifyContent: 'center',
                                         }}>
-                                            <img src={premio} alt="" style={{ width: '380px', marginTop: '-30px' }} />
+                                            <img src={car1} alt="" style={{ width: '350px', marginTop: '-10px' }} />
                                         </Grid>
                                     </Item>
                                     <Item className={classes.appItem}>
@@ -276,7 +307,7 @@ class Premium extends Component {
                                             flexWrap: 'wrap', flexDirection: 'column',
                                             alignItems: 'center', justifyContent: 'center',
                                         }}>
-                                            <img src={premio1} alt="" style={{ width: '300px', marginTop: '-20px', marginLeft: '20px' }} />
+                                            <img src={car2} alt="" style={{ width: '450px', marginTop: '-10px', marginLeft: '-120px' }} />
                                         </Grid>
                                     </Item>
                                     <Item className={classes.appItem}>
@@ -285,29 +316,80 @@ class Premium extends Component {
                                             flexWrap: 'wrap', flexDirection: 'column',
                                             alignItems: 'center', justifyContent: 'center',
                                         }}>
-                                            <img src={premio2} alt="" style={{ width: '400px', marginTop: '-10px' }} />
+                                            <img src={car3} alt="" style={{ width: '350px', marginTop: '-10px' }} />
                                         </Grid>
                                     </Item>
                                 </Carousel>
                             </Grid>
                             <Grid className={classes.popupBookinForm}>
-                                <Grid container spacing={-4} rowSpacing={5}>
+                                <Grid container spacing={-4} rowSpacing={1}>
                                     <TextField style={{ padding: '10px', width: '230px' }} id="outlined-basic" label="Rental Id" variant="outlined" />
-                                    <TextField style={{ padding: '10px', width: '230px' }} id="outlined-basic" label="Pick-Up-Date" variant="outlined" />
-                                    <TextField style={{ padding: '10px', width: '230px' }} id="outlined-basic" label="Pick-Up-Time" variant="outlined" />
-                                    <TextField style={{ padding: '10px', width: '230px' }} id="outlined-basic" label="Return-Date" variant="outlined" />
-                                    <TextField style={{ padding: '10px', width: '230px' }} id="outlined-basic" label="Driver Requesting Type" variant="outlined" />
+
+                                    <Grid style={{ padding: '10px', width: '230px' }}>
+                                        <DatePicker label="Pick-Up-Date" />
+                                    </Grid>
+
+                                    <Grid style={{ padding: '10px', width: '230px' }}>
+                                        <TiimePicker maxWidth label="Pick-Up-Time" />
+                                    </Grid>
+
+                                    <Grid style={{ padding: '10px', width: '230px' }}>
+                                        <DatePicker label="Return-Date" />
+                                    </Grid>
+
+                                    <TextField style={{ padding: '10px', width: '230px' }} id="outlined-basic" label="Location" variant="outlined" />
+                                    <Autocomplete
+                                        style={{ padding: '10px', width: '230px' }}
+                                        onChange={(e, value, r) => {
+
+                                            let formData = this.state.formData
+                                            formData.driverRequestingType = value.type
+                                            this.setState({ formData })
+
+                                        }}
+                                        getOptionLabel={
+                                            (option) => option.type
+                                        }
+
+                                        id="controllable-states-demo"
+                                        options={this.state.driverRequestingType}
+                                        sx={{ width: 300 }}
+                                        renderInput={(params) => <TextField {...params} label="Driver Requesting Type" />}
+                                    />
+
                                     <TextField style={{ padding: '10px', width: '230px' }} id="outlined-basic" label="Driver Id" variant="outlined" />
                                     <TextField style={{ padding: '10px', width: '230px' }} id="outlined-basic" disabled label="Driver Name" variant="outlined" />
                                     <TextField style={{ padding: '10px', width: '230px' }} id="outlined-basic" disabled label="Customer Id" variant="outlined" />
                                     <TextField style={{ padding: '10px', width: '230px' }} id="outlined-basic" disabled label="Customer Name" variant="outlined" />
-                                    <TextField style={{ padding: '10px', width: '230px' }} id="outlined-basic" disabled label="Customer License No" variant="outlined" />
-                                    <TextField style={{ padding: '10px', width: '230px' }} id="outlined-basic" disabled label="Customer Address" variant="outlined" />
-                                    <TextField style={{ padding: '10px', width: '230px' }} id="outlined-basic" disabled label="Customer Contact No" variant="outlined" />
-                                    <TextField style={{ padding: '10px', width: '230px' }} id="outlined-basic" disabled label="Customer E-mail" variant="outlined" />
-                                    <TextField style={{ padding: '10px', width: '230px' }} id="outlined-basic" label="User Name" variant="outlined" />
+                                    <TextField style={{ padding: '10px', width: '230px' }} id="outlined-basic" disabled label="Vehicle Id" variant="outlined" />
+                                    <TextField style={{ padding: '10px', width: '230px' }} id="outlined-basic" disabled label="Vehicle Name" variant="outlined" />
+                                    <TextField style={{ padding: '10px', width: '230px' }} id="outlined-basic" label="Damage Fee" variant="outlined" />
+                                    <Grid style={{ padding: '10px', width: '210px', border: '1px solid #95a5a6', marginLeft: '10px', display: 'flex', flexDirection: 'row', flexWrap: 'wrap', justifyContent: 'center', alignItems: 'center' }}>
+
+                                        <input
+                                            style={{ display: 'none' }}
+                                            accept="image/*"
+                                            className={classes.input}
+                                            id="contained-button-file02"
+                                            multiple
+                                            type="file"
+                                        // onChange={(e) => {
+                                        //     this.setState({
+                                        //         licenseImage: e.target.files[0],
+                                        //         licenseView: URL.createObjectURL(e.target.files[0])
+                                        //     })
+                                        // }}
+                                        />
+
+                                        <label htmlFor="contained-button-file01">
+                                            <IconButton color="primary" aria-label="upload picture" component="label">
+                                                <input hidden accept="image/*" type="file" />
+                                                <PhotoCamera style={{ fontSize: '35px' }} />
+                                            </IconButton>
+                                        </label>
+                                    </Grid>
                                     <Button style={{ marginTop: '15px', marginLeft: '58px', width: '180px', height: '50px', backgroundColor: '#2ed573' }} variant="contained">Conform Booking</Button>
-                                    <Button style={{ marginTop: '15px', marginLeft: '30px', width: '180px', height: '50px', backgroundColor: '#2ed573' }} variant="contained">Cancle</Button>
+                                    <Button style={{ marginTop: '15px', marginLeft: '30px', width: '180px', height: '50px', backgroundColor: '#d63031' }} variant="contained">Cancle</Button>
                                 </Grid>
                             </Grid>
                             <Grid className={classes.popupBookinTable}>
@@ -319,16 +401,15 @@ class Premium extends Component {
                                                 <TableCell align="left">Pick-Up-Date</TableCell>
                                                 <TableCell align="left">Pick-Up-Time</TableCell>
                                                 <TableCell align="left">Return Date</TableCell>
+                                                <TableCell align="left">Location</TableCell>
                                                 <TableCell align="left">Driver Requesting Type</TableCell>
                                                 <TableCell align="left">Driver Id</TableCell>
                                                 <TableCell align="left">Driver Name</TableCell>
                                                 <TableCell align="left">Customer Id</TableCell>
                                                 <TableCell align="left">Customer Name</TableCell>
-                                                <TableCell align="left">Driver Id</TableCell>
-                                                <TableCell align="left">Customer License No</TableCell>
-                                                <TableCell align="left">Customer Address</TableCell>
-                                                <TableCell align="left">Customer Contact No</TableCell>
-                                                <TableCell align="left">Customer E-mail</TableCell>
+                                                <TableCell align="left">Vehicle Id</TableCell>
+                                                <TableCell align="left">Vehicle Name</TableCell>
+                                                <TableCell align="left">Damage Fee</TableCell>
                                                 <TableCell align="left">Action</TableCell>
 
                                             </TableRow>

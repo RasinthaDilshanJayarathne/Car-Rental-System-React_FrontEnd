@@ -28,31 +28,80 @@ class Home extends Component {
         super(props);
 
         this.state = {
-            data:'',
-            drivdata: '',
+            generaldata: '',
+            premiumdata: '',
+            luxurydata: '',
+            driverdata: '',
         }
     }
+
+    driverDataCount = async (count) => {
+        let res = await DriverService.driverCount();
+
+        if (res.status === 200) {
+            this.setState({
+                driverdata: res.data.data
+            });
+        }
+        console.log(this.state.data)
+        // print customers array
+
+    };
 
     generalVehicleDataCount = async (vehicleType) => {
 
         let params = {
             vehicleType: vehicleType
         }
-        let res = await VehicleService.generalVehicleCount(params);
+        let res = await VehicleService.countVehicleByType(vehicleType);
 
         if (res.status === 200) {
             this.setState({
-                data: res.data.data
+                generaldata: res.data.data
             });
         }
-        console.log(this.state.data)    // print customers array
+        // print customers array
 
     };
 
-    
+    premiumVehicleDataCount = async (vehicleType) => {
+
+        let params = {
+            vehicleType: vehicleType
+        }
+        let res = await VehicleService.countVehicleByType(vehicleType);
+
+        if (res.status === 200) {
+            this.setState({
+                premiumdata: res.data.data
+            });
+        }
+        // print customers array
+
+    };
+
+    luxuryVehicleDataCount = async (vehicleType) => {
+
+        let params = {
+            vehicleType: vehicleType
+        }
+        let res = await VehicleService.countVehicleByType(vehicleType);
+
+        if (res.status === 200) {
+            this.setState({
+                luxurydata: res.data.data
+            });
+        }
+        // print customers array
+
+    };
+
+
     componentDidMount() {
         this.generalVehicleDataCount("GENERAL");
-        
+        this.premiumVehicleDataCount("PREMIUM");
+        this.luxuryVehicleDataCount("LUXURY");
+        this.driverDataCount();
     }
 
     render() {
@@ -73,7 +122,7 @@ class Home extends Component {
                                 Available Drivers
                             </Typography>
                             <Typography variant="h4" gutterBottom component="div" style={{ textAlign: 'center', marginTop: '10px', color: 'white' }}>
-                                {this.state.data}
+                                {this.state.driverdata}
                             </Typography>
                         </Grid>
                         <Grid className={classes.card2}>
@@ -81,7 +130,7 @@ class Home extends Component {
                                 General Vehicle
                             </Typography>
                             <Typography variant="h4" gutterBottom component="div" style={{ textAlign: 'center', marginTop: '10px', color: 'white' }}>
-                                03
+                                {this.state.generaldata}
                             </Typography>
                         </Grid>
                         <Grid className={classes.card3}>
@@ -89,7 +138,7 @@ class Home extends Component {
                                 Premium Vehicle
                             </Typography>
                             <Typography variant="h4" gutterBottom component="div" style={{ textAlign: 'center', marginTop: '10px', color: 'white' }}>
-                                02
+                                {this.state.premiumdata}
                             </Typography>
                         </Grid>
                         <Grid className={classes.card4}>
@@ -97,7 +146,7 @@ class Home extends Component {
                                 Premium Vehicle
                             </Typography>
                             <Typography variant="h4" gutterBottom component="div" style={{ textAlign: 'center', marginTop: '10px', color: 'white' }}>
-                                04
+                                {this.state.luxurydata}
                             </Typography>
                         </Grid>
                     </Grid>
