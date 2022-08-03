@@ -69,7 +69,8 @@ class Vehicle extends Component {
                 damageFee: '',
                 lastServiceMileage: '',
                 vehicleServiceMileage: '',
-                pricePerExtraKM: ''
+                pricePerExtraKM: '',
+                totalVehicle:''
             },
 
             alert: false,
@@ -204,7 +205,8 @@ class Vehicle extends Component {
                 damageFee: data.damageFee,
                 lastServiceMileage: data.lastServiceMileage,
                 vehicleServiceMileage: data.vehicleServiceMileage,
-                pricePerExtraKM: data.pricePerExtraKM
+                pricePerExtraKM: data.pricePerExtraKM,
+                totalVehicle:data.totalVehicle
             },
         });
     };
@@ -280,7 +282,8 @@ class Vehicle extends Component {
                 damageFee: '',
                 lastServiceMileage: '',
                 vehicleServiceMileage: '',
-                pricePerExtraKM: ''
+                pricePerExtraKM: '',
+                totalVehicle:''
             }
         });
     };
@@ -479,7 +482,7 @@ class Vehicle extends Component {
                             </Grid>
                             <Grid className={classes.vehicleForm}>
                                 <ValidatorForm ref="form" className="pt-2" onSubmit={this.submitVehicle}>
-                                    <Grid container spacing={-9} rowSpacing={5} style={{ marginLeft: '20px' }}>
+                                    <Grid container spacing={-9} rowSpacing={10} style={{ marginLeft: '20px' }}>
                                         <TextValidator
                                             style={{ padding: '10px', width: '230px' }}
                                             id="outlined-basic"
@@ -727,6 +730,19 @@ class Vehicle extends Component {
                                             }}
                                             validators={['required']}
                                         />
+                                        <TextValidator
+                                            style={{ padding: '10px', width: '230px' }}
+                                            id="outlined-basic"
+                                            label="Total Vehicle"
+                                            variant="outlined"
+                                            value={this.state.formData.totalVehicle}
+                                            onChange={(e) => {
+                                                let formData = this.state.formData
+                                                formData.totalVehicle = e.target.value
+                                                this.setState({ formData })
+                                            }}
+                                            validators={['required']}
+                                        />
                                         {/* <Button
                                             style={{ width: '200px', height: '40px', marginLeft: '480px', marginTop: '-60px' }}
                                             variant="contained"
@@ -735,7 +751,7 @@ class Vehicle extends Component {
                                             color={this.state.btnColor}
                                         /> */}
                                         <Button
-                                            style={{ width: '200px', height: '40px', marginLeft: '480px', marginTop: '-60px' }}
+                                            style={{ width: '200px', height: '40px', marginLeft: '480px', marginTop: '10px' }}
                                             variant="contained"
                                             size="small"
                                             type="submit"
@@ -770,6 +786,7 @@ class Vehicle extends Component {
                                             <TableCell align="left">LastService Mileage</TableCell>
                                             <TableCell align="left">Vehicle Service Mileage</TableCell>
                                             <TableCell align="left">PricePer Extra KM</TableCell>
+                                            <TableCell align="left">Total Vehicle</TableCell>
                                             <TableCell align="left">Action</TableCell>
                                         </TableRow>
                                     </TableHead>
@@ -794,6 +811,7 @@ class Vehicle extends Component {
                                                     <TableCell align="left">{row.lastServiceMileage}</TableCell>
                                                     <TableCell align="left">{row.vehicleServiceMileage}</TableCell>
                                                     <TableCell align="left">{row.pricePerExtraKM}</TableCell>
+                                                    <TableCell align="left">{row.totalVehicle}</TableCell>
                                                     <TableCell align="left">
                                                         <Tooltip title="Edit">
                                                             <IconButton

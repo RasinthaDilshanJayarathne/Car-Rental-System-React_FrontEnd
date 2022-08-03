@@ -12,13 +12,13 @@ export default function ResponsiveDatePickers(props) {
     <LocalizationProvider dateAdapter={AdapterDateFns}>
       <Stack >
         <DesktopDatePicker
-          label={props.la}
-          value={value}
-          minDate={new Date('2017-01-01')}
-          onChange={(newValue) => {
-            setValue(newValue);
-          }}
-          renderInput={(params) => <TextField {...params} />}
+         label={props.label}
+         value={value}
+         minDate={new Date('2017-01-01')}
+         onChange={(newValue) => {
+             setValue(newValue);
+         }}
+         renderInput={(params) => <TextField {...params} />}
         />
       </Stack>
     </LocalizationProvider>

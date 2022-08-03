@@ -53,5 +53,19 @@ class DriverService {
          })
          return await promise;
     };
+
+    driverCount = async (count) => {
+        const promise = new Promise((resolve, reject) => {
+            axios.get('driver/COUNT/count', { params: count })
+
+                .then((res) => {
+                    return resolve(res)
+                })
+                .catch((err) => {
+                    return resolve(err)
+                })
+        })
+        return await promise;
+    };
 }
 export default new DriverService();

@@ -10,7 +10,7 @@ export default function BasicTimePicker(props) {
 
     return (
 
-        <Grid style={{width: '50%', backgroundColor: 'white', borderRadius: '5px',margin:'2px'}}>
+        <Grid style={{backgroundColor: 'white', borderRadius: '5px',margin:'2px'}}>
             < LocalizationProvider dateAdapter={AdapterDateFns}>
                 <TimePicker
                     label={props.label}

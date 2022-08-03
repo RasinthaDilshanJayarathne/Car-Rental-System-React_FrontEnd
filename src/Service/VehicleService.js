@@ -29,34 +29,34 @@ class VehicleService {
     }
 
     putVehicle = async (data) => {
-         const promise = new Promise((resolve, reject) => {
+        const promise = new Promise((resolve, reject) => {
             axios.put('vehicle', data)
-            .then((res) => {
-                return resolve(res)
-            })
-            .catch((err) => {
-                return resolve(err)
-            })
-         })
-         return await promise;
-    };
-    
-    deleteVehicle = async (params) => {
-         const promise = new Promise((resolve, reject) => {
-            axios.delete('vehicle', {params: params})
-            .then((res) => {
-                return resolve(res)
-            }) 
-            .catch((err) => {
-                return resolve(err)
-            })
-         })
-         return await promise;
+                .then((res) => {
+                    return resolve(res)
+                })
+                .catch((err) => {
+                    return resolve(err)
+                })
+        })
+        return await promise;
     };
 
-    addCarImage = async (data,carId) => {
+    deleteVehicle = async (params) => {
         const promise = new Promise((resolve, reject) => {
-            axios.post('vehicle/addCarImage?carId='+carId,data)
+            axios.delete('vehicle', { params: params })
+                .then((res) => {
+                    return resolve(res)
+                })
+                .catch((err) => {
+                    return resolve(err)
+                })
+        })
+        return await promise;
+    };
+
+    addCarImage = async (data, carId) => {
+        const promise = new Promise((resolve, reject) => {
+            axios.post('vehicle/addCarImage?carId=' + carId, data)
 
                 .then((res) => {
                     return resolve(res)
@@ -68,9 +68,9 @@ class VehicleService {
         return await promise;
     }
 
-    getCarImage = async (carId,view) =>{
+    getCarImage = async (carId, view) => {
         const promise = new Promise((resolve, reject) => {
-            axios.get('vehicle/getCarImage?carId='+carId+'&view='+view, {
+            axios.get('vehicle/getCarImage?carId=' + carId + '&view=' + view, {
                 responseType: 'blob',
             })
                 .then((res) => {
@@ -83,9 +83,9 @@ class VehicleService {
         return await promise;
     }
 
-    updateCarImage =async (data,carId,view) =>{
+    updateCarImage = async (data, carId, view) => {
         const promise = new Promise((resolve, reject) => {
-            axios.post('vehicle/updateCarImage?carId='+carId+'&view='+view,data)
+            axios.post('vehicle/updateCarImage?carId=' + carId + '&view=' + view, data)
 
                 .then((res) => {
                     return resolve(res)
@@ -97,9 +97,9 @@ class VehicleService {
         return await promise;
     }
 
-    deleteCarImages =async (carId) =>{
+    deleteCarImages = async (carId) => {
         const promise = new Promise((resolve, reject) => {
-            axios.delete('vehicle/deleteCarImage?vehicleId='+carId)
+            axios.delete('vehicle/deleteCarImage?vehicleId=' + carId)
 
                 .then((res) => {
                     return resolve(res)
@@ -113,7 +113,7 @@ class VehicleService {
 
     getAllGeneralVehicles = async (vehicleType) => {
         const promise = new Promise((resolve, reject) => {
-            axios.get('vehicle',{params:vehicleType})
+            axios.get('vehicle', { params: vehicleType })
 
                 .then((res) => {
                     return resolve(res)
@@ -123,7 +123,21 @@ class VehicleService {
                 })
         })
         return await promise;
-   };
+    };
+
+    generalVehicleCount = async (vehicleType) => {
+        const promise = new Promise((resolve, reject) => {
+            axios.get('vehicle/COUNTGENERAL/count?vehicleType=' ,{ params: vehicleType })
+
+                .then((res) => {
+                    return resolve(res)
+                })
+                .catch((err) => {
+                    return resolve(err)
+                })
+        })
+        return await promise;
+    };
 
 }
 export default new VehicleService();

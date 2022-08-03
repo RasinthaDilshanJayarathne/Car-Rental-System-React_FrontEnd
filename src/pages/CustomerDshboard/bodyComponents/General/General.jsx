@@ -140,14 +140,15 @@ class General extends Component {
                                 style={{ margin: '10px' }} />
                             <TextField id="outlined-basic" label="Location" variant="outlined"
                                 style={{ margin: '10px' }} />
-                            {/* <TextField id="outlined-basic" label="Pick-Up-Date" variant="outlined"
-                                style={{ margin: '10px' }} /> */}
+
                             <Grid style={{ margin: '10px' }}>
-                                <DatePicker />
+                                <DatePicker label="Pick-Up-Date" />
                             </Grid>
+
                             <Grid style={{ margin: '10px' }}>
-                                <DatePicker />
+                                <DatePicker label="Return-Date" />
                             </Grid>
+            
                             <Button variant="outlined" color='error' style={{
                                 margin: '10px',
                                 height: '52px',
@@ -324,16 +325,15 @@ class General extends Component {
                             <Grid className={classes.popupBookinForm}>
                                 <Grid container spacing={-4} rowSpacing={1}>
                                     <TextField style={{ padding: '10px', width: '230px' }} id="outlined-basic" label="Rental Id" variant="outlined" />
-                                    {/* <TextField style={{ padding: '10px', width: '230px' }} id="outlined-basic" label="Pick-Up-Date" variant="outlined" /> */}
+
                                     <Grid style={{ padding: '10px', width: '230px' }}>
-                                        <DatePicker label="Pick-Up-Date"/>
+                                        <DatePicker label="Pick-Up-Date" />
                                     </Grid>
 
-                                    {/* <TextField style={{ padding: '10px', width: '230px' }} id="outlined-basic" label="Pick-Up-Time" variant="outlined" /> */}
                                     <Grid style={{ padding: '10px', width: '230px' }}>
-                                        <TiimePicker maxWidth label="Pick-Up-Time"/>
+                                        <TiimePicker maxWidth label="Pick-Up-Time" />
                                     </Grid>
-                                    {/* <TextField style={{ padding: '10px', width: '230px' }} id="outlined-basic" label="Return-Date" variant="outlined" /> */}
+
                                     <Grid style={{ padding: '10px', width: '230px' }}>
                                         <DatePicker label="Return-Date" />
                                     </Grid>
@@ -343,10 +343,10 @@ class General extends Component {
                                     <TextField style={{ padding: '10px', width: '230px' }} id="outlined-basic" disabled label="Driver Name" variant="outlined" />
                                     <TextField style={{ padding: '10px', width: '230px' }} id="outlined-basic" disabled label="Customer Id" variant="outlined" />
                                     <TextField style={{ padding: '10px', width: '230px' }} id="outlined-basic" disabled label="Customer Name" variant="outlined" />
-                                    <TextField style={{ padding: '10px', width: '230px' }} id="outlined-basic" disabled label="Customer License No" variant="outlined" />
-                                    <TextField style={{ padding: '10px', width: '230px' }} id="outlined-basic" disabled label="Customer Address" variant="outlined" />
-                                    <TextField style={{ padding: '10px', width: '230px' }} id="outlined-basic" disabled label="Customer Contact No" variant="outlined" />
-                                    <TextField style={{ padding: '10px', width: '230px' }} id="outlined-basic" disabled label="Customer E-mail" variant="outlined" />
+                                    <TextField style={{ padding: '10px', width: '230px' }} id="outlined-basic" disabled label="Vehicle Id" variant="outlined" />
+                                    <TextField style={{ padding: '10px', width: '230px' }} id="outlined-basic" disabled label="Vehicle Name" variant="outlined" />
+                                    {/* <TextField style={{ padding: '10px', width: '230px' }} id="outlined-basic" disabled label="Customer Contact No" variant="outlined" />
+                                    <TextField style={{ padding: '10px', width: '230px' }} id="outlined-basic" disabled label="Customer E-mail" variant="outlined" /> */}
                                     <TextField style={{ padding: '10px', width: '230px' }} id="outlined-basic" label="Payment" variant="outlined" />
                                     <Button style={{ marginTop: '15px', marginLeft: '58px', width: '180px', height: '50px', backgroundColor: '#2ed573' }} variant="contained">Conform Booking</Button>
                                     <Button style={{ marginTop: '15px', marginLeft: '30px', width: '180px', height: '50px', backgroundColor: '#2ed573' }} variant="contained">Cancle</Button>
