@@ -11,6 +11,8 @@ export const styleSheet = {
         backgroundColor: 'white',
         alignItems: 'center',
         justifyContent: 'center',
+        overflowX:'hidden',
+        overflowY:'hidden',
         border: '2px solid #eeeff1',
     },
     bookingPanel: {
@@ -50,6 +52,7 @@ export const styleSheet = {
         flexDirection: 'column',
         alignItems: 'center',
         justifyContent: 'center',
+        marginLeft:'15px',
         //border:'1px solid red'
     },
     vehicleDetails: {

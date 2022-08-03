@@ -12,7 +12,7 @@ import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
 import { Button, Grid, TextField } from "@mui/material";
 import { withStyles } from "@mui/styles";
-import { styleSheet } from "../Luxury/styles";
+import { styleSheet } from "../Premium/styles";
 import Table from '@mui/material/Table';
 import TableBody from '@mui/material/TableBody';
 import TableCell from '@mui/material/TableCell';
@@ -67,8 +67,11 @@ class Premium extends Component {
 
     }
 
-    loadAllVehicle = async () => {
-        let res = await VehicleService.fetchVehicle();
+    loadAllPremiumVehicles = async (vehicleType) => {
+        let params = {
+            vehicleType: vehicleType
+        }
+        let res = await VehicleService.getAllGeneralVehicles(params);
 
         if (res.status === 200) {
             this.setState({
@@ -80,7 +83,7 @@ class Premium extends Component {
     };
 
     componentDidMount() {
-        this.loadAllVehicle();
+        this.loadAllPremiumVehicles("PREMIUM");
     }
 
 
@@ -127,7 +130,7 @@ class Premium extends Component {
                             this.state.vehicleList.map((vehicle) => (
                                 <Grid className={classes.vehicle}>
                                     <Grid className={classes.vehicleImg}>
-                                        <img src={car2} style={{ width: '420px', marginLeft: '20px' }} />
+                                        <img src={premio2} style={{ width: '420px', marginLeft: '20px' }} />
                                     </Grid>
                                     <Grid className={classes.vehicleDetails}>
                                         <Grid style={{ marginTop: '30px', marginLeft: '10px' }}>
@@ -227,7 +230,7 @@ class Premium extends Component {
                                     </Grid>
                                     <Grid className={classes.vehicleBookingBtn}>
                                         <Grid>
-                                            <Typography style={{ fontSize: '30px', color: '#fe5b3d' }}> <span> {vehicle.priceRate.monthlyRate}</span> lkr</Typography>
+                                            <Typography style={{ fontSize: '30px', color: '#fe5b3d' }}> <span> {vehicle.priceRate.monthlyRate}</span>.00 lkr</Typography>
                                             <Typography style={{ fontSize: '20px', color: '#fe5b3d', marginLeft: '20px' }}>Cost Of
                                                 Rental
                                             </Typography>

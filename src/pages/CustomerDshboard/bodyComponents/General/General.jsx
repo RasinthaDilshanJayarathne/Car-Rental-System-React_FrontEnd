@@ -261,7 +261,7 @@ class General extends Component {
                                     </Grid>
                                     <Grid className={classes.vehicleBookingBtn}>
                                         <Grid>
-                                            <Typography style={{ fontSize: '30px', color: '#fe5b3d' }}> <span> {vehicle.priceRate.monthlyRate}</span> lkr</Typography>
+                                            <Typography style={{ fontSize: '30px', color: '#fe5b3d' }}> <span> {vehicle.priceRate.monthlyRate}</span>.00 lkr</Typography>
                                             <Typography style={{ fontSize: '20px', color: '#fe5b3d', marginLeft: '20px' }}>Cost Of
                                                 Rental
                                             </Typography>

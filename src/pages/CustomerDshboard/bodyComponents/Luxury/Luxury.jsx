@@ -22,10 +22,7 @@ import premio2 from "../../../../assets/img/premio2.png";
 import car2 from "../../../../assets/img/car2.png";
 import car3 from "../../../../assets/img/car3.png";
 import Item from './Item';
-import DeleteIcon from '@mui/icons-material/Delete';
-import IconButton from '@mui/material/IconButton';
-import Tooltip from '@mui/material/Tooltip';
-import EditIcon from '@mui/icons-material/Edit';
+
 import Slide from '@mui/material/Slide';
 import Carousel from "react-elastic-carousel";
 import Dialog from '@mui/material/Dialog';
@@ -58,8 +55,11 @@ class Luxury extends Component {
 
     }
 
-    loadAllVehicle = async () => {
-        let res = await VehicleService.fetchVehicle();
+    loadAllLuxurylVehicles = async (vehicleType) => {
+        let params = {
+            vehicleType: vehicleType
+        }
+        let res = await VehicleService.getAllGeneralVehicles(params);
 
         if (res.status === 200) {
             this.setState({
@@ -71,7 +71,7 @@ class Luxury extends Component {
     };
 
     componentDidMount() {
-        this.loadAllVehicle();
+        this.loadAllLuxurylVehicles("LUXURY");
     }
 
 
@@ -118,7 +118,7 @@ class Luxury extends Component {
                             this.state.vehicleList.map((vehicle) => (
                                 <Grid className={classes.vehicle}>
                                     <Grid className={classes.vehicleImg}>
-                                        <img src={car2} style={{ width: '420px', marginLeft: '20px' }} />
+                                        <img src={premio} style={{ width: '420px', marginLeft: '20px' }} />
                                     </Grid>
                                     <Grid className={classes.vehicleDetails}>
                                         <Grid style={{ marginTop: '30px', marginLeft: '10px' }}>
@@ -218,7 +218,7 @@ class Luxury extends Component {
                                     </Grid>
                                     <Grid className={classes.vehicleBookingBtn}>
                                         <Grid>
-                                            <Typography style={{ fontSize: '30px', color: '#fe5b3d' }}> <span> {vehicle.priceRate.monthlyRate}</span> lkr</Typography>
+                                            <Typography style={{ fontSize: '30px', color: '#fe5b3d' }}> <span> {vehicle.priceRate.monthlyRate}</span>.00 lkr</Typography>
                                             <Typography style={{ fontSize: '20px', color: '#fe5b3d', marginLeft: '20px' }}>Cost Of
                                                 Rental
                                             </Typography>

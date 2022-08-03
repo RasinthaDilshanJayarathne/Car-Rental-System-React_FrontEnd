@@ -11,6 +11,8 @@ export const styleSheet = {
         backgroundColor: 'white',
         alignItems: 'center',
         justifyContent: 'center',
+        overflowX:'hidden',
+        overflowY:'hidden',
         border: '2px solid #eeeff1',
     },
     bookingPanel: {
@@ -21,6 +23,7 @@ export const styleSheet = {
         alignItems: 'center',
         justifyContent: 'center',
         flexDirection: 'column',
+         overflowX:'hidden',
         //backgroundColor: 'yellow',
     },
     //Load karanna one mekata
@@ -43,13 +46,15 @@ export const styleSheet = {
         //backgroundColor:'white',
     },
     vehicleImg: {
-        width: '25vw',
-        height: '39vh',
+        width: '24vw',
+        height: '38vh',
         display: 'flex',
         flexWrap: 'wrap',
         flexDirection: 'column',
         alignItems: 'center',
         justifyContent: 'center',
+        backgroundSize: 'cover',
+        marginLeft:'15px',
         //border:'1px solid red'
     },
     vehicleDetails: {
@@ -86,6 +91,12 @@ export const styleSheet = {
         height: '23vh',
         marginTop: '10px',
         //border:'1px solid red'
+    },
+    popUpBox:{
+        width:'80vw',
+        height:'80vh',
+        backgroundColor:'#eeeff1',
+        overflowX:'hidden'
     },
     popupContainer:{
         width:'92.5vw',
