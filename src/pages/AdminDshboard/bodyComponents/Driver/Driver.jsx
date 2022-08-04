@@ -121,6 +121,7 @@ class Driver extends Component {
         console.log(res)
 
         if (res.status === 200) {
+            let res = await DriverService.deleteDriverImages(id);
             this.setState({
                 alert: true,
                 message: res.data.message,

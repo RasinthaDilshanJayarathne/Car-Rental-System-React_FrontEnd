@@ -83,7 +83,7 @@ class Home extends Component {
                                     Pending Booking
                                 </Typography>
                                 <Typography variant="h4" gutterBottom component="div" style={{ textAlign: 'center', marginTop: '10px', color: 'white' }}>
-                                    04
+                                   {this.state.bookingdata}
                                 </Typography>
                             </Grid>
                             <Grid className={classes.card3}>

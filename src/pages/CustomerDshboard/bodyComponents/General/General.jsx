@@ -60,8 +60,8 @@ class General extends Component {
 
             vehicleList: [],
 
-            pickUpDate: '2022-07-06',
-            returnDate: '2022-07-07',
+            pickUpDate: '',
+            returnDate: '',
 
             formData: {
                 vehicleId: '',
@@ -84,16 +84,16 @@ class General extends Component {
                 damageFee: '',
                 lastServiceMileage: '',
                 vehicleServiceMileage: '',
-                pricePerExtraKM: ''
+                pricePerExtraKM: '',
             },
-            driverRequestingType: [
+            driverAvailable: [
                 {
-                    type: 'YES'
+                    type: 'AVAILABLE'
                 },
                 {
-                    type: 'NO'
+                    type: 'NOT_AVAILABLE'
                 }
-            ]
+            ],
         }
 
     }
@@ -109,7 +109,7 @@ class General extends Component {
                 vehicleList: res.data.data
             });
         }
-        console.log(this.state.data)    // print customers array
+        //console.log(this.state.data)    // print customers array
 
     };
 
@@ -142,17 +142,20 @@ class General extends Component {
         this.setState({ open: false })
     };
 
-    // funcreateData(id, email, firstName, lastName, licenNo, contact, nic, address) {
-    //     return { id, email, firstName, lastName, licenNo, contact, nic, address };
-    // }
-
-    // rows = [
-    //     createData('R00-001', 'rasintha@gmail.com', 'Nimal', 'Perera', 2423452, '071-3123342', '42345124', 'Galle'),
-    //     createData('R00-002', 'rasintha@gmail.com', 'Kamal', 'Gamage', 2373453, '071-3123342', '42345124', 'Colombo'),
-    // ];
+    getPickupDate (x){
+        this.setState({ pickUpDate: x})
+        console.log(x);
+    }
 
     render() {
         const { classes } = this.props;
+
+        // function onChange(date, dateString) {
+        //     this.setState({ pickUpDate: dateString });
+        //     console.log(date, dateString);
+        // }
+        // date = this.state.pickUpDate
+
         return (
             <>
                 <Grid className={classes.container}>
@@ -170,11 +173,16 @@ class General extends Component {
                                 style={{ margin: '10px' }} />
 
                             <Grid style={{ margin: '10px' }}>
-                                <DatePicker label="Pick-Up-Date" />
+                                <DatePicker label="Pick-Up-Date"
+                                    value={this.pickUpDate}
+                                    onClick={(e) => {this.getPickupDate(e.target.value)}}
+                                />
                             </Grid>
 
                             <Grid style={{ margin: '10px' }}>
-                                <DatePicker label="Return-Date" />
+                                <DatePicker label="Return-Date"
+                                   
+                                />
                             </Grid>
 
                             <Button
@@ -377,7 +385,7 @@ class General extends Component {
                                         onChange={(e, value, r) => {
 
                                             let formData = this.state.formData
-                                            formData.driverRequestingType = value.type
+                                            formData.driverAvailable = value.type
                                             this.setState({ formData })
 
                                         }}
@@ -386,7 +394,7 @@ class General extends Component {
                                         }
 
                                         id="controllable-states-demo"
-                                        options={this.state.driverRequestingType}
+                                        options={this.state.driverAvailable}
                                         sx={{ width: 300 }}
                                         renderInput={(params) => <TextField {...params} label="Driver Requesting Type" />}
                                     />

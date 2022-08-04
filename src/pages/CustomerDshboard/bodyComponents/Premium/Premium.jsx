@@ -70,6 +70,15 @@ class Premium extends Component {
 
             pickUpDate: '2022-07-06',
             returnDate: '2022-07-07',
+
+            driverAvailable:[
+                {
+                    type: 'AVAILABLE'
+                },
+                {
+                    type: 'NOT_AVAILABLE'
+                }
+            ],
         }
 
     }
@@ -343,7 +352,7 @@ class Premium extends Component {
                                         onChange={(e, value, r) => {
 
                                             let formData = this.state.formData
-                                            formData.driverRequestingType = value.type
+                                            formData.driverAvailable = value.type
                                             this.setState({ formData })
 
                                         }}
@@ -352,7 +361,7 @@ class Premium extends Component {
                                         }
 
                                         id="controllable-states-demo"
-                                        options={this.state.driverRequestingType}
+                                        options={this.state.driverAvailable}
                                         sx={{ width: 300 }}
                                         renderInput={(params) => <TextField {...params} label="Driver Requesting Type" />}
                                     />

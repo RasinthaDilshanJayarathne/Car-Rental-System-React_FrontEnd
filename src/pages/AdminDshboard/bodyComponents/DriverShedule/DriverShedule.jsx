@@ -15,7 +15,8 @@ import DeleteIcon from '@mui/icons-material/Delete';
 import IconButton from '@mui/material/IconButton';
 import Tooltip from '@mui/material/Tooltip';
 import EditIcon from '@mui/icons-material/Edit';
-import DatePicker from '../../../../common/DatePicker/index'
+import DatePicker from '../../../../common/DatePicker/index';
+import TimePicker from '../../../../common/TimePicker/index'
 
 function createData(id, email, firstName, lastName, licenNo, contact, nic, address) {
     return { id, email, firstName, lastName, licenNo, contact, nic, address };
@@ -61,7 +62,7 @@ class DriverShedule extends Component {
                                     <DatePicker id="outlined-basic" label="Pick-Up-Date" variant="outlined"/>
                                 </Grid>
                                 <Grid style={{ margin: '10px', width: '250px'}} >
-                                    <DatePicker id="outlined-basic" label="Pick-Up-Time" variant="outlined"/>
+                                    <TimePicker id="outlined-basic" label="Pick-Up-Time" variant="outlined"/>
                                 </Grid>
                                 <TextField id="outlined-basic" label="Location" variant="outlined" style={{ margin: '10px', width: '250px' }} />
                                 <Button

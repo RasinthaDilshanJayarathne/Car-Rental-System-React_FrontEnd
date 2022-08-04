@@ -125,6 +125,7 @@ class Customer extends Component {
         console.log(res)
 
         if (res.status === 200) {
+            let res = await CustomerService.deletecustomerImages(id);
             this.setState({
                 alert: true,
                 message: res.data.message,

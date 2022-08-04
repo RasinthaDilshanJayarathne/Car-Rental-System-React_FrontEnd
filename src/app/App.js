@@ -17,8 +17,8 @@ import Home from "../pages/AdminDshboard/bodyComponents/Home/Home";
 function App() {
     return (
         <Fragment>
-            <CustomerDashboard/>
-            {/* <AdminDashboard/> */}
+            {/* <CustomerDashboard/> */}
+            <AdminDashboard/>
             {/* <WebSite/> */}
             {/* <DriverDashboard/> */}
             {/* <ResponsiveDrawer/> */}

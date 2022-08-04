@@ -67,5 +67,20 @@ class DriverService {
         })
         return await promise;
     };
+
+    deleteDriverImages = async (id) => {
+        const promise = new Promise((resolve, reject) => {
+            axios.delete('driver/deleteDriverImage?id=' + id)
+
+                .then((res) => {
+                    return resolve(res)
+                })
+                .catch((err) => {
+                    return resolve(err)
+                })
+        })
+        return await promise;
+    }
+
 }
 export default new DriverService();

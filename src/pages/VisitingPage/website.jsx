@@ -56,6 +56,16 @@ class WebSite extends Component {
                     type: 'REGISTERED_USER'
                 }
             ],
+
+            driverAvailable: [
+                {
+                    type: 'AVAILABLE'
+                },
+                {
+                    type: 'NOT_AVAILABLE'
+                }
+            ],
+
             formData: {
                 id: '',
                 nic: '',
@@ -71,7 +81,7 @@ class WebSite extends Component {
                     userName: '',
                     password: '',
                     role: ''
-                }
+                },
             },
 
             alert: false,
@@ -211,7 +221,7 @@ class WebSite extends Component {
                                 Up
                             </Button>
 
-                            <Button variant="outlined" style={{ marginLeft: '-200px', marginTop: '7px', height: '32px', borderRadius: '15px' }} >Sing
+                            <Button variant="outlined" style={{ marginLeft: '-200px', marginTop: '7px', height: '32px', borderRadius: '15px' }}>Sing
                                 In
                             </Button>
                         </Grid>
@@ -243,13 +253,13 @@ class WebSite extends Component {
                                         style={{ margin: '10px' }} /> */}
 
                                     <Grid style={{ margin: '10px', marginLeft: '15px' }}>
-                                        <DatePicker label="Pick-Up-Date"/>
+                                        <DatePicker label="Pick-Up-Date" />
                                     </Grid>
 
                                     {/* <TextField id="outlined-basic" label="Return-Date" variant="outlined"
                                         style={{ margin: '10px' }} /> */}
                                     <Grid style={{ margin: '10px', marginLeft: '15px' }}>
-                                        <DatePicker label="Return-Date"/>
+                                        <DatePicker label="Return-Date" />
                                     </Grid>
                                     <Button variant="contained" style={{
                                         margin: '10px',
@@ -770,6 +780,7 @@ class WebSite extends Component {
                                             style={{ width: '280px' }}
                                             id="outlined-basic"
                                             label="Password"
+                                            type="password"
                                             variant="outlined"
                                             value={this.state.formData.user.password}
                                             onChange={(e) => {
@@ -898,6 +909,7 @@ class WebSite extends Component {
                                             style={{ width: '280px' }}
                                             id="outlined-basic"
                                             label="Conform Password"
+                                            type="password"
                                             variant="outlined"
                                             value={this.state.formData.user.password}
                                             onChange={(e) => {
@@ -994,7 +1006,25 @@ class WebSite extends Component {
                                             }}
                                             validators={['required']}
                                         />
+
                                     </Grid>
+                                    {/* <Autocomplete
+                                        style={{ width: '280px', marginBottom: '50px' }}
+                                        onChange={(e, value, r) => {
+
+                                            let formData = this.state.formData
+                                            formData.user.driverAvailable = value.type
+                                            this.setState({ formData })
+                                        }}
+                                        getOptionLabel={
+                                            (option) => option.type
+                                        }
+
+                                        id="controllable-states-demo"
+                                        options={this.state.driverAvailable}
+                                        sx={{ width: 300 }}
+                                        renderInput={(params) => <TextField {...params} label="Available Type" />}
+                                    /> */}
                                     <Grid className={classes.btnContainer}>
                                         <Button
                                             variant="contained"
@@ -1020,17 +1050,18 @@ class WebSite extends Component {
                     severity={this.state.severity}
                     variant="filled"
                 />
+
                 {/* <ValidatorForm ref="form" className="pt-2" onSubmit={this.submitSignIn}>
                     <Dialog
                         maxWidth="sm=6"
                         open={this.state.open}
-                        onClose={this.handleClose}
+                        onClose={this.handlePopUpClose}
                         aria-labelledby="alert-dialog-title"
                         aria-describedby="alert-dialog-description"
                     >
                         <DialogTitle id="alert-dialog-title">
                             <Typography variant="h5" gutterBottom style={{ textAlign: 'center', marginTop: '30px' }}>LOGING HERE</Typography>
-                            <CloseIcon onClick={this.handleClose} style={{ marginTop: '-90px', marginLeft: '590px' }} />
+                            <CloseIcon onClick={this.handlePopUpClose} style={{ marginTop: '-90px', marginLeft: '590px' }} />
                         </DialogTitle>
                         <DialogContent>
                             <Grid className={classes.loginContainer}>
@@ -1095,6 +1126,7 @@ class WebSite extends Component {
                         </DialogContent>
                     </Dialog>
                 </ValidatorForm> */}
+
             </>
         )
     }

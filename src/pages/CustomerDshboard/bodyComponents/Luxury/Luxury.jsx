@@ -57,6 +57,15 @@ class Luxury extends Component {
             returnDate: '2022-07-07',
 
             vehicleList: [],
+
+            driverAvailable:[
+                {
+                    type: 'AVAILABLE'
+                },
+                {
+                    type: 'NOT_AVAILABLE'
+                }
+            ],
         }
 
     }
@@ -329,7 +338,7 @@ class Luxury extends Component {
                                         onChange={(e, value, r) => {
 
                                             let formData = this.state.formData
-                                            formData.driverRequestingType = value.type
+                                            formData.driverAvailable = value.type
                                             this.setState({ formData })
 
                                         }}
@@ -338,7 +347,7 @@ class Luxury extends Component {
                                         }
 
                                         id="controllable-states-demo"
-                                        options={this.state.driverRequestingType}
+                                        options={this.state.driverAvailable}
                                         sx={{ width: 300 }}
                                         renderInput={(params) => <TextField {...params} label="Driver Requesting Type" />}
                                     />

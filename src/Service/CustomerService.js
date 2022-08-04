@@ -41,6 +41,20 @@ class CustomerService {
         return await promise;
     };
 
+    deletecustomerImages = async (id) => {
+        const promise = new Promise((resolve, reject) => {
+            axios.delete('customer/deleteCustomerImage?id=' + id)
+
+                .then((res) => {
+                    return resolve(res)
+                })
+                .catch((err) => {
+                    return resolve(err)
+                })
+        })
+        return await promise;
+    }
+
     customerCount = async (count) => {
         const promise = new Promise((resolve, reject) => {
             axios.get('customer/COUNT/count', { params: count })

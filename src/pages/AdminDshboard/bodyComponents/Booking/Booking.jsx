@@ -22,6 +22,7 @@ class Booking extends Component {
         super(props)
         this.state ={
             formData :{
+                rentList:[],
                 
             }
         }
