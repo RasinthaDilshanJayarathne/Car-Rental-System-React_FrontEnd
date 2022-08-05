@@ -19,13 +19,13 @@ export default function CustomerDashboard() {
         <div>
             <Sidenav mobileOpen={mobileOpen} handleDrawerOpen={handleDrawerOpen}/>
             <Box className={classes.wrapper}>
-                <Routes>
+                {/* <Routes>
                     <Route exact path="/" element={<Home/>}/>
                     <Route exact path="/general" element={<General/>}/>
                     <Route exact path="/premium" element={<Premium/>}/>
                     <Route exact path="/luxury" element={<Luxury/>}/>
                     <Route exact path="/profile" element={<Profile/>}/>
-                </Routes>
+                </Routes> */}
             </Box>
         </div>
     );

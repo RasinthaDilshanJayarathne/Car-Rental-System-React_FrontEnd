@@ -1,9 +1,10 @@
 import React from "react";
-import {Drawer, Hidden} from "@material-ui/core";
-import {useStyles} from "./HeaderStyles";
+import { Drawer, Hidden } from "@material-ui/core";
+import { useStyles } from "./HeaderStyles";
 import SideNavData from "./SideNavData";
+import { Outlet, Link } from "react-router-dom";
 
-export default function Sidenav({mobileOpen, handleDrawerOpen}) {
+export default function Sidenav({ mobileOpen, handleDrawerOpen }) {
     const classes = useStyles();
 
     return (
@@ -21,9 +22,10 @@ export default function Sidenav({mobileOpen, handleDrawerOpen}) {
                     ModalProps={{
                         keepMounted: true, // Better open performance on mobile.
                     }}>
-                    <SideNavData/>
+                    <SideNavData style={{marginLeft:'100px'}}/>
                 </Drawer>
             </Hidden>
+            <Outlet />
             <Hidden smDown implementation='css'>
                 <Drawer
                     classes={{
@@ -31,7 +33,8 @@ export default function Sidenav({mobileOpen, handleDrawerOpen}) {
                     }}
                     variant='permanent'
                     open>
-                    <SideNavData/>
+
+                    <SideNavData style={{marginLeft:'100px'}}/>
                 </Drawer>
             </Hidden>
         </nav>

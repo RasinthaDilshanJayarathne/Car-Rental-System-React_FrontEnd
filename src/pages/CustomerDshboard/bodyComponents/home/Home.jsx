@@ -169,33 +169,29 @@ class Home extends Component {
                         <Grid className={classes.app}>
                             <Carousel breakPoints={breakPoints}>
 
-                                {
-                                    this.state.driverList.map((driver) => (
-                                        <Item className={classes.appItem}>
-                                            <Grid style={{
-                                                height: '200px', width: '350px', display: 'flex',
-                                                flexWrap: 'wrap', flexDirection: 'column',
-                                                alignItems: 'center', justifyContent: 'center',
-                                            }}>
-                                                <img src={rev1} alt="" style={{ width: '150px', height: '150px', borderRadius: '180px', marginTop: '-10px' }} />
-                                            </Grid>
-                                            <Grid style={{ height: '100px', width: '350px', textAlign: 'center' }}>
-                                                <Typography variant="h6" gutterBottom component="div" >Name : <span>{driver.name.firstName} {this.state.formData.name.lastName}</span></Typography>
-                                                <Typography variant="h6" gutterBottom component="div" >Driver Id : <span>{driver.id}</span></Typography>
-                                            </Grid>
-                                            <Grid style={{
-                                                height: '100px', width: '250px', display: 'flex',
-                                                flexWrap: 'wrap', flexDirection: 'column',
-                                                alignItems: 'center', justifyContent: 'center',
-                                            }}>
-                                                <Button variant="contained" fullWidth style={{ backgroundColor: '#16a085' }}>Select</Button>
-                                            </Grid>
-                                        </Item>
-                                    ))
-                                }
 
+                                <Item className={classes.appItem}>
+                                    <Grid style={{
+                                        height: '200px', width: '350px', display: 'flex',
+                                        flexWrap: 'wrap', flexDirection: 'column',
+                                        alignItems: 'center', justifyContent: 'center',
+                                    }}>
+                                        <img src={rev1} alt="" style={{ width: '150px', height: '150px', borderRadius: '180px', marginTop: '-10px' }} />
+                                    </Grid>
+                                    <Grid style={{ height: '100px', width: '350px', textAlign: 'center' }}>
+                                        <Typography variant="h6" gutterBottom component="div" >Name : Rasintha Dilshan</Typography>
+                                        <Typography variant="h6" gutterBottom component="div" >Driver Id : DR-001</Typography>
+                                    </Grid>
+                                    <Grid style={{
+                                        height: '100px', width: '250px', display: 'flex',
+                                        flexWrap: 'wrap', flexDirection: 'column',
+                                        alignItems: 'center', justifyContent: 'center',
+                                    }}>
+                                        <Button variant="contained" fullWidth style={{ backgroundColor: '#16a085' }}>Select</Button>
+                                    </Grid>
+                                </Item>
 
-                                {/* <Item className={classes.appItem}>
+                                <Item className={classes.appItem}>
                                     <Grid style={{
                                         height: '200px', width: '350px', display: 'flex',
                                         flexWrap: 'wrap', flexDirection: 'column',
@@ -254,7 +250,7 @@ class Home extends Component {
                                     }}>
                                         <Button variant="contained" fullWidth style={{ backgroundColor: '#16a085' }}>Select</Button>
                                     </Grid>
-                                </Item> */}
+                                </Item>
                             </Carousel>
                         </Grid>
                     </Grid>

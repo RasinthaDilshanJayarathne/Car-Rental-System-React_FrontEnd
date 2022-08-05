@@ -48,6 +48,7 @@ class WebSite extends Component {
             licenseView: null,
 
             open: false,
+            openLogin :false,
 
             role: [
                 {
@@ -93,7 +94,9 @@ class WebSite extends Component {
                 userName: '',
                 password: '',
                 role: ''
-            }
+            },
+
+            link: '',
 
         }
     };
@@ -169,7 +172,7 @@ class WebSite extends Component {
             nicView: null,
             licenseView: null,
 
-            link:'',
+            link: '',
 
             formData: {
                 id: '',
@@ -188,11 +191,11 @@ class WebSite extends Component {
                     role: ''
                 }
             },
-            LoginFormData: {
-                userName: '',
-                password: '',
+            // LoginFormData: {
+            //     userName: '',
+            //     password: '',
 
-            }
+            // }
         });
     };
 
@@ -200,42 +203,55 @@ class WebSite extends Component {
         this.setState({ open: true })
     };
 
+    handleClickLoginOpen = () => {
+        this.setState({ openLogin: true })
+    };
+
     handleClose = () => {
         this.setState({ open: false })
     };
 
+    handleLoginClose = () => {
+        this.setState({ openLogin: false })
+    };
+
     submitSignIn = async () => {
-       
-        let formData = this.state.LoginFormData;
+
+        console.log("AAAAAAAAAAAAAAAAAAAAAAAA")
+        
+        let formData = this.state.formData;
 
         let params = {
-            userName: formData.userName,
-            password: formData.password,
+            userName: formData.user.userName,
+            password: formData.user.password,
         }
 
         let res = await SignIn.fetchUser(params);
         if (res.status === 200) {
 
-            localStorage.setItem("userName",res.data.data.userName);
+            localStorage.setItem("userName", res.data.data.userName);
 
-            if (res.data.data.role == 'ADMIN'){  this.setState({
-                link:'/admin'
-            });}
+            if (res.data.data.role == 'ADMIN') {
+                this.setState({
+                    link: '/admin'
+                });
+            }
 
-            if (res.data.data.role == 'DRIVER'){  this.setState({
-                link:'/driverDashBoard'
-            });}
+            if (res.data.data.role == 'DRIVER') {
+                this.setState({
+                    link: '/driverDashBoard'
+                });
+            }
 
-            if (res.data.data.role == 'REGISTERED_USER'){
+            if (res.data.data.role == 'REGISTERED_USER') {
 
-                localStorage.setItem("pickUpDate","");
-                localStorage.setItem("returnDate","");
+                localStorage.setItem("pickUpDate", "");
+                localStorage.setItem("returnDate", "");
                 this.setState({
 
-                link:'/customer'
-            });}
-
-
+                    link: '/customer'
+                });
+            }
 
             //this.clearFields();
 
@@ -274,7 +290,7 @@ class WebSite extends Component {
                                 Up
                             </Button>
 
-                            <Button variant="outlined" style={{ marginLeft: '-200px', marginTop: '7px', height: '32px', borderRadius: '15px' }}>Sing
+                            <Button variant="outlined" style={{ marginLeft: '-200px', marginTop: '7px', height: '32px', borderRadius: '15px' }} onClick={this.handleClickLoginOpen}>Sing
                                 In
                             </Button>
                         </Grid>
@@ -783,8 +799,314 @@ class WebSite extends Component {
                             </Grid>
                         </Grid>
                     </Grid>
-
                 </Grid>
+
+
+                <ValidatorForm ref="form" className="pt-2" onSubmit={this.submitSignUp}>
+                    <Dialog
+                        maxWidth="sm=6"
+                        open={this.state.open}
+                        onClose={this.handleClose}
+                        aria-labelledby="alert-dialog-title"
+                        aria-describedby="alert-dialog-description"
+                    >
+                        <DialogTitle id="alert-dialog-title">
+                            <Typography variant="h5" gutterBottom style={{ textAlign: 'center', marginTop: '30px' }}>SIGNUP HERE</Typography>
+                            <CloseIcon onClick={this.handleClose} style={{ marginTop: '-90px', marginLeft: '590px' }} />
+                        </DialogTitle>
+                        <DialogContent>
+                            <Grid className={classes.PopContainer}>
+
+                                <Grid className={classes.textContainer}>
+                                    <Grid className={classes.textDetail}>
+                                        <TextValidator
+                                            style={{ width: '280px' }}
+                                            id="outlined-basic"
+                                            label="Register Id"
+                                            variant="outlined"
+                                            value={this.state.formData.id}
+                                            onChange={(e) => {
+                                                let formData = this.state.formData
+                                                formData.id = e.target.value
+                                                this.setState({ formData })
+                                            }}
+                                            validators={['required']}
+                                        />
+                                        <TextValidator
+                                            style={{ width: '280px' }}
+                                            id="outlined-basic"
+                                            label="First Name"
+                                            variant="outlined"
+                                            value={this.state.formData.name.firstName}
+                                            onChange={(e) => {
+                                                let formData = this.state.formData
+                                                formData.name.firstName = e.target.value
+                                                this.setState({ formData })
+                                            }}
+                                            validators={['required']}
+                                        />
+                                        <TextValidator
+                                            style={{ width: '280px' }}
+                                            id="outlined-basic"
+                                            label="Password"
+                                            type="password"
+                                            variant="outlined"
+                                            value={this.state.formData.user.password}
+                                            onChange={(e) => {
+                                                let formData = this.state.formData
+                                                formData.user.password = e.target.value
+                                                this.setState({ formData })
+                                            }}
+                                            validators={['required']}
+                                        />
+                                        <TextValidator
+                                            style={{ width: '280px' }}
+                                            id="outlined-basic"
+                                            label="License No"
+                                            variant="outlined"
+                                            value={this.state.formData.licenseNo}
+                                            onChange={(e) => {
+                                                let formData = this.state.formData
+                                                formData.licenseNo = e.target.value
+                                                this.setState({ formData })
+                                            }}
+                                            validators={['required']}
+                                        />
+
+                                        <Grid
+                                            style={{
+                                                width: '280px',
+                                                height: '150px',
+                                                border: '1px solid #95a5a6',
+                                                marginLeft: '2px',
+                                                display: 'flex',
+                                                flexWrap: 'wrap',
+                                                flexDirection: 'column',
+                                                alignItems: 'center',
+                                                justifyContent: 'center',
+                                                backgroundImage: "url(" + this.state.licenseView + ")",
+                                                backgroundSize: 'cover'
+                                            }}
+                                        >
+                                            <input
+                                                style={{ display: 'none' }}
+                                                accept="image/*"
+                                                className={classes.input}
+                                                id="contained-button-file02"
+                                                multiple
+                                                type="file"
+                                                onChange={(e) => {
+                                                    this.setState({
+                                                        licenseImage: e.target.files[0],
+                                                        licenseView: URL.createObjectURL(e.target.files[0])
+                                                    })
+                                                }}
+                                            />
+                                            <label htmlFor="contained-button-file02">
+                                                <IconButton color="primary" aria-label="upload picture"
+                                                    variant="contained"
+                                                    //color="primary" 
+                                                    component="span"
+                                                //style={{ backgroundColor: '#a4b0be', marginLeft: '-10px' }}
+                                                >
+                                                    <input hidden accept="image/*" type="file" />
+                                                    <PhotoCamera style={{ fontSize: '35px', marginLeft: '5px' }} />
+                                                </IconButton>
+                                            </label>
+                                        </Grid>
+
+                                        {/* <IconButton color="primary" aria-label="upload picture" component="label">
+                                            <input hidden accept="image/*" type="file" />
+                                            <PhotoCamera style={{ fontSize: '35px', marginLeft: '5px' }} />
+                                        </IconButton> */}
+
+                                        <TextValidator
+                                            style={{ width: '280px' }}
+                                            id="outlined-basic"
+                                            label="Contact No"
+                                            variant="outlined"
+                                            value={this.state.formData.contactNo}
+                                            onChange={(e) => {
+                                                let formData = this.state.formData
+                                                formData.contactNo = e.target.value
+                                                this.setState({ formData })
+                                            }}
+                                            validators={['required']}
+                                        />
+                                        <TextValidator
+                                            style={{ marginBottom: '40px', width: '280px' }}
+                                            id="outlined-basic"
+                                            label="E-mail"
+                                            variant="outlined"
+                                            value={this.state.formData.email}
+                                            onChange={(e) => {
+                                                let formData = this.state.formData
+                                                formData.email = e.target.value
+                                                this.setState({ formData })
+                                            }}
+                                            validators={['required']}
+                                        />
+                                    </Grid>
+                                    <Grid className={classes.textDetail}>
+                                        <TextValidator
+                                            style={{ width: '280px' }}
+                                            id="outlined-basic"
+                                            label="User Name"
+                                            variant="outlined"
+                                            value={this.state.formData.user.userName}
+                                            onChange={(e) => {
+                                                let formData = this.state.formData
+                                                formData.user.userName = e.target.value
+                                                this.setState({ formData })
+                                            }}
+                                            validators={['required']}
+                                        />
+                                        <TextValidator
+                                            style={{ width: '280px' }}
+                                            id="outlined-basic"
+                                            label="Last Name"
+                                            variant="outlined"
+                                            value={this.state.formData.name.lastName}
+                                            onChange={(e) => {
+                                                let formData = this.state.formData
+                                                formData.name.lastName = e.target.value
+                                                this.setState({ formData })
+                                            }}
+                                            validators={['required']}
+                                        />
+                                        <TextValidator
+                                            style={{ width: '280px' }}
+                                            id="outlined-basic"
+                                            label="Conform Password"
+                                            type="password"
+                                            variant="outlined"
+                                            value={this.state.formData.user.password}
+                                            onChange={(e) => {
+                                                let formData = this.state.formData
+                                                formData.user.password = e.target.value
+                                                this.setState({ formData })
+                                            }}
+                                            validators={['required']}
+                                        />
+                                        <TextValidator
+                                            style={{ width: '280px' }}
+                                            id="outlined-basic"
+                                            label="NIC"
+                                            variant="outlined"
+                                            value={this.state.formData.nic}
+                                            onChange={(e) => {
+                                                let formData = this.state.formData
+                                                formData.nic = e.target.value
+                                                this.setState({ formData })
+                                            }}
+                                            validators={['required']}
+                                        />
+
+                                        <Grid
+                                            style={{
+                                                width: '280px',
+                                                height: '150px',
+                                                border: '1px solid #95a5a6',
+                                                marginLeft: '2px',
+                                                display: 'flex',
+                                                flexWrap: 'wrap',
+                                                flexDirection: 'column',
+                                                alignItems: 'center',
+                                                justifyContent: 'center',
+                                                backgroundImage: "url(" + this.state.nicView + ")",
+                                                backgroundSize: 'cover'
+                                            }}
+                                        >
+                                            <input
+                                                style={{ display: 'none' }}
+                                                accept="image/*"
+                                                className={classes.input}
+                                                id="contained-button-file01"
+                                                multiple
+                                                type="file"
+                                                onChange={(e) => {
+                                                    this.setState({
+                                                        nicImage: e.target.files[0],
+                                                        nicView: URL.createObjectURL(e.target.files[0])
+                                                    })
+                                                }}
+                                            />
+                                            <label htmlFor="contained-button-file01">
+                                                <IconButton color="primary" aria-label="upload picture"
+                                                    variant="contained"
+                                                    //color="primary" 
+                                                    component="span"
+                                                //style={{ backgroundColor: '#a4b0be', marginLeft: '-10px' }}
+                                                >
+                                                    <input hidden accept="image/*" type="file" />
+                                                    <PhotoCamera style={{ fontSize: '35px', marginLeft: '5px' }} />
+                                                </IconButton>
+                                            </label>
+
+                                        </Grid>
+
+                                        <Autocomplete
+                                            style={{ width: '280px' }}
+                                            onChange={(e, value, r) => {
+
+                                                let formData = this.state.formData
+                                                formData.user.role = value.type
+                                                this.setState({ formData })
+                                            }}
+                                            getOptionLabel={
+                                                (option) => option.type
+                                            }
+
+                                            id="controllable-states-demo"
+                                            options={this.state.role}
+                                            sx={{ width: 300 }}
+                                            renderInput={(params) => <TextField {...params} label="Role" />}
+                                        />
+                                        <TextValidator
+                                            style={{ marginBottom: '40px', width: '280px' }}
+                                            id="outlined-basic"
+                                            label="Address"
+                                            variant="outlined"
+                                            value={this.state.formData.address}
+                                            onChange={(e) => {
+                                                let formData = this.state.formData
+                                                formData.address = e.target.value
+                                                this.setState({ formData })
+                                            }}
+                                            validators={['required']}
+                                        />
+
+                                    </Grid>
+                                    {/* <Autocomplete
+                                        style={{ width: '280px', marginBottom: '50px' }}
+                                        onChange={(e, value, r) => {
+                                            let formData = this.state.formData
+                                            formData.user.driverAvailable = value.type
+                                            this.setState({ formData })
+                                        }}
+                                        getOptionLabel={
+                                            (option) => option.type
+                                        }
+                                        id="controllable-states-demo"
+                                        options={this.state.driverAvailable}
+                                        sx={{ width: 300 }}
+                                        renderInput={(params) => <TextField {...params} label="Available Type" />}
+                                    /> */}
+                                    <Grid className={classes.btnContainer}>
+                                        <Button
+                                            variant="contained"
+                                            style={{ width: '250px' }}
+                                            type="submit"
+                                            onClick={() => {
+                                                this.submitSignUp();
+                                            }}
+                                        >Register Now</Button>
+                                    </Grid>
+                                </Grid>
+                            </Grid>
+                        </DialogContent>
+                    </Dialog>
+                </ValidatorForm>
 
                 <GDSESnackBar
                     open={this.state.alert}
@@ -800,14 +1122,14 @@ class WebSite extends Component {
                 <ValidatorForm ref="form" className="pt-2" onSubmit={this.submitSignIn}>
                     <Dialog
                         maxWidth="sm=6"
-                        open={this.state.open}
-                        onClose={this.handleClose}
+                        open={this.state.openLogin}
+                        onClose={this.handleLoginClose}
                         aria-labelledby="alert-dialog-title"
                         aria-describedby="alert-dialog-description"
                     >
                         <DialogTitle id="alert-dialog-title">
                             <Typography variant="h5" gutterBottom style={{ textAlign: 'center', marginTop: '30px' }}>LOGING HERE</Typography>
-                            <CloseIcon onClick={this.handleClose} style={{ marginTop: '-90px', marginLeft: '590px',cursor:'pointer'}} />
+                            <CloseIcon onClick={this.handleLoginClose} style={{ marginTop: '-90px', marginLeft: '590px', cursor: 'pointer' }} />
                         </DialogTitle>
                         <DialogContent>
                             <Grid className={classes.loginContainer}>
@@ -817,10 +1139,10 @@ class WebSite extends Component {
                                         id="outlined-basic"
                                         label="User Name"
                                         variant="outlined"
-                                        value={this.state.loginData.userName}
+                                        value={this.state.formData.user.userName}
                                         onChange={(e) => {
-                                            let loginData = this.state.loginData
-                                            loginData.userName = e.target.value
+                                            let loginData = this.state.formData
+                                            loginData.user.userName = e.target.value
                                             this.setState({ loginData })
                                         }}
                                         validators={['required']}
@@ -850,10 +1172,10 @@ class WebSite extends Component {
                                         label="Password"
                                         type="password"
                                         variant="outlined"
-                                        value={this.state.loginData.password}
+                                        value={this.state.formData.user.password}
                                         onChange={(e) => {
-                                            let loginData = this.state.loginData
-                                            loginData.password = e.target.value
+                                            let loginData = this.state.formData
+                                            loginData.user.password = e.target.value
                                             this.setState({ loginData })
                                         }}
                                         validators={['required']}

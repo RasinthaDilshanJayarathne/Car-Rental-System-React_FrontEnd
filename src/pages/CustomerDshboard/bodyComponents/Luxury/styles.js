@@ -1,6 +1,9 @@
 export const styleSheet = {
     container: {
         //border:'1px solid red',
+        marginLeft:'250px',
+        overflowX:'hidden',
+        overflowY:'hidden'
     },
     searchBar: {
         height: '20vh',

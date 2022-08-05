@@ -27,6 +27,20 @@ class BookingService {
         })
         return await promise;
     };
+
+    postBooking = async (data) => {
+        const promise = new Promise((resolve, reject) => {
+            axios.post('rent', data)  
+                .then((res) => {
+                    return resolve(res)
+                })
+                .catch((err) => {
+                    return resolve(err)
+                })
+        });
+
+        return await promise;
+    }
 }
 
 export default new BookingService();

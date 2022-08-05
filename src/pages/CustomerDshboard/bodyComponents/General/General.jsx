@@ -39,6 +39,8 @@ import TiimePicker from "../../../../common/TimePickerBrowse/index"
 import VehicleService from "../../../../Service/VehicleService";
 import CustomerService from "../../../../Service/CustomerService";
 import DriverService from "../../../../Service/DriverService";
+import BookingService from "../../../../Service/BookingService"
+import GDSESnackBar from "../../../../common/SnakBar/index";
 import { Component } from 'react';
 import { PhotoCamera } from "@mui/icons-material";
 import { format } from "date-fns";
@@ -89,21 +91,40 @@ class General extends Component {
 
             customerBooking: {
                 id: '',
+                nic: '',
                 name: {
                     firstName: '',
                     lastName: ''
                 },
+                licenseNo: '',
+                address: '',
+                contactNo: '',
+                user: {
+                    userName: '',
+                    password: '',
+                    role: ''
+                }
             },
 
-            driverBooking:{
+            driverBooking: {
                 id: '',
+                nic: '',
                 name: {
                     firstName: '',
                     lastName: ''
                 },
+                licenseNo: '',
+                address: '',
+                contactNo: '',
+                //driverAvailability: '',
+                user: {
+                    userName: '',
+                    password: '',
+                    role: ''
+                }
             },
 
-            vehicleBooking:{
+            vehicleBooking: {
                 vehicleId: '',
                 vehicleBrand: '',
                 damageFee: '',
@@ -111,12 +132,21 @@ class General extends Component {
 
             driverAvailable: [
                 {
-                    type: 'AVAILABLE'
+                    type: 'YES'
                 },
                 {
-                    type: 'NOT_AVAILABLE'
+                    type: 'NO'
                 }
             ],
+
+            driverRequestingType: '',
+
+            location: '',
+
+            alert: false,
+            message: '',
+            severity: '',
+
         }
 
     }
@@ -160,8 +190,9 @@ class General extends Component {
         this.loadAllGeneralVehicles("GENERAL");
     }
 
-
     handleClickOpen = () => {
+        //localStorage.setItem("vehicleId",vehicle.vehicleId)
+        //console.log(vehicle)
         this.loadData()
         this.setState({ open: true })
     };
@@ -184,7 +215,7 @@ class General extends Component {
         //Load Customer Data
         let params = {
             // userName: localStorage.getItem("userName")
-            userName :'Dilshan'
+            userName: 'Dilshan'
         }
         let res = await CustomerService.fetchUser(params);
 
@@ -213,7 +244,7 @@ class General extends Component {
 
         if (res1.status === 200) {
             this.setState({
-                vehicleBooking:{
+                vehicleBooking: {
                     vehicleId: res1.data.data.vehicleId,
                     vehicleBrand: res1.data.data.vehicleBrand,
                     damageFee: res1.data.data.damageFee
@@ -221,30 +252,141 @@ class General extends Component {
             });
             console.log(res1.data.data)
         }
+    };
 
-        //Load Driver Data
-        let paramsDriver = {
-            // id: localStorage.getItem("id")
-            userName :'rasintha1234'
+    setDriver = async () => {
+
+        let params = {
+            pickUpDate: format(new Date(localStorage.getItem("pickUpDate")), "yyyy-MM-dd"),
+            returnDate: format(new Date(localStorage.getItem("returnDate")), "yyyy-MM-dd")
         }
 
-        let res2 = await DriverService.fetchDriverData(paramsDriver);
+        let res = await DriverService.fetchDriverData(params);
 
-        let resData1 = res.data.data;
+        if (res.status === 200) {
 
-        if (res2.status === 200) {
+
             this.setState({
-                driverBooking:{
-                    id: resData1.id,
+                driverBooking: {
+                    id: res.data.data.id,
                     name: {
-                        firstName: resData1.name.firstName,
-                        lastName: resData1.name.lastName
+                        firstName: res.data.data.name.firstName,
+                        lastName: res.data.data.name.lastName
                     },
-                }
+                },
             });
-            console.log(res2.data.data)
+
         }
     };
+
+    submitBooking = async () => {
+
+        let driverSchedule = [];
+
+        if (this.state.driverRequestingType == "YES") {
+
+            driverSchedule = [
+                {
+                    driverId: this.state.driverBooking.id,
+                    rentId: "B-003",
+                    driver: this.state.driverBooking,
+                    rent: {
+                        rentId: 'B-003',
+                        //bookingDate: format(new Date(), 'yyyy-MM-dd'),
+                        pickUpDate: format(new Date(localStorage.getItem("pickUpDate")), "yyyy-MM-dd"),
+                        pickUpTime: format(new Date(localStorage.getItem("pickUpTime")), "HH:mm:ss"),
+                        returnDate: format(new Date(localStorage.getItem("returnDate")), "yyyy-MM-dd"),
+                        //returnTime: format(new Date(localStorage.getItem("returnTime")), "HH:mm:ss"),
+                        location: this.state.location,
+                        driverRequestingType: this.state.driverRequestingType,
+                        customer: this.state.customerBooking,
+                        rentDetails: [
+                            {
+                                vehicleId: this.state.vehicleBooking.vehicleId,
+                                rentId: "B-003",
+                                vehicle: this.state.vehicleBooking
+                                ,
+                                rent: {
+                                    rentId: 'B-003',
+                                    //bookingDate: format(new Date(), 'yyyy-MM-dd'),
+                                    pickUpDate: format(new Date(localStorage.getItem("pickUpDate")), "yyyy-MM-dd"),
+                                    pickUpTime: format(new Date(localStorage.getItem("pickUpTime")), "HH:mm:ss"),
+                                    returnDate: format(new Date(localStorage.getItem("returnDate")), "yyyy-MM-dd"),
+                                    //returnTime: format(new Date(localStorage.getItem("returnTime")), "HH:mm:ss"),
+                                    driverRequestingType: this.state.driverRequestingType,
+                                    location: this.state.location,
+                                    //status:'UNDER_REVIEW',
+                                    customer: this.state.customerBooking,
+                                    driverSchedules: [
+                                        {
+                                            driverId: this.state.driver.driverId,
+                                            rentId: "B-003",
+                                            driver: this.state.driver
+                                        }
+                                    ],
+
+                                }
+                            }
+                        ],
+                    }
+                }
+            ]
+        }
+
+        let rent = {
+            rentId: 'B-003',
+            //bookingDate: format(new Date(), 'yyyy-MM-dd'),
+            pickUpDate: format(new Date(localStorage.getItem("pickUpDate")), "yyyy-MM-dd"),
+            pickUpTime: format(new Date(localStorage.getItem("pickUpTime")), "HH:mm:ss"),
+            returnDate: format(new Date(localStorage.getItem("returnDate")), "yyyy-MM-dd"),
+            //returnTime: format(new Date(localStorage.getItem("returnTime")), "HH:mm:ss"),
+            driverRequestingType: this.state.driverRequestingType,
+            location: this.state.location,
+            //status:'UNDER_REVIEW',
+            customer: this.state.customerBooking,
+            driverSchedules: driverSchedule,
+            rentDetails: [
+                {
+                    vehicleId: this.state.vehicleBooking.vehicleId,
+                    rentId: "B-003",
+                    vehicle: this.state.vehicleBooking
+                    ,
+                    rent: {
+                        rentId: 'B-003',
+                        //bookingDate: format(new Date(), 'yyyy-MM-dd'),
+                        pickUpDate: format(new Date(localStorage.getItem("pickUpDate")), "yyyy-MM-dd"),
+                        pickUpTime: format(new Date(localStorage.getItem("pickUpTime")), "HH:mm:ss"),
+                        returnDate: format(new Date(localStorage.getItem("returnDate")), "yyyy-MM-dd"),
+                        //returnTime: format(new Date(localStorage.getItem("returnTime")), "HH:mm:ss"),
+                        driverRequestingType: this.state.driverRequestingType,
+                        location: this.state.location,
+                        //status:'UNDER_REVIEW',
+                        customer: this.state.customerBooking,
+                        driverSchedules: [],
+                    }
+                }
+            ],
+        }
+
+
+        let res = await BookingService.postBooking(rent);
+        if (res.status === 201) {
+            this.setState({
+                alert: true,
+                message: res.data.message,
+                severity: 'success'
+            });
+
+            await this.loadData();
+
+        } else {
+            this.setState({
+                alert: true,
+                message: res.response.data.message,
+                severity: 'error'
+            });
+        }
+    }
 
     render() {
         const { classes } = this.props;
@@ -396,7 +538,7 @@ class General extends Component {
                                                 Rental
                                             </Typography>
                                             <Grid>
-                                                <Button variant="contained" fullWidth style={{ backgroundColor: 'orange', color: 'black', marginTop: '90px', }} onClick={this.handleClickOpen}>
+                                                <Button variant="contained" fullWidth style={{ backgroundColor: 'orange', color: 'black', marginTop: '90px', }} onClick={this.handleClickOpen(vehicle)}>
                                                     BOOK NOW
                                                 </Button>
                                             </Grid>
@@ -471,14 +613,26 @@ class General extends Component {
                                         <DatePicker label="Return-Date" />
                                     </Grid>
 
-                                    <TextField style={{ padding: '10px', width: '230px' }} id="outlined-basic" label="Location" variant="outlined" />
+                                    <TextField
+                                        style={{ padding: '10px', width: '230px' }}
+                                        id="outlined-basic"
+                                        label="Location"
+                                        variant="outlined"
+                                        value={this.state.location}
+                                        onChange={(e) => { this.setState({ location: e.target.value }) }}
+                                    />
                                     <Autocomplete
                                         style={{ padding: '10px', width: '230px' }}
                                         onChange={(e, value, r) => {
 
-                                            let formData = this.state.formData
-                                            formData.driverAvailable = value.type
-                                            this.setState({ formData })
+                                            // let formData = this.state.formData
+                                            // formData.driverAvailable = value.type
+
+                                            this.setState({ driverRequestingType: value.type })
+
+                                            if (value.type == "YES") {
+                                                this.setDriver();
+                                            }
 
                                         }}
                                         getOptionLabel={
@@ -495,43 +649,43 @@ class General extends Component {
                                         style={{ padding: '10px', width: '230px' }}
                                         id="outlined-basic"
                                         label="Driver Id"
-                                        value={this.state.driverBooking.id}
+                                        disabled value={this.state.driverBooking.id}
                                         variant="outlined"
                                     />
                                     <TextField
                                         style={{ padding: '10px', width: '230px' }}
-                                        id="outlined-basic" 
+                                        id="outlined-basic"
                                         value={this.state.driverBooking.name.firstName}
                                         disabled label="Driver Name"
-                                        variant="outlined" 
+                                        variant="outlined"
                                     />
                                     <TextField
                                         style={{ padding: '10px', width: '230px' }}
-                                        id="outlined-basic" 
+                                        id="outlined-basic"
                                         disabled label="Customer Id"
                                         value={this.state.customerBooking.id}
-                                        variant="outlined" 
+                                        variant="outlined"
                                     />
                                     <TextField
                                         style={{ padding: '10px', width: '230px' }}
-                                        id="outlined-basic" 
+                                        id="outlined-basic"
                                         disabled label="Customer Name"
                                         value={this.state.customerBooking.name.firstName}
-                                        variant="outlined" 
+                                        variant="outlined"
                                     />
                                     <TextField
                                         style={{ padding: '10px', width: '230px' }}
-                                        id="outlined-basic" 
+                                        id="outlined-basic"
                                         disabled label="Vehicle Id"
                                         value={this.state.vehicleBooking.vehicleId}
-                                        variant="outlined" 
+                                        variant="outlined"
                                     />
                                     <TextField
                                         style={{ padding: '10px', width: '230px' }}
-                                        id="outlined-basic" 
+                                        id="outlined-basic"
                                         disabled label="Vehicle Name"
                                         value={this.state.vehicleBooking.vehicleBrand}
-                                        variant="outlined" 
+                                        variant="outlined"
                                     />
                                     <TextField
                                         style={{ padding: '10px', width: '230px' }}
@@ -563,8 +717,18 @@ class General extends Component {
                                             </IconButton>
                                         </label>
                                     </Grid>
-                                    <Button style={{ marginTop: '15px', marginLeft: '58px', width: '180px', height: '50px', backgroundColor: '#2ed573' }} variant="contained">Conform Booking</Button>
-                                    <Button style={{ marginTop: '15px', marginLeft: '30px', width: '180px', height: '50px', backgroundColor: '#d63031' }} variant="contained">Cancle</Button>
+                                    <Button
+                                        style={{ marginTop: '15px', marginLeft: '58px', width: '180px', height: '50px', backgroundColor: '#2ed573' }}
+                                        variant="contained"
+                                        onClick={this.submitBooking}
+                                    >
+                                        Conform Booking
+                                    </Button>
+                                    <Button
+                                        style={{ marginTop: '15px', marginLeft: '30px', width: '180px', height: '50px', backgroundColor: '#d63031' }}
+                                        variant="contained">
+                                        Cancle
+                                    </Button>
                                 </Grid>
                             </Grid>
                             <Grid className={classes.popupBookinTable}>
@@ -638,6 +802,16 @@ class General extends Component {
                         </Grid>
                     </DialogContent>
                 </Dialog>
+                <GDSESnackBar
+                open={this.state.alert}
+                onClose={() => {
+                    this.setState({ alert: false })
+                }}
+                message={this.state.message}
+                autoHideDuration={3000}
+                severity={this.state.severity}
+                variant="filled"
+            />
             </>
         );
     }
