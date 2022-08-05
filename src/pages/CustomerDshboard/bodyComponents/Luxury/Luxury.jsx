@@ -28,12 +28,15 @@ import Carousel from "react-elastic-carousel";
 import Dialog from '@mui/material/Dialog';
 import DialogContent from '@mui/material/DialogContent';
 import DialogTitle from '@mui/material/DialogTitle';
-import DatePicker from '../../../../common/DatePicker/index';
+import DatePicker from '../../../../common/DatePickerBrowse/index';
 import TiimePicker from "../../../../common/TimePicker/index";
 import Autocomplete from '@mui/material/Autocomplete';
 import IconButton from '@mui/material/IconButton';
 import VehicleService from "../../../../Service/VehicleService";
+import CustomerService from "../../../../Service/CustomerService";
 import { Component } from 'react';
+import { format } from "date-fns";
+
 
 const Transition = React.forwardRef(function Transition(props, ref) {
     return <Slide direction="up" ref={ref} {...props} />;
@@ -53,10 +56,44 @@ class Luxury extends Component {
         this.state = {
             open: false,
 
-            pickUpDate: '2022-07-06',
-            returnDate: '2022-07-07',
-
             vehicleList: [],
+
+            formData: {
+                vehicleId: '',
+                registrationNo: '',
+                vehicleBrand: '',
+                numberOfPassengers: '',
+                color: '',
+                vehicleType: '',
+                fuelType: '',
+                transmissionType: '',
+                freeMileage: {
+                    dailyMileage: '',
+                    monthlyMileage: ''
+                },
+                priceRate: {
+                    dailyRate: '',
+                    monthlyRate: ''
+                },
+                vehicleAvailabilityType: '',
+                damageFee: '',
+                lastServiceMileage: '',
+                vehicleServiceMileage: '',
+                pricePerExtraKM: '',
+            },
+
+            customerBooking: {
+                id: '',
+                name: {
+                    firstName: '',
+                    lastName: ''
+                },
+            },
+
+            vehicleBooking:{
+                vehicleId: '',
+                vehicleBrand: '',
+            },
 
             driverAvailable:[
                 {
@@ -86,10 +123,12 @@ class Luxury extends Component {
     };
 
     loadAllAvailableLuxuryVehicles = async () => {
+
         let params = {
-            pickupDateLuxury: this.state.pickUpDate,
-            returnDateLuxury: this.state.returnDate,
+            pickupDateGenearal: format(new Date(localStorage.getItem("pickUpDate")), 'yyyy-MM-dd'),
+            returnDateGenearal: format(new Date(localStorage.getItem("returnDate")), 'yyyy-MM-dd')
         }
+
         let res = await VehicleService.getAllAvailableLuxuryVehicles(params);
 
         if (res.status === 200) {
@@ -107,11 +146,54 @@ class Luxury extends Component {
 
 
     handleClickOpen = () => {
+        this.loadData()
         this.setState({ open: true })
     };
 
     handleClose = () => {
         this.setState({ open: false })
+    };
+
+    loadData = async () => {
+        //Load Customer Data
+        let params = {
+            // userName: localStorage.getItem("userName")
+            userName :'Dilshan'
+        }
+        let res = await CustomerService.fetchUser(params);
+
+        let resData = res.data.data;
+
+        if (res.status === 200) {
+
+
+            this.setState({
+                customerBooking: {
+                    id: resData.id,
+                    name: {
+                        firstName: resData.name.firstName,
+                        lastName: resData.name.lastName
+                    },
+                }
+            });
+        }
+
+        //Load Vehicle Dta
+        let paramsVehicle = {
+            id: localStorage.getItem("vehicleId")
+        }
+
+        let res1 = await VehicleService.fetchVehicleData(paramsVehicle);
+
+        if (res1.status === 200) {
+            this.setState({
+                vehicleBooking:{
+                    vehicleId: res1.data.data.vehicleId,
+                    vehicleBrand: res1.data.data.vehicleBrand,
+                }
+            });
+            console.log(res1.data.data)
+        }
     };
 
     render() {
@@ -318,7 +400,11 @@ class Luxury extends Component {
                             </Grid>
                             <Grid className={classes.popupBookinForm}>
                                 <Grid container spacing={-4} rowSpacing={1}>
-                                    <TextField style={{ padding: '10px', width: '230px' }} id="outlined-basic" label="Rental Id" variant="outlined" />
+                                    <TextField style={{ padding: '10px', width: '230px' }}
+                                        id="outlined-basic"
+                                        label="Rental Id"
+                                        variant="outlined"
+                                    />
 
                                     <Grid style={{ padding: '10px', width: '230px' }}>
                                         <DatePicker label="Pick-Up-Date" />
@@ -352,13 +438,47 @@ class Luxury extends Component {
                                         renderInput={(params) => <TextField {...params} label="Driver Requesting Type" />}
                                     />
 
-                                    <TextField style={{ padding: '10px', width: '230px' }} id="outlined-basic" label="Driver Id" variant="outlined" />
-                                    <TextField style={{ padding: '10px', width: '230px' }} id="outlined-basic" disabled label="Driver Name" variant="outlined" />
-                                    <TextField style={{ padding: '10px', width: '230px' }} id="outlined-basic" disabled label="Customer Id" variant="outlined" />
-                                    <TextField style={{ padding: '10px', width: '230px' }} id="outlined-basic" disabled label="Customer Name" variant="outlined" />
-                                    <TextField style={{ padding: '10px', width: '230px' }} id="outlined-basic" disabled label="Vehicle Id" variant="outlined" />
-                                    <TextField style={{ padding: '10px', width: '230px' }} id="outlined-basic" disabled label="Vehicle Name" variant="outlined" />
-                                    <TextField style={{ padding: '10px', width: '230px' }} id="outlined-basic" label="Damage Fee" variant="outlined" />
+                                    <TextField
+                                        style={{ padding: '10px', width: '230px' }}
+                                        id="outlined-basic"
+                                        label="Driver Id"
+                                        variant="outlined"
+                                    />
+                                    <TextField
+                                        style={{ padding: '10px', width: '230px' }}
+                                        id="outlined-basic" disabled label="Driver Name"
+                                        variant="outlined" />
+                                    <TextField
+                                        style={{ padding: '10px', width: '230px' }}
+                                        id="outlined-basic" 
+                                        disabled label="Customer Id"
+                                        value={this.state.customerBooking.id}
+                                        variant="outlined" 
+                                        />
+                                    <TextField
+                                        style={{ padding: '10px', width: '230px' }}
+                                        id="outlined-basic" 
+                                        disabled label="Customer Name"
+                                        value={this.state.customerBooking.name.firstName}
+                                        variant="outlined" 
+                                        />
+                                    <TextField
+                                        style={{ padding: '10px', width: '230px' }}
+                                        id="outlined-basic" 
+                                        disabled label="Vehicle Id"
+                                        value={this.state.vehicleBooking.vehicleId}
+                                        variant="outlined" 
+                                        />
+                                    <TextField
+                                        style={{ padding: '10px', width: '230px' }}
+                                        id="outlined-basic" 
+                                        disabled label="Vehicle Name"
+                                        value={this.state.vehicleBooking.vehicleBrand}
+                                        variant="outlined" 
+                                        />
+                                    <TextField
+                                        style={{ padding: '10px', width: '230px' }}
+                                        id="outlined-basic" label="Damage Fee" variant="outlined" />
                                     <Grid style={{ padding: '10px', width: '210px', border: '1px solid #95a5a6', marginLeft: '10px', display: 'flex', flexDirection: 'row', flexWrap: 'wrap', justifyContent: 'center', alignItems: 'center' }}>
 
                                         <input
@@ -368,16 +488,16 @@ class Luxury extends Component {
                                             id="contained-button-file02"
                                             multiple
                                             type="file"
-                                            // onChange={(e) => {
-                                            //     this.setState({
-                                            //         licenseImage: e.target.files[0],
-                                            //         licenseView: URL.createObjectURL(e.target.files[0])
-                                            //     })
-                                            // }}
+                                        // onChange={(e) => {
+                                        //     this.setState({
+                                        //         licenseImage: e.target.files[0],
+                                        //         licenseView: URL.createObjectURL(e.target.files[0])
+                                        //     })
+                                        // }}
                                         />
 
                                         <label htmlFor="contained-button-file01">
-                                        <IconButton color="primary" aria-label="upload picture" component="label">
+                                            <IconButton color="primary" aria-label="upload picture" component="label">
                                                 <input hidden accept="image/*" type="file" />
                                                 <PhotoCamera style={{ fontSize: '35px' }} />
                                             </IconButton>

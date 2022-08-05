@@ -35,8 +35,6 @@ import Carousel from "react-elastic-carousel";
 import Dialog from '@mui/material/Dialog';
 import DialogContent from '@mui/material/DialogContent';
 import DialogTitle from '@mui/material/DialogTitle';
-import DatePicker from '../../../../common/DatePicker/index'
-import VehicleService from "../../../../Service/VehicleService";
 import car1 from "../../../../assets/img/car1.png";
 import car2 from "../../../../assets/img/car2.png";
 import car3 from "../../../../assets/img/car3.png";
@@ -46,7 +44,12 @@ import { Component } from 'react';
 import IconButton from '@mui/material/IconButton';
 import Autocomplete from '@mui/material/Autocomplete';
 import TiimePicker from "../../../../common/TimePicker/index";
+import DatePicker from '../../../../common/DatePickerBrowse/index';
 import { PhotoCamera } from "@mui/icons-material";
+import { format } from "date-fns";
+import CustomerService from "../../../../Service/CustomerService";
+import VehicleService from "../../../../Service/VehicleService";
+
 
 const Transition = React.forwardRef(function Transition(props, ref) {
     return <Slide direction="up" ref={ref} {...props} />;
@@ -68,8 +71,42 @@ class Premium extends Component {
 
             vehicleList: [],
 
-            pickUpDate: '2022-07-06',
-            returnDate: '2022-07-07',
+            formData: {
+                vehicleId: '',
+                registrationNo: '',
+                vehicleBrand: '',
+                numberOfPassengers: '',
+                color: '',
+                vehicleType: '',
+                fuelType: '',
+                transmissionType: '',
+                freeMileage: {
+                    dailyMileage: '',
+                    monthlyMileage: ''
+                },
+                priceRate: {
+                    dailyRate: '',
+                    monthlyRate: ''
+                },
+                vehicleAvailabilityType: '',
+                damageFee: '',
+                lastServiceMileage: '',
+                vehicleServiceMileage: '',
+                pricePerExtraKM: '',
+            },
+
+            customerBooking: {
+                id: '',
+                name: {
+                    firstName: '',
+                    lastName: ''
+                },
+            },
+
+            vehicleBooking:{
+                vehicleId: '',
+                vehicleBrand: '',
+            },
 
             driverAvailable:[
                 {
@@ -99,9 +136,10 @@ class Premium extends Component {
     };
 
     loadAllAvailablePrimiumVehicles = async () => {
+        
         let params = {
-            pickupDatePrimium: this.state.pickUpDate,
-            returnDatePrimium: this.state.returnDate,
+            pickupDateGenearal: format(new Date(localStorage.getItem("pickUpDate")), 'yyyy-MM-dd'),
+            returnDateGenearal: format(new Date(localStorage.getItem("returnDate")), 'yyyy-MM-dd')
         }
         let res = await VehicleService.getAllAvailablePrimiumVehicles(params);
 
@@ -120,11 +158,54 @@ class Premium extends Component {
 
 
     handleClickOpen = () => {
+        this.loadData()
         this.setState({ open: true })
     };
 
     handleClose = () => {
         this.setState({ open: false })
+    };
+
+    loadData = async () => {
+        //Load Customer Data
+        let params = {
+            // userName: localStorage.getItem("userName")
+            userName :'Dilshan'
+        }
+        let res = await CustomerService.fetchUser(params);
+
+        let resData = res.data.data;
+
+        if (res.status === 200) {
+
+
+            this.setState({
+                customerBooking: {
+                    id: resData.id,
+                    name: {
+                        firstName: resData.name.firstName,
+                        lastName: resData.name.lastName
+                    },
+                }
+            });
+        }
+
+        //Load Vehicle Dta
+        let paramsVehicle = {
+            id: localStorage.getItem("vehicleId")
+        }
+
+        let res1 = await VehicleService.fetchVehicleData(paramsVehicle);
+
+        if (res1.status === 200) {
+            this.setState({
+                vehicleBooking:{
+                    vehicleId: res1.data.data.vehicleId,
+                    vehicleBrand: res1.data.data.vehicleBrand,
+                }
+            });
+            console.log(res1.data.data)
+        }
     };
 
     render() {
@@ -332,7 +413,11 @@ class Premium extends Component {
                             </Grid>
                             <Grid className={classes.popupBookinForm}>
                                 <Grid container spacing={-4} rowSpacing={1}>
-                                    <TextField style={{ padding: '10px', width: '230px' }} id="outlined-basic" label="Rental Id" variant="outlined" />
+                                    <TextField style={{ padding: '10px', width: '230px' }}
+                                        id="outlined-basic"
+                                        label="Rental Id"
+                                        variant="outlined"
+                                    />
 
                                     <Grid style={{ padding: '10px', width: '230px' }}>
                                         <DatePicker label="Pick-Up-Date" />
@@ -366,13 +451,47 @@ class Premium extends Component {
                                         renderInput={(params) => <TextField {...params} label="Driver Requesting Type" />}
                                     />
 
-                                    <TextField style={{ padding: '10px', width: '230px' }} id="outlined-basic" label="Driver Id" variant="outlined" />
-                                    <TextField style={{ padding: '10px', width: '230px' }} id="outlined-basic" disabled label="Driver Name" variant="outlined" />
-                                    <TextField style={{ padding: '10px', width: '230px' }} id="outlined-basic" disabled label="Customer Id" variant="outlined" />
-                                    <TextField style={{ padding: '10px', width: '230px' }} id="outlined-basic" disabled label="Customer Name" variant="outlined" />
-                                    <TextField style={{ padding: '10px', width: '230px' }} id="outlined-basic" disabled label="Vehicle Id" variant="outlined" />
-                                    <TextField style={{ padding: '10px', width: '230px' }} id="outlined-basic" disabled label="Vehicle Name" variant="outlined" />
-                                    <TextField style={{ padding: '10px', width: '230px' }} id="outlined-basic" label="Damage Fee" variant="outlined" />
+                                    <TextField
+                                        style={{ padding: '10px', width: '230px' }}
+                                        id="outlined-basic"
+                                        label="Driver Id"
+                                        variant="outlined"
+                                    />
+                                    <TextField
+                                        style={{ padding: '10px', width: '230px' }}
+                                        id="outlined-basic" disabled label="Driver Name"
+                                        variant="outlined" />
+                                    <TextField
+                                        style={{ padding: '10px', width: '230px' }}
+                                        id="outlined-basic" 
+                                        disabled label="Customer Id"
+                                        value={this.state.customerBooking.id}
+                                        variant="outlined" 
+                                        />
+                                    <TextField
+                                        style={{ padding: '10px', width: '230px' }}
+                                        id="outlined-basic" 
+                                        disabled label="Customer Name"
+                                        value={this.state.customerBooking.name.firstName}
+                                        variant="outlined" 
+                                        />
+                                    <TextField
+                                        style={{ padding: '10px', width: '230px' }}
+                                        id="outlined-basic" 
+                                        disabled label="Vehicle Id"
+                                        value={this.state.vehicleBooking.vehicleId}
+                                        variant="outlined" 
+                                        />
+                                    <TextField
+                                        style={{ padding: '10px', width: '230px' }}
+                                        id="outlined-basic" 
+                                        disabled label="Vehicle Name"
+                                        value={this.state.vehicleBooking.vehicleBrand}
+                                        variant="outlined" 
+                                        />
+                                    <TextField
+                                        style={{ padding: '10px', width: '230px' }}
+                                        id="outlined-basic" label="Damage Fee" variant="outlined" />
                                     <Grid style={{ padding: '10px', width: '210px', border: '1px solid #95a5a6', marginLeft: '10px', display: 'flex', flexDirection: 'row', flexWrap: 'wrap', justifyContent: 'center', alignItems: 'center' }}>
 
                                         <input

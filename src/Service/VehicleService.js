@@ -181,5 +181,18 @@ class VehicleService {
         return await promise;
     };
 
+    fetchVehicleData = async (paramsVehicle) => {
+        const promise = new Promise((resolve, reject) => {
+            axios.get('vehicle',{params:paramsVehicle})
+                .then((res) => {
+                    return resolve(res)
+                })
+                .catch((err) => {
+                    return resolve(err)
+                })
+        })
+        return await promise;
+    }
+
 }
 export default new VehicleService();

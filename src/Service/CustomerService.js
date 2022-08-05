@@ -69,21 +69,19 @@ class CustomerService {
         return await promise;
     };
 
-    
+    fetchUser = async (params) => {
+        const promise = new Promise((resolve, reject) => {
+            axios.get('customer',{params:params})    // 20s
+                .then((res) => {
+                    return resolve(res)
+                })
+                .catch((err) => {
+                    return resolve(err)
+                })
+        });
 
-    // addPersonalImage = async (data,id) => {
-    //     const promise = new Promise((resolve, reject) => {
-    //         axios.post('customer/addPersonalImage?id='+id,data)
-
-    //             .then((res) => {
-    //                 return resolve(res)
-    //             })
-    //             .catch((err) => {
-    //                 return resolve(err)
-    //             })
-    //     })
-    //     return await promise;
-    // }
+        return await promise;
+    }
 }
 
  export default new CustomerService();
