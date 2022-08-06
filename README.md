@@ -1,11 +1,11 @@
 Car-Rental-System Front_End
 Using React JS Frontend freamwork
 
-#Admin Dashboard
+#Customer Dashboard
 
 ![Screenshot (1216)](https://user-images.githubusercontent.com/87766409/183250987-6f2854c3-89b6-4d19-a169-2dd36e56b319.png)
 
-#Customer Dashboard
+#Admin Dashboard
 
 ![Screenshot (1220)](https://user-images.githubusercontent.com/87766409/183250994-da38e1ad-3f97-4a53-bce6-518920b498a8.png)
 
