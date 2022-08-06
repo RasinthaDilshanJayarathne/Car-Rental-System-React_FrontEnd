@@ -17,11 +17,11 @@ export default function DriverDashboard() {
         <div>
             <Sidenav mobileOpen={mobileOpen} handleDrawerOpen={handleDrawerOpen}/>
             <Box className={classes.wrapper}>
-                <Routes>
-                    <Route exact path="/" element={<Home/>}/>
+                {/* <Routes>
+                    <Route exact path="/home" element={<Home/>}/>
                     <Route exact path="/vehicle" element={<Vehicle/>}/>
                     <Route exact path="/profile" element={<Profile/>}/>
-                </Routes>
+                </Routes> */}
             </Box>
         </div>
     );

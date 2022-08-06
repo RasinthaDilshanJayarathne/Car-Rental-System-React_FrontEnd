@@ -22,7 +22,7 @@ export default function Sidenav({ mobileOpen, handleDrawerOpen }) {
                     ModalProps={{
                         keepMounted: true, // Better open performance on mobile.
                     }}>
-                    <SideNavData style={{marginLeft:'100px'}}/>
+                    <SideNavData />
                 </Drawer>
             </Hidden>
             <Outlet />
@@ -34,7 +34,7 @@ export default function Sidenav({ mobileOpen, handleDrawerOpen }) {
                     variant='permanent'
                     open>
 
-                    <SideNavData style={{marginLeft:'100px'}}/>
+                    <SideNavData />
                 </Drawer>
             </Hidden>
         </nav>

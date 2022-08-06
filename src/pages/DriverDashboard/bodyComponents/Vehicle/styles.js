@@ -10,6 +10,9 @@ export const styleSheet = {
         //backgroundColor: '#eeeff1',
         alignItems: 'center',
         justifyContent: 'center',
+        marginLeft:'250px',
+        overflowX:'hidden',
+        overflowY:'hidden'
     },
     searchBar: {
         height: '10vh',

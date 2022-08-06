@@ -17,6 +17,9 @@ import Luxury from "../pages/CustomerDshboard/bodyComponents/Luxury/Luxury";
 import General from "../pages/CustomerDshboard/bodyComponents/General/General";
 import Premium from "../pages/CustomerDshboard/bodyComponents/Premium/Premium";
 import ProfileCustomer from "../pages/CustomerDshboard/bodyComponents/Profile/Profile";
+import HomeDriver from "../pages/DriverDashboard/bodyComponents/Home/Home"
+import VehicleDriver from "../pages/DriverDashboard/bodyComponents/Vehicle/Vehicle";
+import ProfileDriver from '../pages/DriverDashboard/bodyComponents/Profile/Profile';
 
 function App() {
     return (
@@ -30,7 +33,8 @@ function App() {
         <Routes>
             <Route exact index element={<WebSite />} />
             <Route exact path='/admin' element={<AdminDashboard />}>
-                <Route path="home" element={<Home />} />
+                {/* <Route path="home" element={<Home />} /> */}
+                <Route index element={<Home />} />
                 <Route path="customer" element={<Customer />} />
                 <Route path="vehicle" element={<Vehicle />} />
                 <Route path="booking" element={<Booking />} />
@@ -42,10 +46,15 @@ function App() {
             <Route exact path='/customer' element={<CustomerDashboard />}>
                 <Route index element={<HomeCustomer />} />
                 {/* <Route exact path="home" element={<HomeCustomer />} /> */}
-                <Route  path="general" element={<General />} />
-                <Route  path="premium" element={<Premium />} />
-                <Route  path="luxury" element={<Luxury />} />
-                <Route  path="profile" element={<ProfileCustomer />} />
+                <Route path="general" element={<General />} />
+                <Route path="premium" element={<Premium />} />
+                <Route path="luxury" element={<Luxury />} />
+                <Route path="profile" element={<ProfileCustomer />} />
+            </Route>
+            <Route exact path='/driver' element={<DriverDashboard />}>
+                <Route index element={<HomeDriver />} />
+                <Route exact path="vehicle" element={<VehicleDriver />} />
+                <Route exact path="profile" element={<ProfileDriver />} />
             </Route>
         </Routes>
     );

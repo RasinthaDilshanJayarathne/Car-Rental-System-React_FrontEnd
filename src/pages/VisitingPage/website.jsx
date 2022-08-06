@@ -239,7 +239,7 @@ class WebSite extends Component {
 
             if (res.data.data.role == 'DRIVER') {
                 this.setState({
-                    link: '/driverDashBoard'
+                    link: '/driver'
                 });
             }
 

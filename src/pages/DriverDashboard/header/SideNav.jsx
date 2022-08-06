@@ -2,6 +2,7 @@ import React from "react";
 import {Drawer, Hidden} from "@material-ui/core";
 import {useStyles} from "./HeaderStyles";
 import SideNavData from "./SideNavData";
+import { Outlet, Link } from "react-router-dom";
 
 export default function Sidenav({mobileOpen, handleDrawerOpen}) {
     const classes = useStyles();
@@ -24,6 +25,7 @@ export default function Sidenav({mobileOpen, handleDrawerOpen}) {
                     <SideNavData/>
                 </Drawer>
             </Hidden>
+            <Outlet />
             <Hidden smDown implementation='css'>
                 <Drawer
                     classes={{

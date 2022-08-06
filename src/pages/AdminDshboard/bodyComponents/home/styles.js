@@ -11,7 +11,9 @@ export const styleSheet = {
         //border: '2px solid #eeeff1',
         overflowX:'hidden',
         overflowY:'hidden',
-        //border:'1px solid red',
+        // marginLeft:'250px',
+        // overflowX:'hidden',
+        // overflowY:'hidden'
     },
     subContainer:{
         height: '100vh',
