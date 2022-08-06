@@ -48,7 +48,7 @@ class WebSite extends Component {
             licenseView: null,
 
             open: false,
-            openLogin :false,
+            openLogin: false,
 
             role: [
                 {
@@ -217,8 +217,6 @@ class WebSite extends Component {
 
     submitSignIn = async () => {
 
-        console.log("AAAAAAAAAAAAAAAAAAAAAAAA")
-        
         let formData = this.state.formData;
 
         let params = {
@@ -1195,7 +1193,16 @@ class WebSite extends Component {
                         </DialogContent>
                     </Dialog>
                 </ValidatorForm>
-
+                <GDSESnackBar
+                    open={this.state.alert}
+                    onClose={() => {
+                        this.setState({ alert: false })
+                    }}
+                    message={this.state.message}
+                    autoHideDuration={3000}
+                    severity={this.state.severity}
+                    variant="filled"
+                />
             </>
         )
     }

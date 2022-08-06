@@ -191,8 +191,7 @@ class General extends Component {
     }
 
     handleClickOpen = () => {
-        //localStorage.setItem("vehicleId",vehicle.vehicleId)
-        //console.log(vehicle)
+    
         this.loadData()
         this.setState({ open: true })
     };
@@ -288,10 +287,10 @@ class General extends Component {
             driverSchedule = [
                 {
                     driverId: this.state.driverBooking.id,
-                    rentId: "B-003",
+                    rentId: "B-0003",
                     driver: this.state.driverBooking,
                     rent: {
-                        rentId: 'B-003',
+                        rentId: 'B-0003',
                         //bookingDate: format(new Date(), 'yyyy-MM-dd'),
                         pickUpDate: format(new Date(localStorage.getItem("pickUpDate")), "yyyy-MM-dd"),
                         pickUpTime: format(new Date(localStorage.getItem("pickUpTime")), "HH:mm:ss"),
@@ -303,11 +302,11 @@ class General extends Component {
                         rentDetails: [
                             {
                                 vehicleId: this.state.vehicleBooking.vehicleId,
-                                rentId: "B-003",
+                                rentId: "B-0003",
                                 vehicle: this.state.vehicleBooking
                                 ,
                                 rent: {
-                                    rentId: 'B-003',
+                                    rentId: 'B-0003',
                                     //bookingDate: format(new Date(), 'yyyy-MM-dd'),
                                     pickUpDate: format(new Date(localStorage.getItem("pickUpDate")), "yyyy-MM-dd"),
                                     pickUpTime: format(new Date(localStorage.getItem("pickUpTime")), "HH:mm:ss"),
@@ -334,7 +333,7 @@ class General extends Component {
         }
 
         let rent = {
-            rentId: 'B-003',
+            rentId: 'B-0003',
             //bookingDate: format(new Date(), 'yyyy-MM-dd'),
             pickUpDate: format(new Date(localStorage.getItem("pickUpDate")), "yyyy-MM-dd"),
             pickUpTime: format(new Date(localStorage.getItem("pickUpTime")), "HH:mm:ss"),
@@ -348,11 +347,11 @@ class General extends Component {
             rentDetails: [
                 {
                     vehicleId: this.state.vehicleBooking.vehicleId,
-                    rentId: "B-003",
+                    rentId: "B-0003",
                     vehicle: this.state.vehicleBooking
                     ,
                     rent: {
-                        rentId: 'B-003',
+                        rentId: 'B-0003',
                         //bookingDate: format(new Date(), 'yyyy-MM-dd'),
                         pickUpDate: format(new Date(localStorage.getItem("pickUpDate")), "yyyy-MM-dd"),
                         pickUpTime: format(new Date(localStorage.getItem("pickUpTime")), "HH:mm:ss"),
@@ -538,7 +537,7 @@ class General extends Component {
                                                 Rental
                                             </Typography>
                                             <Grid>
-                                                <Button variant="contained" fullWidth style={{ backgroundColor: 'orange', color: 'black', marginTop: '90px', }} onClick={this.handleClickOpen(vehicle)}>
+                                                <Button variant="contained" fullWidth style={{ backgroundColor: 'orange', color: 'black', marginTop: '90px', }} onClick={this.handleClickOpen}>
                                                     BOOK NOW
                                                 </Button>
                                             </Grid>
